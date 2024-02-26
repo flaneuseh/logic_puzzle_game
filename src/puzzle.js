@@ -1,6 +1,7 @@
 import Board from "./subgrid";
 import Category from "./categoryModel";
 import { useState,useEffect } from "react";
+import StateSelector from "./stateSelector";
 
 function initializeBoard(numRows, numCols, boards) {
     let board = []
@@ -64,6 +65,7 @@ export default Puzzle =({p, time})=>{
 
     let rows = [[]]
     let boards = [[]]
+    let [select, setSelect] = useState("O"); 
     
     // top row 
     for(let i =0; i < p.leftRight.length; i++){
@@ -75,7 +77,7 @@ export default Puzzle =({p, time})=>{
         let board = initializeBoard(p.numEnt, p.numEnt, boards)
         boards[0][i] = board 
 
-        rows[0][i] = <Board numCols={p.numEnt} numRows={p.numEnt} board = {board} topCat={p.leftRight[i]} leftCat={leftCat} key = {"0," + i}/>
+        rows[0][i] = <Board numCols={p.numEnt} numRows={p.numEnt} board = {board} topCat={p.leftRight[i]} leftCat={leftCat} select ={select} key = {"0," + i}/>
     }
 
     let rowLength = p.leftRight.length-1; 
@@ -90,7 +92,7 @@ export default Puzzle =({p, time})=>{
             }
             let board = initializeBoard(p.numEnt, p.numEnt, boards)
             boards[row][col] = board 
-            rows[row][col] = <Board numCols={p.numEnt} numRows={p.numEnt} board = {board} leftCat={leftCat} key = {row + "," + col}/>
+            rows[row][col] = <Board numCols={p.numEnt} numRows={p.numEnt} board = {board} leftCat={leftCat} select ={select} key = {row + "," + col}/>
         }
         rowLength --; 
         
@@ -115,11 +117,17 @@ export default Puzzle =({p, time})=>{
         <div>
         <h1>Puzzle</h1>
         {elements} 
+
+        <h1>Selector</h1>
+            <StateSelector selected = {select} setSelect={setSelect}/> 
         </div>
         
         <div>
             <h1>Hints</h1>
             {hints}
+        </div>
+        <div>
+           
         </div>
         </div>);
 

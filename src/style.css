@@ -71,12 +71,63 @@ body {
     user-select: none;
 }
 
-.cell span{
+.unselected {
+    width: 5vmin;
+    height: 5vmin;
+    line-height: 5vmin;
+    border: 1px solid  #7e7474;
+    display: inline-block;
+    vertical-align: middle;
+   
+    cursor: pointer;
+ 
+    /* Default color for unrevealed tiles */
+    background-color: #ffffff;
+ 
+    /* Default color for unrevealed tile text */
+    color: #333;
+    text-align: center;
+    line-height: normal;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.selected {
+    width: 5vmin;
+    height: 5vmin;
+    line-height: 5vmin;
+    border: 2px solid  #2aac25;
+    display: inline-block;
+    vertical-align: middle;
+   
+    cursor: pointer;
+ 
+    /* Default color for unrevealed tiles */
+    background-color: #ffffff;
+ 
+    /* Default color for unrevealed tile text */
+    color: #333;
+    text-align: center;
+    line-height: normal;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cell span, .selected span, .unselected span{
     /*vertical-align: middle;*/ 
     display: inline-block;
     /*line-height: normal;*/ 
     font-size: 4vmin;
 }
+
 
 .linked {
 
@@ -89,11 +140,23 @@ body {
     color: #861414;
 }
 
+.linkedUnsure {
+
+ 
+    /* Color for revealed tile text */
+    color: #747474;
+}
+.notlinkedUnsure {
+    /* Color for mines */
+    color: #818181;
+}
+
 .boardRow {
     display: flex;
 }
 
 .puzzleArea{
     display: flex;
-    margin: 5vmin;
+    margin: 5vmin, 10vmin;
+    overflow-y: scroll;
 }

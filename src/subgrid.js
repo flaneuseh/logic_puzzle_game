@@ -3,7 +3,7 @@ import Cell from "./cell";
 import { useState } from "react";
 import "./style.css"
 
-const Board = ({numRows, numCols,board, topCat = null, leftCat = null}) => {
+const Board = ({numRows, numCols,board, topCat = null, leftCat = null, select = "*"}) => {
 
  
     let topElement = ""; 
@@ -24,7 +24,7 @@ const Board = ({numRows, numCols,board, topCat = null, leftCat = null}) => {
     }
 
     //let board =  initializeBoard(numRows, numCols); 
-    let elements = renderBoard(numRows, numCols, board, topEntites, leftEntites);
+    let elements = renderBoard(numRows, numCols, board, topEntites, leftEntites, select);
     return (<div className="board">
             
             <div>{topElement}</div>
@@ -59,7 +59,7 @@ function initializeBoard(numRows, numCols) {
 }
  
  
-function renderBoard(numRows, numCols, board, topEntities = [], leftEntites = []) {
+function renderBoard(numRows, numCols, board, topEntities = [], leftEntites = [], select = "*") {
 
     let elements = []
  
@@ -80,7 +80,7 @@ function renderBoard(numRows, numCols, board, topEntities = [], leftEntites = []
             }
 
           
-            elements.push(<Cell state = {board[i][j].state} setState = {board[i][j].setState} leftText={leftText} topText={topText} key = {i + "," + j}/>)
+            elements.push(<Cell select = {select} state = {board[i][j].state} setState = {board[i][j].setState} leftText={leftText} topText={topText} key = {i + "," + j}/>)
             
          
         }

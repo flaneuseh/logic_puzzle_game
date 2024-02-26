@@ -1,15 +1,19 @@
 import { useState } from "react"
 
-const states = ["*" , "O", "X"]
+const states = ["*" , "O", "X", "!", "?"]
 
-let toggleState = (s, setState) => {
-    console.log("clicked");
-    let i = states.indexOf(s);
-    i = (i + 1) % states.length;
-    setState(states[i]);
+let toggleState = (s, setState, select) => {
+    if((select != "*" && s == "*") || (select == "*")){
+        setState(select)
+    }else{
+        let i = states.indexOf(s);
+        i = (i + 1) % states.length;
+        setState(states[i]);
+    }
+
 }
 
-export default Cell = ({state, setState, topText = "", leftText = ""}) => {
+export default Cell = ({state, setState, topText = "", leftText = "", select = "*"}) => {
 
     let className = ""; 
     let text = ""
@@ -20,6 +24,13 @@ export default Cell = ({state, setState, topText = "", leftText = ""}) => {
     }else if (state == "O"){
         className = "linked"
         text = "O"
+    }
+    else if (state == "!"){
+        className = "linkedUnsure"
+        text = "O"
+    }   else if (state == "?"){
+        className = "notlinkedUnsure"
+        text = "X"
     }
 
     let leftTextEle= <div></div>
@@ -43,7 +54,7 @@ export default Cell = ({state, setState, topText = "", leftText = ""}) => {
                            {topTextEle}
                     
                     
-                    <div className="cell" onClick={() => toggleState(state, setState)}> 
+                    <div className="cell" onClick={() => toggleState(state, setState, select)}> 
                    
                         <span className={className}> {text}</span> 
                     
@@ -55,7 +66,7 @@ export default Cell = ({state, setState, topText = "", leftText = ""}) => {
             )}
 
     else{
-        return( <div className="cell" onClick={() => toggleState(state, setState)}> 
+        return( <div className="cell" onClick={() => toggleState(state, setState, select)}> 
            
                 <span className={className}> {text}</span> 
      
