@@ -10,9 +10,10 @@ export default function App() {
 
   let cat = new Category("Suspects", ["Ms. Scarlet", "Mrs. White", "Prof. Plum", "Col. Mustard"])
   let cat2 = new Category("Weapon", ["Rope", "Knife", "Candlestick", "Wrench"])
-  let cat3 = new Category("Time", ["1:00 PM", "2:00 PM", "3:00PM", "4:00PM"])
+  let cat3 = new Category("Location", ["Study", "Living Room", "Ball Room", "Kitchen"])
+  let cat4 = new Category("Time", ["1:00 PM", "2:00 PM", "3:00PM", "4:00PM"])
 
-  let puzzle = new PuzzleModel([cat, cat2, cat3], hints = ["hint1", "hint2", "hint3"])
+  let puzzle = new PuzzleModel([cat, cat2, cat3, cat4], hints = ["hint1", "hint2", "hint3"])
   let time = new Date()
   return (
     
