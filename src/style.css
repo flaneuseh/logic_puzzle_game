@@ -1,0 +1,99 @@
+/* Styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.board {
+    display: inline-block;
+    margin: 0.2vmin;
+    text-align: center;
+    vertical-align:bottom;
+}
+
+.cellContainer {
+    display: inline-block;
+    text-align: left;
+}
+
+.innerCellContainer {
+    display: inline-block;
+    text-align:left;
+}
+
+.leftCell{
+    display: inline-block;
+}
+
+.topEntityText{
+   writing-mode: vertical-lr;
+   width: 5vmin;
+   height: 10vmin;
+   font-size: 1.5vmin;
+}
+
+.leftEntityText{
+    display: inline-block;
+    margin: 0;
+    width: 10vmin;
+    font-size: 1.5vmin;
+ }
+
+.leftCategoryText{
+    writing-mode: vertical-lr;
+    display: inline-block;
+    width:5vmin;
+    font-size: 2.5vmin;
+    height: 20vmin;
+
+}
+.cell {
+    width: 5vmin;
+    height: 5vmin;
+    line-height: 5vmin;
+    border: 1px solid  #7e7474;
+    display: inline-block;
+    vertical-align: middle;
+   
+    cursor: pointer;
+ 
+    /* Default color for unrevealed tiles */
+    background-color: #ffffff;
+ 
+    /* Default color for unrevealed tile text */
+    color: #333;
+    text-align: center;
+    line-height: normal;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cell span{
+    /*vertical-align: middle;*/ 
+    display: inline-block;
+    /*line-height: normal;*/ 
+    font-size: 4vmin;
+}
+
+.linked {
+
+ 
+    /* Color for revealed tile text */
+    color: #07551e;
+}
+.notlinked {
+    /* Color for mines */
+    color: #861414;
+}
+
+.boardRow {
+    display: flex;
+}
+
+.puzzleArea{
+    display: flex;
+    margin: 5vmin;
+}
