@@ -3,6 +3,7 @@ import Category from "./categoryModel";
 import { useState,useEffect } from "react";
 import StateSelector from "./stateSelector";
 import Hints from "./hints";
+import FinishButtons from "./EndPuzzleButtons";
 
 function initializeBoard(numRows, numCols, boards) {
     let board = []
@@ -47,16 +48,99 @@ const rowToString = (row, isFirst = false) => {
     return str 
 }
 
-const recordBoard = (boards, time) =>{
-    let newTime = new Date()
-    let ms = newTime - time 
-    console.log("Time since start:" + ms)
+const puzzleToString = (boards) =>{
     str = ""
     for(let row = 0; row < boards.length; row ++){
         str += rowToString(boards[row], isFirst = row == 0)
     }
+    return str 
+} 
 
+const amountCorrect = (boards, solution) => {
+    let gameState = puzzleToString(boards) 
+
+    console.log(solution)
+    if (gameState.length != solution.length){
+        console.log("Incorrect formatting for puzzle")
+        console.log(gameState)
+        console.log(solution)
+        return [0, 0, 0]
+    }else{
+        let correct = 0 
+        let incorrect = 0 
+        let total = 0 
+        for(let i = 0; i < gameState.length; i ++){
+            if (gameState[i] == "X" || gameState[i] == "O"){
+                total ++; 
+                if(gameState[i] == solution[i]){
+                    correct ++; 
+                }else{
+                    incorrect ++ 
+                }
+            }else if (gameState[i] == "*" || gameState[i] == "!" || gameState[i] == "?"){
+                total++ 
+            }
+        }
+
+        return [correct, incorrect, total]
+    }
+}
+
+const isSolved = (boards, solution) =>{
+    let gameState = puzzleToString(boards) 
+    let [correct, incorrect, total] = amountCorrect(boards, solution) 
+
+    if (gameState.length != solution.length){
+        console.log("Incorrect formatting for puzzle")
+        console.log(gameState)
+        console.log(solution)
+        return [0, 0]
+    }else{
+        let correct = 0; 
+        let total = 0 
+        for(let i = 0; i < gameState.length; i ++){
+            if(solution[i] == "O"){
+                total++ 
+                if(solution[i] == gameState[i]){
+                    correct ++;
+                }
+            }
+        }
+
+        return total == correct && incorrect == 0
+    }
+}
+
+const recordBoard = (boards, solution, time) =>{
+    let newTime = new Date()
+    let ms = newTime - time 
+    console.log("Time since start:" + ms)
+    str = puzzleToString(boards)
     console.log(str)
+    let [correct, incorrect, total ] = amountCorrect(boards, solution)
+    console.log("Correct: " + correct + ", incorrect: " + incorrect + ", total:" + total) 
+    console.log("Is solved: " + isSolved(boards, solution));
+}
+
+let clearBoards = (boards) =>{
+    console.log("Clear Boards");
+    for (r in  boards){
+        let row = boards[r]
+        for(b in row){
+            let board = row[b]
+
+            for (let i = 0; i < board.length; i++) {
+                for (
+                    let j = 0;
+                    j < board[i].length;
+                    j++
+                ) {
+                    board[i][j].setState("*");
+                }
+            }
+        }
+        
+    }
     
 }
 
@@ -104,7 +188,7 @@ export default Puzzle =({p, time})=>{
 
     useEffect(() => {
         // run something every time name changes
-        recordBoard(boards, time)
+        recordBoard(boards, p.solutionString, time)
       }, [boards]);
 
       /*setInterval(() => {
@@ -121,7 +205,18 @@ export default Puzzle =({p, time})=>{
             <StateSelector selected = {select} setSelect={setSelect}/> 
         </div>
         
-        <Hints hints={p.hints} time={time}/>
+
+        <div>
+            <Hints hints={p.hints} time={time}/>
+            <FinishButtons 
+                giveUp={() => {console.log("Player gave up")}}
+                isCorrect = {() => isSolved(boards, p.solutionString)}
+                clearBoard = {() => clearBoards(boards)}
+                finish = {() => console.log("Finish puzzle")}
+
+                />
+        </div>
+
            
     
         </div>);
