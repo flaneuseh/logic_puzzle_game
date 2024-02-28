@@ -5,6 +5,7 @@ import "./style.css"
 
 const Board = ({numRows, numCols,board, topCat = null, leftCat = null, select = "*"}) => {
 
+    let [mousedown, setMouseDown] = useState(false)
  
     let topElement = ""; 
     let topEntites = []; 
@@ -24,8 +25,8 @@ const Board = ({numRows, numCols,board, topCat = null, leftCat = null, select = 
     }
 
     //let board =  initializeBoard(numRows, numCols); 
-    let elements = renderBoard(numRows, numCols, board, topEntites, leftEntites, select);
-    return (<div className="board">
+    let elements = renderBoard(numRows, numCols, board, mousedown, topEntites, leftEntites, select);
+    return (<div className="board" onMouseDown={()=> setMouseDown(true)} onMouseUp = {() => setMouseDown(false)} onMouseLeave = {() => setMouseDown(false)}>
             
             <div>{topElement}</div>
             {leftElement}
@@ -34,7 +35,7 @@ const Board = ({numRows, numCols,board, topCat = null, leftCat = null, select = 
            </div>
          
             
-            </div>);
+            </div>); 
 
 
 }
@@ -59,7 +60,7 @@ function initializeBoard(numRows, numCols) {
 }
  
  
-function renderBoard(numRows, numCols, board, topEntities = [], leftEntites = [], select = "*") {
+function renderBoard(numRows, numCols, board, mousedown,  topEntities = [], leftEntites = [], select = "*") {
 
     let elements = []
  
@@ -80,7 +81,7 @@ function renderBoard(numRows, numCols, board, topEntities = [], leftEntites = []
             }
 
           
-            elements.push(<Cell select = {select} state = {board[i][j].state} setState = {board[i][j].setState} leftText={leftText} topText={topText} key = {i + "," + j}/>)
+            elements.push(<Cell mousedown={mousedown} select = {select} state = {board[i][j].state} setState = {board[i][j].setState} leftText={leftText} topText={topText} key = {i + "," + j}/>)
             
          
         }

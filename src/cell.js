@@ -9,7 +9,7 @@ let toggleState = (s, setState, select) => {
 
 }
 
-export default Cell = ({state, setState, topText = "", leftText = "", select = "*"}) => {
+export default Cell = ({state, setState, mousedown = false, topText = "", leftText = "", select = "*"}) => {
 
     let className = ""; 
     let text = ""
@@ -50,7 +50,7 @@ export default Cell = ({state, setState, topText = "", leftText = "", select = "
                            {topTextEle}
                     
                     
-                    <div className="cell" onClick={() => toggleState(state, setState, select)}> 
+                    <div className="cell" onMouseDown={() => {toggleState(state, setState, select)}}  onMouseEnter={() => {if(mousedown) {toggleState(state, setState, select)}}}> 
                    
                         <span className={className}> {text}</span> 
                     
@@ -62,7 +62,7 @@ export default Cell = ({state, setState, topText = "", leftText = "", select = "
             )}
 
     else{
-        return( <div className="cell" onClick={() => toggleState(state, setState, select)}> 
+        return( <div className="cell" onMouseDown={() => {toggleState(state, setState, select)}} onMouseEnter={() => {if(mousedown) {toggleState(state, setState, select)}}}> 
            
                 <span className={className}> {text}</span> 
      
