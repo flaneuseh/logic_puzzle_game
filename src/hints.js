@@ -7,9 +7,11 @@ let recordHint = (time, hint, striked) =>{
 }
 
 
-export default HintDisplay = ({hints, time}) => {
-    let makeHint = (hint) =>{
+export default HintDisplay = ({hints, time, setStrikes}) => {
+    
+    let makeHint = (hint, setStrikes) =>{
         let [strike, setStrike] = useState(false)
+        setStrikes.push(setStrike)
 
         useEffect(() => {
             // run something every time name changes
@@ -22,7 +24,9 @@ export default HintDisplay = ({hints, time}) => {
             return ( <li key={hint} onClick = {() => {setStrike(!strike)}}>{hint}</li>); 
         }
     }
-    let hintsList = hints.map((hint) => makeHint(hint))
+
+    
+    let hintsList = hints.map((hint) => makeHint(hint, setStrikes))
     hintsList = <ol>{hintsList}</ol>
     return (     
         <div>

@@ -122,7 +122,7 @@ const recordBoard = (boards, solution, time) =>{
     console.log("Is solved: " + isSolved(boards, solution));
 }
 
-let clearBoards = (boards) =>{
+let clearBoards = (boards, setStrikes) =>{
     console.log("Clear Boards");
     for (r in  boards){
         let row = boards[r]
@@ -140,6 +140,10 @@ let clearBoards = (boards) =>{
             }
         }
         
+    }
+
+    for(strike in setStrikes){
+        setStrikes[strike](false);
     }
     
 }
@@ -195,6 +199,8 @@ export default Puzzle =({p, time})=>{
         setTime( 1)
     }, 1000);*/ 
 
+    let setStrikes = []
+
 
     return (<div className="puzzleArea">
         <div>
@@ -202,16 +208,16 @@ export default Puzzle =({p, time})=>{
         {elements} 
 
         <h1>Selector</h1>
-            <StateSelector selected = {select} setSelect={setSelect}/> 
+            <StateSelector selected = {select} setSelect={setSelect} /> 
         </div>
         
 
         <div>
-            <Hints hints={p.hints} time={time}/>
+            <Hints hints={p.hints} time={time} setStrikes ={setStrikes}/>
             <FinishButtons 
                 giveUp={() => {console.log("Player gave up")}}
                 isCorrect = {() => isSolved(boards, p.solutionString)}
-                clearBoard = {() => clearBoards(boards)}
+                clearBoard = {() => clearBoards(boards, setStrikes)}
                 finish = {() => console.log("Finish puzzle")}
 
                 />
