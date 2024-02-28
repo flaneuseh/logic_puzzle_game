@@ -3,13 +3,9 @@ import { useState } from "react"
 const states = ["*" , "O", "X", "!", "?"]
 
 let toggleState = (s, setState, select) => {
-    if((select != "*" && s == "*") || (select == "*")){
-        setState(select)
-    }else{
-        let i = states.indexOf(s);
-        i = (i + 1) % states.length;
-        setState(states[i]);
-    }
+  
+    setState(select)
+  
 
 }
 

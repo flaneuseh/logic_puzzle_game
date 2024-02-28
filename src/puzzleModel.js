@@ -1,7 +1,8 @@
 export default class PuzzleModel {
-    constructor(catergories, hints){
+    constructor(catergories, hints, solutionString){
         this.catergories = catergories; 
         this.numEnt = catergories[0].entities.length 
+        this.solutionString = solutionString
 
         this.leftRight = []
         for(let i = 0; i < this.catergories.length - 1; i ++){

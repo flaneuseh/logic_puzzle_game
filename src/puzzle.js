@@ -2,6 +2,7 @@ import Board from "./subgrid";
 import Category from "./categoryModel";
 import { useState,useEffect } from "react";
 import StateSelector from "./stateSelector";
+import Hints from "./hints";
 
 function initializeBoard(numRows, numCols, boards) {
     let board = []
@@ -100,8 +101,6 @@ export default Puzzle =({p, time})=>{
 
     let elements = rows.map((row, idx) => {return <div className="boardRow" key = {idx}>{row}</div>});
 
-    let hints = p.hints.map((hint) => <li key={hint}>{hint}</li>)
-    hints = <ol>{hints}</ol>
 
     useEffect(() => {
         // run something every time name changes
@@ -122,13 +121,9 @@ export default Puzzle =({p, time})=>{
             <StateSelector selected = {select} setSelect={setSelect}/> 
         </div>
         
-        <div>
-            <h1>Hints</h1>
-            {hints}
-        </div>
-        <div>
+        <Hints hints={p.hints} time={time}/>
            
-        </div>
+    
         </div>);
 
 }

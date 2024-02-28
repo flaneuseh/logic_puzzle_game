@@ -50,7 +50,7 @@ body {
     width: 5vmin;
     height: 5vmin;
     line-height: 5vmin;
-    border: 1px solid  #7e7474;
+    border: 0.2vmin solid  #7e7474;
     display: inline-block;
     vertical-align: middle;
    
@@ -75,7 +75,7 @@ body {
     width: 5vmin;
     height: 5vmin;
     line-height: 5vmin;
-    border: 1px solid  #7e7474;
+    border: 0.3vmin solid  #7e7474;
     display: inline-block;
     vertical-align: middle;
    
@@ -100,7 +100,7 @@ body {
     width: 5vmin;
     height: 5vmin;
     line-height: 5vmin;
-    border: 2px solid  #2aac25;
+    border: 0.7vmin solid  #2aac25;
     display: inline-block;
     vertical-align: middle;
    
@@ -159,4 +159,27 @@ body {
     display: flex;
     margin: 5vmin, 10vmin;
     overflow-y: scroll;
+}
+
+h1 {
+    font-size: 3vmin;
+}
+
+div {
+    font-size: 2.5vmin;
+}
+
+ol {
+    font-size: 2vmin;
+    width: 40vmin;
+}
+
+li{
+    text-align: left;
+}
+
+
+.strikedText {
+    text-decoration: line-through;
+    color:#861414
 }
