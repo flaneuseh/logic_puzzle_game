@@ -148,55 +148,71 @@ let clearBoards = (boards, setStrikes) => {
 }
 
 export default Puzzle = ({ p, time }) => {
+    let topCategories = [];
+    let topEntityGroups = [];
+    for (const topCat of p.topBottom) {
+        topCategories.push(topCat.name);
+        topEntityGroups.push(topCat.entities);
+    }
 
-    let boardData = [[]]; // rows
-    let boardDisplay = [[]]; // boards
+    let leftCategories = [];
+    let leftEntityGroups = [];
+    for (const leftCat of p.leftRight) {
+        leftCategories.push(leftCat.name);
+        leftEntityGroups.push(leftCat.entities);
+    }
 
-    // let displayRowIdx = 0;
-    // let displayColIdx = 0;
+    let boardData = [[]];
+    let displayGrid = [];
 
-    // // CSS grid 0, 0 is blank. All others increment as normal
+    let displayRowIdx = 0;
+    let displayColIdx = 2; // Shift for left categories & entities.
 
-    // let topCategoryRow = [];
-    // for (const topCat of p.topBottom) {
-    //     topCategoryRow.push(<span className="topCategoryText" style={{ "grid-row": displayRowIdx, "grid-col": displayColIdx }}>{topCat.name}</span>);
-    // }
-    // displayRowIdx++;
+    for (const cat of topCategories) {
+        displayGrid.push(<div style={{ "grid-row": displayRowIdx, "grid-column": displayColIdx }}>cat</div>);
+        displayColIdx++;
+    }
+    displayRowIdx++;
 
-    // let topEntityRow = [];
-    // for (const topCat of p.topBottom) {
-    //     entities = []
-    //     for (const entity of topCat.entities) {
+    displayColIdx = 2; // Shift for left categories & entities.
+    for (const entityGroup of topEntityGroups) {
+        entityDisplays = [];
+        for (const entity of entityGroup) {
+            entityDisplays.push(<div className="topEntityText">{entity}</div>)
+        }
 
-    //     }
-    //     topEntityGroups.push(topCat.entities);
-    // }
-
-    // let leftCategories = [];
-    // let leftEntityGroups = [];
-    // for (const leftCat of p.leftRight) {
-    //     leftCategories.push(leftCat.name);
-    //     leftEntityGroups.push(leftCat.entities);
-    // }
-
-
+        displayGrid.push(<div style={{ "grid-row": displayRowIdx, "grid-column": displayColIdx }}>{entityDisplays}</div>)
+        displayColIdx++;
+    }
+    displayRowIdx++;
 
     let rowLength = p.leftRight.length - 1;
     for (let row = 0; row < p.topBottom.length; row++) {
         boardData[row] = []
-        boardDisplay[row] = []
+        displayColIdx = 0;
+        displayGrid.push(<div style={{ "grid-row": displayRowIdx, "grid-column": displayColIdx }}><span className="leftCategoryText">{leftCategories[row]}</span></div>)
+        displayColIdx++;
+
+        entityDisplays = [];
+        for (const entity of leftEntityGroups[row]) {
+            entityDisplays.push(<div className="leftEntityText">{entity}</div>)
+        }
+        displayGrid.push(<div style={{ "grid-row": displayRowIdx, "grid-column": displayColIdx }}>{entityDisplays}</div>)
+        displayColIdx++;
+
         for (let col = 0; col < rowLength; col++) {
-            let board = initializeBoard(p.numEnt, p.numEnt, boards)
-            boardData[row][col] = board
-            boardDisplay[row][col] = <Board numCols={p.numEnt} numRows={p.numEnt} board={board} select={select} key={row + "," + col} />
+            let board = initializeBoard(p.numEnt, p.numEnt, boards);
+            boardData[row][col] = board;
+            displayGrid.push(<div style={{ "grid-row": displayRowIdx, "grid-column": displayColIdx }}><Board numCols={p.numEnt} numRows={p.numEnt} board={board} select={select} key={row + "," + col} /></div>);
+            displayColIdx++;
         }
         rowLength--;
+        displayRowIdx++;
     }
 
     let [select, setSelect] = useState("O");
 
-    let elements = rows.map((row, idx) => { return <div className="boardRow" key={idx}>{row}</div> });
-
+    //let elements = rows.map((row, idx) => {return <div className="boardRow" key = {idx}>{row}</div>});
 
     useEffect(() => {
         // run something every time name changes
@@ -209,11 +225,20 @@ export default Puzzle = ({ p, time }) => {
 
     let setStrikes = []
 
+    // .puzzleGrid {
+    //     display: grid;
+    //     grid-template-columns: 100px repeat(2, 200px);
+    //     gap: 10px;
+    //     grid-template-rows: 100px repeat(2, 200px);
+    // }
+
 
     return (<div className="puzzleArea">
         <div>
             <h1>Puzzle</h1>
-            {elements}
+            <div class="puzzleGrid">
+                {displayGrid}
+            </div>
 
             <h1>Selector</h1>
             <StateSelector selected={select} setSelect={setSelect} />
