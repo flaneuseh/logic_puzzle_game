@@ -25,7 +25,7 @@ export default function App() {
   let [puzzle, setPuzzle] = useState(null); 
 
   if(puzzle == null){
-    axios.get('hint_json.json')
+    axios.get("puzzles/trial_2_puzzle_5_6.json")
     .then(response => {
       createPuzzle(response.data, setPuzzle)
     });
