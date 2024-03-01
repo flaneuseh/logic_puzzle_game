@@ -160,7 +160,7 @@ export default Puzzle =({p, time})=>{
     for(let i =0; i < p.leftRight.length; i++){
         let leftCat = null; 
         if(i == 0){
-            leftCat = p.topButtom[0]
+            leftCat = p.topBottom[0]
         }
 
         let board = initializeBoard(p.numEnt, p.numEnt, boards)
@@ -171,13 +171,13 @@ export default Puzzle =({p, time})=>{
 
     let rowLength = p.leftRight.length-1; 
 
-    for(let row = 1; row < p.topButtom.length; row++){
+    for(let row = 1; row < p.topBottom.length; row++){
         rows[row] = []
         boards[row] = []
         for(let col = 0; col < rowLength; col++){
             let leftCat = null; 
             if(col == 0){
-                leftCat = p.topButtom[row]
+                leftCat = p.topBottom[row]
             }
             let board = initializeBoard(p.numEnt, p.numEnt, boards)
             boards[row][col] = board 

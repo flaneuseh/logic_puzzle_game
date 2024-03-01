@@ -1,19 +1,19 @@
 export default class PuzzleModel {
-    constructor(catergories, hints, solutionString){
-        this.catergories = catergories; 
-        this.numEnt = catergories[0].entities.length 
+    constructor(categories, hints, solutionString){
+        this.categories = categories; 
+        this.numEnt = categories[0].entities.length 
         this.solutionString = solutionString
 
         this.leftRight = []
-        for(let i = 0; i < this.catergories.length - 1; i ++){
-            this.leftRight.push(catergories[i])
+        for(let i = 0; i < this.categories.length - 1; i ++){
+            this.leftRight.push(categories[i])
         }
 
-        this.topButtom = []
+        this.topBottom = []
         this.hints = hints 
 
-        for(let i = this.catergories.length - 1; i > 0; i --){
-            this.topButtom.push(catergories[i])
+        for(let i = this.categories.length - 1; i > 0; i --){
+            this.topBottom.push(categories[i])
         }
 
     }
