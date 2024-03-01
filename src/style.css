@@ -3,11 +3,12 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
+
 .board {
     display: inline-block;
     margin: 0.2vmin;
     text-align: center;
-    vertical-align:bottom;
+    vertical-align: bottom;
 }
 
 .cellContainer {
@@ -17,48 +18,52 @@ body {
 
 .innerCellContainer {
     display: inline-block;
-    text-align:left;
+    text-align: left;
 }
 
-.leftCell{
+.leftCell {
     display: inline-block;
 }
 
-.topEntityText{
-   writing-mode: ver;
-   width: 3.5vmin;
-   height: 10vmin;
-   font-size: 1.5vmin;
+.topEntityText {
+    writing-mode: vertical-lr;
+    width: 3.5vmin;
+    height: 10vmin;
+    font-size: 1.5vmin;
+    transform:
+        rotate(215deg) translate(-1.5vmin, 1.5vmin);
 }
 
-.leftEntityText{
+.leftEntityText {
     display: inline-block;
     margin: 0;
     width: 10vmin;
     font-size: 1.5vmin;
- }
+}
 
-.leftCategoryText{
+.leftCategoryText {
     writing-mode: vertical-lr;
     display: inline-block;
-    width:3.5vmin;
+    width: 3.5vmin;
     font-size: 2.5vmin;
     height: 14vmin;
-
+    transform:
+        rotate(180deg)
 }
+
 .cell {
     width: 3.5vmin;
     height: 3.5vmin;
     line-height: 3.5vmin;
-    border: 0.2vmin solid  #7e7474;
+    border: 0.2vmin solid #7e7474;
     display: inline-block;
     vertical-align: middle;
-   
+
     cursor: pointer;
- 
+
     /* Default color for unrevealed tiles */
     background-color: #ffffff;
- 
+
     /* Default color for unrevealed tile text */
     color: #333;
     text-align: center;
@@ -75,15 +80,15 @@ body {
     width: 3.5vmin;
     height: 3.5vmin;
     line-height: 3.5vmin;
-    border: 0.3vmin solid  #7e7474;
+    border: 0.3vmin solid #7e7474;
     display: inline-block;
     vertical-align: middle;
-   
+
     cursor: pointer;
- 
+
     /* Default color for unrevealed tiles */
     background-color: #ffffff;
- 
+
     /* Default color for unrevealed tile text */
     color: #333;
     text-align: center;
@@ -100,15 +105,15 @@ body {
     width: 3.5vmin;
     height: 3.5vmin;
     line-height: 3.5vmin;
-    border: 0.7vmin solid  #2aac25;
+    border: 0.7vmin solid #2aac25;
     display: inline-block;
     vertical-align: middle;
-   
+
     cursor: pointer;
- 
+
     /* Default color for unrevealed tiles */
     background-color: #ffffff;
- 
+
     /* Default color for unrevealed tile text */
     color: #333;
     text-align: center;
@@ -121,20 +126,23 @@ body {
     user-select: none;
 }
 
-.cell span, .selected span, .unselected span{
-    /*vertical-align: middle;*/ 
+.cell span,
+.selected span,
+.unselected span {
+    /*vertical-align: middle;*/
     display: inline-block;
-    /*line-height: normal;*/ 
+    /*line-height: normal;*/
     font-size: 3vmin;
 }
 
 
 .linked {
 
- 
+
     /* Color for revealed tile text */
     color: #07551e;
 }
+
 .notlinked {
     /* Color for mines */
     color: #861414;
@@ -142,10 +150,11 @@ body {
 
 .linkedUnsure {
 
- 
+
     /* Color for revealed tile text */
     color: #747474;
 }
+
 .notlinkedUnsure {
     /* Color for mines */
     color: #818181;
@@ -155,7 +164,7 @@ body {
     display: flex;
 }
 
-.puzzleArea{
+.puzzleArea {
     display: flex;
     margin: 5vmin, 10vmin;
     overflow-y: scroll;
@@ -174,14 +183,14 @@ ol {
     width: 30vmin;
 }
 
-li{
+li {
     text-align: left;
 }
 
 
 .strikedText {
     text-decoration: line-through;
-    color:#861414
+    color: #861414
 }
 
 .button {
