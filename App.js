@@ -6,6 +6,7 @@ import Puzzle from './src/puzzle';
 import PuzzleModel from './src/puzzleModel';
 import axios from 'axios';
 import { useState } from 'react';
+import PuzzleManager from './src/PuzzleManager';
 
 
 function createPuzzle(data, setPuzzle){
@@ -24,25 +25,14 @@ export default function App() {
 
   let [puzzle, setPuzzle] = useState(null); 
 
-  if(puzzle == null){
-    axios.get("puzzles/trial_2_puzzle_5_6.json")
-    .then(response => {
-      createPuzzle(response.data, setPuzzle)
-    });
-  }
- 
-  let time = new Date()
-
-  if(puzzle == null){
-    return (<div>Loading...</div>)
-  }else{
-    return (
+  let files = ["puzzles/trial_2_puzzle_0_0.json", "puzzles/trial_2_puzzle_1_3.json", "puzzles/trial_2_puzzle_2_6.json", "puzzles/trial_2_puzzle_8_4.json", "puzzles/trial_2_puzzle_9_2.json"]
     
-      <Puzzle p={puzzle} time={time}/>
+      return (<PuzzleManager files={files}/> );
         
    
-    );
-  }
+  
+    
+  
   
   
  
