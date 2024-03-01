@@ -148,72 +148,28 @@ let clearBoards = (boards, setStrikes) => {
 }
 
 export default Puzzle = ({ p, time }) => {
-    let topCategories = [];
-    let topEntityGroups = [];
-    for (const topCat of p.topBottom) {
-        topCategories.push(topCat.name);
-        topEntityGroups.push(topCat.entities);
-    }
-
-    let leftCategories = [];
-    let leftEntityGroups = [];
-    for (const leftCat of p.leftRight) {
-        leftCategories.push(leftCat.name);
-        leftEntityGroups.push(leftCat.entities);
-    }
-
     let boards = [[]];
     let displayGrid = [];
 
     let displayRowIdx = 1;
-    let displayColIdx = 2; // Shift for left categories & entities.
-
-    for (const cat of topCategories) {
-        displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{cat}</div>);
-        displayColIdx++;
-    }
-    displayRowIdx++;
-
-    // displayColIdx = 2; // Shift for left categories & entities.
-    // for (const entityGroup of topEntityGroups) {
-    //     entityDisplays = [];
-    //     for (const entity of entityGroup) {
-    //         entityDisplays.push(<div className="topEntityText">{entity}</div>)
-    //     }
-
-    //     displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{entityDisplays}</div>)
-    //     displayColIdx++;
-    // }
-    displayRowIdx++;
-
     let rowLength = p.leftRight.length;
     for (let row = 0; row < p.topBottom.length; row++) {
         boards[row] = []
-        displayColIdx = 1;
-        displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}><span className="leftCategoryText">{leftCategories[row]}</span></div>)
-        displayColIdx++;
-
-        // entityDisplays = [];
-        // for (const entity of leftEntityGroups[row]) {
-        //     entityDisplays.push(<div className="leftEntityText">{entity}</div>)
-        // }
-        // displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{entityDisplays}</div>)
-        // displayColIdx++;
-
+        let displayColIdx = 1;
         for (let col = 0; col < rowLength; col++) {
             let board = initializeBoard(p.numEnt, p.numEnt, boards);
             boards[row][col] = board;
 
-            topLabels = null;
-            leftLabels = null;
+            topCat = null;
+            leftCat = null;
 
             if (row == 0) {
-                topLabels = topEntityGroups[col]
+                topCat = p.topBottom[col]
             }
             if (col == 0) {
-                leftLabels = leftEntityGroups[row]
+                leftCat = p.leftRight[row]
             }
-            displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}><Board numCols={p.numEnt} numRows={p.numEnt} board={board} select={select} key={row + "," + col} topLabels={topLabels} leftLabels={leftLabels} /></div>);
+            displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}><Board numCols={p.numEnt} numRows={p.numEnt} board={board} select={select} key={row + "," + col} topCat={topCat} leftCat={leftCat} /></div>);
             displayColIdx++;
         }
         rowLength--;

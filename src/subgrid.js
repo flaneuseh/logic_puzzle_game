@@ -3,29 +3,43 @@ import { useState } from "react";
 import Cell from "./cell";
 import "./style.css";
 
-export default Board = ({ numRows, numCols, board, topLabels = null, leftLabels = null, select = "*" }) => {
+export default Board = ({ numRows, numCols, board, topCat = null, leftCat = null, select = "*" }) => {
+
+    // displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}><span className="leftCategoryText">{leftCategories[row]}</span></div>)
 
     let [mousedown, setMouseDown] = useState(false)
 
     let displayGrid = [];
-
     let displayRowIdx = 1;
-    let displayColIdx = 1;
-    if (leftLabels != null) {
-        displayColIdx++; // Shift for left labels.
-    }
-    if (topLabels != null) {
-        for (const label of topLabels) {
-            displayGrid.push(<div className="topEntityText" style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{label}</div>);
+
+    if (topCat != null) {
+        let displayColIdx = 1;
+        if (leftCat != null) {
+            displayColIdx = 3; // Shift for left category header and entities.
+        }
+        maxColumn = topCat.entities.length + displayColIdx;
+        headerColumn = `${displayColIdx} / ${maxColumn}`
+        displayGrid.push(<div className="topCategoryText" style={{ gridRow: displayRowIdx, gridColumn: headerColumn }}>{topCat.name}</div>)
+        displayRowIdx++;
+        for (const entity of topCat.entities) {
+            displayGrid.push(<div className="topEntityText" style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{entity}</div>);
             displayColIdx++;
         }
         displayRowIdx++;
     }
 
+    if (leftCat != null) {
+        let displayColIdx = 1;
+        maxRow = leftCat.entities.length + displayRowIdx;
+        headerRow = `${displayRowIdx} / ${maxRow}`
+        displayGrid.push(<div className="leftCategoryText" style={{ gridRow: headerRow, gridColumn: displayColIdx }}>{leftCat.name}</div>)
+    }
+
     for (let i = 0; i < numRows; i++) {
-        displayColIdx = 1;
-        if (leftLabels != null) {
-            displayGrid.push(<div className="leftEntityText" style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{leftLabels[i]}</div>)
+        let displayColIdx = 1;
+        if (leftCat != null) {
+            displayColIdx++; // Shift for left category header
+            displayGrid.push(<div className="leftEntityText" style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{leftCat.entities[i]}</div>)
             displayColIdx++;
         }
 
