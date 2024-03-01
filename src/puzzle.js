@@ -162,48 +162,58 @@ export default Puzzle = ({ p, time }) => {
         leftEntityGroups.push(leftCat.entities);
     }
 
-    let boardData = [[]];
+    let boards = [[]];
     let displayGrid = [];
 
-    let displayRowIdx = 0;
+    let displayRowIdx = 1;
     let displayColIdx = 2; // Shift for left categories & entities.
 
     for (const cat of topCategories) {
-        displayGrid.push(<div style={{ "grid-row": displayRowIdx, "grid-column": displayColIdx }}>cat</div>);
+        displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{cat}</div>);
         displayColIdx++;
     }
     displayRowIdx++;
 
-    displayColIdx = 2; // Shift for left categories & entities.
-    for (const entityGroup of topEntityGroups) {
-        entityDisplays = [];
-        for (const entity of entityGroup) {
-            entityDisplays.push(<div className="topEntityText">{entity}</div>)
-        }
+    // displayColIdx = 2; // Shift for left categories & entities.
+    // for (const entityGroup of topEntityGroups) {
+    //     entityDisplays = [];
+    //     for (const entity of entityGroup) {
+    //         entityDisplays.push(<div className="topEntityText">{entity}</div>)
+    //     }
 
-        displayGrid.push(<div style={{ "grid-row": displayRowIdx, "grid-column": displayColIdx }}>{entityDisplays}</div>)
-        displayColIdx++;
-    }
+    //     displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{entityDisplays}</div>)
+    //     displayColIdx++;
+    // }
     displayRowIdx++;
 
-    let rowLength = p.leftRight.length - 1;
+    let rowLength = p.leftRight.length;
     for (let row = 0; row < p.topBottom.length; row++) {
-        boardData[row] = []
-        displayColIdx = 0;
-        displayGrid.push(<div style={{ "grid-row": displayRowIdx, "grid-column": displayColIdx }}><span className="leftCategoryText">{leftCategories[row]}</span></div>)
+        boards[row] = []
+        displayColIdx = 1;
+        displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}><span className="leftCategoryText">{leftCategories[row]}</span></div>)
         displayColIdx++;
 
-        entityDisplays = [];
-        for (const entity of leftEntityGroups[row]) {
-            entityDisplays.push(<div className="leftEntityText">{entity}</div>)
-        }
-        displayGrid.push(<div style={{ "grid-row": displayRowIdx, "grid-column": displayColIdx }}>{entityDisplays}</div>)
-        displayColIdx++;
+        // entityDisplays = [];
+        // for (const entity of leftEntityGroups[row]) {
+        //     entityDisplays.push(<div className="leftEntityText">{entity}</div>)
+        // }
+        // displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{entityDisplays}</div>)
+        // displayColIdx++;
 
         for (let col = 0; col < rowLength; col++) {
             let board = initializeBoard(p.numEnt, p.numEnt, boards);
-            boardData[row][col] = board;
-            displayGrid.push(<div style={{ "grid-row": displayRowIdx, "grid-column": displayColIdx }}><Board numCols={p.numEnt} numRows={p.numEnt} board={board} select={select} key={row + "," + col} /></div>);
+            boards[row][col] = board;
+
+            topLabels = null;
+            leftLabels = null;
+
+            if (row == 0) {
+                topLabels = topEntityGroups[col]
+            }
+            if (col == 0) {
+                leftLabels = leftEntityGroups[row]
+            }
+            displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}><Board numCols={p.numEnt} numRows={p.numEnt} board={board} select={select} key={row + "," + col} topLabels={topLabels} leftLabels={leftLabels} /></div>);
             displayColIdx++;
         }
         rowLength--;
@@ -236,7 +246,7 @@ export default Puzzle = ({ p, time }) => {
     return (<div className="puzzleArea">
         <div>
             <h1>Puzzle</h1>
-            <div class="puzzleGrid">
+            <div className="puzzleGrid">
                 {displayGrid}
             </div>
 

@@ -1,45 +1,57 @@
 // Script.js
-import Cell from "./cell";
 import { useState } from "react";
-import "./style.css"
+import Cell from "./cell";
+import "./style.css";
 
-const Board = ({numRows, numCols,board, topCat = null, leftCat = null, select = "*"}) => {
+export default Board = ({ numRows, numCols, board, topLabels = null, leftLabels = null, select = "*" }) => {
 
     let [mousedown, setMouseDown] = useState(false)
- 
-    let topElement = ""; 
-    let topEntites = []; 
- 
-    if (topCat != null){
-        topElement = topCat.name
-        topEntites = topCat.entities; 
-   
+
+    let displayGrid = [];
+
+    let displayRowIdx = 1;
+    let displayColIdx = 1;
+    if (leftLabels != null) {
+        displayColIdx++; // Shift for left labels.
+    }
+    if (topLabels != null) {
+        for (const label of topLabels) {
+            displayGrid.push(<div className="topEntityText" style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{label}</div>);
+            displayColIdx++;
+        }
+        displayRowIdx++;
     }
 
-    let leftEntites = [];
-    let leftElement = <div></div>; 
-    if (leftCat != null){
-        leftEntites = leftCat.entities; 
-        leftElement = <span className="leftCategoryText">{leftCat.name}</span>;
-   
+    for (let i = 0; i < numRows; i++) {
+        displayColIdx = 1;
+        if (leftLabels != null) {
+            displayGrid.push(<div className="leftEntityText" style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>{leftLabels[i]}</div>)
+            displayColIdx++;
+        }
+
+        for (let j = 0; j < numCols; j++) {
+            displayGrid.push(
+                <div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }}>
+                    <Cell mousedown={mousedown} select={select} state={board[i][j].state} setState={board[i][j].setState} key={i + "," + j} />
+                </div>
+            );
+            displayColIdx++;
+        }
+
+        // cells.push(<br key={i}></br>);
+        displayRowIdx++
     }
 
-    //let board =  initializeBoard(numRows, numCols); 
-    let elements = renderBoard(numRows, numCols, board, mousedown, topEntites, leftEntites, select);
-    return (<div className="board" onMouseDown={()=> setMouseDown(true)} onMouseUp = {() => setMouseDown(false)} onMouseLeave = {() => setMouseDown(false)}>
-            
-            <div>{topElement}</div>
-            {leftElement}
-           <div className="board">
-           {elements}
-           </div>
-         
-            
-            </div>); 
+    return (
+        <div className="board" onMouseDown={() => setMouseDown(true)} onMouseUp={() => setMouseDown(false)} onMouseLeave={() => setMouseDown(false)}>
+            <div className="board">
+                {displayGrid}
+            </div>
+        </div>);
 
 
 }
- 
+
 function initializeBoard(numRows, numCols) {
     let board = []
     for (let i = 0; i < numRows; i++) {
@@ -50,46 +62,11 @@ function initializeBoard(numRows, numCols) {
             j++
         ) {
             let [state, setState] = useState("*")
-            board[i][j] = {state: state,  setState: setState};
+            board[i][j] = { state: state, setState: setState };
         }
     }
-    
-    return board 
-  
- 
+
+    return board
+
+
 }
- 
- 
-function renderBoard(numRows, numCols, board, mousedown,  topEntities = [], leftEntites = [], select = "*") {
-
-    let elements = []
- 
-    for (let i = 0; i < numRows; i++) {
-        for (
-            let j = 0;
-            j < numCols;
-            j++
-        ) {
-            let topText = ""; 
-            let leftText = ""
-            if (topEntities.length > 0 && i == 0){
-                topText=topEntities[j]
-            }
-            
-            if (leftEntites.length > 0 && j == 0){
-                leftText = leftEntites[i]
-            }
-
-          
-            elements.push(<Cell mousedown={mousedown} select = {select} state = {board[i][j].state} setState = {board[i][j].setState} leftText={leftText} topText={topText} key = {i + "," + j}/>)
-            
-         
-        }
-
-        elements.push(<br key ={i}></br>);
-    }
-
-    return elements
-}
- 
-export default Board
