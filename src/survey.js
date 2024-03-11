@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./survey.css"
 
-let questions = ["The game was cognitive demanding", "I had to think very hard when playing the game.", 
+let questions = ["The game was cognitively demanding", "I had to think very hard when playing the game.", 
         "The game required a lot of mental gymnastics.",  "The game stimulated my brain.", "The mental challenges in this game had an impact on how I played.", "The game was fun to play."];
 
 

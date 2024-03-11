@@ -1,1 +1,40 @@
-{"solution": "-----------\n|XOXX|XXOX|\n|XXXO|OXXX|\n|XXOX|XXXO|\n|OXXX|XOXX|\n------\n|XXXO|\n|OXXX|\n|XOXX|\n|XXOX|\n", "categories": [{"name": "flavor", "entities": ["Chocolate", "Vanilla", "Mint", "Strawberry"]}, {"name": "toppping", "entities": ["Cookies", "Sprinkles", "Hot Fudge", "Whipped Cream"]}, {"name": "hour", "entities": ["1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"]}], "hints": ["The toppping Hot Fudge is 2 hours before the flavor Mint", "Either The toppping Sprinkles is the flavor Chocolate or The hour 4:00 PM is the flavor Mint", "The toppping Cookies is the hour 2:00 PM", "Either the flavor Strawberry or the flavor Mint is the toppping Cookies", "The toppping Cookies is not the Chocolate flavor"], "id": 1}
+{
+    "solution": "-----------\n|XOXX|XXOX|\n|XXXO|OXXX|\n|XXOX|XXXO|\n|OXXX|XOXX|\n------\n|XXXO|\n|OXXX|\n|XOXX|\n|XXOX|\n",
+    "categories": [
+        {
+            "name": "flavor",
+            "entities": [
+                "Chocolate",
+                "Vanilla",
+                "Mint",
+                "Strawberry"
+            ]
+        },
+        {
+            "name": "topping",
+            "entities": [
+                "Cookies",
+                "Sprinkles",
+                "Hot Fudge",
+                "Whipped Cream"
+            ]
+        },
+        {
+            "name": "hour",
+            "entities": [
+                "1:00 PM",
+                "2:00 PM",
+                "3:00 PM",
+                "4:00 PM"
+            ]
+        }
+    ],
+    "hints": [
+        "The topping Hot Fudge is 2 hours before the flavor Mint",
+        "Either The topping Sprinkles is the flavor Chocolate or The hour 4:00 PM is the flavor Mint",
+        "The topping Cookies is the hour 2:00 PM",
+        "Either the flavor Strawberry or the flavor Mint is the topping Cookies",
+        "The topping Cookies is not the Chocolate flavor"
+    ],
+    "id": 1
+}
