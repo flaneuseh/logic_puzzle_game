@@ -163,10 +163,10 @@ export default Puzzle =({p, time, concede, finish})=>{
             leftCat = null;
 
             if (row == 0) {
-                topCat = p.topBottom[col]
+                topCat = p.leftRight[col]
             }
             if (col == 0) {
-                leftCat = p.leftRight[row]
+                leftCat = p.topBottom[row]
             }
             displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }} key={row + "," + col}><SubGrid numCols={p.numEnt} numRows={p.numEnt} cells={subgrid} select={select} topCat={topCat} leftCat={leftCat} /></div>);
             displayColIdx++;
