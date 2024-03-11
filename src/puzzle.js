@@ -4,7 +4,7 @@ import Hints from "./hints";
 import StateSelector from "./stateSelector";
 import SubGrid from "./subgrid";
 
-function initializeSubGrid(numRows, numCols, puzzle) {
+function initializeSubGrid(numRows, numCols, puzzle, recordPuzzle) {
     let subgrid = []
     for (let i = 0; i < numRows; i++) {
         subgrid[i] = [];
@@ -13,7 +13,12 @@ function initializeSubGrid(numRows, numCols, puzzle) {
             j < numCols;
             j++
         ) {
-            let [state, setState] = useState("*", () => recordPuzzle(puzzle))
+            let [state, setState] = useState("*")
+            useEffect(() => {
+                // run something every time name changes
+                recordPuzzle()
+            }, [state]);
+            
             subgrid[i][j] = { state: state, setState: setState };
         }
     }
@@ -58,7 +63,6 @@ const puzzleToString = (puzzle) => {
 const amountCorrect = (puzzle, solution) => {
     let gameState = puzzleToString(puzzle)
 
-    console.log(solution)
     if (gameState.length != solution.length) {
         console.log("Incorrect formatting for puzzle")
         console.log(gameState)
@@ -116,6 +120,7 @@ const recordPuzzle = (puzzle, solution, time) => {
     console.log("Time since start:" + ms)
     str = puzzleToString(puzzle)
     console.log(str)
+    console.log(solution)
     let [correct, incorrect, total] = amountCorrect(puzzle, solution)
     console.log("Correct: " + correct + ", incorrect: " + incorrect + ", total:" + total)
     console.log("Is solved: " + isSolved(puzzle, solution));
@@ -152,11 +157,12 @@ export default Puzzle =({p, time, concede, finish})=>{
     let [select, setSelect] = useState("O");
     let displayRowIdx = 1;
     let rowLength = p.leftRight.length;
+    let [strikes, setStrikes] = useState([]);
     for (let row = 0; row < p.topBottom.length; row++) {
         puzzle[row] = []
         let displayColIdx = 1;
         for (let col = 0; col < rowLength; col++) {
-            let subgrid = initializeSubGrid(p.numEnt, p.numEnt, puzzle);
+            let subgrid = initializeSubGrid(p.numEnt, p.numEnt, puzzle, ()=>{recordPuzzle(puzzle, p.solutionString, time)});
             puzzle[row][col] = subgrid;
 
             topCat = null;
@@ -175,17 +181,17 @@ export default Puzzle =({p, time, concede, finish})=>{
         displayRowIdx++;
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         // run something every time name changes
         recordPuzzle(puzzle, p.solutionString, time)
-    }, [puzzle]);
+    }, [puzzle]);*/ 
 
     /*setInterval(() => {
       setTime( 1)
   }, 1000);*/
 
-    let [strikes, setStrikes] = useState([]);
-    let [hints, setHints] = useState(<Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes}/>); 
+    
+    //let [hints, setHints] = useState(<Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes}/>); 
 
 
     return (<div className="puzzleArea">

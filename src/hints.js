@@ -9,13 +9,11 @@ let recordHint = (time, hint, strikes, i) =>{
 
 export default HintDisplay = ({hints, time, strikes, setStrikes}) => {
 
-    console.log(strikes)
-
 
     let toggleStrike = (idx) => {
         const nextStrikes= strikes.map((c, i) => {
             if (i === idx) {
-              // Increment the clicked counter
+              // toggle strike
               return !c;
             } else {
               // The rest haven't changed
@@ -28,12 +26,16 @@ export default HintDisplay = ({hints, time, strikes, setStrikes}) => {
     
     let makeHint = (hint, setStrikes, idx) =>{
 
+        let strike= false; 
+
         if(strikes.length <= idx){
             setStrikes([...strikes, false]); 
+        }else{
+            strike=strikes[idx]
         }
         
 
-        if (strikes[idx]){
+        if (strike){
             return ( <li className="hint strikedText" key={hint} onClick = {() => {recordHint(time, hint, strikes, idx); toggleStrike(idx)}}>{hint}</li>); 
         }else{
             return ( <li className="hint" key={hint} onClick = {() => { recordHint(time, hint, strikes, idx);toggleStrike(idx)}}>{hint}</li>); 

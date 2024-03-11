@@ -2,8 +2,12 @@
 const states = ["*", "O", "X", "!", "?"]
 
 let toggleState = (s, setState, select) => {
+    if(s == select){
+        setState("*")
+    }else{
+        setState(select)
+    }
 
-    setState(select)
 
 
 }
