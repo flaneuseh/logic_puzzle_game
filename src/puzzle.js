@@ -137,18 +137,19 @@ let clearPuzzle = (puzzle, setStrikes) => {
         }
 
     }
-
-    for (strike in setStrikes) {
-        setStrikes[strike](false);
+    let newStrikes = []
+    for(i in strikes){
+        newStrikes.push(false); 
     }
 
+    setStrikes(newStrikes);
+    
 }
 
-export default Puzzle = ({ p, time }) => {
+export default Puzzle =({p, time, concede, finish})=>{
     let puzzle = [[]];
     let displayGrid = [];
     let [select, setSelect] = useState("O");
-
     let displayRowIdx = 1;
     let rowLength = p.leftRight.length;
     for (let row = 0; row < p.topBottom.length; row++) {
@@ -183,7 +184,9 @@ export default Puzzle = ({ p, time }) => {
       setTime( 1)
   }, 1000);*/
 
-    let setStrikes = []
+    let [strikes, setStrikes] = useState([]);
+    let [hints, setHints] = useState(<Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes}/>); 
+
 
     return (<div className="puzzleArea">
         <div>
@@ -196,12 +199,12 @@ export default Puzzle = ({ p, time }) => {
             <StateSelector selected={select} setSelect={setSelect} />
         </div>
         <div>
-            <Hints hints={p.hints} time={time} setStrikes={setStrikes} />
-            <FinishButtons
-                giveUp={() => { console.log("Player gave up") }}
-                isCorrect={() => isSolved(puzzle, p.solutionString)}
-                clearPuzzle={() => clearPuzzle(puzzle, setStrikes)}
-                finish={() => console.log("Finish puzzle")}
+            <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes}/>
+            <FinishButtons 
+                giveUp={() => {concede()}}
+                isCorrect = {() => isSolved(boards, p.solutionString)}
+                clearPuzzle = {() => clearPuzzle(boards, strikes, setStrikes)}
+                finish = {() => {finish()}}
 
             />
         </div>

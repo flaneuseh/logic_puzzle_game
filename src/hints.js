@@ -1,32 +1,47 @@
 import { useEffect, useState } from "react"
 
-let recordHint = (time, hint, striked) => {
+let recordHint = (time, hint, strikes, i) =>{
     let newTime = new Date()
-    let ms = newTime - time
-    console.log("The hint '" + hint + "' was set to '" + striked + "' at time '" + ms + "'")
+    let ms = newTime - time 
+    console.log("The hint '" + hint + "' was set to '" + strikes[i] + "' at time '" + ms +"'" )
 }
 
 
-export default HintDisplay = ({ hints, time, setStrikes }) => {
+export default HintDisplay = ({hints, time, strikes, setStrikes}) => {
 
-    let makeHint = (hint, setStrikes) => {
-        let [strike, setStrike] = useState(false)
-        setStrikes.push(setStrike)
+    console.log(strikes)
 
-        useEffect(() => {
-            // run something every time name changes
-            recordHint(time, hint, strike)
-        }, [strike]);
 
-        if (strike) {
-            return (<li className="hint strikedText" key={hint} onClick={() => { setStrike(!strike) }}>{hint}</li>);
-        } else {
-            return (<li className="hint" key={hint} onClick={() => { setStrike(!strike) }}>{hint}</li>);
+    let toggleStrike = (idx) => {
+        const nextStrikes= strikes.map((c, i) => {
+            if (i === idx) {
+              // Increment the clicked counter
+              return !c;
+            } else {
+              // The rest haven't changed
+              return c;
+            }
+          });
+          setStrikes(nextStrikes);
+
+    }
+    
+    let makeHint = (hint, setStrikes, idx) =>{
+
+        if(strikes.length <= idx){
+            setStrikes([...strikes, false]); 
+        }
+        
+
+        if (strikes[idx]){
+            return ( <li className="hint strikedText" key={hint} onClick = {() => {recordHint(time, hint, strikes, idx); toggleStrike(idx)}}>{hint}</li>); 
+        }else{
+            return ( <li className="hint" key={hint} onClick = {() => { recordHint(time, hint, strikes, idx);toggleStrike(idx)}}>{hint}</li>); 
         }
     }
 
-
-    let hintsList = hints.map((hint) => makeHint(hint, setStrikes))
+    
+    let hintsList = hints.map((hint, idx) => makeHint(hint, setStrikes, idx))
     hintsList = <ol>{hintsList}</ol>
     return (
         <div>
