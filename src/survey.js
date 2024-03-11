@@ -33,9 +33,17 @@ let LikertScale = ({question, answers, responses, setResponses}) =>{
 }
 
 let postResponse = (responses, puzzle, submit) => {
-    console.log("Puzzle:" + puzzle)
-    console.log(responses);
-    submit();
+    let nullResponses = Object.keys(responses).filter((key)=> {return responses[key] == -1}); 
+    
+    if(nullResponses.length > 0){
+        Promise.resolve().then(alert("Cannot have blank responses"));
+    }else{
+        console.log("Puzzle:" + puzzle)
+        console.log(responses);
+        submit();
+
+    }
+
 }
 
 export default Survey = ({puzzleId, submit})=>{
