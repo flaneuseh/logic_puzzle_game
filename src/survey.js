@@ -1,8 +1,15 @@
 import { useState } from "react";
 import "./survey.css"
 
-let questions = ["The game was cognitively demanding", "I had to think very hard when playing the game.", 
-        "The game required a lot of mental gymnastics.",  "The game stimulated my brain.", "The mental challenges in this game had an impact on how I played.", "The game was fun to play."];
+
+// questions from the video game demand scale  (cognitive) and the GUESS scale (enjoyment)
+// "game" is changed to puzzle for clearity 
+let questions = ["The puzzle was cognitively demanding", "I had to think very hard when playing the puzzle.", 
+        "The puzzle required a lot of mental gymnastics.",  "The puzzle stimulated my brain.", 
+        "The mental challenges in this puzzle had an impact on how I played.", 
+        "I think the puzzle is fun.", "I enjoy playing the puzzle.",
+         "I feel bored while playing the puzzle.", "I am likely to recommend this puzzle to others.", 
+         "If given the chance, I want to play this puzzle again."];
 
 
 let answers  = ["1 (Strongly Disagree)", "2", "3", "4", "5","6", "7 (Strongly Agree)"];
