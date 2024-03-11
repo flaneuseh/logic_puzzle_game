@@ -30,14 +30,14 @@ body {
 }
 
 .topEntityText {
-    writing-mode: vertical-lr;
+    writing-mode: vertical-rl;
     text-align: left;
     margin: auto;
     width: 3.5vmin;
     height: 10vmin;
     font-size: 1.5vmin;
     transform:
-        rotate(215deg) translate(-1.5vmin, 1.5vmin);
+        rotate(215deg) translate(-2.5vmin, 2vmin);
 }
 
 .leftEntityText {
