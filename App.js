@@ -1,20 +1,19 @@
 
-import Board from './src/subgrid';
-import Category from './src/categoryModel';
-import "./src/style.css"
-import Puzzle from './src/puzzle';
-import PuzzleModel from './src/puzzleModel';
 import axios from 'axios';
 import { useState } from 'react';
+import Category from './src/categoryModel';
+import Puzzle from './src/puzzle';
+import PuzzleModel from './src/puzzleModel';
+import "./src/style.css";
 
 
-function createPuzzle(data, setPuzzle){
+function createPuzzle(data, setPuzzle) {
   console.log(data)
   let categories = []
-  for(cat in data.categories){
+  for (cat in data.categories) {
     cat = data.categories[cat]
     categories.push(new Category(cat.name, cat.entities))
-  } 
+  }
 
   setPuzzle(new PuzzleModel(categories, data.hints, data.solution))
 
@@ -22,30 +21,30 @@ function createPuzzle(data, setPuzzle){
 
 export default function App() {
 
-  let [puzzle, setPuzzle] = useState(null); 
+  let [puzzle, setPuzzle] = useState(null);
 
-  if(puzzle == null){
+  if (puzzle == null) {
     axios.get('hint_json.json')
-    .then(response => {
-      createPuzzle(response.data, setPuzzle)
-    });
+      .then(response => {
+        createPuzzle(response.data, setPuzzle)
+      });
   }
- 
+
   let time = new Date()
 
-  if(puzzle == null){
+  if (puzzle == null) {
     return (<div>Loading...</div>)
-  }else{
+  } else {
     return (
-    
-      <Puzzle p={puzzle} time={time}/>
-        
-   
+
+      <Puzzle p={puzzle} time={time} />
+
+
     );
   }
-  
-  
- 
+
+
+
 }
 
 

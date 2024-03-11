@@ -8,7 +8,7 @@ body {
     display: grid;
 }
 
-.board {
+.subgrid {
     display: grid;
     margin: 0.2vmin;
     text-align: center;
@@ -165,7 +165,7 @@ body {
     color: #818181;
 }
 
-.boardRow {
+.subgridRow {
     display: flex;
 }
 
@@ -192,6 +192,13 @@ li {
     text-align: left;
 }
 
+.smalltext {
+    font-size: 2vmin;
+}
+
+.hint:hover {
+    cursor: pointer;
+}
 
 .strikedText {
     text-decoration: line-through;
