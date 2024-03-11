@@ -158,6 +158,7 @@ export default Puzzle =({p, time, concede, finish})=>{
     let boards = [[]]
     let [select, setSelect] = useState("O"); 
     
+    
     // top row 
     for(let i =0; i < p.leftRight.length; i++){
         let leftCat = null; 
@@ -202,6 +203,7 @@ export default Puzzle =({p, time, concede, finish})=>{
     }, 1000);*/ 
 
     let [strikes, setStrikes] = useState([]);
+    let [hints, setHints] = useState(<Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes}/>); 
 
 
 
@@ -220,7 +222,7 @@ export default Puzzle =({p, time, concede, finish})=>{
             <FinishButtons 
                 giveUp={() => {concede()}}
                 isCorrect = {() => isSolved(boards, p.solutionString)}
-                clearBoard = {() => clearBoards(boards, strikes)}
+                clearBoard = {() => clearBoards(boards, strikes, setStrikes)}
                 finish = {() => {finish()}}
 
                 />
