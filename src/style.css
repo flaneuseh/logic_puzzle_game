@@ -31,16 +31,17 @@ body {
 
 .topEntityText {
     writing-mode: vertical-lr;
+    text-align: left;
+    margin: auto;
     width: 3.5vmin;
     height: 10vmin;
     font-size: 1.5vmin;
     transform:
-        rotate(215deg);
+        rotate(215deg) translate(-1.5vmin, 1.5vmin);
 }
 
 .leftEntityText {
-    /* display: inline-block; */
-    margin: 0;
+    margin: auto;
     width: 10vmin;
     font-size: 1.5vmin;
 }
