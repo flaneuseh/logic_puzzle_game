@@ -121,7 +121,7 @@ const recordPuzzle = (puzzle, solution, time) => {
     console.log("Is solved: " + isSolved(puzzle, solution));
 }
 
-let clearPuzzle = (puzzle, setStrikes) => {
+let clearPuzzle = (puzzle, strikes, setStrikes) => {
     console.log("Clear Puzzle");
     for (row of puzzle) {
         for (subgrid of row) {
@@ -202,8 +202,8 @@ export default Puzzle =({p, time, concede, finish})=>{
             <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes}/>
             <FinishButtons 
                 giveUp={() => {concede()}}
-                isCorrect = {() => isSolved(boards, p.solutionString)}
-                clearPuzzle = {() => clearPuzzle(boards, strikes, setStrikes)}
+                isCorrect = {() => isSolved(puzzle, p.solutionString)}
+                clearPuzzle = {() => clearPuzzle(puzzle,strikes, setStrikes)}
                 finish = {() => {finish()}}
 
             />
