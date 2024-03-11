@@ -2,9 +2,9 @@ import Popup from 'reactjs-popup';
 
 
 
-export default FinishButtons = ({ giveUp, isCorrect, clearBoard, finish }) => {
+export default FinishButtons = ({ giveUp, isCorrect, clearPuzzle, finish }) => {
 
-    let CorrectPop = ({ isCorrect, finish, clearBoard, close }) => {
+    let CorrectPop = ({ isCorrect, finish, clearPuzzle, close }) => {
         let text = ""
         let retry = ""
         if (isCorrect()) {
@@ -12,7 +12,7 @@ export default FinishButtons = ({ giveUp, isCorrect, clearBoard, finish }) => {
         } else {
             text = "You are not correct"
 
-            retry = (<button onClick={() => { clearBoard(); close() }}>
+            retry = (<button onClick={() => { clearPuzzle(); close() }}>
                 Retry
             </button>)
         }
@@ -39,13 +39,13 @@ export default FinishButtons = ({ giveUp, isCorrect, clearBoard, finish }) => {
                 close => (
                     <div className='modal'>
                         <div className='content'>
-                            <CorrectPop isCorrect={isCorrect} clearBoard={clearBoard} finish={finish} close={() => close()} />
+                            <CorrectPop isCorrect={isCorrect} clearPuzzle={clearPuzzle} finish={finish} close={() => close()} />
                         </div>
                     </div>
                 )
             }
         </Popup>
-        <button onClick={clearBoard}>Restart</button>
+        <button onClick={clearPuzzle}>Restart</button>
 
     </div>)
 }

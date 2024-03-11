@@ -1,22 +1,17 @@
 
-import Board from './src/subgrid';
-import Category from './src/categoryModel';
-import "./src/style.css"
-import Puzzle from './src/puzzle';
-import PuzzleModel from './src/puzzleModel';
 import axios from 'axios';
 import { useState } from 'react';
 import PuzzleManager from './src/PuzzleManager';
 import Survey from './src/survey';
 
 
-function createPuzzle(data, setPuzzle){
+function createPuzzle(data, setPuzzle) {
   console.log(data)
   let categories = []
-  for(cat in data.categories){
+  for (cat in data.categories) {
     cat = data.categories[cat]
     categories.push(new Category(cat.name, cat.entities))
-  } 
+  }
 
   setPuzzle(new PuzzleModel(categories, data.hints, data.solution))
 

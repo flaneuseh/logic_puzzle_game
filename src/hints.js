@@ -1,4 +1,4 @@
-import { useState , useEffect} from "react"
+import { useEffect, useState } from "react"
 
 let recordHint = (time, hint, strikes, i) =>{
     let newTime = new Date()
@@ -34,18 +34,19 @@ export default HintDisplay = ({hints, time, strikes, setStrikes}) => {
         
 
         if (strikes[idx]){
-            return ( <li className="strikedText" key={hint} onClick = {() => {recordHint(time, hint, strikes, idx); toggleStrike(idx)}}>{hint}</li>); 
+            return ( <li className="hint strikedText" key={hint} onClick = {() => {recordHint(time, hint, strikes, idx); toggleStrike(idx)}}>{hint}</li>); 
         }else{
-            return ( <li key={hint} onClick = {() => { recordHint(time, hint, strikes, idx);toggleStrike(idx)}}>{hint}</li>); 
+            return ( <li className="hint" key={hint} onClick = {() => { recordHint(time, hint, strikes, idx);toggleStrike(idx)}}>{hint}</li>); 
         }
     }
 
     
     let hintsList = hints.map((hint, idx) => makeHint(hint, setStrikes, idx))
     hintsList = <ol>{hintsList}</ol>
-    return (     
+    return (
         <div>
-        <h1>Hints</h1>
-        {hintsList}
-    </div>); 
+            <h1>Hints</h1>
+            <p className="smalltext"> (click to cross out/uncross) </p>
+            {hintsList}
+        </div>);
 }
