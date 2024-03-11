@@ -1,84 +1,83 @@
-import Board from "./subgrid";
-import Category from "./categoryModel";
-import { useState,useEffect } from "react";
-import StateSelector from "./stateSelector";
-import Hints from "./hints";
+import { useEffect, useState } from "react";
 import FinishButtons from "./EndPuzzleButtons";
+import Hints from "./hints";
+import StateSelector from "./stateSelector";
+import SubGrid from "./subgrid";
 
-function initializeBoard(numRows, numCols, boards) {
-    let board = []
+function initializeSubGrid(numRows, numCols, puzzle) {
+    let subgrid = []
     for (let i = 0; i < numRows; i++) {
-        board[i] = [];
+        subgrid[i] = [];
         for (
             let j = 0;
             j < numCols;
             j++
         ) {
-            let [state, setState] = useState("*", ()=> recordBoard(boards))
-            board[i][j] = {state: state,  setState: setState};
+            let [state, setState] = useState("*", () => recordPuzzle(puzzle))
+            subgrid[i][j] = { state: state, setState: setState };
         }
     }
-    
-    return board 
+
+    return subgrid
 }
 
 const rowToString = (row, isFirst = false) => {
     let str = ""
 
-    for (let c = 0; c < row[0][0].length * row.length + row.length + 1; c ++){
+    for (let c = 0; c < row[0][0].length * row.length + row.length + 1; c++) {
         str += "-"
-    
+
     }
     str += "\n"
-    
-    for(let r =0; r < row[0].length; r++){
+
+    for (let r = 0; r < row[0].length; r++) {
         str += "|"
-        for(let board = 0; board < row.length; board++){
-            for (let c = 0; c < row[board][0].length; c ++){
-                str += row[board][r][c].state 
+        for (let subgrid = 0; subgrid < row.length; subgrid++) {
+            for (let c = 0; c < row[subgrid][0].length; c++) {
+                str += row[subgrid][r][c].state
             }
 
             str += "|"
         }
-        str+= "\n"
+        str += "\n"
     }
 
 
 
-    return str 
+    return str
 }
 
-const puzzleToString = (boards) =>{
+const puzzleToString = (puzzle) => {
     str = ""
-    for(let row = 0; row < boards.length; row ++){
-        str += rowToString(boards[row], isFirst = row == 0)
+    for (let row = 0; row < puzzle.length; row++) {
+        str += rowToString(puzzle[row], isFirst = row == 0)
     }
-    return str 
-} 
+    return str
+}
 
-const amountCorrect = (boards, solution) => {
-    let gameState = puzzleToString(boards) 
+const amountCorrect = (puzzle, solution) => {
+    let gameState = puzzleToString(puzzle)
 
     console.log(solution)
-    if (gameState.length != solution.length){
+    if (gameState.length != solution.length) {
         console.log("Incorrect formatting for puzzle")
         console.log(gameState)
         console.log(solution)
         return [0, 0, 0]
-    }else{
-        let correct = 0 
-        let incorrect = 0 
-        let total = 0 
-        for(let i = 0; i < gameState.length; i ++){
-            if (gameState[i] == "X" || gameState[i] == "O"){
-                total ++; 
-                if(gameState[i] == solution[i]){
-                    correct ++; 
-                }else{
-                    incorrect ++ 
+    } else {
+        let correct = 0
+        let incorrect = 0
+        let total = 0
+        for (let i = 0; i < gameState.length; i++) {
+            if (gameState[i] == "X" || gameState[i] == "O") {
+                total++;
+                if (gameState[i] == solution[i]) {
+                    correct++;
+                } else {
+                    incorrect++
                 }
-            }else if (gameState[i] == "*" || gameState[i] == "!" || gameState[i] == "?"){
-                total++ 
+            } else if (gameState[i] == "*" || gameState[i] == "!" || gameState[i] == "?") {
+                total++
             }
         }
 
@@ -86,23 +85,23 @@ const amountCorrect = (boards, solution) => {
     }
 }
 
-const isSolved = (boards, solution) =>{
-    let gameState = puzzleToString(boards) 
-    let [correct, incorrect, total] = amountCorrect(boards, solution) 
+const isSolved = (puzzle, solution) => {
+    let gameState = puzzleToString(puzzle)
+    let [correct, incorrect, total] = amountCorrect(puzzle, solution)
 
-    if (gameState.length != solution.length){
+    if (gameState.length != solution.length) {
         console.log("Incorrect formatting for puzzle")
         console.log(gameState)
         console.log(solution)
         return [0, 0]
-    }else{
-        let correct = 0; 
-        let total = 0 
-        for(let i = 0; i < gameState.length; i ++){
-            if(solution[i] == "O"){
-                total++ 
-                if(solution[i] == gameState[i]){
-                    correct ++;
+    } else {
+        let correct = 0;
+        let total = 0
+        for (let i = 0; i < gameState.length; i++) {
+            if (solution[i] == "O") {
+                total++
+                if (solution[i] == gameState[i]) {
+                    correct++;
                 }
             }
         }
@@ -111,120 +110,100 @@ const isSolved = (boards, solution) =>{
     }
 }
 
-const recordBoard = (boards, solution, time) =>{
+const recordPuzzle = (puzzle, solution, time) => {
     let newTime = new Date()
-    let ms = newTime - time 
+    let ms = newTime - time
     console.log("Time since start:" + ms)
-    str = puzzleToString(boards)
+    str = puzzleToString(puzzle)
     console.log(str)
-    let [correct, incorrect, total ] = amountCorrect(boards, solution)
-    console.log("Correct: " + correct + ", incorrect: " + incorrect + ", total:" + total) 
-    console.log("Is solved: " + isSolved(boards, solution));
+    let [correct, incorrect, total] = amountCorrect(puzzle, solution)
+    console.log("Correct: " + correct + ", incorrect: " + incorrect + ", total:" + total)
+    console.log("Is solved: " + isSolved(puzzle, solution));
 }
 
-let clearBoards = (boards, setStrikes) =>{
-    console.log("Clear Boards");
-    for (r in  boards){
-        let row = boards[r]
-        for(b in row){
-            let board = row[b]
-
-            for (let i = 0; i < board.length; i++) {
+let clearPuzzle = (puzzle, setStrikes) => {
+    console.log("Clear Puzzle");
+    for (row of puzzle) {
+        for (subgrid of row) {
+            for (let i = 0; i < subgrid.length; i++) {
                 for (
                     let j = 0;
-                    j < board[i].length;
+                    j < subgrid[i].length;
                     j++
                 ) {
-                    board[i][j].setState("*");
+                    subgrid[i][j].setState("*");
                 }
             }
         }
-        
+
     }
 
-    for(strike in setStrikes){
+    for (strike in setStrikes) {
         setStrikes[strike](false);
     }
-    
+
 }
 
-export default Puzzle =({p, time})=>{
+export default Puzzle = ({ p, time }) => {
+    let puzzle = [[]];
+    let displayGrid = [];
+    let [select, setSelect] = useState("O");
 
+    let displayRowIdx = 1;
+    let rowLength = p.leftRight.length;
+    for (let row = 0; row < p.topBottom.length; row++) {
+        puzzle[row] = []
+        let displayColIdx = 1;
+        for (let col = 0; col < rowLength; col++) {
+            let subgrid = initializeSubGrid(p.numEnt, p.numEnt, puzzle);
+            puzzle[row][col] = subgrid;
 
+            topCat = null;
+            leftCat = null;
 
-    let rows = [[]]
-    let boards = [[]]
-    let [select, setSelect] = useState("O"); 
-    
-    // top row 
-    for(let i =0; i < p.leftRight.length; i++){
-        let leftCat = null; 
-        if(i == 0){
-            leftCat = p.topBottom[0]
-        }
-
-        let board = initializeBoard(p.numEnt, p.numEnt, boards)
-        boards[0][i] = board 
-
-        rows[0][i] = <Board numCols={p.numEnt} numRows={p.numEnt} board = {board} topCat={p.leftRight[i]} leftCat={leftCat} select ={select} key = {"0," + i}/>
-    }
-
-    let rowLength = p.leftRight.length-1; 
-
-    for(let row = 1; row < p.topBottom.length; row++){
-        rows[row] = []
-        boards[row] = []
-        for(let col = 0; col < rowLength; col++){
-            let leftCat = null; 
-            if(col == 0){
-                leftCat = p.topBottom[row]
+            if (row == 0) {
+                topCat = p.topBottom[col]
             }
-            let board = initializeBoard(p.numEnt, p.numEnt, boards)
-            boards[row][col] = board 
-            rows[row][col] = <Board numCols={p.numEnt} numRows={p.numEnt} board = {board} leftCat={leftCat} select ={select} key = {row + "," + col}/>
+            if (col == 0) {
+                leftCat = p.leftRight[row]
+            }
+            displayGrid.push(<div style={{ gridRow: displayRowIdx, gridColumn: displayColIdx }} key={row + "," + col}><SubGrid numCols={p.numEnt} numRows={p.numEnt} cells={subgrid} select={select} topCat={topCat} leftCat={leftCat} /></div>);
+            displayColIdx++;
         }
-        rowLength --; 
-        
+        rowLength--;
+        displayRowIdx++;
     }
-
-    let elements = rows.map((row, idx) => {return <div className="boardRow" key = {idx}>{row}</div>});
-
 
     useEffect(() => {
         // run something every time name changes
-        recordBoard(boards, p.solutionString, time)
-      }, [boards]);
+        recordPuzzle(puzzle, p.solutionString, time)
+    }, [puzzle]);
 
-      /*setInterval(() => {
-        setTime( 1)
-    }, 1000);*/ 
+    /*setInterval(() => {
+      setTime( 1)
+  }, 1000);*/
 
     let setStrikes = []
 
-
     return (<div className="puzzleArea">
         <div>
-        <h1>Puzzle</h1>
-        {elements} 
+            <h1>Puzzle</h1>
+            <div className="puzzleGrid">
+                {displayGrid}
+            </div>
 
-        <h1>Selector</h1>
-            <StateSelector selected = {select} setSelect={setSelect} /> 
+            <h1>Selector</h1>
+            <StateSelector selected={select} setSelect={setSelect} />
         </div>
-        
-
         <div>
-            <Hints hints={p.hints} time={time} setStrikes ={setStrikes}/>
-            <FinishButtons 
-                giveUp={() => {console.log("Player gave up")}}
-                isCorrect = {() => isSolved(boards, p.solutionString)}
-                clearBoard = {() => clearBoards(boards, setStrikes)}
-                finish = {() => console.log("Finish puzzle")}
+            <Hints hints={p.hints} time={time} setStrikes={setStrikes} />
+            <FinishButtons
+                giveUp={() => { console.log("Player gave up") }}
+                isCorrect={() => isSolved(puzzle, p.solutionString)}
+                clearPuzzle={() => clearPuzzle(puzzle, setStrikes)}
+                finish={() => console.log("Finish puzzle")}
 
-                />
+            />
         </div>
-
-           
-    
-        </div>);
-
+    </div>);
 }
