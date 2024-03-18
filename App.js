@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import PuzzleManager from './src/PuzzleManager';
 import Survey from './src/survey';
+import Tutorial from './src/Tutorial';
 
 
 function createPuzzle(data, setPuzzle) {
@@ -31,19 +32,30 @@ export default function App() {
 
   let [puzzle, setPuzzle] = useState(null); 
   let [i, setI] = useState(0)
+  let [start, setStart] = useState(false)
+  let [content, setContent] = useState(<Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip = {12} startGame={() => {startGame()}}/> ); 
+  let files = ["puzzles/example.json", "puzzles/trial4_puzzle0_0.json"]
+
+  let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip = {12} startGame={() => {startGame()}}/> 
+  let puzzleManager  = <PuzzleManager files={files} i={i} setI={setI}/>
+
+  let startGame = () => {
+    setStart(true)
+  }
 
   //let files = ["puzzles/trial4_puzzle0_0.json","puzzles/trial4_puzzle1_1.json", "puzzles/trial4_puzzle2_2.json", "puzzles/trial4_puzzle3_3.json", "puzzles/trial4_puzzle4_4.json",  "puzzles/trial4_puzzle5_5.json", "puzzles/trial4_puzzle6_6.json", "puzzles/trial4_puzzle7_7.json"] 
-  let files = ["puzzles/example.json", "puzzles/trial4_puzzle0_0.json"]
+ 
   shuffleArray(files)
-      return (<PuzzleManager files={files} i={i} setI={setI}/> );
+      return <div className='parent'>
+
+        {start?  puzzleManager: tutorial}
+      </div>
         
    
   
     
   
   
-  
  
 }
-
 

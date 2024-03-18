@@ -16,7 +16,6 @@ function shuffleArray(array) {
 }
 
 function createPuzzle(data){
-    console.log(data)
     let categories = []
     for(cat in data.categories){
       cat = data.categories[cat]

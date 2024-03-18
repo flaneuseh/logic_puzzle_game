@@ -109,7 +109,6 @@ const isSolved = (puzzle, solution) => {
                 }
             }
         }
-        console.log(gameState)
         return total == correct && incorrect == 0
     }
 }
@@ -199,16 +198,16 @@ export default Puzzle =({p, time, concede, finish})=>{
 
 
     return (<div className="puzzleArea">
-        <div>
+        <div className="puzzleLeft">
             <h1>Puzzle</h1>
             <div className="puzzleGrid">
                 {displayGrid}
             </div>
 
-            <h1>Selector</h1>
+            <h1>Select Mark</h1>
             <StateSelector selected={select} setSelect={setSelect} />
         </div>
-        <div>
+        <div className="puzzleRight">
             <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes}/>
             <FinishButtons 
                 giveUp={() => {concede()}}

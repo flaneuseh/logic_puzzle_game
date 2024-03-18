@@ -8,6 +8,8 @@ body {
     display: grid;
 }
 
+
+
 .subgrid {
     display: grid;
     margin: 0.2vmin;
@@ -173,6 +175,9 @@ body {
     display: flex;
     margin: 5vmin, 10vmin;
     overflow-y: scroll;
+    justify-content: center;
+    
+
 }
 
 h1 {
@@ -188,9 +193,14 @@ div {
     font-size: 2.5vmin;
 }
 
+
+.parent {
+    width: 100%;
+}
 ol {
     font-size: 2vmin;
     width: 30vmin;
+
 }
 
 li {
@@ -222,3 +232,39 @@ li {
 }
 
 
+.slide {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.slide img{
+    width: 70vmin; 
+}
+
+.puzzleRight{
+    width: 35vmin;
+}
+
+.nextButton {
+    float:right; 
+    margin-right: 10vmin;
+    margin-top: 3vmin;
+    width: 10vmin;
+    height: 4vmin;
+}
+
+.backButton {
+    float: left;
+    margin-left: 10vmin;
+    margin-top: 3vmin;
+    width: 10vmin;
+    height: 4vmin;
+}
+
+.startGame {
+    width: 15vmin;
+    margin-top: 3vmin;
+    height: 4vmin;
+}
