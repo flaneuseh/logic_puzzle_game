@@ -12,7 +12,7 @@ let questions = ["The puzzle was cognitively demanding.", "I had to think very h
     "If given the chance, I want to play this puzzle again."];
 
 
-let answers = ["1 (Strongly Disagree)", "2", "3", "4", "5", "6", "7 (Strongly Agree)"];
+let answers = ["1 (Disagree)", "2", "3", "4", "5", "6", "7 (Agree)"];
 
 
 
@@ -26,7 +26,7 @@ let LikertScale = ({ question, answers, responses, setResponses }) => {
         (answer, idx) => {
             return (<li key={answer + idx + 1}>
                 <input type="radio" name={question} value={idx + 1} onChange={() => updateResponse(question, idx + 1, responses, setResponses)} />
-                <label>{answer}</label>
+                <label>{answers[idx]}</label>
             </li>)
         })
 
@@ -44,7 +44,7 @@ let postResponse = (responses, puzzle, submit) => {
     let nullResponses = Object.keys(responses).filter((key) => { return responses[key] == -1 });
 
     if (nullResponses.length > 0) {
-        Promise.resolve().then(alert("Cannot have blank responses"));
+        Promise.resolve().then(alert("Please answer all questions"));
     } else {
         console.log("Puzzle:" + puzzle)
         console.log(responses);

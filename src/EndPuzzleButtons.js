@@ -11,11 +11,11 @@ let CorrectPop = ({isCorrect, finish, clearPuzzle, close}) => {
         text = "At least one answer is incorrect or incomplete"
 
         clear = (<button onClick={() => { clearPuzzle(); close() }}>
-            Clear and Re-attampt
+            Clear and Re-attempt
         </button>)
 
         retry = (<button onClick={() => { clearPuzzle(); close() }}>
-         Re-attampt
+         Re-attempt
         </button>)
     }
 
