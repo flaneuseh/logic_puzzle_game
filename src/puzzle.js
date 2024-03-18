@@ -109,12 +109,12 @@ const isSolved = (puzzle, solution) => {
                 }
             }
         }
-
+        console.log(gameState)
         return total == correct && incorrect == 0
     }
 }
 
-const recordPuzzle = (puzzle, solution, time) => {
+const recordPuzzle = (puzzle, solution, time, setCorrect) => {
     let newTime = new Date()
     let ms = newTime - time
     console.log("Time since start:" + ms)
@@ -122,6 +122,7 @@ const recordPuzzle = (puzzle, solution, time) => {
     console.log(str)
     console.log(solution)
     let [correct, incorrect, total] = amountCorrect(puzzle, solution)
+    setCorrect(correct)
     console.log("Correct: " + correct + ", incorrect: " + incorrect + ", total:" + total)
     console.log("Is solved: " + isSolved(puzzle, solution));
 }
@@ -158,11 +159,14 @@ export default Puzzle =({p, time, concede, finish})=>{
     let displayRowIdx = 1;
     let rowLength = p.leftRight.length;
     let [strikes, setStrikes] = useState([]);
+    let [isCorrect, setCorrect] = useState(false);
+
+   
     for (let row = 0; row < p.topBottom.length; row++) {
         puzzle[row] = []
         let displayColIdx = 1;
         for (let col = 0; col < rowLength; col++) {
-            let subgrid = initializeSubGrid(p.numEnt, p.numEnt, puzzle, ()=>{recordPuzzle(puzzle, p.solutionString, time)});
+            let subgrid = initializeSubGrid(p.numEnt, p.numEnt, puzzle, ()=>{recordPuzzle(puzzle, p.solutionString, time, setCorrect)});
             puzzle[row][col] = subgrid;
 
             topCat = null;
@@ -209,8 +213,9 @@ export default Puzzle =({p, time, concede, finish})=>{
             <FinishButtons 
                 giveUp={() => {concede()}}
                 isCorrect = {() => isSolved(puzzle, p.solutionString)}
-                clearPuzzle = {() => clearPuzzle(puzzle,strikes, setStrikes)}
+                clearPuzzle = {function () {clearPuzzle(puzzle,strikes, setStrikes)}}
                 finish = {() => {finish()}}
+                puzzle={puzzle}
 
             />
         </div>
