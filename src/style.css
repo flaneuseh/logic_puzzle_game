@@ -214,3 +214,11 @@ li {
     width: 10vmin;
     font-size: 3vmin;
 }
+
+.recorded {
+    width: 100% ;
+    text-align: center;
+    margin-top: 5vmin;
+}
+
+

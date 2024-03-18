@@ -4,6 +4,7 @@ import Puzzle from "./puzzle";
 import Category from "./categoryModel";
 import PuzzleModel from "./puzzleModel";
 import Survey from "./survey";
+import ResponseRecorded from "./ResponseRecorded";
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -45,9 +46,16 @@ function createPuzzle(data){
     }
 
 }
+function finish (setContent) {
+    setContent(<div>Thank you for your time, you may close this window now</div>)
+}
+
+function showRecordedScreen (setContent, i, setI, files){
+    setContent(<ResponseRecorded goToNextPuzzle={()=>{load( i + 1, setI, setContent, files)}} finish={() => {finish(setContent)}} morePuzzles={() => {return i + 1 < files.length}}/>) 
+}
 
 function startSurvey(puzzle, i, setI, setContent, files){
-    setContent(<Survey puzzleId={puzzle} submit={()=>{load( i + 1, setI, setContent, files)}}/>); 
+    setContent(<Survey puzzleId={puzzle} submit={()=>showRecordedScreen(setContent, i , setI, files)}/>); 
     setI(i + 1)
 
     }
