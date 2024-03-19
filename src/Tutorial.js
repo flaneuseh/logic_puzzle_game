@@ -21,7 +21,7 @@ export default Tutorial = ({imageFolder, numSlides, canSkip, startGame}) => {
     }
     return (<div className="tutorial">
         <div className="slide">
-        <img className="slide" src = {imageFolder + "/" + idx +".png"}/>
+        <img  src = {imageFolder + "/" + idx +".png"}/>
         </div>
      
         <button className="backButton" onClick={decrease} disabled={idx <= 1}>Back</button>

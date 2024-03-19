@@ -249,7 +249,7 @@ li {
 
 .nextButton {
     float:right; 
-    margin-right: 10vmin;
+    margin-right: 40vmin;
     margin-top: 3vmin;
     width: 10vmin;
     height: 4vmin;
@@ -257,7 +257,7 @@ li {
 
 .backButton {
     float: left;
-    margin-left: 10vmin;
+    margin-left: 40vmin;
     margin-top: 3vmin;
     width: 10vmin;
     height: 4vmin;
