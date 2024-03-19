@@ -243,8 +243,12 @@ li {
     width: 70vmin; 
 }
 
+.surveyImg {
+    width:50vmin;
+}
+
 .puzzleRight{
-    width: 35vmin;
+    width: 30vmin;
 }
 
 .nextButton {
@@ -254,6 +258,25 @@ li {
     width: 10vmin;
     height: 4vmin;
 }
+
+.survey ul {
+    list-style-type: none;
+}
+
+.survey li input[type="radio"]{
+    width: 2vmin; 
+    height: 2vmin;
+}
+
+.survey li label{
+    font-size: 2vmin;
+}
+
+.survey h1{
+    font-size: 2vmin;
+}
+
+
 
 .backButton {
     float: left;
