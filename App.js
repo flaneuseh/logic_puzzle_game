@@ -6,6 +6,7 @@ import Survey from './src/survey';
 import Tutorial from './src/Tutorial';
 import { addSubject } from './src/Firestore/sendData';
 import InitialSurvey from './src/InitialSurvey';
+import { getCurrentUser } from './src/Firestore/SignIn';
 
 function createPuzzle(data, setPuzzle) {
   console.log(data)
@@ -47,14 +48,21 @@ export default function App() {
     setMode("puzzle")
   }
 
-  //
+  //const userPromise = getCurrentUser(); 
+  //userPromise.then((user) => {console.log(user)});
+
+  let submitInitalSurvey = (logicPuz, gridPuzz) => {
+    setMode("tutorial");
+    addSubject(logicPuz, gridPuzz) 
+  }
+  
  
   shuffleArray(files)
 
   if(mode == "survey"){
     return (
      
-      <InitialSurvey postAnswers={(responses) => {setMode("tutorial"); console.log(responses)}} />
+      <InitialSurvey postAnswers={submitInitalSurvey} />
     )
   }else if (mode == "tutorial"){
     return (<div className='parent'>{tutorial}</div>)
