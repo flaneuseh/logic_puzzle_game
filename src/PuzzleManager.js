@@ -27,7 +27,7 @@ function createPuzzle(data) {
 }
 
 
-function load(i, setI, setContent, files) {
+function load(i, setI, setContent, files, postSurvey) {
     if (i >= files.length) {
         setContent(<div>No more puzzles</div>);
     } else {
@@ -38,11 +38,11 @@ function load(i, setI, setContent, files) {
                 setI(i + 1);
                 setContent(<Puzzle p={p} time={time} concede={() => {
                     // addUserAction(pid, "concede", null, time)
-                    startSurvey(p.num, i, setI, setContent, files)
+                    startSurvey(p.num, i, setI, setContent, files, postSurvey)
                 }
                 } finish={() => {
                     // addUserAction(pid, "finish", null, time)
-                    startSurvey(p.num, i, setI, setContent, files)
+                    startSurvey(p.num, i, setI, setContent, files, postSurvey)
                 }} />);
 
 
@@ -60,9 +60,9 @@ function showRecordedScreen(setContent, i, setI, files) {
     setContent(<ResponseRecorded goToNextPuzzle={() => { load(i + 1, setI, setContent, files) }} finish={() => { finish(setContent) }} morePuzzles={() => { return i + 1 < files.length }} />)
 }
 
-function startSurvey(puzzle, i, setI, setContent, files) {
+function startSurvey(puzzle, i, setI, setContent, files, postSurvey) {
     setContent(<Survey puzzleId={puzzle} submit={(responses) => {
-        // addSurvey(responses); 
+        postSurvey(puzzle, responses)
         showRecordedScreen(setContent, i, setI, files)
     }} />);
     setI(i + 1)
@@ -70,7 +70,7 @@ function startSurvey(puzzle, i, setI, setContent, files) {
 }
 
 
-export default PuzzleManager = ({ files, i, setI }) => {
+export default PuzzleManager = ({ files, i, setI , postSurvey}) => {
     //shuffleArray(files);
     //let [i, setI] = useState(0);
     let [content, setContent] = useState(<div>loading</div>);
@@ -81,7 +81,7 @@ export default PuzzleManager = ({ files, i, setI }) => {
 
 
     if (i == 0) {
-        load(i, setI, setContent, files);
+        load(i, setI, setContent, files, postSurvey);
 
     }
 

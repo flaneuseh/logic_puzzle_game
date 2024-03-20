@@ -22,7 +22,22 @@ import { getCurrentUser } from "./SignIn";
     }
 
 
-export const addPuzzleSurvey = async(puzzleSurveyData) => {}
+export const addPuzzleSurvey = async(pid, puzzleSurveyData) => {
+  console.log(pid, puzzleSurveyData);
+
+        getCurrentUser().then(async function (user){
+            try {
+                const docRef = await addDoc(collection(db, "survey"), {
+                  ...puzzleSurveyData, 
+                  userId: user,
+                  pid:pid
+                });
+                console.log("Document written with ID: ", docRef.id);
+              } catch (e) {
+                console.error("Error adding document: ", e);
+              }
+        })
+}
 
 export const addAction = async(pid, actionType, actionValue, time) => {}
 
