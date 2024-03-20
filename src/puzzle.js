@@ -124,10 +124,12 @@ const recordPuzzle = (puzzle, solution, time, setCorrect) => {
     setCorrect(correct)
     console.log("Correct: " + correct + ", incorrect: " + incorrect + ", total:" + total)
     console.log("Is solved: " + isSolved(puzzle, solution));
+    // addUserSolution(pid, str, correct, incorrect, isSolved)
 }
 
 let clearPuzzle = (puzzle, strikes, setStrikes) => {
     console.log("Clear Puzzle");
+    // addUserAction(pid, "clear", null, time)
     for (row of puzzle) {
         for (subgrid of row) {
             for (let i = 0; i < subgrid.length; i++) {

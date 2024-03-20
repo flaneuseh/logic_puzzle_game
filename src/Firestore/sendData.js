@@ -1,4 +1,4 @@
-import { collection, addDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { db } from "./database";
 import { getCurrentUser } from "./SignIn";
    
@@ -20,3 +20,10 @@ import { getCurrentUser } from "./SignIn";
        
        
     }
+
+
+export const addPuzzleSurvey = async(puzzleSurveyData) => {}
+
+export const addAction = async(pid, actionType, actionValue, time) => {}
+
+export const addSolution = async(userSolution) => {}

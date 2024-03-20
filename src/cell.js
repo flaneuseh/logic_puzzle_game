@@ -2,14 +2,14 @@
 const states = ["*", "O", "X", "!", "?"]
 
 let toggleState = (s, setState, select) => {
-    if(s == select){
+    if (s == select) {
         setState("*")
-    }else{
+    } else {
         setState(select)
     }
 
 
-
+    // addUserAction(pid, "mark", {cell, mark}, time)
 }
 
 export default Cell = ({ state, setState, mousedown = false, topText = "", leftText = "", select = "*" }) => {
