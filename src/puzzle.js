@@ -124,6 +124,7 @@ const recordPuzzle = (puzzle, solution, time, setCorrect) => {
     setCorrect(correct)
     console.log("Correct: " + correct + ", incorrect: " + incorrect + ", total:" + total)
     console.log("Is solved: " + isSolved(puzzle, solution));
+    // addUserSolution(pid, str, correct, incorrect, isSolved)
 }
 
 let clearPuzzle = (puzzle, strikes, setStrikes) => {
