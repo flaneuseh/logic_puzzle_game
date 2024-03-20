@@ -129,6 +129,7 @@ const recordPuzzle = (puzzle, solution, time, setCorrect) => {
 
 let clearPuzzle = (puzzle, strikes, setStrikes) => {
     console.log("Clear Puzzle");
+    // addUserAction(pid, "clear", null, time)
     for (row of puzzle) {
         for (subgrid of row) {
             for (let i = 0; i < subgrid.length; i++) {

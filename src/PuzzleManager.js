@@ -36,7 +36,14 @@ function load(i, setI, setContent, files) {
                 let p = createPuzzle(response.data);
                 let time = new Date()
                 setI(i + 1);
-                setContent(<Puzzle p={p} time={time} concede={() => { startSurvey(p.num, i, setI, setContent, files) }} finish={() => { startSurvey(p.num, i, setI, setContent, files) }} />);
+                setContent(<Puzzle p={p} time={time} concede={() => {
+                    // addUserAction(pid, "concede", null, time)
+                    startSurvey(p.num, i, setI, setContent, files)
+                }
+                } finish={() => {
+                    // addUserAction(pid, "finish", null, time)
+                    startSurvey(p.num, i, setI, setContent, files)
+                }} />);
 
 
             });
@@ -54,9 +61,10 @@ function showRecordedScreen(setContent, i, setI, files) {
 }
 
 function startSurvey(puzzle, i, setI, setContent, files) {
-    setContent(<Survey puzzleId={puzzle} submit={(responses) => { 
+    setContent(<Survey puzzleId={puzzle} submit={(responses) => {
         // addSurvey(responses); 
-        showRecordedScreen(setContent, i, setI, files) }} />);
+        showRecordedScreen(setContent, i, setI, files)
+    }} />);
     setI(i + 1)
 
 }
