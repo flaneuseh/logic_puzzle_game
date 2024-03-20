@@ -176,7 +176,7 @@ body {
     margin: 5vmin, 10vmin;
     overflow-y: scroll;
     justify-content: center;
-    
+
 
 }
 
@@ -196,7 +196,10 @@ div {
 
 .parent {
     width: 100%;
+    height: 100%;
+    overflow-y: auto;
 }
+
 ol {
     font-size: 2vmin;
     width: 30vmin;
@@ -226,7 +229,7 @@ li {
 }
 
 .recorded {
-    width: 100% ;
+    width: 100%;
     text-align: center;
     margin-top: 5vmin;
 }
@@ -239,16 +242,16 @@ li {
     justify-content: center;
 }
 
-.slide img{
-    width: 70vmin; 
+.slide img {
+    width: 70vmin;
 }
 
-.puzzleRight{
+.puzzleRight {
     width: 35vmin;
 }
 
 .nextButton {
-    float:right; 
+    float: right;
     margin-right: 40vmin;
     margin-top: 3vmin;
     width: 10vmin;
