@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
+import { addHintToggle } from "./Firestore/sendData"
 
-let recordHint = (time, hint, strikes, i) =>{
+let recordHint = (time, hint, strikes, i, instanceId) =>{
     let newTime = new Date()
     let ms = newTime - time 
     // addUserAction("strikeHint", hint, strikes[i], ms)
     console.log("The hint '" + hint + "' was set to '" + strikes[i] + "' at time '" + ms +"'" )
+    addHintToggle(instanceId, ms, hint, strikes[i])
 }
 
 
-export default HintDisplay = ({hints, time, strikes, setStrikes}) => {
+export default HintDisplay = ({hints, time, strikes, setStrikes, instanceId}) => {
 
 
     let toggleStrike = (idx) => {
@@ -37,9 +39,9 @@ export default HintDisplay = ({hints, time, strikes, setStrikes}) => {
         
 
         if (strike){
-            return ( <li className="hint strikedText" key={hint} onClick = {() => {recordHint(time, hint, strikes, idx); toggleStrike(idx)}}>{hint}</li>); 
+            return ( <li className="hint strikedText" key={hint} onClick = {() => {recordHint(time, hint, strikes, idx, instanceId); toggleStrike(idx)}}>{hint}</li>); 
         }else{
-            return ( <li className="hint" key={hint} onClick = {() => { recordHint(time, hint, strikes, idx);toggleStrike(idx)}}>{hint}</li>); 
+            return ( <li className="hint" key={hint} onClick = {() => { recordHint(time, hint, strikes, idx, instanceId);toggleStrike(idx)}}>{hint}</li>); 
         }
     }
 

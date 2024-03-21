@@ -3,6 +3,7 @@ import FinishButtons from "./EndPuzzleButtons";
 import Hints from "./hints";
 import StateSelector from "./stateSelector";
 import SubGrid from "./subgrid";
+import { createGamePlayInstance, addCellChange, addButtonPress } from "./Firestore/sendData";
 
 function initializeSubGrid(numRows, numCols, puzzle, recordPuzzle) {
     let subgrid = []
@@ -113,7 +114,7 @@ const isSolved = (puzzle, solution) => {
     }
 }
 
-const recordPuzzle = (puzzle, solution, time, setCorrect) => {
+const recordPuzzle = (puzzle, solution, time, instanceId) => {
     let newTime = new Date()
     let ms = newTime - time
     console.log("Time since start:" + ms)
@@ -121,10 +122,17 @@ const recordPuzzle = (puzzle, solution, time, setCorrect) => {
     console.log(str)
     console.log(solution)
     let [correct, incorrect, total] = amountCorrect(puzzle, solution)
-    setCorrect(correct)
     console.log("Correct: " + correct + ", incorrect: " + incorrect + ", total:" + total)
     console.log("Is solved: " + isSolved(puzzle, solution));
     // addUserSolution(pid, str, correct, incorrect, isSolved)
+
+    if (instanceId != null){
+        addCellChange(instanceId, ms, str, correct, incorrect, isSolved(puzzle,solution));
+
+    }
+
+ 
+    
 }
 
 let clearPuzzle = (puzzle, strikes, setStrikes) => {
@@ -161,13 +169,37 @@ export default Puzzle =({p, time, concede, finish})=>{
     let rowLength = p.leftRight.length;
     let [strikes, setStrikes] = useState([]);
     let [isCorrect, setCorrect] = useState(false);
+    let [instanceId, setInstanceId] = useState(null); 
+
+    useEffect(() => {async function fetchData() {
+        // You can await here
+        createGamePlayInstance(p.num).then((data) => {setInstanceId(data); })
+        
+       
+      }
+      fetchData()}, []);
+
+    let recordAndConcede = () =>{
+        let newTime = new Date()
+        let ms = newTime - time 
+        addButtonPress(instanceId,ms, "concede"); 
+        concede();
+    }
+
+    let recordAndSubmit = () =>{
+        let newTime = new Date()
+        let ms = newTime - time 
+        addButtonPress(instanceId, ms, "submit"); 
+        finish();
+    }
+  
 
    
     for (let row = 0; row < p.topBottom.length; row++) {
         puzzle[row] = []
         let displayColIdx = 1;
         for (let col = 0; col < rowLength; col++) {
-            let subgrid = initializeSubGrid(p.numEnt, p.numEnt, puzzle, ()=>{recordPuzzle(puzzle, p.solutionString, time, setCorrect)});
+            let subgrid = initializeSubGrid(p.numEnt, p.numEnt, puzzle, ()=>{recordPuzzle(puzzle, p.solutionString, time, instanceId)});
             puzzle[row][col] = subgrid;
 
             topCat = null;
@@ -210,13 +242,15 @@ export default Puzzle =({p, time, concede, finish})=>{
             <StateSelector selected={select} setSelect={setSelect} />
         </div>
         <div className="puzzleRight">
-            <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes}/>
+            <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes} instanceId={instanceId}/>
             <FinishButtons 
-                giveUp={() => {concede()}}
+                giveUp={() => {recordAndConcede()}}
                 isCorrect = {() => isSolved(puzzle, p.solutionString)}
                 clearPuzzle = {function () {clearPuzzle(puzzle,strikes, setStrikes)}}
-                finish = {() => {finish()}}
+                finish = {() => {recordAndSubmit()}}
                 puzzle={puzzle}
+                instanceId={instanceId}
+                time={time}
 
             />
         </div>

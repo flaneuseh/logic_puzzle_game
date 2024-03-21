@@ -5,6 +5,7 @@ import Category from "./categoryModel";
 import Puzzle from "./puzzle";
 import PuzzleModel from "./puzzleModel";
 import Survey from "./survey";
+import { createGamePlayInstance } from './Firestore/sendData';
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
