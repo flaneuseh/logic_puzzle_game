@@ -1,11 +1,11 @@
-import { addDoc, collection,  doc, updateDoc, setDoc , FieldValue} from "firebase/firestore";
+import { addDoc, collection,  doc, updateDoc, setDoc , FieldValue, documentId} from "firebase/firestore";
 import { db} from "./database";
 import { getCurrentUser } from "./SignIn";
 
 let attempts = 0; 
+let subject = null; 
    
     export const addSubject = async (logicPuzzleExp, gridPuzzleExp) => { 
-        console.log(logicPuzzleExp, gridPuzzleExp);
 
         getCurrentUser().then(async function (user){
             try {
@@ -15,13 +15,18 @@ let attempts = 0;
                   gridPuzzleExp: gridPuzzleExp
                 });
                 console.log("Document written with ID: ", docRef.id);
+                subject = docRef.id 
               } catch (e) {
                 console.error("Error adding document: ", e);
               }
         })
-       
-       
     }
+
+
+export const setTutorialInfo = async (time, slide) => {
+  const subjectInstance =  doc(db,  "subjects", subject); 
+  const updated = updateDoc(subjectInstance, {tutorialTime: time, tutorialSlide:slide})
+}
 export const createGamePlayInstance = async (pid) => {
   return new Promise((resolve, reject) =>{
     getCurrentUser().then(async function (user){
