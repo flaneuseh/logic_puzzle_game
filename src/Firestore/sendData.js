@@ -24,8 +24,13 @@ let subject = null;
 
 
 export const setTutorialInfo = async (time, slide) => {
-  const subjectInstance =  doc(db,  "subjects", subject); 
-  const updated = updateDoc(subjectInstance, {tutorialTime: time, tutorialSlide:slide})
+  getCurrentUser().then(async function (user){
+    console.log(user)
+    const subjectInstance =  doc(db,  "subjects", subject); 
+    const updated = updateDoc(subjectInstance, {tutorialTime: time, tutorialSlide:slide, userId:user})
+  })
+
+ 
 }
 export const createGamePlayInstance = async (pid) => {
   return new Promise((resolve, reject) =>{
@@ -68,33 +73,39 @@ export const addPuzzleSurvey = async(pid, puzzleSurveyData) => {
 }
 
 export const addCellChange = async(instanceId, time, puzzleState, correct, incorrect, solved) => {
-  const instance =  doc(db,  "gamePlayInstances", instanceId); 
-  const updated = await updateDoc(instance, {totalTime:time, numCorrect:correct, numIncorrect: incorrect, isSolved: solved})
-  console.log("instance:", instance);
-  let action = doc(instance, "actions", time.toString())
-  action = await setDoc(action, {time:time, type:"cellChange", puzzleState:puzzleState, correct: correct, incorrect: incorrect, solved:solved});
+  getCurrentUser().then(async function (user){
+    const instance =  doc(db,  "gamePlayInstances", instanceId); 
+    const updated = await updateDoc(instance, {totalTime:time, numCorrect:correct, numIncorrect: incorrect, isSolved: solved})
+    console.log("instance:", instance);
+    let action = doc(instance, "actions", time.toString())
+    action = await setDoc(action, {userId: user, time:time, type:"cellChange", puzzleState:puzzleState, correct: correct, incorrect: incorrect, solved:solved});
+  })
 }
 
 export const addHintToggle = async(instanceId, time, hint, striked) => {
-  const instance =  doc(db,  "gamePlayInstances", instanceId); 
-  const updated = await updateDoc(instance, {totalTime:time})
-  console.log("instance:", instance);
-  let action = doc(instance, "actions", time.toString())
-  action = await setDoc(action, {time:time, type:"hintToggle",hint:hint, striked:striked});
+  getCurrentUser().then(async function (user){
+    const instance =  doc(db,  "gamePlayInstances", instanceId); 
+    const updated = await updateDoc(instance, {totalTime:time})
+    console.log("instance:", instance);
+    let action = doc(instance, "actions", time.toString())
+    action = await setDoc(action, {userId: user, time:time, type:"hintToggle",hint:hint, striked:striked});
+  })
 }
 
 export const addButtonPress = async(instanceId, time, button) => {
-  const instance =  doc(db,  "gamePlayInstances", instanceId); 
+  getCurrentUser().then(async function (user){
+    const instance =  doc(db,  "gamePlayInstances", instanceId); 
 
-  if (button == "reattempt" || button == "clear_reattempt"){
-    attempts ++; 
-    const updated = await updateDoc(instance, {totalTime:time, numAttempts:attempts})
-  }else if (button == "submit"){
-    const updated = await updateDoc(instance, {totalTime:time, conceded:false})
-  }else{
-    const updated = await updateDoc(instance, {totalTime:time})
-  }
-  
-  let action = doc(instance, "actions", time.toString())
-  action = await setDoc(action, {time:time, type:"buttonClick",button:button});
+    if (button == "reattempt" || button == "clear_reattempt"){
+      attempts ++; 
+      const updated = await updateDoc(instance, {totalTime:time, numAttempts:attempts})
+    }else if (button == "submit"){
+      const updated = await updateDoc(instance, {totalTime:time, conceded:false})
+    }else{
+      const updated = await updateDoc(instance, {totalTime:time})
+    }
+    
+    let action = doc(instance, "actions", time.toString())
+    action = await setDoc(action, {userId: user, time:time, type:"buttonClick",button:button});
+})
 }
