@@ -57,14 +57,14 @@ function finish(setContent) {
     setContent(<div>Thank you for your time, you may close this window now</div>)
 }
 
-function showRecordedScreen(setContent, i, setI, files) {
-    setContent(<ResponseRecorded goToNextPuzzle={() => { load(i + 1, setI, setContent, files) }} finish={() => { finish(setContent) }} morePuzzles={() => { return i + 1 < files.length }} />)
+function showRecordedScreen(setContent, i, setI, files, postSurvey) {
+    setContent(<ResponseRecorded goToNextPuzzle={() => { load(i + 1, setI, setContent, files, postSurvey) }} finish={() => { finish(setContent) }} morePuzzles={() => { return i + 1 < files.length }} />)
 }
 
 function startSurvey(puzzle, i, setI, setContent, files, postSurvey) {
     setContent(<Survey puzzleId={puzzle} submit={(responses) => {
         postSurvey(puzzle, responses)
-        showRecordedScreen(setContent, i, setI, files)
+        showRecordedScreen(setContent, i, setI, files, postSurvey)
     }} />);
     setI(i + 1)
 
