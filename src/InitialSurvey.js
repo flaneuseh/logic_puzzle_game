@@ -2,7 +2,7 @@ import { useState } from "react";
 let answers = ["I have never played this type of puzzle", "I rarely play this type of puzzle", "I occasionally play this type of puzzle", "I frequently play this type of puzzle"];
 let questions = ["How much have you played any type of logic puzzles, such as Sudoku or nonograms (examples shown below)?",
     "How much have you played any grid logic puzzles, also called Einstein or Zebra puzzles (example shown below)?"]
-let images = ["src/PuzzleExamples/logicPuzzle.png", "src/PuzzleExamples/gridPuzzleExample.png"]
+let images = ["PuzzleExamples/logicPuzzle.png", "PuzzleExamples/gridPuzzleExample.png"]
 
 
 let updateResponse = (q, value, responses, setResponses) => {
