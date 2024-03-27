@@ -5,6 +5,7 @@ import { getCurrentUser } from './src/Firestore/SignIn';
 import { addPuzzleSurvey, addSubject } from './src/Firestore/sendData';
 import PuzzleManager from './src/PuzzleManager';
 import Tutorial from './src/Tutorial';
+import InformedConsent from './src/InformedConsent';
 
 function createPuzzle(data, setPuzzle) {
   console.log(data)
@@ -34,12 +35,13 @@ export default function App() {
 
   let [puzzle, setPuzzle] = useState(null);
   let [i, setI] = useState(0)
-  let [mode, setMode] = useState("survey")
+  let [mode, setMode] = useState("consent")
   let [pid, setPID] = useState(0)
   let [content, setContent] = useState(<Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />);
   //let files = ["puzzles/example.json"]
   let files = ["puzzles/trial4_puzzle0_0.json", "puzzles/trial4_puzzle1_1.json", "puzzles/trial4_puzzle2_2.json", "puzzles/trial4_puzzle3_3.json", "puzzles/trial4_puzzle4_4.json", "puzzles/trial4_puzzle5_5.json", "puzzles/trial4_puzzle6_6.json", "puzzles/trial4_puzzle7_7.json"]
 
+  let consent = <div className='parent'><InformedConsent consent={() => setMode("survey")}/></div>
   let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />
   let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey}/>
 
@@ -58,7 +60,10 @@ export default function App() {
  
   shuffleArray(files)
 
-  if (mode == "survey") {
+  if (mode == "consent"){
+    return (consent)
+  }
+  else if (mode == "survey") {
     return (
      
       <InitialSurvey postAnswers={submitInitalSurvey} />
@@ -68,6 +73,7 @@ export default function App() {
   } else {
     return (<div className='parent'>{puzzleManager}</div>)
   }
+
 
 
 

@@ -37,6 +37,16 @@ export default InitalSurvey = ({ postAnswers }) => {
     questions.map((question) => r[question] = -1);
     let [responses, setResponses] = useState(r);
 
+    let onclick = () => {
+        let nullResponses = Object.keys(responses).filter((key) => { return responses[key] == -1 });
+
+        if (nullResponses.length > 0){
+            Promise.resolve().then(alert("Please answer all questions"));
+        }else{
+            postAnswers(responses[questions[0]], responses[questions[1]])
+        }
+    }
+
     let qs = questions.map((question, idx) => { return <ExperienceScale key={question} question={question} image={images[idx]} answers={answers} responses={responses} setResponses={setResponses} /> });
     return (<div className="wrap">
 
@@ -45,6 +55,6 @@ export default InitalSurvey = ({ postAnswers }) => {
         <form action="">
             {qs}
 
-            <button className="submit" onClick={() => postAnswers(responses[questions[0]], responses[questions[1]])} type="button">Submit</button>
+            <button className="submit" onClick={() => onclick()} type="button">Submit</button>
         </form></div>);
 }
