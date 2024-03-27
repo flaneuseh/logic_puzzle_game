@@ -44,7 +44,7 @@ let postResponse = (responses, puzzle, submit) => {
     let nullResponses = Object.keys(responses).filter((key) => { return responses[key] == -1 });
 
     if (nullResponses.length > 0) {
-        Promise.resolve().then(alert("Please answer all questions"));
+        Promise.resolve().then(alert("Please answer all questions."));
     } else {
         console.log("Puzzle:" + puzzle)
         console.log(responses);
@@ -61,7 +61,7 @@ export default Survey = ({ puzzleId, submit }) => {
     let qs = questions.map((question) => { return <LikertScale key={question} question={question} answers={answers} responses={responses} setResponses={setResponses} /> });
     return (<div className="wrap">
 
-        <h1 className="likert-header"> Answer the question about the puzzle you just solved</h1>
+        <h1 className="likert-header"> Answer these questions about the puzzle you just solved</h1>
 
         <form action="">
             {qs}

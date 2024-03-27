@@ -176,7 +176,7 @@ body {
     margin: 5vmin, 10vmin;
     overflow-y: scroll;
     justify-content: center;
-    
+
 
 }
 
@@ -196,9 +196,15 @@ div {
 
 .parent {
     width: 100%;
+<<<<<<< HEAD
     overflow-y: scroll;
 
+=======
+    height: 100%;
+    overflow-y: auto;
+>>>>>>> 6409b709149132d8be7218d94cfa1983530f57d3
 }
+
 ol {
     font-size: 2vmin;
     width: 30vmin;
@@ -228,7 +234,7 @@ li {
 }
 
 .recorded {
-    width: 100% ;
+    width: 100%;
     text-align: center;
     margin-top: 5vmin;
 }
@@ -241,20 +247,25 @@ li {
     justify-content: center;
 }
 
-.slide img{
-    width: 70vmin; 
+.slide img {
+    width: 70vmin;
 }
 
+<<<<<<< HEAD
 .surveyImg {
     width:50vmin;
 }
 
 .puzzleRight{
     width: 30vmin;
+=======
+.puzzleRight {
+    width: 35vmin;
+>>>>>>> 6409b709149132d8be7218d94cfa1983530f57d3
 }
 
 .nextButton {
-    float:right; 
+    float: right;
     margin-right: 40vmin;
     margin-top: 3vmin;
     width: 10vmin;
@@ -292,6 +303,7 @@ li {
     width: 15vmin;
     margin-top: 3vmin;
     height: 4vmin;
+<<<<<<< HEAD
 }
 
 .consent {
@@ -311,3 +323,6 @@ li {
     height: 4vmin;
     margin:3vmin;
 }
+=======
+}
+>>>>>>> 6409b709149132d8be7218d94cfa1983530f57d3
