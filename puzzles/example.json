@@ -1,0 +1,9 @@
+{"solution": "-----------\n|XXOX|XXOX|\n|XOXX|XOXX|\n|OXXX|XXXO|\n|XXXO|OXXX|\n------\n|XXXO|\n|XOXX|\n|XXOX|\n|OXXX|\n", 
+"categories": [{"name": "subject", "entities": ["Math", "Science", "English", "History"]}, 
+{"name": "teacher", "entities": ["Ms. Smith", "Mr. Johnson", "Ms. McDonald", "Mr. Baker"]}, 
+{"name": "hour", "entities": ["1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"]}], 
+"hints": ["Ms. McDonald's class is at 1:00 PM", 
+            "Ms. McDonald's class is 1 hour before the Science class",
+             "The class at 4:00 PM is not Mr. Baker's class", 
+             "Either English is at 2:00 PM or Ms. Smith teaches the subject History",
+              "Either Ms. Smith or  Mr. Baker teaches Math"], "id": 0}

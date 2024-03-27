@@ -196,8 +196,13 @@ div {
 
 .parent {
     width: 100%;
+<<<<<<< HEAD
+    overflow-y: scroll;
+
+=======
     height: 100%;
     overflow-y: auto;
+>>>>>>> 6409b709149132d8be7218d94cfa1983530f57d3
 }
 
 ol {
@@ -246,8 +251,17 @@ li {
     width: 70vmin;
 }
 
+<<<<<<< HEAD
+.surveyImg {
+    width:50vmin;
+}
+
+.puzzleRight{
+    width: 30vmin;
+=======
 .puzzleRight {
     width: 35vmin;
+>>>>>>> 6409b709149132d8be7218d94cfa1983530f57d3
 }
 
 .nextButton {
@@ -257,6 +271,25 @@ li {
     width: 10vmin;
     height: 4vmin;
 }
+
+.survey ul {
+    list-style-type: none;
+}
+
+.survey li input[type="radio"]{
+    width: 2vmin; 
+    height: 2vmin;
+}
+
+.survey li label{
+    font-size: 2vmin;
+}
+
+.survey h1{
+    font-size: 2vmin;
+}
+
+
 
 .backButton {
     float: left;
@@ -270,4 +303,26 @@ li {
     width: 15vmin;
     margin-top: 3vmin;
     height: 4vmin;
+<<<<<<< HEAD
 }
+
+.consent {
+    justify-content: center;
+}
+
+
+.consent div{
+    width: 80%;
+    margin: 5vmin, 10vmin;
+    justify-content: center;
+
+}
+
+.consent button{
+    width: 13vmin;
+    height: 4vmin;
+    margin:3vmin;
+}
+=======
+}
+>>>>>>> 6409b709149132d8be7218d94cfa1983530f57d3

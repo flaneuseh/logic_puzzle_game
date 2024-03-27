@@ -5,6 +5,7 @@ import Category from "./categoryModel";
 import Puzzle from "./puzzle";
 import PuzzleModel from "./puzzleModel";
 import Survey from "./survey";
+import { createGamePlayInstance } from './Firestore/sendData';
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -27,7 +28,7 @@ function createPuzzle(data) {
 }
 
 
-function load(i, setI, setContent, files) {
+function load(i, setI, setContent, files, postSurvey) {
     if (i >= files.length) {
         setContent(<div>No more puzzles</div>);
     } else {
@@ -36,7 +37,14 @@ function load(i, setI, setContent, files) {
                 let p = createPuzzle(response.data);
                 let time = new Date()
                 setI(i + 1);
-                setContent(<Puzzle p={p} time={time} concede={() => { startSurvey(p.num, i, setI, setContent, files) }} finish={() => { startSurvey(p.num, i, setI, setContent, files) }} />);
+                setContent(<Puzzle p={p} time={time} concede={() => {
+                    // addUserAction(pid, "concede", null, time)
+                    startSurvey(p.num, i, setI, setContent, files, postSurvey)
+                }
+                } finish={() => {
+                    // addUserAction(pid, "finish", null, time)
+                    startSurvey(p.num, i, setI, setContent, files, postSurvey)
+                }} />);
 
 
             });
@@ -46,21 +54,24 @@ function load(i, setI, setContent, files) {
 
 }
 function finish(setContent) {
-    setContent(<div>Thank you for your time, you may close this window now.</div>)
+    setContent(<div>Thank you for your time, you may close this window now</div>)
 }
 
-function showRecordedScreen(setContent, i, setI, files) {
-    setContent(<ResponseRecorded goToNextPuzzle={() => { load(i + 1, setI, setContent, files) }} finish={() => { finish(setContent) }} morePuzzles={() => { return i + 1 < files.length }} />)
+function showRecordedScreen(setContent, i, setI, files, postSurvey) {
+    setContent(<ResponseRecorded goToNextPuzzle={() => { load(i + 1, setI, setContent, files, postSurvey) }} finish={() => { finish(setContent) }} morePuzzles={() => { return i + 1 < files.length }} />)
 }
 
-function startSurvey(puzzle, i, setI, setContent, files) {
-    setContent(<Survey puzzleId={puzzle} submit={() => showRecordedScreen(setContent, i, setI, files)} />);
+function startSurvey(puzzle, i, setI, setContent, files, postSurvey) {
+    setContent(<Survey puzzleId={puzzle} submit={(responses) => {
+        postSurvey(puzzle, responses)
+        showRecordedScreen(setContent, i, setI, files, postSurvey)
+    }} />);
     setI(i + 1)
 
 }
 
 
-export default PuzzleManager = ({ files, i, setI }) => {
+export default PuzzleManager = ({ files, i, setI , postSurvey}) => {
     //shuffleArray(files);
     //let [i, setI] = useState(0);
     let [content, setContent] = useState(<div>loading</div>);
@@ -71,7 +82,7 @@ export default PuzzleManager = ({ files, i, setI }) => {
 
 
     if (i == 0) {
-        load(i, setI, setContent, files);
+        load(i, setI, setContent, files, postSurvey);
 
     }
 

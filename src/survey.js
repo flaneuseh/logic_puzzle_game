@@ -48,8 +48,7 @@ let postResponse = (responses, puzzle, submit) => {
     } else {
         console.log("Puzzle:" + puzzle)
         console.log(responses);
-        submit();
-
+        submit(responses);
     }
 
 }

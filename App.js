@@ -1,10 +1,11 @@
 
-import axios from 'axios';
 import { useState } from 'react';
+import InitialSurvey from './src/InitialSurvey';
+import { getCurrentUser } from './src/Firestore/SignIn';
+import { addPuzzleSurvey, addSubject } from './src/Firestore/sendData';
 import PuzzleManager from './src/PuzzleManager';
-import Survey from './src/survey';
 import Tutorial from './src/Tutorial';
-
+import InformedConsent from './src/InformedConsent';
 
 function createPuzzle(data, setPuzzle) {
   console.log(data)
@@ -20,43 +21,66 @@ function createPuzzle(data, setPuzzle) {
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
 }
 
 
 export default function App() {
 
-  let [puzzle, setPuzzle] = useState(null); 
-  let [i, setI] = useState(0)
-  let [start, setStart] = useState(false)
-  let [content, setContent] = useState(<Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip = {12} startGame={() => {startGame()}}/> ); 
-  //let files = ["puzzles/example.json", "puzzles/trial4_puzzle0_0.json"]
-  let files = ["puzzles/trial4_puzzle0_0.json","puzzles/trial4_puzzle1_1.json", "puzzles/trial4_puzzle2_2.json", "puzzles/trial4_puzzle3_3.json", "puzzles/trial4_puzzle4_4.json",  "puzzles/trial4_puzzle5_5.json", "puzzles/trial4_puzzle6_6.json", "puzzles/trial4_puzzle7_7.json"] 
+  //addSubject(4, 3); 
 
-  let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip = {12} startGame={() => {startGame()}}/> 
-  let puzzleManager  = <PuzzleManager files={files} i={i} setI={setI}/>
+  let [puzzle, setPuzzle] = useState(null);
+  let [i, setI] = useState(0)
+  let [mode, setMode] = useState("consent")
+  let [pid, setPID] = useState(0)
+  let [content, setContent] = useState(<Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />);
+  //let files = ["puzzles/example.json"]
+  let files = ["puzzles/trial4_puzzle0_0.json", "puzzles/trial4_puzzle1_1.json", "puzzles/trial4_puzzle2_2.json", "puzzles/trial4_puzzle3_3.json", "puzzles/trial4_puzzle4_4.json", "puzzles/trial4_puzzle5_5.json", "puzzles/trial4_puzzle6_6.json", "puzzles/trial4_puzzle7_7.json"]
+
+  let consent = <div className='parent'><InformedConsent consent={() => setMode("survey")}/></div>
+  let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />
+  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey}/>
 
   let startGame = () => {
-    setStart(true)
+    setMode("puzzle")
   }
 
-  //
+  //const userPromise = getCurrentUser(); 
+  //userPromise.then((user) => {console.log(user)});
+
+  let submitInitalSurvey = (logicPuz, gridPuzz) => {
+    setMode("tutorial");
+    addSubject(logicPuz, gridPuzz) 
+  }
+  
  
   shuffleArray(files)
-      return <div className='parent'>
 
-        {start?  puzzleManager: tutorial}
-      </div>
-        
-   
-  
-    
-  
-  
- 
+  if (mode == "consent"){
+    return (consent)
+  }
+  else if (mode == "survey") {
+    return (
+     
+      <InitialSurvey postAnswers={submitInitalSurvey} />
+    )
+  } else if (mode == "tutorial") {
+    return (<div className='parent'>{tutorial}</div>)
+  } else {
+    return (<div className='parent'>{puzzleManager}</div>)
+  }
+
+
+
+
+
+
+
+
+
 }
 

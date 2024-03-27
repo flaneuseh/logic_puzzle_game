@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react"
+import { setTutorialInfo } from "./Firestore/sendData";
 
 export default Tutorial = ({ imageFolder, numSlides, canSkip, startGame }) => {
     let [idx, setIdx] = useState(1);
     let [proceed, setProceed] = useState("");
+    let [time, setTime] = useState(null); 
+
+
+    useEffect(() => {setTime(new Date())}, []);
+
+    let sendInfo = () => {
+        setTutorialInfo(new Date() - time, idx)
+    }
 
     let increase = () => {
         if (idx < numSlides) {
             setIdx(idx + 1);
         }
-        if (idx + 1 == canSkip) {
-            setProceed(<button className="startGame" onClick={startGame}>Start Puzzle</button>)
+        if(idx + 1 == canSkip ){
+            setProceed(<button className="startGame" onClick={() => {sendInfo(); startGame()}}>Start game</button>)
         }
 
     }
