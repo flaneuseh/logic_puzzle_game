@@ -196,13 +196,8 @@ div {
 
 .parent {
     width: 100%;
-<<<<<<< HEAD
     overflow-y: scroll;
 
-=======
-    height: 100%;
-    overflow-y: auto;
->>>>>>> 6409b709149132d8be7218d94cfa1983530f57d3
 }
 
 ol {
@@ -251,17 +246,12 @@ li {
     width: 70vmin;
 }
 
-<<<<<<< HEAD
 .surveyImg {
     width:50vmin;
 }
 
 .puzzleRight{
     width: 30vmin;
-=======
-.puzzleRight {
-    width: 35vmin;
->>>>>>> 6409b709149132d8be7218d94cfa1983530f57d3
 }
 
 .nextButton {
@@ -303,7 +293,6 @@ li {
     width: 15vmin;
     margin-top: 3vmin;
     height: 4vmin;
-<<<<<<< HEAD
 }
 
 .consent {
@@ -323,6 +312,3 @@ li {
     height: 4vmin;
     margin:3vmin;
 }
-=======
-}
->>>>>>> 6409b709149132d8be7218d94cfa1983530f57d3
