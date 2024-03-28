@@ -71,7 +71,15 @@ export default function App() {
   } else if (mode == "tutorial") {
     return (<div className='parent'>{tutorial}</div>)
   } else {
-    return (<div className='parent'>{puzzleManager}</div>)
+    return (<div className='parent'>
+        <div className='codeBanner'>
+          <div>
+          You completetion code is 4XPAFDSASD <br/> 
+              You may enter this at anytime 
+          </div>
+             
+        </div>
+      {puzzleManager}</div>)
   }
 
 
