@@ -34,6 +34,7 @@ function load(i, setI, setContent, files, postSurvey) {
     } else {
         axios.get(files[i])
             .then(response => {
+                console.log(files[i])
                 let p = createPuzzle(response.data);
                 let time = new Date()
                 setI(i + 1);
@@ -79,15 +80,20 @@ export default PuzzleManager = ({ files, i, setI , postSurvey}) => {
     let [puzzleId, setPuzzleId] = useState(-1);
 
 
-
-
-    if (i == 0) {
-        load(i, setI, setContent, files, postSurvey);
-
+    if (files){
+        if (i == 0) {
+            load(i, setI, setContent, files, postSurvey);
+    
+        }
+    
+    
+    
+        return (content)
+    }else{
+        return <div>Loading files</div>
     }
 
 
 
-    return (content)
 
 }

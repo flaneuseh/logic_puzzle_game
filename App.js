@@ -1,11 +1,20 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import InitialSurvey from './src/InitialSurvey';
 import { getCurrentUser } from './src/Firestore/SignIn';
 import { addPuzzleSurvey, addSubject } from './src/Firestore/sendData';
 import PuzzleManager from './src/PuzzleManager';
 import Tutorial from './src/Tutorial';
 import InformedConsent from './src/InformedConsent';
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+  }
+}
 
 function createPuzzle(data, setPuzzle) {
   console.log(data)
@@ -19,14 +28,22 @@ function createPuzzle(data, setPuzzle) {
 
 }
 
-function shuffleArray(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+function getFiles(){
+  let columns = [0, 1, 3,5]
+  let solutions = [12, 199, 352, 444]
+  let files = []
+
+  shuffleArray(solutions) 
+
+  for(i in columns){
+    files.push("puzzles/puzzle_" + solutions[i] + "_"+ columns[i] + ".json")
   }
+
+  return files 
+
+
 }
+
 
 
 export default function App() {
@@ -38,8 +55,10 @@ export default function App() {
   let [mode, setMode] = useState("consent")
   let [pid, setPID] = useState(0)
   let [content, setContent] = useState(<Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />);
+  //let [files, setFiles] = useState(); 
+  //useEffect(() => {setFiles(getFiles())}, [])
+  let files = getFiles()
   //let files = ["puzzles/example.json"]
-  let files = ["puzzles/trial4_puzzle0_0.json", "puzzles/trial4_puzzle1_1.json", "puzzles/trial4_puzzle2_2.json", "puzzles/trial4_puzzle3_3.json", "puzzles/trial4_puzzle4_4.json", "puzzles/trial4_puzzle5_5.json", "puzzles/trial4_puzzle6_6.json", "puzzles/trial4_puzzle7_7.json"]
 
   let consent = <div className='parent'><InformedConsent consent={() => setMode("survey")}/></div>
   let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />
