@@ -1,7 +1,7 @@
 {"solution": "-----------\n|XOXX|OXXX|\n|XXOX|XXXO|\n|OXXX|XOXX|\n|XXXO|XXOX|\n------\n|XOXX|\n|OXXX|\n|XXXO|\n|XXOX|\n", "categories": [{"name": "subject", "entities": ["Math", "Science", "English", "History"]}, {"name": "teacher", "entities": ["Ms. Smith", "Mr. Johnson", "Ms. McDonald", "Mr. Baker"]}, {"name": "hour", "entities": ["1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"]}], 
         "hints": ["The class at 1:00 PM is taught by Ms. Smith", 
-                "The Ms. McDonald teaches History", 
-                " English is not at 1:00 PM", 
+                "Ms. McDonald teaches History", 
+                "English is not taught at 1:00 PM", 
                 "The class at 3:00 PM is Math", 
                 "The class at 4:00 PM is History", 
-                "Mr. Johnson teaches 1 hours before Ms. McDonald"], "id": 8}
+                "Mr. Johnson teaches 1 hour before Ms. McDonald"], "id": 8}

@@ -1,5 +1,5 @@
 {"solution": "-----------\n|OXXX|XOXX|\n|XXOX|XXXO|\n|XXXO|OXXX|\n|XOXX|XXOX|\n------\n|XXXO|\n|OXXX|\n|XOXX|\n|XXOX|\n", "categories": [{"name": "subject", "entities": ["Math", "Science", "English", "History"]}, {"name": "teacher", "entities": ["Ms. Smith", "Mr. Johnson", "Ms. McDonald", "Mr. Baker"]}, {"name": "hour", "entities": ["1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"]}], 
-                "hints": ["Either  Science is taught by Mr. Johnson or Ms. Smith teaches 3:00 PM", 
+                "hints": ["Either Science is taught by Mr. Johnson or Ms. Smith teaches at 3:00 PM", 
                             "The class at 3:00 PM is History", 
-                            "The  Mr. Johnson's class is 1 hour before Mr. Baker's class", 
-                            "Math is 1 hour before English"], "id": 14}
+                            "Mr. Johnson's class is 1 hour before Mr. Baker's class", 
+                            "Math is taught 1 hour before English"], "id": 14}
