@@ -28,7 +28,7 @@ function createPuzzle(data) {
 }
 
 
-function load(i, setI, setContent, files, postSurvey) {
+function load(i, setI, setContent, files, postSurvey, questions) {
     if (i >= files.length) {
         setContent(<div>No more puzzles</div>);
     } else {
@@ -40,11 +40,11 @@ function load(i, setI, setContent, files, postSurvey) {
                 setI(i + 1);
                 setContent(<Puzzle p={p} time={time} concede={() => {
                     // addUserAction(pid, "concede", null, time)
-                    startSurvey(p.num, i, setI, setContent, files, postSurvey)
+                    startSurvey(p.num, i, setI, setContent, files, postSurvey, questions)
                 }
                 } finish={() => {
                     // addUserAction(pid, "finish", null, time)
-                    startSurvey(p.num, i, setI, setContent, files, postSurvey)
+                    startSurvey(p.num, i, setI, setContent, files, postSurvey, questions)
                 }} />);
 
 
@@ -58,21 +58,21 @@ function finish(setContent) {
     setContent(<div>Thank you for your time, you may close this window now</div>)
 }
 
-function showRecordedScreen(setContent, i, setI, files, postSurvey) {
-    setContent(<ResponseRecorded goToNextPuzzle={() => { load(i + 1, setI, setContent, files, postSurvey) }} finish={() => { finish(setContent) }} morePuzzles={() => { return i + 1 < files.length }} />)
+function showRecordedScreen(setContent, i, setI, files, postSurvey, questions) {
+    setContent(<ResponseRecorded goToNextPuzzle={() => { load(i + 1, setI, setContent, files, postSurvey, questions) }} finish={() => { finish(setContent) }} morePuzzles={() => { return i + 1 < files.length }} />)
 }
 
-function startSurvey(puzzle, i, setI, setContent, files, postSurvey) {
-    setContent(<Survey puzzleId={puzzle} submit={(responses) => {
+function startSurvey(puzzle, i, setI, setContent, files, postSurvey, questions) {
+    setContent(<Survey puzzleId={puzzle} questions={questions} submit={(responses) => {
         postSurvey(puzzle, responses)
-        showRecordedScreen(setContent, i, setI, files, postSurvey)
+        showRecordedScreen(setContent, i, setI, files, postSurvey, questions)
     }} />);
     setI(i + 1)
 
 }
 
 
-export default PuzzleManager = ({ files, i, setI , postSurvey}) => {
+export default PuzzleManager = ({ files, i, setI , postSurvey, questions}) => {
     //shuffleArray(files);
     //let [i, setI] = useState(0);
     let [content, setContent] = useState(<div>loading</div>);
@@ -82,7 +82,7 @@ export default PuzzleManager = ({ files, i, setI , postSurvey}) => {
 
     if (files){
         if (i == 0) {
-            load(i, setI, setContent, files, postSurvey);
+            load(i, setI, setContent, files, postSurvey, questions);
     
         }
     

@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect,useState } from "react";
 import "./survey.css";
 
 
 // questions from the video game demand scale  (cognitive) and the GUESS scale (enjoyment)
 // "game" is changed to puzzle for clearity 
 let questions = ["The puzzle was cognitively demanding.", "I had to think very hard when playing the puzzle.",
-    "The puzzle required a lot of mental gymnastics.", "The puzzle stimulated my brain.",
-    "The mental challenges in this puzzle had an impact on how I played.",
+    "The puzzle required a lot of mental gymnastics.", "The puzzle stimulated my brain.", "This puzzle doesn’t require a lot of mental effort.", 
+    "The puzzle made me draw on all of my mental resources.", "The mental challenges in this puzzle had an impact on how I played.",
+
     "I think the puzzle is fun.", "I enjoy playing the puzzle.",
     "I feel bored while playing the puzzle.", "I am likely to recommend this puzzle to others.",
     "If given the chance, I want to play this puzzle again."];
@@ -14,7 +15,14 @@ let questions = ["The puzzle was cognitively demanding.", "I had to think very h
 
 let answers = ["1 (Disagree)", "2", "3", "4", "5", "6", "7 (Agree)"];
 
-
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
 
 let updateResponse = (q, value, responses, setResponses) => {
     let r = { ...responses };
@@ -53,7 +61,8 @@ let postResponse = (responses, puzzle, submit) => {
 
 }
 
-export default Survey = ({ puzzleId, submit }) => {
+export default Survey = ({ puzzleId, submit, questions }) => {
+
 
     let r = {}
     questions.map((question) => r[question] = -1);

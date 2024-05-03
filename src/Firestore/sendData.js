@@ -3,6 +3,7 @@ import { db} from "./database";
 import { getCurrentUser } from "./SignIn";
 
 let attempts = 0; 
+let clears = 0; 
 let subject = null; 
    
     export const addSubject = async (logicPuzzleExp, gridPuzzleExp) => { 
@@ -40,7 +41,11 @@ export const createGamePlayInstance = async (pid) => {
           userId: user,
           pid: pid, 
           conceded: true, 
-          numAttempts: 1
+          numAttempts: 1, 
+          numClears: 0, 
+          totalTime:0, 
+          numIncorrect:0, 
+          numCorrect: 0 
         });
             attempts = 1; 
             console.log("Document written with ID: ", docRef.id);
@@ -96,11 +101,12 @@ export const addButtonPress = async(instanceId, time, button) => {
   getCurrentUser().then(async function (user){
     const instance =  doc(db,  "gamePlayInstances", instanceId); 
 
-    if (button == "reattempt" || button == "clear_reattempt"){
+    if (button == "check"){
       attempts ++; 
       const updated = await updateDoc(instance, {totalTime:time, numAttempts:attempts})
-    }else if (button == "submit"){
-      const updated = await updateDoc(instance, {totalTime:time, conceded:false})
+    }else if(button === "clear"){
+      clears ++; 
+      const updated = await updateDoc(instance, {totalTime:time, numClears:clears})
     }else{
       const updated = await updateDoc(instance, {totalTime:time})
     }

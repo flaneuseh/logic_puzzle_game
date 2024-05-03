@@ -1,10 +1,18 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { addPuzzleSurvey, addSubject } from './src/Firestore/sendData';
 import InformedConsent from './src/InformedConsent';
 import InitialSurvey from './src/InitialSurvey';
 import PuzzleManager from './src/PuzzleManager';
 import Tutorial from './src/Tutorial';
+
+let questions = ["The puzzle was cognitively demanding.", "I had to think very hard when playing the puzzle.",
+    "The puzzle required a lot of mental gymnastics.", "The puzzle stimulated my brain.", "This puzzle doesn’t require a lot of mental effort.", 
+    "The puzzle made me draw on all of my mental resources.", "The mental challenges in this puzzle had an impact on how I played.",
+
+    "I think the puzzle is fun.", "I enjoy playing the puzzle.",
+    "I feel bored while playing the puzzle.", "I am likely to recommend this puzzle to others.",
+    "If given the chance, I want to play this puzzle again."];
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -57,11 +65,15 @@ export default function App() {
   //let [files, setFiles] = useState(); 
   //useEffect(() => {setFiles(getFiles())}, [])
   let files = getFiles()
+  useEffect(() => {
+    shuffleArray(questions)
+  }, [])
+
   //let files = ["puzzles/example.json"]
 
   let consent = <div className='parent'><InformedConsent consent={() => setMode("survey")} /></div>
   let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />
-  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} />
+  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions = {questions}/>
 
   let startGame = () => {
     setMode("puzzle")
