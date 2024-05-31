@@ -135,9 +135,8 @@ const recordPuzzle = (puzzle, solution, time, instanceId) => {
     
 }
 
-let clearPuzzle = (puzzle, strikes, setStrikes) => {
-    console.log("Clear Puzzle");
-    // addUserAction(pid, "clear", null, time)
+let clearPuzzle = (puzzle, strikes, setStrikes, instanceId, time) => {
+    addButtonPress(instanceId, time, "clear")
     for (row of puzzle) {
         for (subgrid of row) {
             for (let i = 0; i < subgrid.length; i++) {
@@ -246,7 +245,7 @@ export default Puzzle =({p, time, concede, finish})=>{
             <FinishButtons 
                 giveUp={() => {recordAndConcede()}}
                 isCorrect = {() => isSolved(puzzle, p.solutionString)}
-                clearPuzzle = {function () {clearPuzzle(puzzle,strikes, setStrikes)}}
+                clearPuzzle = {function () {clearPuzzle(puzzle,strikes, setStrikes,instanceId, time)}}
                 finish = {() => {recordAndSubmit()}}
                 puzzle={puzzle}
                 instanceId={instanceId}
