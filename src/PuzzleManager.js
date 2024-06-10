@@ -34,7 +34,7 @@ function load(i, setI, setContent, files, postSurvey, questions) {
     } else {
         axios.get(files[i])
             .then(response => {
-                console.log(files[i])
+                //console.log(files[i])
                 let p = createPuzzle(response.data);
                 let time = new Date()
                 setI(i + 1);
