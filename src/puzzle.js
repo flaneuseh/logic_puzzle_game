@@ -117,13 +117,13 @@ const isSolved = (puzzle, solution) => {
 const recordPuzzle = (puzzle, solution, time, instanceId) => {
     let newTime = new Date()
     let ms = newTime - time
-    console.log("Time since start:" + ms)
+    //console.log("Time since start:" + ms)
     str = puzzleToString(puzzle)
-    console.log(str)
-    console.log(solution)
+    //console.log(str)
+    //console.log(solution)
     let [correct, incorrect, total] = amountCorrect(puzzle, solution)
-    console.log("Correct: " + correct + ", incorrect: " + incorrect + ", total:" + total)
-    console.log("Is solved: " + isSolved(puzzle, solution));
+    //console.log("Correct: " + correct + ", incorrect: " + incorrect + ", total:" + total)
+    //console.log("Is solved: " + isSolved(puzzle, solution));
     // addUserSolution(pid, str, correct, incorrect, isSolved)
 
     if (instanceId != null){

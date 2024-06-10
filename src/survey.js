@@ -54,8 +54,8 @@ let postResponse = (responses, puzzle, submit) => {
     if (nullResponses.length > 0) {
         Promise.resolve().then(alert("Please answer all questions."));
     } else {
-        console.log("Puzzle:" + puzzle)
-        console.log(responses);
+        //console.log("Puzzle:" + puzzle)
+        //console.log(responses);
         submit(responses);
     }
 

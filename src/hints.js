@@ -5,7 +5,7 @@ let recordHint = (time, hint, strikes, i, instanceId) =>{
     let newTime = new Date()
     let ms = newTime - time 
     // addUserAction("strikeHint", hint, strikes[i], ms)
-    console.log("The hint '" + hint + "' was set to '" + strikes[i] + "' at time '" + ms +"'" )
+    //console.log("The hint '" + hint + "' was set to '" + strikes[i] + "' at time '" + ms +"'" )
     addHintToggle(instanceId, ms, hint, strikes[i])
 }
 
