@@ -1,7 +1,7 @@
 import { useState } from "react";
 let answers = ["I little or no experience with this type of puzzle", "I have experience playing this type of puzzle"];
 let questions = ["How much have you played any type of logic puzzles, such as Sudoku or nonograms (examples shown below)?",
-    "How much have you played any grid logic puzzles, also called Einstein or Zebra puzzles (example shown below)?"]
+    "How much have you played grid logic puzzles, also called Einstein or Zebra puzzles (example shown below)?"]
 let images = ["PuzzleExamples/logicPuzzle.png", "PuzzleExamples/gridPuzzleExample.png"]
 
 

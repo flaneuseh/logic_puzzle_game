@@ -296,6 +296,10 @@ li {
 
 .consent {
     justify-content: center;
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    
 }
 
 
@@ -303,12 +307,11 @@ li {
     margin: 5vmin, 10vmin;
     justify-content: center;
 
+    
 }
 
-.consent button{
-    height: 4vmin;
-    margin:3vmin;
-    font-size: 2vmin;
+.consent img{
+    width: 100%;
 }
 
 .codeBanner {
@@ -322,4 +325,28 @@ li {
 
 .codeBanner div{
     padding: 2vmin;
+}
+
+.consentButtonLeft{
+    position: absolute; /* becomes a layer */
+    left: 0; /* relative to its parent wrapper */
+    bottom:9.3%; /* relative to its parent wrapper */
+    z-index: 2;
+    height: 4%;
+    width: 45%;
+    margin:3vmin;
+    font-size: 2vmin;
+
+}
+
+.consentButtonRight{
+    position: absolute; /* becomes a layer */
+    right: 0; /* relative to its parent wrapper */
+    bottom:9%; /* relative to its parent wrapper */
+    z-index: 2;
+    height: 4%;
+    margin:3vmin;
+    font-size: 2vmin;
+    width: 45%;
+
 }
