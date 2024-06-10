@@ -15,7 +15,7 @@ let subject = null;
                   logicPuzzleExp: logicPuzzleExp,    
                   gridPuzzleExp: gridPuzzleExp
                 });
-                console.log("Document written with ID: ", docRef.id);
+                //console.log("Document written with ID: ", docRef.id);
                 subject = docRef.id 
               } catch (e) {
                 console.error("Error adding document: ", e);
@@ -26,7 +26,7 @@ let subject = null;
 
 export const setTutorialInfo = async (time, slide) => {
   getCurrentUser().then(async function (user){
-    console.log(user)
+    //console.log(user)
     const subjectInstance =  doc(db,  "subjects", subject); 
     const updated = updateDoc(subjectInstance, {tutorialTime: time, tutorialSlide:slide, userId:user})
   })
@@ -48,7 +48,7 @@ export const createGamePlayInstance = async (pid) => {
           numCorrect: 0 
         });
             attempts = 1; 
-            console.log("Document written with ID: ", docRef.id);
+            //console.log("Document written with ID: ", docRef.id);
             resolve(docRef.id);
         } catch (e) {
           console.error("Error adding document: ", e);
@@ -70,7 +70,7 @@ export const addPuzzleSurvey = async(pid, puzzleSurveyData) => {
                   userId: user,
                   pid:pid
                 });
-                console.log("Document written with ID: ", docRef.id);
+                //console.log("Document written with ID: ", docRef.id);
               } catch (e) {
                 console.error("Error adding document: ", e);
               }
@@ -81,7 +81,7 @@ export const addCellChange = async(instanceId, time, puzzleState, correct, incor
   getCurrentUser().then(async function (user){
     const instance =  doc(db,  "gamePlayInstances", instanceId); 
     const updated = await updateDoc(instance, {totalTime:time, numCorrect:correct, numIncorrect: incorrect, isSolved: solved})
-    console.log("instance:", instance);
+    //console.log("instance:", instance);
     let action = doc(instance, "actions", time.toString())
     action = await setDoc(action, {userId: user, time:time, type:"cellChange", puzzleState:puzzleState, correct: correct, incorrect: incorrect, solved:solved});
   })
@@ -91,7 +91,7 @@ export const addHintToggle = async(instanceId, time, hint, striked) => {
   getCurrentUser().then(async function (user){
     const instance =  doc(db,  "gamePlayInstances", instanceId); 
     const updated = await updateDoc(instance, {totalTime:time})
-    console.log("instance:", instance);
+    //console.log("instance:", instance);
     let action = doc(instance, "actions", time.toString())
     action = await setDoc(action, {userId: user, time:time, type:"hintToggle",hint:hint, striked:striked});
   })
