@@ -5,6 +5,7 @@ import InformedConsent from './src/InformedConsent';
 import InitialSurvey from './src/InitialSurvey';
 import PuzzleManager from './src/PuzzleManager';
 import Tutorial from './src/Tutorial';
+import * as Linking from 'expo-linking';
 
 let questions = ["The puzzle was cognitively demanding.", "I had to think very hard when playing the puzzle.",
     "The puzzle required a lot of mental gymnastics.", "The puzzle stimulated my brain.", "This puzzle doesn’t require a lot of mental effort.", 
@@ -40,10 +41,10 @@ function getFiles() {
   let solutions = [12, 199, 352, 444]
   let files = []
 
-  shuffleArray(solutions)
+  //shuffleArray(solutions)
 
   for (i in columns) {
-    files.push("puzzles/puzzle_" + solutions[i] + "_" + columns[i] + ".json")
+    files.push("puzzles/puzzle_" + solutions[0] + "_" + columns[i] + ".json")
   }
 
   return files
@@ -53,13 +54,15 @@ function getFiles() {
 
 
 
+
+
 export default function App() {
 
   //addSubject(4, 3); 
 
   let [puzzle, setPuzzle] = useState(null);
   let [i, setI] = useState(0)
-  let [mode, setMode] = useState("consent")
+  let [mode, setMode] = useState("survey")
   let [pid, setPID] = useState(0)
   let [content, setContent] = useState(<Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />);
   //let [files, setFiles] = useState(); 
@@ -90,34 +93,50 @@ export default function App() {
 
   shuffleArray(files)
 
-  if (mode == "consent") {
+  const url = Linking.useURL();
+
+  if (url) {
+    const { hostname, path, queryParams } = Linking.parse(url);
+
+    console.log(
+      `Linked to app with hostname: ${hostname}, path: ${path} and data: ${JSON.stringify(
+        queryParams
+      )}`
+    );
+  
+
+  if (path == "consent") {
+    if (mode == "survey") {
+      return (
+  
+        <InitialSurvey postAnswers={submitInitalSurvey} />
+      )
+    } else if (mode == "tutorial") {
+      return (<div className='parent'>{tutorial}</div>)
+    } else {
+      return (<div className='parent'>
+        <div className='codeBanner'>
+          <div>
+            Your completion code is CKKCGFDC<br />
+            You may enter this at anytime
+          </div>
+  
+        </div>
+        {puzzleManager}</div>)
+    }
+  }else{
     return (consent)
   }
-  else if (mode == "survey") {
-    return (
 
-      <InitialSurvey postAnswers={submitInitalSurvey} />
-    )
-  } else if (mode == "tutorial") {
-    return (<div className='parent'>{tutorial}</div>)
-  } else {
-    return (<div className='parent'>
-      <div className='codeBanner'>
-        <div>
-          Your completion code is 4XPAFDSASD <br />
-          You may enter this at anytime
-        </div>
 
-      </div>
-      {puzzleManager}</div>)
+
+
+
+
+
+  }else{
+    return <div>Loading</div>
   }
-
-
-
-
-
-
-
 
 
 }

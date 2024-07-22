@@ -15,7 +15,7 @@ let signIn = () =>{
 }
 
 export function getCurrentUser(){
-    return new Promise((resolve, reject) =>{
+    /*return new Promise((resolve, reject) =>{
         const auth = getAuth();
         let user = auth.currentUser;
 
@@ -27,7 +27,9 @@ export function getCurrentUser(){
                 resolve(user.uid);
             })
         }
-    })
+    })*/ 
+
+    return new Promise((resolved) => resolved(0))
     
 
 }
