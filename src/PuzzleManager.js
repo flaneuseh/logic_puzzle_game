@@ -5,7 +5,6 @@ import Category from "./categoryModel";
 import Puzzle from "./puzzle";
 import PuzzleModel from "./puzzleModel";
 import Survey from "./survey";
-import { createGamePlayInstance } from './Firestore/sendData';
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -72,7 +71,7 @@ function startSurvey(puzzle, i, setI, setContent, files, postSurvey, questions) 
 }
 
 
-export default PuzzleManager = ({ files, i, setI , postSurvey, questions}) => {
+export default PuzzleManager = ({ files, i, setI, postSurvey, questions }) => {
     //shuffleArray(files);
     //let [i, setI] = useState(0);
     let [content, setContent] = useState(<div>loading</div>);
@@ -80,16 +79,16 @@ export default PuzzleManager = ({ files, i, setI , postSurvey, questions}) => {
     let [puzzleId, setPuzzleId] = useState(-1);
 
 
-    if (files){
+    if (files) {
         if (i == 0) {
             load(i, setI, setContent, files, postSurvey, questions);
-    
+
         }
-    
-    
-    
+
+
+
         return (content)
-    }else{
+    } else {
         return <div>Loading files</div>
     }
 

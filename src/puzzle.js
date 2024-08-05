@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import FinishButtons from "./EndPuzzleButtons";
-import Hints from "./hints";
+import { addButtonPress, addCellChange, createGamePlayInstance } from "./Firestore/sendData";
+import StoryManager from "./StoryManager";
 import StateSelector from "./stateSelector";
 import SubGrid from "./subgrid";
-import { createGamePlayInstance, addCellChange, addButtonPress } from "./Firestore/sendData";
 
 function initializeSubGrid(numRows, numCols, puzzle, recordPuzzle) {
     let subgrid = []
@@ -19,7 +19,7 @@ function initializeSubGrid(numRows, numCols, puzzle, recordPuzzle) {
                 // run something every time name changes
                 recordPuzzle()
             }, [state]);
-            
+
             subgrid[i][j] = { state: state, setState: setState };
         }
     }
@@ -126,13 +126,13 @@ const recordPuzzle = (puzzle, solution, time, instanceId) => {
     //console.log("Is solved: " + isSolved(puzzle, solution));
     // addUserSolution(pid, str, correct, incorrect, isSolved)
 
-    if (instanceId != null){
-        addCellChange(instanceId, ms, str, correct, incorrect, isSolved(puzzle,solution));
+    if (instanceId != null) {
+        addCellChange(instanceId, ms, str, correct, incorrect, isSolved(puzzle, solution));
 
     }
 
- 
-    
+
+
 }
 
 let clearPuzzle = (puzzle, strikes, setStrikes, instanceId, time) => {
@@ -152,15 +152,15 @@ let clearPuzzle = (puzzle, strikes, setStrikes, instanceId, time) => {
 
     }
     let newStrikes = []
-    for(i in strikes){
-        newStrikes.push(false); 
+    for (i in strikes) {
+        newStrikes.push(false);
     }
 
     setStrikes(newStrikes);
-    
+
 }
 
-export default Puzzle =({p, time, concede, finish})=>{
+export default Puzzle = ({ p, time, concede, finish }) => {
     let puzzle = [[]];
     let displayGrid = [];
     let [select, setSelect] = useState("O");
@@ -168,37 +168,39 @@ export default Puzzle =({p, time, concede, finish})=>{
     let rowLength = p.leftRight.length;
     let [strikes, setStrikes] = useState([]);
     let [isCorrect, setCorrect] = useState(false);
-    let [instanceId, setInstanceId] = useState(null); 
+    let [instanceId, setInstanceId] = useState(null);
 
-    useEffect(() => {async function fetchData() {
-        // You can await here
-        createGamePlayInstance(p.num).then((data) => {setInstanceId(data); })
-        
-       
-      }
-      fetchData()}, []);
+    useEffect(() => {
+        async function fetchData() {
+            // You can await here
+            createGamePlayInstance(p.num).then((data) => { setInstanceId(data); })
 
-    let recordAndConcede = () =>{
+
+        }
+        fetchData()
+    }, []);
+
+    let recordAndConcede = () => {
         let newTime = new Date()
-        let ms = newTime - time 
-        addButtonPress(instanceId,ms, "concede"); 
+        let ms = newTime - time
+        addButtonPress(instanceId, ms, "concede");
         concede();
     }
 
-    let recordAndSubmit = () =>{
+    let recordAndSubmit = () => {
         let newTime = new Date()
-        let ms = newTime - time 
-        addButtonPress(instanceId, ms, "submit"); 
+        let ms = newTime - time
+        addButtonPress(instanceId, ms, "submit");
         finish();
     }
-  
 
-   
+
+
     for (let row = 0; row < p.topBottom.length; row++) {
         puzzle[row] = []
         let displayColIdx = 1;
         for (let col = 0; col < rowLength; col++) {
-            let subgrid = initializeSubGrid(p.numEnt, p.numEnt, puzzle, ()=>{recordPuzzle(puzzle, p.solutionString, time, instanceId)});
+            let subgrid = initializeSubGrid(p.numEnt, p.numEnt, puzzle, () => { recordPuzzle(puzzle, p.solutionString, time, instanceId) });
             puzzle[row][col] = subgrid;
 
             topCat = null;
@@ -220,18 +222,21 @@ export default Puzzle =({p, time, concede, finish})=>{
     /*useEffect(() => {
         // run something every time name changes
         recordPuzzle(puzzle, p.solutionString, time)
-    }, [puzzle]);*/ 
+    }, [puzzle]);*/
 
     /*setInterval(() => {
       setTime( 1)
   }, 1000);*/
 
-    
+
     //let [hints, setHints] = useState(<Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes}/>); 
 
 
     return (<div className="puzzleArea">
         <div className="puzzleLeft">
+            <StoryManager />
+        </div>
+        <div className="puzzleRight">
             <h1>Puzzle</h1>
             <div className="puzzleGrid">
                 {displayGrid}
@@ -239,14 +244,14 @@ export default Puzzle =({p, time, concede, finish})=>{
 
             <h1>Select Mark</h1>
             <StateSelector selected={select} setSelect={setSelect} />
-        </div>
-        <div className="puzzleRight">
-            <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes} instanceId={instanceId}/>
-            <FinishButtons 
-                giveUp={() => {recordAndConcede()}}
-                isCorrect = {() => isSolved(puzzle, p.solutionString)}
-                clearPuzzle = {function () {clearPuzzle(puzzle,strikes, setStrikes,instanceId, time)}}
-                finish = {() => {recordAndSubmit()}}
+            {/* </div> */}
+            {/* <div className="puzzleRight"> */}
+            {/* <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes} instanceId={instanceId}/> */}
+            <FinishButtons
+                giveUp={() => { recordAndConcede() }}
+                isCorrect={() => isSolved(puzzle, p.solutionString)}
+                clearPuzzle={function () { clearPuzzle(puzzle, strikes, setStrikes, instanceId, time) }}
+                finish={() => { recordAndSubmit() }}
                 puzzle={puzzle}
                 instanceId={instanceId}
                 time={time}

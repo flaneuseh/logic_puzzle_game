@@ -91,7 +91,7 @@ Lady Rose's ballroom, decked out in splendor for the Chrysanthemum Ball. In one 
 "Miss Baker is a nice enough young woman I suppose, though she is of a rather mousy disposition. Earlier there was a small mishap with her dress and I thought she might have fainted from embarrassment." {~ dress = true}
 + [Ask about <b>Lord George</b>]
 "What do you think about Lord George?" you ask.
-"Oh, well, Lord George is a dear really, though a terrible bore at dinner time conversation. When you get him on the subject of his stocks, there is no stopping him, as I'm sure you remember."{~ stocks = true}
+"Oh, well, Lord George is a dear really, though a terrible bore at dinner time conversation. When you get him on the subject of his stocks, there is no stopping him, as I'm sure you remember." {~ stocks = true}
 + [Ask about <b>Mr. Parker</b>]
 "What do you think about Mr. Parker?" you ask.
 "Mr. Parker? Oh, he is such a polite and dashing young man! When we danced the quickstep I felt quite ten years younger! It did put me rather out of breath of course.
@@ -151,7 +151,7 @@ Lady Eleanor regards you haughtily. "I don't know why you feel the need to quest
 
 + {what}[Ask about Lord George]
 "What do you think of Lord George?" you ask. She rolls her eyes.
-"Lord George is a puffed up old bore, as you well know. At the last gathering I attended with him, I was forced to listen to him ramble about stocks for over half an hour before I was able to turn him over to Miss Baker. He's been more quiet than usual tonight, though."{~ stocks = true}
+"Lord George is a puffed up old bore, as you well know. At the last gathering I attended with him, I was forced to listen to him ramble about stocks for over half an hour before I was able to turn him over to Miss Baker. He's been more quiet than usual tonight, though." {~ stocks = true}
 
 - 
 -> eleanor

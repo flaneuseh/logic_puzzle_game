@@ -6,9 +6,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web", 
+    "web": "expo start --web",
     "predeploy": "expo export -p web",
-  "deploy-hosting": "npm run predeploy && firebase deploy --only hosting"
+    "deploy-hosting": "npm run predeploy && firebase deploy --only hosting"
   },
   "dependencies": {
     "@cyntler/react-doc-viewer": "^1.14.1",
@@ -18,8 +18,10 @@
     "@react-pdf/renderer": "^3.4.1",
     "axios": "^1.6.7",
     "expo": "^50.0.7",
+    "expo-linking": "^6.3.1",
     "expo-status-bar": "~1.11.1",
     "firebase": "^10.9.0",
+    "inkjs": "^2.2.4",
     "pdfjs-dist": "^3.4.120",
     "pspdfkit": "^2024.2.0",
     "react": "18.2.0",

@@ -247,11 +247,14 @@ li {
 }
 
 .surveyImg {
-    width:50vmin;
+    width: 50vmin;
 }
 
-.puzzleRight{
+/* .puzzleRight {
     width: 30vmin;
+} */
+.puzzleLeft {
+    width: 50%;
 }
 
 .nextButton {
@@ -266,16 +269,16 @@ li {
     list-style-type: none;
 }
 
-.survey li input[type="radio"]{
-    width: 2vmin; 
+.survey li input[type="radio"] {
+    width: 2vmin;
     height: 2vmin;
 }
 
-.survey li label{
+.survey li label {
     font-size: 2vmin;
 }
 
-.survey h1{
+.survey h1 {
     font-size: 2vmin;
 }
 
@@ -299,18 +302,18 @@ li {
     position: relative;
     width: 70%;
     margin: 0 auto;
-    
+
 }
 
 
-.consent div{
+.consent div {
     margin: 5vmin, 10vmin;
     justify-content: center;
 
-    
+
 }
 
-.consent img{
+.consent img {
     width: 100%;
 }
 
@@ -323,29 +326,35 @@ li {
 }
 
 
-.codeBanner div{
+.codeBanner div {
     padding: 2vmin;
 }
 
-.consentButtonLeft{
-    position: absolute; /* becomes a layer */
-    left: 0; /* relative to its parent wrapper */
-    bottom:9.3%; /* relative to its parent wrapper */
+.consentButtonLeft {
+    position: absolute;
+    /* becomes a layer */
+    left: 0;
+    /* relative to its parent wrapper */
+    bottom: 9.3%;
+    /* relative to its parent wrapper */
     z-index: 2;
     height: 4%;
     width: 45%;
-    margin:3vmin;
+    margin: 3vmin;
     font-size: 2vmin;
 
 }
 
-.consentButtonRight{
-    position: absolute; /* becomes a layer */
-    right: 0; /* relative to its parent wrapper */
-    bottom:9%; /* relative to its parent wrapper */
+.consentButtonRight {
+    position: absolute;
+    /* becomes a layer */
+    right: 0;
+    /* relative to its parent wrapper */
+    bottom: 9%;
+    /* relative to its parent wrapper */
     z-index: 2;
     height: 4%;
-    margin:3vmin;
+    margin: 3vmin;
     font-size: 2vmin;
     width: 45%;
 
