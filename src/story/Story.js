@@ -1,9 +1,25 @@
+import "./style.css"
+import { useEffect, useRef } from "react"
+import ScrollToBottom from 'react-scroll-to-bottom';
+
 export default Story = ({ paragraphs, choices, makeChoice }) => {
-    return <div>
-        {paragraphs.map((paragraph, idx) => <p key={idx}>{paragraph}</p>)}
-        {choices.map(choice => <li key={choice.index} onClick={() => makeChoice(choice.index)}>
-            {choice.text}
+
+    ref = useRef(null); 
+    let scrollToBottom = () =>{
+        console.log("Scrolling to bottom")
+        console.log(ref)
+        ref.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+
+
+    return <ScrollToBottom className="storyBlock" >
+ 
+            
+    
+        {paragraphs.map((paragraph, idx) => <p className="text" dangerouslySetInnerHTML={{ __html: paragraph}} key={idx}></p>)}
+        {choices.map(choice => <li className="choice" key={choice.index} onClick={() => {makeChoice(choice.index); scrollToBottom()}} dangerouslySetInnerHTML={{ __html: choice.text}}>
         </li>)}
-    </div>
+        
+        </ScrollToBottom>
 }
 

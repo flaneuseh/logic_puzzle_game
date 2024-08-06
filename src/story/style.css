@@ -1,0 +1,28 @@
+.text{
+    color: #5A5353; 
+}
+
+.choice{
+    list-style-type: none;
+    color: #A07178;
+} 
+
+.choice::before{ 
+
+    content: "\00BB"; 
+} 
+
+
+.choice:hover{
+    color:#5A5353;
+}
+
+.storyBlock{
+    margin: 4px, 4px;
+    padding: 4px;
+    background-color: #E6CCBE;
+    width: 100%;
+    height: 80vh; 
+    text-align: justify;
+    scrollbar-color: #A07178 #776274;
+}
