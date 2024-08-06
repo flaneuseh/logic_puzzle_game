@@ -4,6 +4,7 @@ import { addButtonPress, addCellChange, createGamePlayInstance } from "./Firesto
 import StoryManager from "./StoryManager";
 import StateSelector from "./stateSelector";
 import SubGrid from "./subgrid";
+import Hints from "./hints";
 
 function initializeSubGrid(numRows, numCols, puzzle, recordPuzzle) {
     let subgrid = []
@@ -160,7 +161,7 @@ let clearPuzzle = (puzzle, strikes, setStrikes, instanceId, time) => {
 
 }
 
-export default Puzzle = ({ p, time, concede, finish }) => {
+export default Puzzle = ({ p, time, concede, finish, name, mode}) => {
     let puzzle = [[]];
     let displayGrid = [];
     let [select, setSelect] = useState("O");
@@ -219,22 +220,18 @@ export default Puzzle = ({ p, time, concede, finish }) => {
         displayRowIdx++;
     }
 
-    /*useEffect(() => {
-        // run something every time name changes
-        recordPuzzle(puzzle, p.solutionString, time)
-    }, [puzzle]);*/
+   left_content = "" 
 
-    /*setInterval(() => {
-      setTime( 1)
-  }, 1000);*/
-
-
-    //let [hints, setHints] = useState(<Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes}/>); 
+   if (mode == "if"){
+    content =  <StoryManager storyName={name}/>
+   }else if (mode == "hints"){
+    content =  <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes} instanceId={instanceId}/> 
+   }
 
 
     return (<div className="puzzleArea">
         <div className="puzzleLeft">
-            <StoryManager />
+            {content}
         </div>
         <div className="puzzleRight">
             <h1>Puzzle</h1>

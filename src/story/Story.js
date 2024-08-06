@@ -1,5 +1,4 @@
 import "./style.css"
-import { useEffect, useRef } from "react"
 import ScrollToBottom, { useScrollToBottom} from 'react-scroll-to-bottom';
 
 

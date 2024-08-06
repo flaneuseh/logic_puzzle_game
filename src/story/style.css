@@ -26,3 +26,7 @@
     text-align: justify;
     scrollbar-color: #776274 #A07178 ;
 }
+
+.verticalLine {
+    border-left: thick solid #ff0000;
+  } 
