@@ -1,16 +1,12 @@
 import "./style.css"
 import { useEffect, useRef } from "react"
-import ScrollToBottom from 'react-scroll-to-bottom';
+import ScrollToBottom, { useScrollToBottom} from 'react-scroll-to-bottom';
+
 
 export default Story = ({ paragraphs, choices, makeChoice }) => {
 
-    ref = useRef(null); 
-    let scrollToBottom = () =>{
-        console.log("Scrolling to bottom")
-        console.log(ref)
-        ref.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    }
-
+    const scrollToBottom = useScrollToBottom(); 
+   
 
     return <ScrollToBottom className="storyBlock" >
  
@@ -22,4 +18,3 @@ export default Story = ({ paragraphs, choices, makeChoice }) => {
         
         </ScrollToBottom>
 }
-
