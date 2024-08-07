@@ -84,17 +84,20 @@ Lady Rose's ballroom, decked out in splendor for the Chrysanthemum Ball. In one 
 
 = other_guests
 + [Ask about <b>Lady Eleanor</b>]
-"What do you think about Lady Eleanor?" you ask.
+"What do you think of Lady Eleanor?" you ask.
 "Ugh, as you well know my haughty sister has been after my necklace for simply ages, ever since dear Mother gave it to me as a wedding present. And really, she may be the older sister, but I did marry first, while she is still single. What would she even do with such a necklace with no children to leave it to?" You refrain from pointing out that Lady Rose herself has no children.
 + [Ask about <b>Miss Baker</b>]
-"What do you think about Miss Baker?" you ask.
-"Miss Baker is a nice enough young woman I suppose, though she is of a rather mousy disposition. Earlier there was a small mishap with her dress and I thought she might have fainted from embarrassment." {~ dress = true}
+"What do you think of Miss Baker?" you ask.
+"Miss Baker is a nice enough young woman I suppose, though she is of a rather mousy disposition. Earlier there was a small mishap with her dress and I thought she might have fainted from embarrassment." 
+~ dress = true
 + [Ask about <b>Lord George</b>]
-"What do you think about Lord George?" you ask.
-"Oh, well, Lord George is a dear really, though a terrible bore at dinner time conversation. When you get him on the subject of his stocks, there is no stopping him, as I'm sure you remember." {~ stocks = true}
+"What do you think of Lord George?" you ask.
+"Oh, well, Lord George is a dear really, though a terrible bore at dinner time conversation. When you get him on the subject of his stocks, there is no stopping him, as I'm sure you remember." 
+~ stocks = true
 + [Ask about <b>Mr. Parker</b>]
-"What do you think about Mr. Parker?" you ask.
+"What do you think of Mr. Parker?" you ask.
 "Mr. Parker? Oh, he is such a polite and dashing young man! When we danced the quickstep I felt quite ten years younger! It did put me rather out of breath of course.
++ [Back] -> rose
 -
 -> other_guests
 + [Back] -> rose
@@ -121,7 +124,8 @@ Sarah jumps when you come up to her, almost knocking over the tray of drinks.
 "W-well, I was standing here in case anyone would need a drink, and the ladies and gentlemen were dancing. I d-didn't leave this spot except for one dance."
 + {what}[Ask about the dances]
 "What do you remember about the dancing?" you prompt.
-"The d-dancing?" she looks confused. "I r-really can't say. I can't tell the difference between the dances, and I d-didn't notice which guest was sitting out. B-but I do remember Miss Baker - that was when I left my position. S-she had torn her dress, and I went with her to repair it. But we were back by the time the next dance started. {~  dress = true}
+"The d-dancing?" she looks confused. "I r-really can't say. I can't tell the difference between the dances, and I d-didn't notice which guest was sitting out. B-but I do remember Miss Baker - that was when I left my position. S-she had torn her dress, and I went with her to repair it. But we were back by the time the next dance started. 
+~  dress = true
 
 -
 -> maid
@@ -144,14 +148,16 @@ Lady Eleanor regards you haughtily. "I don't know why you feel the need to quest
 "What happened? Well, we had decided to do some dancing as the four of us were here already, and just as the fourth dance was concluding, my sister started screaming her head off about her necklace being stolen! It was a most indecorous display, especially as by all rights, that necklace <i>should</i> be mine, as the eldest daughter. I don't see what Rose being married first has to do with anything."
 + {what}[Ask about Miss Baker]
 "What do you think of Miss Baker?" you ask. At that, Lady Eleanor's eyes flash indignantly.
-"I simply don’t see why I should have been obliged to sit out for a dance, when isn’t the function of one’s companion to preserve them from such indignities? Terribly presumptuous of the girl to swan boldly onto the dance floor like a person of consequence, when she wouldn’t have a scrap to her name without my generous patronage. And what uncultured dancing! It’s not surprising at all that she stepped on her own dress during her ungracious attempt at a waltz, and what an unbecoming shade of red she became! If I had so embarrassed myself in front of my betters, I would not have had the nerve to show myself again. Unfortunately, she returned as soon as she had gotten Lady Rose’s maid to repair her wardrobe, only missing the next dance - disregarding the inconvenience to the rest of the party of not having a maid to attend our needs, I might add." {~ dress = true}
+"I simply don’t see why I should have been obliged to sit out for a dance, when isn’t the function of one’s companion to preserve them from such indignities? Terribly presumptuous of the girl to swan boldly onto the dance floor like a person of consequence, when she wouldn’t have a scrap to her name without my generous patronage. And what uncultured dancing! It’s not surprising at all that she stepped on her own dress during her ungracious attempt at a waltz, and what an unbecoming shade of red she became! If I had so embarrassed myself in front of my betters, I would not have had the nerve to show myself again. Unfortunately, she returned as soon as she had gotten Lady Rose’s maid to repair her wardrobe, only missing the next dance - disregarding the inconvenience to the rest of the party of not having a maid to attend our needs, I might add." 
+~ dress = true
 + {what}[Ask about Mr. Parker]
 "What do you think of Mr. Parker?" you ask.
 “Mr. Parker? That young man knows how to pay respect to his betters. A little too well, I think sometimes." Lady Eleanor lowers her voice before continuing in a conspiratorial tone. "Why, Rose was positively swooning for him earlier, and I simply don’t think it’s appropriate for a woman of her age to be dancing the tango with a man quite twenty years her junior.” 
 
 + {what}[Ask about Lord George]
 "What do you think of Lord George?" you ask. She rolls her eyes.
-"Lord George is a puffed up old bore, as you well know. At the last gathering I attended with him, I was forced to listen to him ramble about stocks for over half an hour before I was able to turn him over to Miss Baker. He's been more quiet than usual tonight, though." {~ stocks = true}
+"Lord George is a puffed up old bore, as you well know. At the last gathering I attended with him, I was forced to listen to him ramble about stocks for over half an hour before I was able to turn him over to Miss Baker. He's been more quiet than usual tonight, though." 
+~ stocks = true
 
 - 
 -> eleanor
@@ -162,7 +168,8 @@ Miss Baker pales at your approach. "Of course, I'd be happy to help in any way I
 (Talking to Miss. Baker)
 + (what)[Ask about what happened]
 "What can you tell me about what happened?" you ask. She swallows nervously. 
-"I can't tell you anything - we were dancing, and then Lady Rose started crying that her necklace was missing. I don't know how that could have happened. I wasn't paying any attention to it when I was dancing, and when I wasn't dancing, I was more focused on my dress repair." {~ dress = true}
+"I can't tell you anything - we were dancing, and then Lady Rose started crying that her necklace was missing. I don't know how that could have happened. I wasn't paying any attention to it when I was dancing, and when I wasn't dancing, I was more focused on my dress repair." 
+~ dress = true
 + {what}[Ask about Lady Eleanor]
 "What do you think about Lady Eleanor?" you ask. She pales.
 "I'm grateful to her, of course. She may not always be the most, ah, friendly, but she provides for me adequately." 

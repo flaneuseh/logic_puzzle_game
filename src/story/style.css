@@ -1,32 +1,37 @@
-.text{
-    color: #5A5353; 
+.text {
+    color: #5A5353;
 }
 
-.choice{
+.choice {
     list-style-type: none;
     color: #A07178;
-} 
-
-.choice::before{ 
-
-    content: "\00BB"; 
-} 
-
-
-.choice:hover{
-    color:#5A5353;
+    cursor: pointer;
 }
 
-.storyBlock{
-    margin: 4px, 4px;
+.choice::before {
+
+    content: "\00BB";
+}
+
+
+.choice:hover {
+    color: #5A5353;
+}
+
+.storyBlock {
+    margin: 4px;
     padding: 4px;
     background-color: #E6CCBE;
     width: 100%;
-    height: 80vh; 
+    height: 80vh;
     text-align: justify;
-    scrollbar-color: #776274 #A07178 ;
+    scrollbar-color: #776274 #A07178;
+}
+
+.storyText {
+    margin: 4px;
 }
 
 .verticalLine {
     border-left: thick solid #ff0000;
-  } 
+}
