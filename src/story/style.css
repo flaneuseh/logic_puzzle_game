@@ -22,9 +22,10 @@
     padding: 4px;
     background-color: #E6CCBE;
     width: 100%;
-    height: 80vh; 
+    height: 85vh; 
     text-align: justify;
     scrollbar-color: #776274 #A07178 ;
+    border-style: solid;
 }
 
 .verticalLine {

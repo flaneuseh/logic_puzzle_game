@@ -2,6 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    color: #5A5353 
 }
 
 .puzzleGrid {
@@ -35,7 +36,7 @@ body {
     writing-mode: vertical-rl;
     text-align: left;
     margin: auto;
-    width: 3.5vmin;
+    width: 4.5vmin;
     height: 10vmin;
     font-size: 1.5vmin;
     transform:
@@ -51,7 +52,7 @@ body {
 .leftCategoryText {
     writing-mode: vertical-lr;
     display: inline-block;
-    width: 3.5vmin;
+    width: 4.5vmin;
     font-size: 2.5vmin;
     height: 14vmin;
     transform:
@@ -59,9 +60,9 @@ body {
 }
 
 .cell {
-    width: 3.5vmin;
-    height: 3.5vmin;
-    line-height: 3.5vmin;
+    width: 4.5vmin;
+    height: 4.5vmin;
+    line-height: 4.5vmin;
     border: 0.2vmin solid #7e7474;
     display: inline-block;
     vertical-align: middle;
@@ -84,9 +85,9 @@ body {
 }
 
 .unselected {
-    width: 3.5vmin;
-    height: 3.5vmin;
-    line-height: 3.5vmin;
+    width: 4.5vmin;
+    height: 4.5vmin;
+    line-height: 4.5vmin;
     border: 0.3vmin solid #7e7474;
     display: inline-block;
     vertical-align: middle;
@@ -109,9 +110,9 @@ body {
 }
 
 .selected {
-    width: 3.5vmin;
-    height: 3.5vmin;
-    line-height: 3.5vmin;
+    width: 4.5vmin;
+    height: 4.5vmin;
+    line-height: 4.5vmin;
     border: 0.7vmin solid #2aac25;
     display: inline-block;
     vertical-align: middle;
@@ -139,7 +140,7 @@ body {
     /*vertical-align: middle;*/
     display: inline-block;
     /*line-height: normal;*/
-    font-size: 3vmin;
+    font-size: 4vmin;
 }
 
 
@@ -147,12 +148,12 @@ body {
 
 
     /* Color for revealed tile text */
-    color: #07551e;
+    color:#858F00
 }
 
 .notlinked {
     /* Color for mines */
-    color: #861414;
+    color:#61222B;
 }
 
 .linkedUnsure {
@@ -220,7 +221,7 @@ li {
 
 .strikedText {
     text-decoration: line-through;
-    color: #861414
+    color: #776274
 }
 
 .button {
