@@ -1,3 +1,4 @@
 {"solution": "-----------\n|XXXO|XXXO|\n|XOXX|OXXX|\n|XXOX|XXOX|\n|OXXX|XOXX|\n------\n|XOXX|\n|OXXX|\n|XXOX|\n|XXXO|\n", "categories": [{"name": "car", "entities": ["1", "2", "3", "4"]}, {"name": "suspect", "entities": ["Ethan Owen", "Madeleine Baker", "George Herbert", "Ava Finch"]}, {"name": "station", "entities": ["Greencester", "Seastead", "Hogfield", "Forest Hills"]}], "hints": ["The station Forest Hills is the suspect Madeleine Baker", "The station Hogfield is the suspect George Herbert", "The station Forest Hills is 1 cars before the station Seastead", "The suspect Ethan Owen is 2 cars before the station Greencester"], 
 "inkName": "train", 
+"clueFile": "public/narrativePuzzles/trainNarrative.txt", 
 "id": 0}

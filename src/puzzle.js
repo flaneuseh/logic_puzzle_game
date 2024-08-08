@@ -5,6 +5,7 @@ import StoryManager from "./StoryManager";
 import StateSelector from "./stateSelector";
 import SubGrid from "./subgrid";
 import Hints from "./hints";
+import NarrativeClues from "./narrativeClues";
 
 function initializeSubGrid(numRows, numCols, puzzle, recordPuzzle) {
     let subgrid = []
@@ -161,7 +162,7 @@ let clearPuzzle = (puzzle, strikes, setStrikes, instanceId, time) => {
 
 }
 
-export default Puzzle = ({ p, time, concede, finish, name, mode}) => {
+export default Puzzle = ({ p, time, concede, finish, name, mode, clueFile}) => {
     let puzzle = [[]];
     let displayGrid = [];
     let [select, setSelect] = useState("O");
@@ -226,6 +227,8 @@ export default Puzzle = ({ p, time, concede, finish, name, mode}) => {
     content =  <StoryManager storyName={name}/>
    }else if (mode == "hints"){
     content =  <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes} instanceId={instanceId}/> 
+   }else{
+    content = <NarrativeClues clueFile={clueFile} /> 
    }
 
 

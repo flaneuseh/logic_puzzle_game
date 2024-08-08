@@ -1,0 +1,29 @@
+
+.clueBlock{
+    margin: 8px;
+    padding: 16px;
+    background-color: #E6CCBE;
+    width: 95%;
+    height: 60vh;
+    text-align: justify;
+    scrollbar-color: #776274 #A07178;
+}
+
+
+.unselected_n{
+    background-color:#5A5353; 
+    color: white; 
+    width: 20%;  
+    height: 4vmin; 
+    margin: 4px;
+  
+
+}
+
+.selected_n{
+    background-color:#A07178;  
+    color: white; 
+    width: 20%;  
+    height: 4vmin; 
+    margin: 4px;
+}
