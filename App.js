@@ -37,17 +37,7 @@ function createPuzzle(data, setPuzzle) {
 }
 
 function getFiles() {
-  let columns = [0, 1, 3, 5]
-  let solutions = [12, 199, 352, 444]
-  let files = []
-
-  //shuffleArray(solutions)
-
-  for (i in columns) {
-    files.push("puzzles/puzzle_" + solutions[0] + "_" + columns[i] + ".json")
-  }
-
-  return files
+  return ["public/narrativePuzzles/trainInfo.json"]; 
 
 
 }
