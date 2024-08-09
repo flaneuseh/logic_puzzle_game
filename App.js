@@ -37,7 +37,9 @@ function createPuzzle(data, setPuzzle) {
 }
 
 function getFiles() {
-  return ["public/narrativePuzzles/trainInfo.json"]; 
+  //return ["public/narrativePuzzles/chiliInfo.json"]; 
+  //return ["public/narrativePuzzles/trainInfo.json"]; 
+  return ["public/narrativePuzzles/ballroomInfo.json"]; 
 
 
 }
@@ -66,7 +68,7 @@ export default function App() {
 
   let consent = <div className='parent'><InformedConsent consent={() => setMode("survey")} /></div>
   let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />
-  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} />
+  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} mode="if"/>
 
   let startGame = () => {
     setMode("puzzle")
