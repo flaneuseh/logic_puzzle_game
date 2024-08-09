@@ -7,7 +7,7 @@
     height: 60vh;
     text-align: justify;
     scrollbar-color: #776274 #A07178;
-    overflow: scroll;
+    overflow: auto;
 }
 
 
