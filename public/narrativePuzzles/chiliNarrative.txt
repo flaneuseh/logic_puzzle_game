@@ -1,3 +1,9 @@
+<p>It’s that time of year once again: the annual Maryport Chili tournament. The town is aflutter with the possibilities of what the contestants have to bring this year. As the oldest child of the Nielson household, you have decided it is time to learn the family secrets for the perfect chili. Luckily, your Aunt Susan has taken you on as her apprentice.  She has already cooked up a plan of which ingredients you need to get, from which stores (sourcing is as important as the recipe!), and in what order to add them to the chili. </p>
+
+<p>Unfortunately, it is the day of the competition, and Aunt Susan is nowhere to be found. She went to visit your grandmother upstate and has not returned. Her old pickup must have broken down again. To make matters worse, the reception is spotty upstate so you haven’t been able to call her. The hours are dwindling down, so it’s up to you to pick up the ingredients and add them to the chili. You know you need to get black beans, tomatoes, jalapenos, and chili powder, and each must be bought at a different store and added in the right order. However, you need to determine which store to get which ingredients at and what order to put them in, with only the following clues. </p>
+
+
+//
 <p>On the kitchen table you find a cookbook that focuses on peppers. The book is open to a page about Jalapenos. The page reads: </p> 
 <p>“The spiciness of chili peppers, such as Jalapenos, comes from the chemical capsaicin.  Cooking Jalapenos can either increase or decrease the concentration of capsaicin, depending on the method. Boiling jalapenos can result in a mild decrease in capsaicin concentration, while grilling increases the concentration. “  </p> 
 

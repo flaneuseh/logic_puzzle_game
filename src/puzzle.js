@@ -226,7 +226,7 @@ export default Puzzle = ({ p, time, concede, finish, name, mode, clueFile}) => {
    if (mode == "if"){
     content =  <StoryManager storyName={name}/>
    }else if (mode == "hints"){
-    content =  <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes} instanceId={instanceId}/> 
+    content =  <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes} instanceId={instanceId} clueFile={clueFile}/> 
    }else{
     content = <NarrativeClues clueFile={clueFile} /> 
    }

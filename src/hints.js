@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { addHintToggle } from "./Firestore/sendData"
+import axios from 'axios';   
 
 let recordHint = (time, hint, strikes, i, instanceId) =>{
     let newTime = new Date()
@@ -10,11 +11,20 @@ let recordHint = (time, hint, strikes, i, instanceId) =>{
 }
 
 
-export default HintDisplay = ({hints, time, strikes, setStrikes, instanceId}) => {
 
+export default HintDisplay = ({hints, time, strikes, setStrikes, instanceId, clueFile}) => {
+    let [story, setStory] = useState("loading")
+
+    useEffect(() => {
+        
+        axios.get(clueFile).then(response => {
+            let clues = response.data.split("//") 
+            setStory(clues[0]) 
+        }) 
+    }, [] )
 
     let toggleStrike = (idx) => {
-        const nextStrikes= strikes.map((c, i) => {
+        /*const nextStrikes= strikes.map((c, i) => {
             if (i === idx) {
               // toggle strike
               return !c;
@@ -23,7 +33,7 @@ export default HintDisplay = ({hints, time, strikes, setStrikes, instanceId}) =>
               return c;
             }
           });
-          setStrikes(nextStrikes);
+          setStrikes(nextStrikes);*/ 
 
     }
     
@@ -49,9 +59,10 @@ export default HintDisplay = ({hints, time, strikes, setStrikes, instanceId}) =>
     let hintsList = hints.map((hint, idx) => makeHint(hint, setStrikes, idx))
     hintsList = <ol>{hintsList}</ol>
     return (
-        <div>
+        <div className="hints">
+            <h1>Story</h1>
+            <p dangerouslySetInnerHTML={{__html: story}}></p>
             <h1>Hints</h1>
-            <p className="smalltext"> (click to cross out/uncross) </p>
             {hintsList}
         </div>);
 }

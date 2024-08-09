@@ -38,7 +38,7 @@ body {
     margin: auto;
     width: 4.5vmin;
     height: 10vmin;
-    font-size: 1.5vmin;
+    font-size: 1.3vmin;
     transform:
         rotate(215deg) translate(-2.5vmin, 2vmin);
 }
@@ -46,7 +46,7 @@ body {
 .leftEntityText {
     margin: auto;
     width: 10vmin;
-    font-size: 1.5vmin;
+    font-size: 1.3vmin;
 }
 
 .leftCategoryText {
@@ -201,15 +201,6 @@ div {
 
 }
 
-ol {
-    font-size: 2vmin;
-    width: 30vmin;
-
-}
-
-li {
-    text-align: left;
-}
 
 .smalltext {
     font-size: 2vmin;
@@ -359,4 +350,37 @@ li {
     font-size: 2vmin;
     width: 45%;
 
+}
+
+
+.hints{
+    background-color: #E6CCBE; 
+    width: 95%;
+    height: 85vh; 
+
+}
+
+.hints p{
+    font-size: 1.7vmin;
+    text-align: justify;
+    padding: 0.5vmin;
+    margin: 0.5vmin;
+    
+}
+
+.hints h1{
+    background-color: #A07178; 
+    color:#E9D0C4; 
+    font-size: 4vmin;
+    border: 5px solid #624146; 
+}
+
+.hints ol{
+    text-align: justify; 
+    
+}
+
+.hints ol li{
+    margin: 2vmin;
+    font-size: 2.5vmin;
 }
