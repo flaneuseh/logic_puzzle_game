@@ -2,19 +2,17 @@
 
 <p>“Madeleine was the first to arrive in the dining car for breakfast. She didn’t eat much but claimed she wanted to make sure she got the first brew of coffee. While sipping on her coffee I noticed her sketching something in her journal. It was a flower, a mysterious-looking thing with strange spindly petals. I am not much of a botanist myself, but I have never seen anything of the sort before.  I asked what kind of plant that was, and she told me it didn’t exist …. yet. Apparently she had this vision of a flower that would be a cross of a Lily only found in Forest Hills with one of her personal breeds.  Personally, I think nature has provided us with more than enough flowers without all this fiddling.” </p>
 
-//
+//<p>Letter from Mr. George Herbert </p> 
 
-Letter from Mr. George Herbert  
+<p>“Dear Ms. Penelope Steward, </p>
+	<p>It appears that I will be stuck in transit for an additional night than expected. The train you had booked for me was canceled last night due to a disturbance on the track. The next train out wasn’t until the next day with only economy cars remaining. You well know how hard travel is on me, and even more so in these conditions. While I cannot technically place blame on you for these circumstances, I do hope you take responsibility. I expect my estate to be well taken care of upon my return. Additionally, I feel as if Mr James Fester would be justified in feeling slighted by the delay in our meeting. Please arrange for the finest bottle of whiskey to be sent to his estate in Hogfields. I would arrange it myself but am much too weary. </p>  
+	<p>Sincerely, George Herbert” </p> 
 
-“Dear Ms. Penelope Steward, 
-	It appears that I will be stuck in transit for an additional night than expected. The train you had booked for me was canceled last night due to a disturbance on the track. The next train out wasn’t until the next day with only economy cars remaining. You well know how hard travel is on me, and even more so in these conditions. While I cannot technically place blame on you for these circumstances, I do hope you take responsibility. I expect my estate to be well taken care of upon my return. Additionally, I feel as if Mr James Fester would be justified in feeling slighted by the delay in our meeting. Please arrange for the finest bottle of whiskey to be sent to his estate in Hogfields. I would arrange it myself but am much too weary. 
-	Sincerely, George Herbert” 
+//<p>A witness statement from Conductor Jim Gallagher </p> 
 
-//A witness statement from Conductor Jim Gallagher 
+<p>“We had much trouble with the car doors this morning. At night and in the morning, we make sure to only open the doors of the passengers departing at that station. You would think that would make the process easier, but unfortunately it causes issues sometimes. We had to make quite a long stop at Seastead. The hinges of that car door were practically glued shut. I had hoped that would be the end of it, but the very next car down had similar issues. Luckily the Forest Hills stations is quite lovely so I had a nice view as I made the repairs.'' </p> 
 
-“We had much trouble with the car doors this morning. At night and in the morning, we make sure to only open the doors of the passengers departing at that station. You would think that would make the process easier, but unfortunately it causes issues sometimes. We had to make quite a long stop at Seastead. The hinges of that car door were practically glued shut. I had hoped that would be the end of it, but the very next car down had similar issues. Luckily the Forest Hills stations is quite lovely so I had a nice view as I made the repairs.'' 
+//<p>Witness statement from Service Attendant Katerina Clements </p> 
 
-//Witness statement from Service Attendant Katerina Clements 
-
-“Ethan Owen called me over today to make some complaints. Apparently he was quite disturbed by the amount of noise made from the person in the room two cars down from him. Said he deserved the peace and quiet. I had to inform this was in fact a public train, and he would have to deal with some noise from the other passenger. I didn’t really believe he had heard much at all anyway. I made a point to stand outside his car to see if I could hear anything. Could not make out a peep, even when that passenger departed at Greencester. Why  someone with his fortune and particularness wouldn’t book a more private accommodation than ours, I do not understand. “ 
+<p>“Ethan Owen called me over today to make some complaints. Apparently he was quite disturbed by the amount of noise made from the person in the room two cars down from him. Said he deserved the peace and quiet. I had to inform this was in fact a public train, and he would have to deal with some noise from the other passenger. I didn’t really believe he had heard much at all anyway. I made a point to stand outside his car to see if I could hear anything. Could not make out a peep, even when that passenger departed at Greencester. Why  someone with his fortune and particularness wouldn’t book a more private accommodation than ours, I do not understand. “ </p> 
 

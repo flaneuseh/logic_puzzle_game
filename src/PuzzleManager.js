@@ -27,7 +27,7 @@ function createPuzzle(data) {
 }
 
 
-function load(i, setI, setContent, files, postSurvey, questions) {
+function load(i, setI, setContent, files, postSurvey, questions, mode) {
     if (i >= files.length) {
         setContent(<div>No more puzzles</div>);
     } else {
@@ -37,7 +37,7 @@ function load(i, setI, setContent, files, postSurvey, questions) {
                 let p = createPuzzle(response.data);
                 let time = new Date()
                 setI(i + 1);
-                setContent(<Puzzle mode = "nar" name={response.data.inkName} clueFile={response.data.clueFile} p={p} time={time} concede={() => {
+                setContent(<Puzzle mode ={mode} name={response.data.inkName} clueFile={response.data.clueFile} p={p} time={time} concede={() => {
                     // addUserAction(pid, "concede", null, time)
                     startSurvey(p.num, i, setI, setContent, files, postSurvey, questions)
                 }
@@ -71,7 +71,7 @@ function startSurvey(puzzle, i, setI, setContent, files, postSurvey, questions) 
 }
 
 
-export default PuzzleManager = ({ files, i, setI, postSurvey, questions }) => {
+export default PuzzleManager = ({ files, i, setI, postSurvey, questions, mode }) => {
     //shuffleArray(files);
     //let [i, setI] = useState(0);
     let [content, setContent] = useState(<div>loading</div>);
@@ -81,7 +81,7 @@ export default PuzzleManager = ({ files, i, setI, postSurvey, questions }) => {
 
     if (files) {
         if (i == 0) {
-            load(i, setI, setContent, files, postSurvey, questions);
+            load(i, setI, setContent, files, postSurvey, questions, mode);
 
         }
 

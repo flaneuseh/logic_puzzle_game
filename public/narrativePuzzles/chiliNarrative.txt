@@ -1,0 +1,31 @@
+<p>On the kitchen table you find a cookbook that focuses on peppers. The book is open to a page about Jalapenos. The page reads: </p> 
+<p>“The spiciness of chili peppers, such as Jalapenos, comes from the chemical capsaicin.  Cooking Jalapenos can either increase or decrease the concentration of capsaicin, depending on the method. Boiling jalapenos can result in a mild decrease in capsaicin concentration, while grilling increases the concentration. “  </p> 
+
+<p>A sticky note was added to the bottom of this page which reads. <p> 
+
+<p>“Grill Jalapenos before adding [illegible]. Add chili powder next.” </p> 
+
+<p>The note is in Aunt Susan’s handwriting. </p> 
+
+//
+<p>You asked your uncle Richard if he can remember anything. </p>
+
+<p>“Ha, you know your aunt wouldn’t let me anywhere near the chili. You’re lucky she agreed to let you help kiddo. Oh, but I was supposed to be the one in charge of driving. She needed to ‘keep her mind on the prize’ or something like that.  She had a route all planned out so that she would stop at the stores in the order she added the ingredients. Something about making sure they were extra fresh. She made me repeat the plan back to her several times, but unfortunately, my mind can only keep track of so much. She had promised to write it down for me when she got back, but look where that got us! Oh, I do recall Bayside Market being the second stop.” </p>
+
+//
+<p>You asked your mom if she could remember anything.</p>
+
+<p>“Oh, well, you know I never got into this chili business, honey. But I do remember that Susan was quite stressed when she was talking to me. It was something about the Jalapenos I know. You know your aunt, she can be quite specific about these things. She was thinking about getting them at that co-op but then she went on about how they don’t open early enough so she wouldn’t be able to add them first. I suggested she just get them at a different store and she scoffed at me. Scoffed! She said it wasn’t that simple and she had to seriously think about whether the order or the sourcing was more important. Not sure where she landed on the issue.” </p>  
+
+<p>You know your mom must be thinking about Greenfield co-op. </p> 
+
+//
+<p>Luckily for you, your aunt left behind her laptop. Even luckier, she never learned good cyber security practices and left a sticky note with her password next to the laptop. With your very minor hacking skills, you get into your aunt’s laptop and look through her emails. Desperate times! You are sure she would understand. The most recent email was sent last night. </p>
+
+<p>“Dear Ms. Nielson, </p> 
+	<p>We are glad you have made our local farm a part of the chili tradition! I can assure you that our black beans are top quality and cooked fresh every morning. We have put aside your order of 30 oz of cooked black beans to be picked up tomorrow. May the best chili win! </p>
+
+<p>Brittney, </p>
+<p>O’Reilly’s Farm” </p>
+
+<p>You also make a note to tell your aunt to change her password.  </p> 

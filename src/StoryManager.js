@@ -7,12 +7,20 @@ export const trainInk = new inkStory(trainStoryContent);
 import ballroomStoryContent from "./story/ballroom/ballroom.json";
 export const ballroomInk = new inkStory(ballroomStoryContent);
 
+import chiliStoryContent from "./story/chili/chili.json";
+export const chiliInk = new inkStory(chiliStoryContent);
+
+
 export default StoryManager = ({storyName}) => {
     let ink = null; 
 
     if( storyName == "train"){
         ink = trainInk 
-    }else{
+    }else if (storyName == "chili"){
+        ink = chiliInk
+    }
+    
+    else{
         ink = ballroomInk
     }
 
