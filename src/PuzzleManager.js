@@ -37,7 +37,7 @@ function load(i, setI, setContent, files, postSurvey, questions, mode) {
                 let p = createPuzzle(response.data);
                 let time = new Date()
                 setI(i + 1);
-                setContent(<Puzzle mode ={mode} name={response.data.inkName} clueFile={response.data.clueFile} p={p} time={time} concede={() => {
+                setContent(<Puzzle mode ={mode} name={response.data.inkName} clueFile={response.data.clueFile} lastFile={response.data.lastFile} p={p} time={time} concede={() => {
                     // addUserAction(pid, "concede", null, time)
                     startSurvey(p.num, i, setI, setContent, files, postSurvey, questions)
                 }

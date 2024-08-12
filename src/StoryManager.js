@@ -1,5 +1,5 @@
 import { Story as inkStory } from "inkjs";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Story from "./story/Story.js";
 import trainStoryContent from "./story/train/train.json";
 export const trainInk = new inkStory(trainStoryContent);
@@ -11,7 +11,7 @@ import chiliStoryContent from "./story/chili/chili.json";
 export const chiliInk = new inkStory(chiliStoryContent);
 
 
-export default StoryManager = ({storyName}) => {
+export default StoryManager = ({storyName, knots, setKnots}) => {
     let ink = null; 
 
     if( storyName == "train"){
@@ -22,6 +22,21 @@ export default StoryManager = ({storyName}) => {
     
     else{
         ink = ballroomInk
+    }
+
+    useEffect(()=>{
+        console.log(knots)
+        if(knots.length >= 1){
+            let knot = knots.pop()
+            jumpTo(knot)
+            //setKnots([...knots])
+        }
+    }, [knots])
+
+    function jumpTo(knot){
+        console.log("Jumping to:" + knot)
+        inkStory.ChoosePathString(knot); 
+        continueStory(); 
     }
 
     let [paragraphs, setParagraphs] = useState([]);

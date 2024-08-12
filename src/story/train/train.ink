@@ -347,15 +347,24 @@ Bankers do tend to be greedy, but could he be greedy enough to steal success fro
 
 Your stop at Riverside is still a ways away. You should get all the information you can before then. From your conversations with the staff memembers, you should be able to piece together who departed at what stations and what car they each stayed in. 
 
-If you think you have completed this information, you may wait until your station. Otherwise you should keep talking to other staff memembers. 
+If you think you have completed this information, click the "I solved it!" button on the right side of the page. Otherwise you should keep talking to other staff memembers. 
 
-+[Wait for your station] -> final_clue 
+
 +[Keep talking to the staff] -> corridor
 
 -> 3_1 
 
+-> DONE 
+= exits(-> go_back_to)
++ {location != SLEEPING_CAR}[Sleeping Car] -> sleeping_car
++ {location != ENGINE}[Engine] -> engine
++ {location != DINING_CAR}[Dining Car] -> dining_car
++ {location != CORRIDOR}[Corridor] -> corridor
+-> go_back_to
 
-= final_clue 
+
+
+=== FINAL ===  
 After a long, tiring morning, you finally arrive back home in Riverside. You look over the notes you collected on the train again. There must be something here that can help you solve this mystery. You are a researcher after all, you should be able to figure this out! 
 
 Just as you are thinking this you hear the phone ring. 
@@ -366,18 +375,51 @@ Just as you are thinking this you hear the phone ring.
 
 It's Katernina! 
 
-"I just did a thorough cleaning of all the cars. I unfortunately did not find your briefcase, but I did notice a pen in car N. I didn’t think much of it at first, but then I saw that it was from Riverside University. That is your university right? You almost certainly left it in your briefcase and it must have fell out when whoever stole it was rifling through your research. “
+"I just did a thorough cleaning of all the cars. I unfortunately did not find your briefcase, but I did notice a pen in car 2. I didn’t think much of it at first, but then I saw that it was from Riverside University. That is your university right? You almost certainly left it in your briefcase and it must have fell out when whoever stole it was rifling through your research. “
 
-That's it! Whoever was in car N must have been the one to take your briefcase. Luckily now you know who that is and what station they got off at. It's time for a confrontation! 
+That's it! Whoever was in car 2 must have been the one to take your briefcase. Luckily now you know who that is and what station they got off at. Looking at your notes, it seems Ethan Owen was sleeping in car 2 and got off at Seastead. It's time for a confrontation! 
+
+-> seastead
+
+
+= seastead 
+
+{!The train to Seastead is a relatively short one, compared the the wild night you had before. Luckily for you, the Owen residence is easily identifiable. You approach the door. }
+
+*(doorbell) [Ring the doorbell] 
+
+As you ring the door bell, a curt voice answers through the intercom, "Owen Residence, to what business do you have?"
+
+"I am here to see Ethan Owen, we have imporant business regarding the Wild Rose train," you tell the stranger behind the door. Hopefully, they let you in. You didn't think of a backup plan here. After a couple of minutes you hear a muffled argument in the residence, but the intercom turns back on. 
+
+"Ethan Owen will see you know," it tell you. You hear a click of the door unlocking.
+
+-> seastead
+
+* {doorbell} [Open the door] -> confrontation
+
+= confrontation
+
+You enter the house into the living room, to see a very prim and calm Ethan sitting with a cup of tea in his hand. 
+
+"To what do I owe the pleausre of your visit?" he asks you. 
+
++ ["What do you know about plant research?"] 
+You know the best approach is to get him talking about related subjects, and see if he lets anything slip. Clearly if he has taken your research, he must be somewhat interested in the topic, right? 
+
+"Well since you are asking, I have gotten into the study of plants somewhat recently," he tells you. "Particlarly, I have become interested in plants for their medicinal properites. For example, the Echinacea plant I have here." He picks up a small plant on the coffee table. You can tell immediately that this is not Echinacea but, in fact, just Basil. Clearly Ethan doesn't know anything about plants like he claims he does.  
+
+-> confession
++ ["Did you accidently take the wrong luggage home?"]
+
+-> confession
++["You took my briefcase!"]
+
+->confession
 
 
 
--> DONE 
-= exits(-> go_back_to)
-+ {location != SLEEPING_CAR}[Sleeping Car] -> sleeping_car
-+ {location != ENGINE}[Engine] -> engine
-+ {location != DINING_CAR}[Dining Car] -> dining_car
-+ {location != CORRIDOR}[Corridor] -> corridor
--> go_back_to
+= confession 
+
 
 ->END

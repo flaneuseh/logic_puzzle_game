@@ -38,8 +38,8 @@ function createPuzzle(data, setPuzzle) {
 
 function getFiles() {
   //return ["public/narrativePuzzles/chiliInfo.json"]; 
-  //return ["public/narrativePuzzles/trainInfo.json"]; 
-  return ["public/narrativePuzzles/ballroomInfo.json"]; 
+  return ["public/narrativePuzzles/trainInfo.json"]; 
+  //return ["public/narrativePuzzles/ballroomInfo.json"]; 
 
 
 }

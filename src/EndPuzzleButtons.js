@@ -3,35 +3,67 @@ import { useEffect, useState, useMemo } from 'react';
 import { addButtonPress } from './Firestore/sendData';
 
 
-let CorrectPop = ({isCorrect, time}) => {
+let CorrectPop = ({isCorrect, time, close, finish}) => {
     let text = ""
     let retry = ""
     let clear = ""
     let newTime = new Date()
     let ms = newTime - time 
     if (isCorrect()) {
-        text = "You have correctly solved this puzzle"
+        return (<div className='popup'>
+        <h1>Mystery solved!</h1>
+        <p>You have successfully completed the puzzle. Click continue to get conclusion of the mystery. </p>
+        <div>
+            <button onClick=
+                {() => {close(); finish()}}>
+                    Continue
+            </button>
+        </div>
+    </div>)
     } else {
-        text = "At least one answer is incorrect or incomplete"
+
+        return (<div className='popup'>
+        <h1>Mystery incomplete!</h1>
+        <p>At least one of your answers is not correct or not complete. Look through the clues again to figure out where you went wrong.  </p>
+        <div>
+            <button onClick=
+                {() => close()}>
+                    Continue
+            </button>
+        </div>
+    </div>)
+        
     }
 
-    return (<div>
-        <p>{text}</p>
-    </div>)
+   
 };
 
 export default FinishButtons = ({ giveUp, isCorrect, clearPuzzle, puzzle, finish,instanceId, time}) => {
 
     let checkSolution = () => {
 
-        let newTime = new Date()
+        /*let newTime = new Date()
         let ms = newTime - time 
         addButtonPress(instanceId, ms, "check"); 
-        setShowPopup(true)}
+        setShowPopup(true)*/ 
+        alert("You are not correct")
+    
+    }
 
     
     let buttons = (<div>
-        <button onClick = {checkSolution}> Check my Solution</button>
+       <Popup trigger=
+                {<button> I solved it!</button>} 
+                modal nested>
+                {
+                    close => (
+                        <div className='modal'>
+                             <div><CorrectPop time={time} isCorrect={isCorrect} finish={finish} clearPuzzle = {clearPuzzle} instanceId={instanceId} close={() => {close();resetButtons()}}/></div>
+                          
+                        </div>
+                    )
+                }
+            </Popup>
         <br/> 
         <button onClick={clearPuzzle}>Clear Solution</button>
         <br/> 
