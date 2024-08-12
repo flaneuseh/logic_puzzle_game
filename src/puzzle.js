@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FinishButtons from "./EndPuzzleButtons";
 import { addButtonPress, addCellChange, createGamePlayInstance } from "./Firestore/sendData";
 import StoryManager from "./StoryManager";
-import StateSelector from "./stateSelector";
-import SubGrid from "./subgrid";
+import FinalClue from "./finalClue";
 import Hints from "./hints";
 import NarrativeClues from "./narrativeClues";
-import FinalClue from "./finalClue";
+import StateSelector from "./stateSelector";
+import SubGrid from "./subgrid";
 const FINAL_KNOT = "FINAL"
 function initializeSubGrid(numRows, numCols, puzzle, recordPuzzle) {
     let subgrid = []
@@ -163,7 +163,7 @@ let clearPuzzle = (puzzle, strikes, setStrikes, instanceId, time) => {
 
 }
 
-export default Puzzle = ({ p, time, concede, finish, name, mode, clueFile, lastFile}) => {
+export default Puzzle = ({ p, time, concede, finish, name, mode, clueFile, lastFile }) => {
     let puzzle = [[]];
     let displayGrid = [];
     let [select, setSelect] = useState("O");
@@ -172,8 +172,9 @@ export default Puzzle = ({ p, time, concede, finish, name, mode, clueFile, lastF
     let [strikes, setStrikes] = useState([]);
     let [isCorrect, setCorrect] = useState(false);
     let [instanceId, setInstanceId] = useState(null);
-    let [final, setFinal] = useState(false); 
-    let [knots, setKnots] = useState([]); 
+    let [final, setFinal] = useState(false);
+
+    const storyRef = useRef();
 
     useEffect(() => {
         async function fetchData() {
@@ -200,16 +201,15 @@ export default Puzzle = ({ p, time, concede, finish, name, mode, clueFile, lastF
     }
 
     let showFinalPart = () => {
-        if (mode != "if"){
-            setLeftContent(<FinalClue clueFile={lastFile}/>)
-        }else{
-            let newKnots = [FINAL_KNOT]
-            setKnots(newKnots)
-            //console.log(knots)
+        if (mode != "if") {
+            setLeftContent(<FinalClue clueFile={lastFile} />)
+        } else {
+            storyRef.current?.jumpTo(FINAL_KNOT);
+            console.log("set final knot")
         }
 
         setFinal(true);
-       
+
     }
 
 
@@ -237,28 +237,28 @@ export default Puzzle = ({ p, time, concede, finish, name, mode, clueFile, lastF
         displayRowIdx++;
     }
 
-   content = "" 
+    content = ""
 
-   if (mode == "if"){
-    content =  <StoryManager storyName={name} knots={knots} setKnots={setKnots}/>
-   }else if (mode == "hints"){
-    content =  <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes} instanceId={instanceId} clueFile={clueFile}/> 
-   }else{
-    content = <NarrativeClues clueFile={clueFile} /> 
-   }
+    if (mode == "if") {
+        content = <StoryManager storyName={name} ref={storyRef} />
+    } else if (mode == "hints") {
+        content = <Hints hints={p.hints} time={time} setStrikes={setStrikes} strikes={strikes} instanceId={instanceId} clueFile={clueFile} />
+    } else {
+        content = <NarrativeClues clueFile={clueFile} />
+    }
 
-   let [leftContent, setLeftContent] = useState(content)
+    let [leftContent, setLeftContent] = useState(content)
 
 
     return (<div className="puzzleArea">
         <div className="puzzleLeft">
             {leftContent}
-            { final? 
-           
-           <button onClick={recordAndSubmit} className="finishButton">Finish</button> 
-           
-           
-           : ""}
+            {final ?
+
+                <button onClick={recordAndSubmit} className="finishButton">Finish</button>
+
+
+                : ""}
         </div>
         <div className="puzzleRight">
             <h1>Puzzle</h1>
@@ -271,21 +271,21 @@ export default Puzzle = ({ p, time, concede, finish, name, mode, clueFile, lastF
             {/* </div> */}
             {/* <div className="puzzleRight"> */}
             {/* <Hints hints={p.hints} time={time} setStrikes ={setStrikes} strikes={strikes} instanceId={instanceId}/> */}
-           { final? 
-           
-            ""
-           
-           
-           : <FinishButtons
-                giveUp={() => { recordAndConcede() }}
-                isCorrect={() => isSolved(puzzle, p.solutionString)}
-                clearPuzzle={function () { clearPuzzle(puzzle, strikes, setStrikes, instanceId, time) }}
-                finish={() => { showFinalPart() }}
-                puzzle={puzzle}
-                instanceId={instanceId}
-                time={time}
+            {final ?
 
-            />}
+                ""
+
+
+                : <FinishButtons
+                    giveUp={() => { recordAndConcede() }}
+                    isCorrect={() => isSolved(puzzle, p.solutionString)}
+                    clearPuzzle={function () { clearPuzzle(puzzle, strikes, setStrikes, instanceId, time) }}
+                    finish={() => { showFinalPart() }}
+                    puzzle={puzzle}
+                    instanceId={instanceId}
+                    time={time}
+
+                />}
         </div>
     </div>);
 }
