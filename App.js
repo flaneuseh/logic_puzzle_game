@@ -7,6 +7,8 @@ import PuzzleManager from './src/PuzzleManager';
 import StoryManager from './src/StoryManager';
 import Tutorial from './src/Tutorial';
 
+let MODE = "debug"
+
 let questions = ["The puzzle was cognitively demanding.", "I had to think very hard when playing the puzzle.",
   "The puzzle required a lot of mental gymnastics.", "The puzzle stimulated my brain.", "This puzzle doesn’t require a lot of mental effort.",
   "The puzzle made me draw on all of my mental resources.", "The mental challenges in this puzzle had an impact on how I played.",
@@ -37,11 +39,15 @@ function createPuzzle(data, setPuzzle) {
 }
 
 function getFiles() {
-  //return ["public/narrativePuzzles/chiliInfo.json"]; 
-  return ["public/narrativePuzzles/trainInfo.json"]; 
-  //return ["public/narrativePuzzles/ballroomInfo.json"]; 
+  let arr =  ["public/narrativePuzzles/trainInfo.json", "public/narrativePuzzles/ballroomInfo.json", "public/narrativePuzzles/chiliInfo.json"]; 
+  shuffleArray(arr)
+  return arr
+}
 
-
+function getModes(){
+  let arr = ["if", "nar", "hints"]
+  shuffleArray(arr)
+  return arr
 }
 
 
@@ -54,12 +60,17 @@ export default function App() {
 
   let [puzzle, setPuzzle] = useState(null);
   let [i, setI] = useState(0)
-  let [mode, setMode] = useState("survey")
+  let [mode, setMode] = useState(MODE)
+  const n = getModes()
+  let [narMode, setNarMode] = useState(n)
   let [pid, setPID] = useState(0)
   let [content, setContent] = useState(<Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />);
+  const f = getFiles()
+  let [files, setFiles] = useState(f)
+  //let [puzzleManager, setPuzzleManager] = useState(<PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} mode="if"/>); 
   //let [files, setFiles] = useState(); 
   //useEffect(() => {setFiles(getFiles())}, [])
-  let files = getFiles()
+  //let files = getFiles()
   useEffect(() => {
     shuffleArray(questions)
   }, [])
@@ -68,7 +79,7 @@ export default function App() {
 
   let consent = <div className='parent'><InformedConsent consent={() => setMode("survey")} /></div>
   let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />
-  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} mode="if"/>
+  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} modes={narMode}/>
 
   let startGame = () => {
     setMode("puzzle")
@@ -83,13 +94,33 @@ export default function App() {
     addSubject(logicPuz, gridPuzz)
   }
 
+  let setFilesByName = (name) => {
+      //return ["public/narrativePuzzles/chiliInfo.json"]; 
+  //return ["public/narrativePuzzles/trainInfo.json"]; 
+  //return ["public/narrativePuzzles/ballroomInfo.json"]; 
+    if (name == "train"){
+      setFiles(["public/narrativePuzzles/trainInfo.json"])
+    }else if (name == "chili"){
+      setFiles(["public/narrativePuzzles/chiliInfo.json"])
+    }else{
+      setFiles(["public/narrativePuzzles/ballroomInfo.json"])
+    }
+  }
+
+  
+
 
   shuffleArray(files)
 
   const url = Linking.useURL();
 
   if (url) {
-    const { hostname, path, queryParams } = Linking.parse(url);
+    let { hostname, path, queryParams } = Linking.parse(url);
+
+
+    if (MODE == "debug"){
+      path = "consent"
+    }
 
     console.log(
       `Linked to app with hostname: ${hostname}, path: ${path} and data: ${JSON.stringify(
@@ -97,16 +128,38 @@ export default function App() {
       )}`
     );
 
-    return (<div className='parent'>
-      <div className='codeBanner'>
-        <div>
-          Your completion code is CKKCGFDC<br />
-          You may enter this at anytime
-        </div>
+    
+    if (path == "consent"){
+      if(mode == "tutorial"){
+        return (tutorial)
+      }
+      if(mode == "puzzle"){
+        return (<div className='parent'>
+        <div className='codeBanner'>
+          <div>
+            Your completion code is CKKCGFDC<br />
+            You may enter this at anytime
+          </div>
 
-      </div>
-      {puzzleManager}
-    </div>)
+        </div>
+        {puzzleManager}
+      </div>)
+      }else{
+      return  (<div>
+        <p>Genre:</p>
+        <input onChange={e => setFilesByName(e.target.value)}/> 
+        <p>Narrative Style</p>
+        <input  onChange={e => setNarMode([e.target.value])}/>
+        <button onClick={()=> setMode("puzzle")}>Submit</button>
+      </div>)
+      }
+    }else{
+      return (consent)
+    }
+   
+
+
+
 
     // if (path == "consent") {
     //   if (mode == "survey") {

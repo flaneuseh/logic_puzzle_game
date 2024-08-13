@@ -3,7 +3,7 @@ LIST location = SLEEPING_CAR, ENGINE, DINING_CAR, CORRIDOR, NO_WHERE
 
 -> train
 === train ===
-<b><i>The Wild Rose Train</i></b>
+<h1><i>The Wild Rose Train</i></h1>
 Your 3-month long expedition to the city of Watertown has finally paid off, your research has led to a new medicinal herb that is bound to lead to academic and financial success. All you need to do is travel back to Riverside, to deliver the news to your PhD advisor. With your discovery tucked safely in your briefcase, you take a late night journey on the Wild Rose Train. After a well-deserved night of rest, you wake up to find your briefcase, along with your groundbreaking discoveries, missing! 
 -> sleeping_car
 
@@ -28,24 +28,24 @@ The engine of the train. The conductor is here.
     "Hm," the Jim responds, "I haven't had any reports of items found. Maybe one of the other passengers got off with it by mistake?"
 -> conductor1
 * (passengers){briefcase}[Ask about the other passengers]"Who else was on the train today?" you ask.
-    "Let's see, it was a quiet journey, and there were only four others besides you - <b>Sir Ethan Owen</b>, <b>Ms. Madeleine Baker</b>, <b>Mr. George Herbert</b>, and <b>Dr. Ava Finch</b>. Not surpised you didn't meet them, they each had their own room in car 1-4. But they have all left now, it's just you and us staff."
+    "Let's see, it was a quiet journey, and there were only four others besides you - <b>Sir Ethan Owen</b>, <b>Ms. Madeleine Baker</b>, <b>Mr. George Herbert</b>, and <b>Dr. Ava Finch</b>. Not surprised you didn't meet them, they each had their own room in car 1-4. But they have all left now, it's just you and us staff."
     -> conductor1
 * {passengers} [Ask about stations]-> stations 
 * {passengers} [Ask about staff] -> staff 
 + [Move to another part of the train] -> exits(->engine) 
 =staff 
 "Who all is on board right now, besides us?" you ask. 
-"Ahh well there are two crew members here, apart from myself: May Gardner, our dedicated chief, whom you can likely locate in the dining car, and Katernina Clements our service attendant likely to be about the corridor. Might not be a bad idea to ask Katernina about your briefcase." he tells you.  
+"Ahh well there are two crew members here, apart from myself: May Gardner, our dedicated chief, whom you can likely locate in the dining car, and Katrina Clements our service attendant likely to be about the corridor. Might not be a bad idea to ask Katrina about your briefcase." he tells you.  
 -> conductor1 
 
 =stations 
 "Can you tell me what stations the other passengers boarded and departed?" you ask. 
 
-"Oh yes of course." Jim begins shuffling through a series of documents at his stations. After several miniutes of this he furrels his brows and returns his attention to you. "This is quite mysterious indeed. It appears your briefcase wasn't the only thing that went missing last night, but the ticket information has disapeared as well." 
+"Oh yes of course." Jim begins shuffling through a series of documents at his stations. After several minutes of this he furrows his brows and returns his attention to you. "This is quite mysterious indeed. It appears your briefcase wasn't the only thing that went missing last night, but the ticket information has disappeared as well." 
 
 Dread fills your stomach. Two things going missing in one night. It is starting to seem as if someone doesn't want to be found. Your missing briefcase doesn't seem like a mistake at all! 
 
-"Here is what I can tell you, " Jim continues. "I know everyone was on board by Watertown, that is when you got on correct?" You nod. "And everyone else has already departed. Which means that the passengers each got off at either Greencester, Seastead, Hogfield, or Forest Hills. I do remember we had exactly one passenger depart at each of those stations, but I am afraid I cannot tell you who departed where" 
+"Here is what I can tell you, " Jim continues. "I know everyone was on board by Watertown, that is when you got on correct?" You nod. "And everyone else has already departed. Which means that the passengers each got off at either <b>Greencester</b>, <b>Seastead</b>, <b>Hogfield</b>, or <b>Forest Hills </b>. I do remember we had exactly one passenger depart at each of those stations, but I am afraid I cannot tell you who departed where" 
 -> conductor1 
 
 
@@ -64,7 +64,7 @@ Dread fills your stomach. Two things going missing in one night. It is starting 
 
 “Sir Ethan Owen? Not sure there is much to be said about him. He is third in line for his father's inheritance. He uses plenty of his father’s money, I know this much. Requested the premium service at every possible turn, not that I would consider our dear old Wild Rose a premium vessel by any means.  Only so much we can do to accommodate the fellow. Talkative fellow though, unless you mention either of his brothers that is.” 
 
-He doens't like talking about his brothers. Could there be a rivalery there? If he was trying to impress his father, showing him your discovery would certainly accomplish this! 
+He doesn't like talking about his brothers. Could there be a rivalry there? If he was trying to impress his father, showing him your discovery would certainly accomplish this! 
 -> conductor2
 
 = 1_3 
@@ -79,15 +79,15 @@ He doens't like talking about his brothers. Could there be a rivalery there? If 
 
 = 1_5 
 
-"Dr. Ava Finch? I do beileve she is a professor Raven Wood University. seemed like a very intelligent women. But you probably would know more then me." 
+"Dr. Ava Finch? I do believe she is a professor Raven Wood University. seemed like a very intelligent women. But you probably would know more then me." 
 
-Hmmm Raven Wood, you have defininetly have heard of this univserity before. In fact they are your direct rival! Could she have taken your briefcase to prevent you from publishing your findings first? 
+Hmmm Raven Wood, you have definitely have heard of this university before. In fact they are your direct rival! Could she have taken your briefcase to prevent you from publishing your findings first? 
 
 -> conductor2
 
 = 1_6
 
-“Ahh well you know that the Wild Rose is an old train, so is bound to have some issues. While last night's journey was mostly smooth sailing, I do recall we had some issues with the car doors” 
+{“Ahh well you know that the Wild Rose is an old train, so is bound to have some issues. While last night's journey was mostly smooth sailing, I do recall we had some issues with the car doors” | "Any other questions about the car doors?"}
 
 + [Which cars had issues?] -> 1_7 
 +  [I didn’t hear any car doors opening last night] -> 1_8
@@ -96,7 +96,7 @@ Hmmm Raven Wood, you have defininetly have heard of this univserity before. In f
 
 = 1_7
 
-“Working nights isn’t easy for an old fellow like me, so unfortunately I can’t recall which cars exactly had issues. Two cars back to back though. We first had issues at Seastead, and then the very next car down had an issue when we stopped at Forest Hills” 
+“Working nights isn’t easy for an old fellow like me, so unfortunately I can’t recall which cars exactly had issues. Two cars back to back though. We first had issues at <b>Seastead </b>, and then the <b>very next car</b> down had an issue when we stopped at <b>Forest Hills</b>.” 
 
 -> 1_6  
 
@@ -125,7 +125,7 @@ In the dining car, still smells like bacon. The chief May Gardner is here.
 
 =2_1 
 
-“Honestly not surprised one of these passengers was a thief, there was something off about all of them you could tell. Not sure how much help I can be, spent the morning in the dining car but I will tell you what I do know.” 
+{“Honestly not surprised one of these passengers was a thief, there was something off about all of them you could tell. Not sure how much help I can be, spent the morning in the dining car but I will tell you what I do know.” | "Any other questions?"} 
 
 + [Tell me about Sir Ethan Owen] -> 2_2 
 + [Tell me about Ms. Madeleine Baker] -> 2_3 
@@ -137,13 +137,13 @@ In the dining car, still smells like bacon. The chief May Gardner is here.
 
 = 2_2 
 
-“Sir Ethan Owen? Can’t say much about him I am afraid. Like you he was asleep all through breakfast this morning. Or maybe he left at one of the early stations, I cannot say. Heard from Katernina that he was a prick though.” 
+“Sir Ethan Owen? Can’t say much about him I am afraid. Like you he was asleep all through breakfast this morning. Or maybe he left at one of the early stations, I cannot say. Heard from Katrina that he was a prick though.” 
 
 -> 2_1  
 
 = 2_3 
 
-“Madeleine Baker? She was up bright and early this morning. Wanted to make sure got the first cup of coffee.” 
+“{<b>Madeleine Baker</b>? She was up bright and early this morning. Wanted to make sure got the first cup of coffee.| Do you want to ask other questions about Madeleine?}” 
 
 +  [Did you notice anything strange about her?] -> 2_7  
 + [What was she doing during breakfast?] -> 2_8  
@@ -157,12 +157,12 @@ In the dining car, still smells like bacon. The chief May Gardner is here.
 
 = 2_8 
 
-“She was clearly lost in thought over something, kept staring out the window of the train. Oh, and sketching in the notebook of hers. Some kind of flower.” 
+{“She was clearly lost in thought over something, kept staring out the window of the train. Oh, and sketching in the notebook of hers. Some kind of flower.” | Do you have other questions about the sketch?}
 
 +  [Can you describe the flower?] -> 2_9  
 + [Did she tell you anything about the sketch?] -> 2_10 
 +  [Did you see what she was looking at?] -> 2_11  
-+ [Thank you for your time] -> 2_1 
++ [About Madeleine...] -> 2_3 
 
 
 = 2_9 
@@ -176,7 +176,7 @@ Her description doesn't describe your plant at all. You can't recall a plant tha
 
 = 2_10 
 
-“I did ask what kind of plant that was, and she told me it didn’t exist …. yet. Apparently she had this vision of a flower that would be a cross of a Lily only found in Forest Hills with one of her personal breeds.  Personally, I think nature has provided us with more than enough flowers without all this fiddling.” 
+“I did ask what kind of plant that was, and she told me it didn’t exist …. yet. Apparently she had this vision of a flower that would be a cross of a Lily only found in <b>Forest Hills</b> with one of her personal breeds. Went on this train to find it. Personally, I think nature has provided us with more than enough flowers without all this fiddling.” 
 
 -> 2_9 
 
@@ -189,7 +189,7 @@ Her description doesn't describe your plant at all. You can't recall a plant tha
 
 = 2_4 
 
-"Mr George Herber? Not much of a talker that man is. Asked me to Irish his coffee this morning, if you know what I mean." 
+"Mr George Herbert? Not much of a talker that man is. Asked me to Irish his coffee this morning, if you know what I mean." 
 
 -> 2_1 
 
@@ -201,7 +201,7 @@ Her description doesn't describe your plant at all. You can't recall a plant tha
 
 "Oh I wouldn't know. She kept talking in codes. Something about  pistils and xylems, whatever that could mean." May responds. 
 
-Luckily you know what she was talking about, pistils and xylems are both parts of plants. So it's likely she is working in your same field, or at least an adjcent one. But she certainly wouldn't be a top researcher like she said. Everyone knows that the top botony research is done at Riverside University! And you know for sure that she is not a professor there. 
+Luckily you know what she was talking about, pistils and xylems are both parts of plants. So it's likely she is working in your same field, or at least an adjacent one. But she certainly wouldn't be a top researcher like she said. Everyone knows that the top botany research is done at Riverside University! And you know for sure that she is not a professor there. 
 
 -> 2_1 
 
@@ -217,7 +217,7 @@ A growl from your stomach reminds you that you slept through breakfast this morn
 
 = 2_12 
 
-"Well you should know it's agaisn't policy to serve breakfast outside of official hours... but with the morning you had I can maybe make an exception" 
+"Well you should know it's against policy to serve breakfast outside of official hours... but with the morning you had I can maybe make an exception" 
 
 -> 2_1 
 
@@ -225,34 +225,33 @@ A growl from your stomach reminds you that you slept through breakfast this morn
 = corridor
 ~ location = CORRIDOR
 <b><i>Corridor</i></b>
-The corridor that connects the sleeping cars to the dining car. The service attendant is here.
+{!The corridor that connects the sleeping cars to the dining car. The service attendant is here.}
 
-* (briefcase2) [Ask about briefcase] "Hello miss, I am missing a very import item. Could you help me find it?" you ask. 
+* (briefcase2) [Ask about briefcase] "Hello miss, I am missing a very important item. Could you help me find it?" you ask. 
 
-    "Oh well that is quite unfortunate isn't it?" the service attent responds. "I am Katernina, I will help you in anyway I can. Can I ask what you are looking for?"
+    "Oh well that is quite unfortunate isn't it?" the service attendant responds. "I am Katrina, I will help you in anyway I can. Can I ask what you are looking for?"
     
-    "A briefcase, it contains very imporant research so I need it back as soon as possible."
+    "A briefcase, it contains very important research so I need it back as soon as possible."
     
-    "I understand, I would be destrought if I lost luggage. And the most important thing I carry is my pen collect! If you will allow me, I will search the rooms to see if it is still on board. If you haven't already, why don't you talk with our conductor as well, he should be in the engine." she tells you. She briskly exits the corridor, her large set of keys clicking behind her. 
+    "I understand, I would be distraught if I lost luggage. And the most important thing I carry is my pen collect! If you will allow me, I will search the rooms to see if it is still on board. If you haven't already, why don't you talk with our conductor as well, he should be in the engine." she tells you. She briskly exits the corridor, her large set of keys clicking behind her. 
     
     -> corridor 
 
-*{briefcase2} {briefcase} [Wait for Katernina to return] -> discovery 
-+ {discovery} [Talk to Katernina] -> 3_1 
+*{briefcase2} {briefcase} [Wait for Katrina to return] -> discovery 
++ {discovery} [Talk to Katrina] -> 3_1 
 + {discovery} [Search the corridor] -> search   
 + [Move to another part of the train] -> exits(->corridor)
 
 = discovery
  ~ location = NO_WHERE
-Anxiously you stand in the corridor hoping that Katernina locate your briefcase quickly. After several anganizing minutes, you see a distraught Katernina return. 
+Anxiously you stand in the corridor hoping that Katernina locate your briefcase quickly. After several agonizing minutes, you see a distraught Katrina return. 
 
-"Oh you must beileve me, I searched everywhere! But nothing... nada... zlitch. Somehow your briefcase must have got off the train sometime last night." 
+"Oh you must believe me, I searched everywhere! But nothing... nada... zlitch. Somehow your briefcase must have got off the train sometime last night." 
 
 And you know exactly how. Your briefcase was safely on your desk when you went to sleep last night. The only way the briefcase is no longer on the train, is if one of the other passengers came into your room at took it! You must find out which passenger took it and where they departed before it's too late!
 
-Unfortunatly, you don't know where each passenger departed or even what car they stayed in last night. If you can figure out what station each passenger departed and and what room they stayed in, you will be one step closer to your briefcase. You should talk more with the staff and see if you can gather anymore clues from them! 
+Unfortunately, you don't know where each passenger departed or even what car they stayed in last night. If you can figure out what station each passenger departed and and what room they stayed in, you will be one step closer to your briefcase. You should talk more with the staff and see if you can gather anymore clues from them! 
 
-[This should unlock the logic puzzle] 
 
 + [Move to another part of the train] -> exits(->corridor) 
 
@@ -264,10 +263,9 @@ Search the corridor.
 
 -> search 
 
-+ (mailbox) [right] The right side of the corridor contains a small mailbox where passengers can drop off letter they would like to be sent out. Katernina seems to be distacted by cleaning right now, you could probably take a peak inside. 
++ (mailbox) [right] The right side of the corridor contains a small mailbox where passengers can drop off letter they would like to be sent out. Katrina seems to be distracted by cleaning right now, you could probably take a peak inside. 
 
 -> search 
-
 + {mailbox} [search the mailbox] -> letter 
 
 + [up] The lights on this train seem quite old. They keep flickering, which certainly isn't helping your bad mood. 
@@ -284,8 +282,8 @@ Carefully peaking inside the mailbox, you can see one letter sent from Mr. Georg
 + [Read Letter] 
 
 “Dear Ms. Penelope Steward, 
-	It appears that I will be stuck in transit for an additional night than expected. The train you had booked for me was canceled last night due to a disturbance on the track. The next train out wasn’t until the next day with only economy cars remaining. You well know how hard travel is on me, and even more so in these conditions. While I cannot technically place blame on you for these circumstances, I do hope you take responsibility. I expect my estate to be well taken care of upon my return. Additionally, I feel as if Mr James Fester would be justified in feeling slighted by the delay in our meeting. Please arrange for the finest bottle of whiskey to be sent to his estate in Hogfields. I would arrange it myself but am much too weary. 
-	Sincerely, George Herbert” 
+	It appears that I will be stuck in transit for an additional night than expected. The train you had booked for me was canceled last night due to a disturbance on the track. The next train out wasn’t until the next day with only economy cars remaining. You well know how hard travel is on me, and even more so in these conditions. While I cannot technically place blame on you for these circumstances, I do hope you take responsibility. I expect my estate to be well taken care of upon my return. Additionally, I feel as if Mr James Fester would be justified in feeling slighted by the delay in our meeting. Please arrange for the finest bottle of whiskey to be sent to his estate in <b>Hogfield</b>. I would arrange it myself but am much too weary. 
+	Sincerely, <b>George Herbert</b>” 
 
 
 
@@ -306,20 +304,20 @@ Carefully peaking inside the mailbox, you can see one letter sent from Mr. Georg
 
 = 3_2 
 
-"Oh that man is infuriating! We made a complaint to me early this morning about the noise from another car.  I had to inform this was in fact a public train, and he would have to deal with some noise from the other passenger. I don't really believe he had heard much at all anyway. 
+{"Oh that man is infuriating! We made a complaint to me early this morning about the noise from another car.  I had to inform this was in fact a public train, and he would have to deal with some noise from the other passenger. I don't really believe he had heard much at all anyway." | Other questions about Ethan?}
 
 + [Did he say where the noise was coming from] -> 3_8 
-+ [Why don't you beileve him?] -> 3_7 
++ [Why don't you believe him?] -> 3_7 
 + [Thank you for your time] -> 3_1 
 
 
 = 3_7 
-"I was irrrated about his attitude, so I made a point to stand outside his car to see if I could hear anything. Could not make out a peep, even when that passenger departed at Greencester. Why  someone with his fortune and particularness wouldn’t book a more private accommodation than ours, I do not understand." 
+"I was irritated about his attitude, so I made a point to stand outside his car to see if I could hear anything. Could not make out a peep, even when that passenger departed at <b>Greencester</b>. Why  someone with his fortune and particularisms wouldn’t book a more private accommodation than ours, I do not understand." 
 -> 3_2 
 
 = 3_8 
 
-"He said the noise was coming from two cars down from him. Seems a little odd if you ask me" 
+"He said the noise was coming from <b>two cars down</b> from him. Seems a little odd if you ask me" 
 
 -> 3_2 
 
@@ -331,30 +329,29 @@ Carefully peaking inside the mailbox, you can see one letter sent from Mr. Georg
 
 = 3_4 
 
-"Mr. Herbert. He owns that bank doesn't he? What was it called.... oh Goldleaf Finacial. Between you an me, I can't stand men like that. Greedy to their core! My friend had great trouble with that bank." 
+"Mr. Herbert. He owns that bank doesn't he? What was it called.... oh Goldleaf Financial. Between you an me, I can't stand men like that. Greedy to their core! My friend had great trouble with that bank." 
 
 Bankers do tend to be greedy, but could he be greedy enough to steal success from others? 
 
 -> 3_1 
 
 = 3_5 
-"Dr. Finch. She seems a like a nice enought lady. Didn't talk to her much though, she seemed pre-occupied with something" 
+"Dr. Finch. She seems a like a nice enough lady. Didn't talk to her much though, she seemed pre-occupied with something" 
 -> 3_1 
 
 = 3_6 
 
 "I searched the train as best as I could for now, and couldn't see anything. We will do a deep clean of the train after you depart. If there is anything else to be found it will be found the, so I will call you if we come up with anything" 
 
-Your stop at Riverside is still a ways away. You should get all the information you can before then. From your conversations with the staff memembers, you should be able to piece together who departed at what stations and what car they each stayed in. 
+Your stop at Riverside is still a ways away. You should get all the information you can before then. From your conversations with the staff members, you should be able to piece together who departed at what stations and what car they each stayed in. 
 
-If you think you have completed this information, click the "I solved it!" button on the right side of the page. Otherwise you should keep talking to other staff memembers. 
+If you think you have completed this information, click the "I solved it!" button on the right side of the page. Otherwise you should keep talking to other staff members. 
 
 
-+[Keep talking to the staff] -> corridor
 
 -> 3_1 
 
--> DONE 
+Move to a new part of the train 
 = exits(-> go_back_to)
 + {location != SLEEPING_CAR}[Sleeping Car] -> sleeping_car
 + {location != ENGINE}[Engine] -> engine
@@ -365,6 +362,7 @@ If you think you have completed this information, click the "I solved it!" butto
 
 
 === FINAL ===  
+<h1><i>The Mystery Concludes!/i></h1>
 After a long, tiring morning, you finally arrive back home in Riverside. You look over the notes you collected on the train again. There must be something here that can help you solve this mystery. You are a researcher after all, you should be able to figure this out! 
 
 Just as you are thinking this you hear the phone ring. 
@@ -373,7 +371,7 @@ Just as you are thinking this you hear the phone ring.
 
 "Hello, can you hear me? " 
 
-It's Katernina! 
+It's Katrina! 
 
 "I just did a thorough cleaning of all the cars. I unfortunately did not find your briefcase, but I did notice a pen in car 2. I didn’t think much of it at first, but then I saw that it was from Riverside University. That is your university right? You almost certainly left it in your briefcase and it must have fell out when whoever stole it was rifling through your research. “
 
@@ -390,7 +388,7 @@ That's it! Whoever was in car 2 must have been the one to take your briefcase. L
 
 As you ring the door bell, a curt voice answers through the intercom, "Owen Residence, to what business do you have?"
 
-"I am here to see Ethan Owen, we have imporant business regarding the Wild Rose train," you tell the stranger behind the door. Hopefully, they let you in. You didn't think of a backup plan here. After a couple of minutes you hear a muffled argument in the residence, but the intercom turns back on. 
+"I am here to see Ethan Owen, we have important business regarding the Wild Rose train," you tell the stranger behind the door. Hopefully, they let you in. You didn't think of a backup plan here. After a couple of minutes you hear a muffled argument in the residence, but the intercom turns back on. 
 
 "Ethan Owen will see you know," it tell you. You hear a click of the door unlocking.
 
@@ -402,24 +400,42 @@ As you ring the door bell, a curt voice answers through the intercom, "Owen Resi
 
 You enter the house into the living room, to see a very prim and calm Ethan sitting with a cup of tea in his hand. 
 
-"To what do I owe the pleausre of your visit?" he asks you. 
+"Hello, I believe I recognize you from the train last night. To what do I owe the pleasure of your visit?" he asks you. 
 
 + ["What do you know about plant research?"] 
 You know the best approach is to get him talking about related subjects, and see if he lets anything slip. Clearly if he has taken your research, he must be somewhat interested in the topic, right? 
 
-"Well since you are asking, I have gotten into the study of plants somewhat recently," he tells you. "Particlarly, I have become interested in plants for their medicinal properites. For example, the Echinacea plant I have here." He picks up a small plant on the coffee table. You can tell immediately that this is not Echinacea but, in fact, just Basil. Clearly Ethan doesn't know anything about plants like he claims he does.  
+"Well since you are asking, I have gotten into the study of plants somewhat recently," he tells you. "Particularly, I have become interested in plants for their medicinal properties. For example, the Echinacea plant I have here." He picks up a small plant on the coffee table. You can tell immediately that this is not Echinacea but, in fact, Basil. Clearly Ethan doesn't know anything about plants like he claims he does.  
 
 -> confession
-+ ["Did you accidently take the wrong luggage home?"]
++ ["Did you accidentally take the wrong luggage home?"]
+
+You know the best approach is to not accuse him of anything, and see if he would just return your research without a fuss. 
+
+When you ask him about the luggage, you see a look of panic briefly cross his face before he controls it. 
+
+"I am afraid you have the wrong person. I assure you anything I took off the train was mine." he tells you in a voice as calm as ever. Clearly he is not willing to open up about taking your briefcase without some pressure.  
 
 -> confession
 +["You took my briefcase!"]
+
+You know that the best approach is to confront him directly. 
+
+"You know why I am here," you tell him. "You stole my briefcase last night!" 
+
+"I know of no such thing" he tells you calmly sipping from his tea. Clearly the direct approach isn't going to work.  
 
 ->confession
 
 
 
 = confession 
+
+Your last attempt didn't work. You are going to have pull out all the stop if you want to get your research back. 
+
+"I know that you stole my briefcase last night. There is indisputable proof on the train. I am just here to give you a chance to return it, before I involve the police!" you tell him. You aren't sure that a pen would hold up in court, but he doesn't need to know that. 
+
+"Fine. I was the one to take your briefcase," he tells you. "People don’t realize how hard it is to be the 3rd child in a family like mine. I won’t inherit the Owen title, like my oldest brother, and I certainly am not the genius that Henry is. Father keeps telling me to `do something with my life.’ Which isn’t fair at all, I have done plenty with my life. I play pool with the governor’s son!  But alas, father says I need to do something worthy of our house, and a discovery such as yours would surely outshine Henry. But you have me found out, so here it is. We can put this whole thing behind us, yes? “ 
 
 
 ->END

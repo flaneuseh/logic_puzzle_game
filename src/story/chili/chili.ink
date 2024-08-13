@@ -11,7 +11,7 @@ You attempt to call Aunt Susan.
 <i> You have reach the voice mail of Susan Nielson... please leave your message at the tone<i> 
 
 
-{Straight to voicemail! You know cell reception in upstate is shakey at best, so you aren't completely surprised. However, the hours until the competition are dwinding down. If you are going to compete you need to get started right away. You know you need to get black beans, tomatoes, jalapenos, and chili powder, and each must be bought at a different store and added in the right order.  Unfortunately, you can't remember where to get which ingredients and what order to put them in.  Maybe you can look around the house and be able to figure it out. | Straight to voicemail again. You have already called {call} times, it's maybe time to move on. } 
+{Straight to voicemail! You know cell reception in upstate is shaky at best, so you aren't completely surprised. However, the hours until the competition are dwindling down. If you are going to compete you need to get started right away. You know you need to get <b>black beans </b>, <b>tomatoes</b>, <b>jalapenos</b>, and <b>chili powder </b>, and each must be bought at a different store and added in the right order.  Unfortunately, you can't remember where to get which ingredients and what order to put them in.  Maybe you can look around the house and be able to figure it out. | Straight to voicemail again. You have already called {call} times, it's maybe time to move on. } 
 
 + [Explore the house] -> house 
 
@@ -35,26 +35,28 @@ You enter the living room. Your mom is sitting on the couch, working on knitting
 
 
 = mom 
-{Your mom looks up from her scarf with a confused look at first. "Oh, well, you know I never got into this chili business, honey. But I do remember that Susan was quite stressed when she was talking to me. It was something about the Jalapenos I know," she tells you| You are talking to your mom. }
+{Your mom looks up from her scarf with a confused look at first. "Oh, well, you know I never got into this chili business, honey. But I do remember that Susan was quite stressed when she was talking to me. It was something about the <b>Jalapenos</b> I know," she tells you| You are talking to your mom. }
 
-+(jal)[Ask her about Jalepenos] 
-"You know your aunt, she can be quite specific about these things. She was thinking about getting them at that co-op but then she went on about how they don’t open early enough so she wouldn’t be able to add them first. I suggested she just get them at a different store and she scoffed at me. Scoffed!" she tells you. You know she must be talking about Greenfield Co-op. 
++(jal)[Ask her about Jalapenos] 
+"You know your aunt, she can be quite specific about these things. She was thinking about getting them at that co-op but then she went on about how they don’t open early enough so she wouldn’t be able to add them first. I suggested she just get them at a different store and she scoffed at me. Scoffed!" she tells you. 
+
+You know she must be talking about <b>Greenfield Co-op </b>. 
 -> mom
 + {jal} [Ask her what Aunt Susan decided] 
 
-"Did she decide to get the Jalepenos from Greenfield?" you ask your mom. 
+"Did she decide to get the Jalapenos from the co-op?" you ask your mom. 
 
-"She said it wasn't so simple. She both wanted to put the Jalepenos in first or get them from Greenfield. She said she had to seriously think about whether the order or the sourcing was more important. Not sure where she landed on the issue.” 
+"She said it wasn't so simple. She both wanted to put the Jalapenos in first or get them from the co-op. She said she had to seriously think about whether the order or the sourcing was more important. Not sure where she landed on the issue.” 
 
 -> mom
 + [Return to living room] -> living_room
 
 
 = kitchen
-{The kitchen, which should be filled with hetic cooking and the smell of chili, is eerily empty right now. |In the kitchen. } 
-+ [Look through the cabnet] 
+{The kitchen, which should be filled with hectic cooking and the smell of chili, is eerily empty right now. |In the kitchen. } 
++ [Look through the cabinet] 
 
-You look through the cabnets for any ingredients you might be looking for.  Unfortunately, you rememeber that Aunt Susan wanted to buy all the ingredients today to make sure they are fresh. You take a chocolate chip cookie as a condolance. 
+You look through the cabinets for any ingredients you might be looking for.  Unfortunately, you remember that Aunt Susan wanted to buy all the ingredients today to make sure they are fresh. You take a chocolate chip cookie as a condolence. 
 
 -> kitchen 
 
@@ -72,7 +74,7 @@ A pile of dirty dishes fill the sink. All of them from the mac and cheese you ha
 = book 
 {! The counter is mostly empty except for a cookbook that was left there} 
 * (cookbook) [Examine cookbook] 
-You recongize the book as "The Big Book of Peppers" that describes, in depth, the best methods for preparing various peppers. It is open to a page about Jalepenos. There is a sticky note on the page. 
+You recognize the book as "The Big Book of Peppers" that describes, in depth, the best methods for preparing various peppers. It is open to a page about <b>Jalapenos</b>. There is a sticky note on the page. 
 
 -> book 
 
@@ -86,7 +88,7 @@ The page reads:
 
 The sticky notes reads: 
 
-“Grill Jalapenos before adding [illegible]. Add chili powder next.” 
+“Grill Jalapenos <b>before</b> adding [illegible]. Add <b>chili powder</b> next.” 
 
 You can tell the note was written by your Aunt. 
 
@@ -110,9 +112,9 @@ You are in the garage with your uncle Richard.
 
 + {uncle} [Ask about store order]
 
-"Do you rememeber what order you were supposed to drive to the stores?" you ask. 
+"Do you remember what order you were supposed to drive to the stores?" you ask. 
 
-"She made me repeat the plan back to her several times, but unfortunately, my mind can only keep track of so much. She had promised to write it down for me when she got back, but look where that got us! Oh, I do recall Bayside Market being the second stop,” he responds. 
+"She made me repeat the plan back to her several times, but unfortunately, my mind can only keep track of so much. She had promised to write it down for me when she got back, but look where that got us! Oh, I do recall <b>Bayside Market</b> being the <b>second</b> stop,” he responds. 
 
 -> garage 
 
@@ -139,7 +141,7 @@ You make a mental note to tell your aunt to change her password to something oth
 
 + (desk) [Search Desk Top] 
 
-Her desk is filled with many stacks of papers, clearly related to her job. As fascinating as corperate insurance is, you decide to leave this to her. You notice her laptop on the desk also, but unfortunately you can't get in without the password. 
+Her desk is filled with many stacks of papers, clearly related to her job. As fascinating as corporate insurance is, you decide to leave this to her. You notice her laptop on the desk also, but unfortunately you can't get in without the password. 
 
 
 -> office 
@@ -165,16 +167,16 @@ You quickly discover that her disorganization extends to digital desktop along w
 Looking through the emails seems a bit far, but desperate times! You are sure she would understand. The most recent email was sent last night. 
 
 “Dear Ms. Nielson, 
-	We are glad you have made our local farm a part of the chili tradition! I can assure you that our black beans are top quality and cooked fresh every morning. We have put aside your order of 30 oz of cooked black beans to be picked up tomorrow. May the best chili win! 
+	We are glad you have made our local farm a part of the chili tradition! I can assure you that our <b>black beans</b> are top quality and cooked fresh every morning. We have put aside your order of 30 oz of cooked black beans to be picked up tomorrow. May the best chili win! 
 
 Brittney, 
-O’Reilly’s Farm” 
+<b>O’Reilly’s Farm</b>” 
 
 -> laptop 
 
 
 + [Search Browser History] 
-{You open the setting on her internet browswer to look at her search history. Just before you hit the history button you stop yourself. Looking at search history is definetly going too far. You surely wouldn't want someone looking at your search history! | Your curosity gets starts to get the better of you, and you are tempted to look at her hsitory again. You hold restaint once more though. | The curosity gets to be too much and you seemply must read her history. You click the history tab and find..... nothing. She must have cleared her history recently! I guess she knows more about computers that you gave her credit for. | Even after some minor hacking you cannot recover any of her search history. }
+{You open the setting on her internet browser to look at her search history. Just before you hit the history button you stop yourself. Looking at search history is definitely going too far. You surely wouldn't want someone looking at your search history! | Your curiosity gets starts to get the better of you, and you are tempted to look at her history again. You hold restraint once more though. | The curiosity gets to be too much and you simply must read her history. You click the history tab and find..... nothing. She must have cleared her history recently! I guess she knows more about computers that you gave her credit for. | Even after some minor hacking you cannot recover any of her search history. }
 
 
 -> laptop  
@@ -182,7 +184,27 @@ O’Reilly’s Farm”
 
 + [Return to office] -> office 
 
-    -> END
-    
-    
-    
+=== FINAL === 
+
+The hours are ticking down until the tournament begins, so there is no time to waste. You get into your uncle’s car (it occurs to you that your aunt should have taken this car, which is much more reliable than hers) and start gathering your ingredients. First, a quick trip to Herb & Harvest to pick up the freshest Jalapenos they have. Slicing them in cubes you begin grilling them, before heading out Bayside Market. Luckily their tomatoes are as fresh and juicy as your aunt intended. The vegetables cook well with the chili powder you picked up from Greenfield Market. And as a final touch, locally sourced black beans from O'Reilly's farm. 
+
++ [Wait for the chili to cook] -> cook 
+
+= cook 
+You wait a long 60 minutes for the flavors of the chili to fully come together. You can tel lby the smell that fills your kitchen, that all this effort was worth it. The chili is finally done and ready to compete. 
+
++ [Go to the competition] -> comp 
+
+= comp 
+You arrive to Maryport Square at 5:00 PM sharp with piping hot chili stored safely in the back seat. The competition is fierce, but you notice several people coming back to your stand for seconds. You definitely have upheld the Nielson legacy, despite the stress of the day! At 7:00 PM the results are announced. Your family has taken home the trophy for the 4th year in a row! 
+
+On the car ride home, you get a phone call. It’s Aunt Susan, finally. 
+
++ [Answer the phone] -> last_call 
+
+= last_call
+“Hello dear, so sorry I couldn’t make it today!" she tells you though the phone.  "You wouldn’t believe the day I had. Listen, you remembered to add the cayenne right?” 
+
+THE END 
+
+-> END 

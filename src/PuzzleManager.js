@@ -27,23 +27,23 @@ function createPuzzle(data) {
 }
 
 
-function load(i, setI, setContent, files, postSurvey, questions, mode) {
+function load(i, setI, setContent, files, postSurvey, questions, modes) {
     if (i >= files.length) {
         setContent(<div>No more puzzles</div>);
     } else {
         axios.get(files[i])
             .then(response => {
-                //console.log(files[i])
                 let p = createPuzzle(response.data);
+                let m = modes[i]
                 let time = new Date()
                 setI(i + 1);
-                setContent(<Puzzle mode ={mode} name={response.data.inkName} clueFile={response.data.clueFile} lastFile={response.data.lastFile} p={p} time={time} concede={() => {
+                setContent(<Puzzle mode ={m} name={response.data.inkName} clueFile={response.data.clueFile} lastFile={response.data.lastFile} p={p} time={time} concede={() => {
                     // addUserAction(pid, "concede", null, time)
-                    startSurvey(p.num, i, setI, setContent, files, postSurvey, questions)
+                    startSurvey(p.num, i, setI, setContent, files, postSurvey, questions, modes)
                 }
                 } finish={() => {
                     // addUserAction(pid, "finish", null, time)
-                    startSurvey(p.num, i, setI, setContent, files, postSurvey, questions)
+                    startSurvey(p.num, i, setI, setContent, files, postSurvey, questions, modes)
                 }} />);
 
 
@@ -57,23 +57,24 @@ function finish(setContent) {
     setContent(<div>Thank you for your time, you may close this window now</div>)
 }
 
-function showRecordedScreen(setContent, i, setI, files, postSurvey, questions) {
-    setContent(<ResponseRecorded goToNextPuzzle={() => { load(i + 1, setI, setContent, files, postSurvey, questions) }} finish={() => { finish(setContent) }} morePuzzles={() => { return i + 1 < files.length }} />)
+function showRecordedScreen(setContent, i, setI, files, postSurvey, questions, modes) {
+    setContent(<ResponseRecorded goToNextPuzzle={() => { load(i + 1, setI, setContent, files, postSurvey, questions, modes) }} finish={() => { finish(setContent) }} morePuzzles={() => { return i + 1 < files.length }} />)
 }
 
-function startSurvey(puzzle, i, setI, setContent, files, postSurvey, questions) {
+function startSurvey(puzzle, i, setI, setContent, files, postSurvey, questions, modes) {
     setContent(<Survey puzzleId={puzzle} questions={questions} submit={(responses) => {
         postSurvey(puzzle, responses)
-        showRecordedScreen(setContent, i, setI, files, postSurvey, questions)
+        showRecordedScreen(setContent, i, setI, files, postSurvey, questions, modes)
     }} />);
     setI(i + 1)
 
 }
 
 
-export default PuzzleManager = ({ files, i, setI, postSurvey, questions, mode }) => {
+export default PuzzleManager = ({ files, i, setI, postSurvey, questions, modes }) => {
     //shuffleArray(files);
     //let [i, setI] = useState(0);
+    console.log(files)
     let [content, setContent] = useState(<div>loading</div>);
     let [puzzle, setPuzzle] = useState(null);
     let [puzzleId, setPuzzleId] = useState(-1);
@@ -81,7 +82,7 @@ export default PuzzleManager = ({ files, i, setI, postSurvey, questions, mode })
 
     if (files) {
         if (i == 0) {
-            load(i, setI, setContent, files, postSurvey, questions, mode);
+            load(i, setI, setContent, files, postSurvey, questions, modes);
 
         }
 
