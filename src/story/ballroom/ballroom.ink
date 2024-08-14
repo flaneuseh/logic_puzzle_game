@@ -88,8 +88,8 @@ Eureka! You've figured out the order of the dances and who sat out which. With t
     - else:
         Something has gone horribly wrong in your code!
     
-<b>You have solved the mystery</b>
--> DONE
+THE END
+-> END
 }
 
 === ball ===
@@ -420,4 +420,5 @@ Mr. Parker barely reacts to your approach. "Sure," he drawls, "I'll answer whate
 - 
 -> parker
 
+THE END
 ->END

@@ -27,26 +27,26 @@ Searching the house.
 = living_room
 You enter the living room. Your mom is sitting on the couch, working on knitting a scarf. 
 
-+ [Ask your mom about chili] -> mom 
++ [Ask your mom about the chili] -> mom 
 + [Search somewhere else in the house] -> house 
 
 
 = mom 
 {Your mom looks up from her scarf with a confused look at first. "Oh, well, you know I never got into this chili business, honey. But I do remember that Susan was quite stressed when she was talking to me. It was something about the <b>Jalapenos</b> I know," she tells you|You are talking to your mom.}
 
-+(jal)[Ask her about Jalapenos] 
++(jal)[Ask her about the Jalapenos] 
 "You know your aunt, she can be quite specific about these things. She was thinking about getting them at that co-op, but then she went on about how they don't open early enough so she wouldn't be able to add them first. I suggested she just get them at a different store and she scoffed at me. Scoffed!" she tells you. 
 
 You know she must be talking about <b>Greenfield Co-op </b>. 
 -> mom
-+ {jal} [Ask her what Aunt Susan decided] 
++ {jal} [Ask her what Aunt Susan decided for the Jalapenos] 
 
 "Did she decide to get the Jalapenos from the co-op?" you ask your mom. 
 
 "She said it wasn't so simple. She wanted to both put the Jalapenos in first and get them from the co-op. She said she had to seriously think about whether the order or the sourcing was more important. Not sure where she landed on the issue." 
 
 -> mom
-+ [Return to living room] -> living_room
++ [Return to the living room] -> living_room
 
 
 = kitchen
@@ -70,17 +70,17 @@ A pile of dirty dishes fill the sink. All of them are from the mac and cheese yo
 = book 
 {! The counter is mostly empty except for a cookbook that was left there.} 
 * (cookbook) [Examine cookbook] 
-You recognize the book as "The Big Book of Peppers" that describes, in depth, the best methods for preparing various peppers. It is open to a page about <b>Jalapenos</b>. There is a sticky note on the page. 
+The book is "The Big Book of Peppers", which describes, in depth, the best methods for preparing various peppers. It is open to a page about <b>Jalapenos</b>. There is a sticky note on the page. 
 
 -> book 
 
-+ {cookbook} [Read page]
++ {cookbook} [Read the page]
 The page reads: 
 "The spiciness of chili peppers, such as Jalapenos, comes from the chemical capsaicin.  Cooking Jalapenos can either increase or decrease the concentration of capsaicin, depending on the method. Boiling jalapenos can result in a mild decrease in capsaicin concentration, while grilling increases the concentration."  
 
 -> book 
 
-+ {cookbook} [Read sticky note] 
++ {cookbook} [Read the sticky note] 
 
 The sticky note reads: 
 
@@ -91,21 +91,21 @@ You can tell the note was written by Aunt Susan.
 -> book 
 
 
-+ [Return to kitchen] -> kitchen
++ [Return to the kitchen] -> kitchen
 
 
 
 = garage
 You are in the garage with your Uncle Richard. 
 
-+ (uncle) [Ask Uncle Richard about chili]
++ (uncle) [Ask Uncle Richard about the chili]
 "Do you know anything about the chili?" you ask. 
 
 "Ha, you know your aunt wouldn't let me anywhere near the chili. You're lucky she agreed to let you help kiddo. Oh, but I was supposed to be the one in charge of driving. She needed to 'keep her mind on the prize' or something like that. She had a route all planned out so that she would stop at the stores in the order she added the ingredients. Something about making sure they were extra fresh," he tells you. 
 
 -> garage 
 
-+ {uncle} [Ask about store order]
++ {uncle} [Ask about the store order]
 "Do you remember what order you were supposed to drive to the stores?" you ask. 
 "She made me repeat the plan back to her several times, but unfortunately, my mind can only keep track of so much. She promised to write it down for me when she got back from upstate, but look where that got us! Oh, I do recall <b>Bayside Market</b> being the <b>second</b> stop," he responds. 
 
@@ -116,9 +116,9 @@ You are in the garage with your Uncle Richard.
 = office 
 {You enter Aunt Susan's home office, where she does her work when she works from home. It is very disorganized, much like Susan herself. | In Aunt Susan's home office.}
 
-+[Search Book Self] 
++[Search Book Shelf] 
 
-Your Aunt has many books on her self; the vast majority look very new and crisp. You aren't sure if she has read a single one of them. You note several well-worn cozy mystery books you want to ask her about later though. 
+Your Aunt has many books on her shelf; the vast majority look very new and crisp. You aren't sure if she has read a single one of them. You do note several well-worn cozy mystery books you want to ask her about later though. 
 -> office 
 
 + (password) [Search Desk Drawer]
@@ -133,7 +133,7 @@ You make a mental note to tell your aunt to change her password to something oth
 
 + (desk) [Search Desk Top] 
 
-Her desk is filled with many stacks of papers, clearly related to her job. As fascinating as corporate insurance is, you decide to leave this to her. You notice her laptop on the desk also{!password:, but unfortunately you can't get in without the password}. 
+Her desk is filled with many stacks of papers, clearly related to her job. As fascinating as corporate insurance is, you decide to leave this to her. You notice her laptop on the desk also{not password:, but unfortunately you can't get in without the password}. 
 
 
 -> office 
@@ -165,14 +165,14 @@ Brittney,
 -> laptop 
 
 + [Search Browser History] 
-{You open the setting on her internet browser to look at her search history. Just before you hit the history button you stop yourself. Looking at search history is definitely going too far. You surely wouldn't want someone looking at your search history! | Your curiosity gets starts to get the better of you, and you are tempted to look at her history again. You restrain yourself once more though. | The curiosity gets to be too much and you simply must read her search history. You click the history tab and find.....nothing. She must have cleared her history recently! I guess she knows more about computers that you gave her credit for. | Even after some minor hacking you cannot recover any of her search history. }
+{You open the setting on her internet browser to look at her search history. Just before you hit the history button you stop yourself. Looking at search history is definitely going too far. You surely wouldn't want someone looking at your search history! | Your curiosity gets starts to get the better of you, and you are tempted to look at her history again. You restrain yourself once more though. | The curiosity gets to be too much and you simply must read her search history. You click the history tab and find ... nothing. She must have cleared her history recently! I guess she knows more about computers that you gave her credit for. | Even after some minor hacking you cannot recover any of her search history. }
 -> laptop  
 
-+ [Return to office] -> office 
++ [Return to the office] -> office 
 
 === FINAL === 
 
-The hours are ticking down until the tournament begins, so there is no time to waste. You get into your uncle's car (it occurs to you that your aunt should have taken this car, which is far more reliable than hers) and start gathering your ingredients. First, a quick trip to Herb & Harvest to pick up the freshest Jalapenos they have. Slicing them in cubes you begin grilling them, before heading out Bayside Market. Luckily their tomatoes are as fresh and juicy as your aunt intended. The vegetables cook well with the chili powder you picked up from Greenfield Market. And as a final touch, locally sourced black beans from O'Reilly's farm. 
+The hours are ticking down until the tournament begins, so there is no time to waste. You get into your uncle's car (it occurs to you that your aunt should have taken this car, which is far more reliable than hers) and start gathering your ingredients. First, a quick trip to Herb & Harvest to pick up the freshest Jalapenos they have. After slicing them in cubes, you begin grilling them, before heading out to Bayside Market. Luckily their tomatoes are as fresh and juicy as your aunt intended. The vegetables cook well with the chili powder you then pick up from Greenfield Market. And as a final touch, you stir in locally sourced black beans from O'Reilly's farm. 
 
 + [Wait for the chili to cook] -> cook 
 

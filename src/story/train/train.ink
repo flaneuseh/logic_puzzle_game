@@ -391,4 +391,6 @@ Your first attempt at getting a confession didn't work. You are going to have pu
 "I know that you stole my briefcase last night. There is indisputable proof on the train. I am just here to give you a chance to return it, before I involve the police!" you tell him. You aren't sure that a pen would hold up in court, but he doesn't need to know that. 
 
 "Fine. I was the one to take your briefcase," he tells you. "People don't realize how hard it is to be the 3rd child in a family like mine. I won't inherit the Owen title, like my oldest brother, and I certainly am not the genius that Henry is. Father keeps telling me to 'do something with my life.' Which isn't fair at all, I have done plenty with my life. I play pool with the governor's son! But alas, father says I need to do something worthy of our house, and a discovery such as yours would surely outshine Henry. But you have me found out, so here it is. We can put this whole thing behind us, yes?" 
+
+THE END
 ->END
