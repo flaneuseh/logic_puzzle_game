@@ -56,10 +56,10 @@ VAR soln_time = ""    // set by external
 
 === FINAL === // sent here by external
 ~ puzzle_solved = true
-After taking all the witness statements, you notice that the hands of the clock on the mantelpiece have not moved. When you examine it more closely, you realize that the glass on the clock face is also slightly cracked, suggesting it was knocked over recently. The clock is also right next to the bust where the necklace was resting, so you realize it is likely that it was knocked over by the culprit. The maid and Lady Rose confirm that the clock was working at the time the dancing started, confirming your suspicions. The time on the broken clock is stuck at 7:09, during the fourth dance - the Quickstep.
+After taking all the witness statements, you notice that the hands of the clock on the mantelpiece have not moved. When you examine it more closely, you realize that the glass on the clock face is also slightly cracked, suggesting it was knocked over recently. The clock is also right next to the bust where the necklace was resting, so you realize it is likely that it was knocked over by the culprit. The maid and Lady Rose confirm that the clock was working at the time the dancing started, confirming your suspicions. The time on the broken clock is stuck at 7:35, during the fourth dance - the Quickstep.
 
 ~ soln_suspect = "Eleanor"
-You know from the information you have already collected, that the culprit must be Lady Eleanor Appleton.
+You know from the information you have already collected, that the culprit must be Lady Eleanor.
 
 + [Accuse Lady Eleanor] You accuse Lady Eleanor. ->accuse
 
@@ -73,18 +73,18 @@ Eureka! You've figured out the order of the dances and who sat out which. With t
 === accuse ===
 {soln_suspect:
     - "Eleanor": 
-        "You cannot honestly believe that I would steal? From my own dear sister?" she yells back indignantly. "Ok, fine. But it isn’t really stealing so much as taking my due as the eldest sister. I’m certain our mother meant for me to have it really, or she would have if my sister had not schemed for it to be given to her ‘as a wedding present’. But really, Rose has had it these past twenty years, and it’s well past time I had a turn, don’t you think?"
+        "You cannot honestly believe that I would steal? From my own dear sister?" she yells back indignantly. "Ok, fine. But it isn't really stealing so much as taking my due as the eldest sister. I'm certain our mother meant for me to have it really, or she would have if my sister had not schemed for it to be given to her 'as a wedding present'. But really, Rose has had it these past twenty years, and it's well past time I had a turn, don't you think?"
     - "Baker": 
-        "Steal Lady Rose’s necklace for Lady Eleanor? Hah! One of the few joys I have is seeing Lady Eleanor’s envy over that necklace. She has everything a person could possibly want, and she behaves as though the world owes her more and more! Whereas I am utterly dependent on others for the most basic necessities. That necklace will secure me a comfortable life away from her and the rest of this self satisfied group [gasps from the rest of the party]. Fine, I admit it! While the maid’s attention was on my ripped dress, I saw the opportunity for a better life and I took it! Can you really blame me?"
+        "Steal Lady Rose's necklace for Lady Eleanor? Hah! One of the few joys I have is seeing Lady Eleanor's envy over that necklace. She has everything a person could possibly want, and she behaves as though the world owes her more and more! Whereas I am utterly dependent on others for the most basic necessities. That necklace will secure me a comfortable life away from her and the rest of this self satisfied group [gasps from the rest of the party]. Fine, I admit it! While the maid's attention was on my ripped dress, I saw the opportunity for a better life and I took it! Can you really blame me?"
     - "George": 
         "Me?" Lord George swells in outrage, "What use could I, a titled lord, have for such a frippery?" he demands.
         "Perhaps to buoy up your failing stocks?" you suggest.
         "My failing stocks?" He deflates rapidly.
-        "...Ahem, well, perhaps the thing was ill advised. I just saw it sitting there and thought that I could pay for months of repairs with the gold and rubies alone, to say nothing of the diamonds… [addressing Lady Rose] I daresay I’m sorry, old thing. It was just a sudden fancy. I’m sure I would have returned it soon enough."
+        "...Ahem, well, perhaps the thing was ill advised. I just saw it sitting there and thought that I could pay for months of repairs with the gold and rubies alone, to say nothing of the diamonds...  [addressing Lady Rose] I daresay I'm sorry, old thing. It was just a sudden fancy. I'm sure I would have returned it soon enough."
     - "Parker": 
-        "I realize I am new to town, so you must find me a convenient scapegoat for this theft, but I assure you I had nothing to do with this. In any case, what use could I have for such a feminine bauble? To sell? My esteemed family of...Wervershire keep me well provided for."
+        "I realize I am new to town, so you must find me a convenient scapegoat for this theft, but I assure you I had nothing to do with this. In any case, what use could I have for such a feminine bauble? To sell? My esteemed family of ... Wervershire keep me well provided for."
         "Wervershire?" you repeat, "I'm fairly certain there is no such county."
-        "Wervershire isn’t a real place?... Fine. I took the necklace. I couldn’t resist such an easy target! Sitting in plain view for anyone to grab! I only regret that I didn’t have a fake made ahead of time. Then I could’ve gotten away with it before anyone noticed it missing."
+        "Wervershire isn't a real place? ... Fine. I took the necklace. I couldn't resist such an easy target! Sitting in plain view for anyone to grab! I only regret that I didn't have a fake made ahead of time. Then I could've gotten away with it before anyone noticed it missing."
     - else:
         Something has gone horribly wrong in your code!
     
@@ -94,7 +94,7 @@ THE END
 
 === ball ===
 <b><i>Lady Rose's Chrysanthemum Ball</i></b>
-The most anticipated event of the season is always your cousin Lady Rose’s Chrysanthemum Ball, and this year is no exception. You’ve spent weeks assembling the perfect outfit, practicing your social dances, and memorizing details about the illustrious attendees calculated to make the best impression. 
+The most anticipated event of the season is always your cousin Lady Rose's Chrysanthemum Ball, and this year is no exception. You've spent weeks assembling the perfect outfit, practicing your social dances, and memorizing details about the illustrious attendees. 
 ~ from = -> ball
 -> outside
 
@@ -105,7 +105,7 @@ The most anticipated event of the season is always your cousin Lady Rose’s Chr
 An imposing butler wearing a uniform so starched you suspect it would stand up without him answers the door. 
 "Good evening miss. I'm afraid there has been an unfortunate incident, and the ball has been cancelled. Lady Rose gives her deepest regrets that we were not able to contact you in time to save your journey." The butler starts to close the door again at the finale of this clearly rehearsed speech.
 "Wait!" You put your body in the way of the closing door, and he looks at you like you've just grown a second head. 
-"What kind of an incident? Has someone fallen ill? Lady Rose is my cousin, and I want to be able to help if I can." The butler is clearly torn between his orders to turn guests away and the uncertainty about whether you qualify as a "guest". 
+"What kind of an incident? Has someone fallen ill? Lady Rose is my cousin, and I want to be able to help if I can." The butler is clearly torn between his orders to turn guests away and the uncertainty about whether a cousin qualifies as a "guest". 
 "Come for now," he says, letting you in. "I'll confer with Lady Rose. Please wait here a moment." 
 -
 * [Foyer]
@@ -116,7 +116,7 @@ An imposing butler wearing a uniform so starched you suspect it would stand up w
 The foyer to the manor. From the butler's post by the front door, you can see a narrow slice of the parlour in which all you can make out is the maid, standing next to a tray of drinks and doing her level best to fade into the wallpaper.
 {foyer == 1: 
 For what seems an interminable time, you stand awkwardly in the foyer, watching the maid fidget. You strain to hear anything, but you can only catch a low murmur without moving into full view of the parlour. Then the butler returns.
-"Thank you for waiting...Lady Rose will see you now."
+"Thank you for waiting ... Lady Rose will see you now."
 }
 ~ from = -> foyer
 + {foyer != 1} Talk to Mr. Jones (the butler). -> butler
@@ -184,13 +184,13 @@ Lady Rose's ballroom, decked out in splendor for the Chrysanthemum Ball. In one 
 -> rose
 + (when){what}[Ask when the necklace was noticed missing]
 "When did you notice the necklace was missing?" you ask. 
-"It was when I went to sit out for a dance!" Lady Rose exclaims, "At <b>7</b>, we decided to do a few informal dances before officially starting the ball, you see, and we were an uneven number, so someone was obliged to sit out for each dance - that's about 10 minutes. Naturally as the hostess I volunteered to be first to sit out (she bats her eyelashes), but everyone <i>insisted</i> I should be the last to do so. And when I came off the floor the necklace was missing!"
+"It was when I went to sit out for a dance!" Lady Rose exclaims, "At 7:00, we decided to do a few informal dances before officially starting the ball, you see, and we were an uneven number, so someone was obliged to sit out for each dance - that's about 10 minutes. Naturally as the hostess I volunteered to be first to sit out (she bats her eyelashes), but everyone <i>insisted</i> I should be the last to do so. And when I came off the floor the necklace was missing!"
 + (where){what}[Ask where the necklace was last seen]
 "Where was the necklace?" you ask, "could it have fallen off while you were wearing it?"
 "Good heavens, of course not!" Lady Rose cries, "I could never be so careless with my prized possession. No, the gemstones are <i>so heavy</i> and I decided I would wait to don it until officially starting the ball - which now I suppose won't happen after all. The necklace was of course on my mother's bust, over there, as it <i>always</i> is before the ball."
 + {when}[Ask about the dance order]
 "Which dance did everyone sit out for?" you ask. 
-"Which dance people sat out for? All I know is that I had the chance to dance with everyone. As to who sat out when, I certainly wasn't tracking their movements. As to which dances were played, well, you would have to ask Alice about that. It is the duty of the pianist, after all, to arrange the dance in a satisfactory manner."
+"All I know is that I had the chance to dance with everyone. As to who sat out when, I certainly wasn't tracking their movements. As to which dances were played, well, you would have to ask Alice about that. It is the duty of the pianist, after all, to arrange the dances in a satisfactory manner."
 + (who){when}[Ask about the other guests]
 "Who else was here?" you ask. 
 "Who else? Well, 4 guests had shown up when the dancing started. <b>Lady Eleanor</b>, obviously, my <i>dear</i> sister, her companion <b>Miss Baker</b>, who I'm sure you must remember, that stuffy old fool <b>Lord George</b>, of course, and that dashing new young man, <b>Mr. Parker</b>. They are all sitting over there by the fireplace. Then of course there was Mr. Jones, the butler, Alice at the piano, and Sarah by the drinks. Why, do you suspect one of my guests of taking my necklace?" Her eyes widen in almost comical disbelief. 
@@ -214,7 +214,7 @@ Lady Rose's ballroom, decked out in splendor for the Chrysanthemum Ball. In one 
 ~ stocks = true
 + [Ask about <b>Mr. Parker</b>]
 "What do you think of Mr. Parker?" you ask.
-"Mr. Parker? Oh, he is such a polite and dashing young man! When we danced the quickstep I felt quite ten years younger! It did put me rather out of breath of course.
+"Mr. Parker? Oh, he is such a polite and dashing young man! When we danced the <b>Quickstep</b> I felt quite ten years younger! It did put me rather out of breath of course.
 ~ clue_4_1 = true
 + [Back] -> rose
 -
@@ -230,10 +230,10 @@ Alice seems fully absorbed in looking through some music on the piano. You have 
 ~ from = -> pianist
 + (what)[Ask about what happened]
 "What do you remember about the evening?" you ask her. 
-"What do I remember..." she muses. "Well...I was playing...I was just starting a piece...and there was an interruption...a terrible screaming about something or other...then my music was snatched away!" <i>That</i> she finds clearly distressing, after mentioning "terrible screaming" with no more than mild annoyance.
+"What do I remember..." she muses. "Well ... I was playing ... I was just starting a piece ... and there was an interruption ... a terrible screaming about something or other ... then my music was snatched away!" <i>That</i> she finds clearly distressing, after mentioning "terrible screaming" with no more than mild annoyance.
 + {what}[Ask about the music]
 "Do you remember what dances you played?" you ask.
-"What dances?" She seems to consider that, running her hands up and down the piano keys lovingly, "I know we played...a <b>Tango</b>, a <b>Quickstep</b>...a <b>Waltz</b>...and a <b>Foxtrot</b>...I couldn't tell you the order of the pieces...when I play I lose myself in the music...and have no sense of time passing...or the dance changing...But I <i>can</i> tell you that when Lady Rose snatched the last score," she looks up at you, suddenly intense, "she was screaming that she couldn't bear to hear music anymore as her necklace was missing. I saw that the melody underneath was a tango before Lady Rose swept it along with the rest of the music to the floor, putting everything hopelessly out of order!" Alice finishes, clearly affronted. 
+"What dances?" She seems to consider that, running her hands up and down the piano keys lovingly, "I know we played ... a <b>Tango</b>, a <b>Quickstep</b> ... a <b>Waltz</b> ... and a <b>Foxtrot</b> ... I couldn't tell you the order of the pieces ... when I play I lose myself in the music ... and have no sense of time passing ... or the dance changing ... But I <i>can</i> tell you that when Lady Rose snatched the last score," she looks up at you, suddenly intense, "she was screaming that she couldn't bear to hear music anymore as her necklace was missing. I saw that the melody underneath was a <b>Tango</b> before Lady Rose swept it along with the rest of the music to the floor, putting everything hopelessly out of order!" Alice finishes, clearly affronted. 
 ~ clue_2 = true
 + [Back] 
 -> ballroom 
@@ -252,7 +252,7 @@ Sarah jumps when you come up to her, almost knocking over the tray of drinks.
 ~ left_position = true
 + {what}[Ask about the dance order]
 "What do you remember about the dance order?" you prompt.
-"The dancing?" she looks confused. "I really can't say. I can't tell the difference between the dances, and I didn't notice which guest was sitting out." 
+"I really can't say." She looks confused. "I can't tell the difference between the dances, and I didn't notice which guest was sitting out." 
 + {what and left_position and not repair}[Ask about when she left her position]
 "What happened when you left your position?" you ask.
 "Oh - that was when Miss Baker had torn her dress, and I went with her to repair it. But we were only away for part of one dance."
@@ -267,7 +267,7 @@ Oh - that was when I left my position. She had torn her dress, and I went with h
 
 = bust
 (The bust of Lady Rose and Lady Eleanor's mother)
-Lady Charlotte, preserved in immortal middle age by granite as hard as her indominitable will, glares imperiously down at you. You imagine her expression is reproachful, as though blaming you for the loss of the necklace that formerly graced her neck. {not solved: You should focus on figuring out who sat out when before looking for clues here.}
+Lady Charlotte, preserved in immortal middle age by granite as hard as her indominitable will, glares imperiously down at you. You imagine her expression is reproachful, as though blaming you for the loss of the necklace that formerly graced her neck.
 ~ from = -> bust
 * (clues){solved}[Look for clues]
 Looking at the bust again, you notice the small clock sitting next to it and realize that you have not heard it ticking.
@@ -295,16 +295,16 @@ Lady Eleanor regards you haughtily. "I don't know why you feel the need to quest
 ~ from = -> eleanor
 + (what)[Ask about what happened]
 "What can you tell me about what happened?" you ask.
-"What happened? Well, we had decided to do some dancing as the four of us were here already, and just as the fourth dance was concluding, my sister started screaming her head off about her necklace being stolen! It was a most indecorous display, especially as by all rights, that necklace <i>should</i> be mine, as the eldest daughter. I don't see what Rose being married first has to do with anything."
+"What happened? Well, we had decided to do some dancing as the four of us were here already, and just as the fifth dance was beginning, my sister started screaming her head off about her necklace being stolen! It was a most indecorous display, especially as by all rights, that necklace <i>should</i> be mine, as the eldest daughter. I don't see what Rose being married first has to do with anything."
 + {what}[Ask about Miss Baker]
 "What do you think of Miss Baker?" you ask. At that, Lady Eleanor's eyes flash indignantly.
-"I simply don’t see why I should have been obliged to sit out for a dance, when isn’t the function of one’s companion to preserve them from such indignities? Terribly presumptuous of the girl to swan boldly onto the dance floor like a person of consequence, when she wouldn’t have a scrap to her name without my generous patronage. And what uncultured dancing! It’s not surprising at all that she stepped on her own dress during her ungracious attempt at a waltz, and what an unbecoming shade of red she became! If I had so embarrassed myself in front of my betters, I would not have had the nerve to show myself again. Unfortunately, she returned as soon as she had gotten Lady Rose’s maid to repair her wardrobe, only missing the next dance - disregarding the inconvenience to the rest of the party of not having a maid to attend our needs, I might add." 
+"I simply don't see why I should have been obliged to sit out for a dance, when isn't the function of one's companion to preserve them from such indignities? Terribly presumptuous of the girl to swan boldly onto the dance floor like a person of consequence, when she wouldn't have a scrap to her name without my generous patronage. And what uncultured dancing! It's not surprising at all that she stepped on her own dress during her ungracious attempt at a waltz, and what an unbecoming shade of red she became! If I had so embarrassed myself in front of my betters, I would not have had the nerve to show myself again. Unfortunately, she returned as soon as she had gotten Lady Rose's maid to repair her wardrobe, only missing the next dance - disregarding the inconvenience to the rest of the party of not having a maid to attend to our needs, I might add." 
 ~ dress = true
 ~ repair = true
 ~ clue_1 = true
 + {what}[Ask about Mr. Parker]
 "What do you think of Mr. Parker?" you ask.
-“Mr. Parker? That young man knows how to pay respect to his betters. A little too well, I think sometimes." Lady Eleanor lowers her voice before continuing in a conspiratorial tone. "Why, Rose was positively swooning for him earlier, and I simply don’t think it’s appropriate for a woman of her age to be dancing the tango with a man quite twenty years her junior.” 
+“Mr. Parker? That young man knows how to pay respect to his betters. A little too well, I think sometimes." Lady Eleanor lowers her voice before continuing in a conspiratorial tone. "Why, Rose was positively swooning for him earlier, and I simply don't think it's appropriate for a woman of her age to be dancing the tango with a man quite twenty years her junior.” 
 ~ clue_4_2 = true
 + {what}[Ask about Lord George]
 "What do you think of Lord George?" you ask. She rolls her eyes.
@@ -374,7 +374,7 @@ Lord George puffs up with excitement. "Jolly good, you're going to get to the bo
 "Believe it or not, she was a stunner in her youth. Still is, if you can ignore that pinched expression she wears. Makes her companion's life miserable, though."
 + {what}[Ask about Mr. Parker]
 "What do you think about Mr. Parker?" you ask.
-"Smarmy young fellow. He supposedly comes from some old family in Europe, but I don't know anyone who has met a single one of his connections. He just appeared in town recently acting as if he owned the place. I don't know how he's taken in Lady Rose, who generally I consider to be a sensible woman."
+"Smarmy young fellow. He supposedly comes from some old family in the countryside, but I don't know anyone who has met a single one of his connections. He just appeared in town recently acting as if he owned the place. I don't know how he's taken in Lady Rose, who generally I consider to be a sensible woman."
 + {what and stocks}[Ask about his stocks]
 "How are your stocks doing?" you ask. He looks around wildly.
 "Oh, erm, they're doing as well as ever! But I'm sure you don't want to hear about something so dull. And they certainly have nothing to do with this mystery."
@@ -398,7 +398,7 @@ Mr. Parker barely reacts to your approach. "Sure," he drawls, "I'll answer whate
 ~ from = -> parker
 + (what)[Ask about what happened]
 "What can you tell me about what happened?" you ask.
-"<i>Ob-vi-ous-ly</i>, Lady Rose's precious necklace has been misplaced, and now the party is over. Not that it was much of a party to begin with, with three stuffed old birds and one skittish little mouse for company, but at least the music was good."
+"<i>Ob-vi-ous-ly</i>, Lady Rose's precious necklace has been misplaced, and now the party is over. Not that it was much of a party to begin with, with only three stuffed old birds and one skittish little mouse for company, but at least the music was good."
 + {what}[Ask about Miss Baker]
 "What do you think about Miss Baker?" you ask.
 "A skittish little mouse. Though I did admire her spirit in ignoring Lady Eleanor's waspish looks when Lady Eleanor was asked to sit out for a dance. I'm sure she'll pay for that later."
@@ -407,7 +407,7 @@ Mr. Parker barely reacts to your approach. "Sure," he drawls, "I'll answer whate
 "Unpleasant woman. Acts like she's the Queen of England. Expects everyone to bow to her every whim, especially her companion."
 + {what}[Ask about Lord George]
 "What do you think about Lord George?" you ask.
-"Insufferably boring old fool. I remember that when he heard a quickstep was planned, he decided to sit out the dance before to prepare himself…after all, he isn’t a young fellow anymore, you know. <i>I</i> don’t need any preparation to dance the quickstep; I could dance for hours without sitting, though I did of course sit out one dance to be polite. I had a private laugh about that when Lady Rose requested that the quickstep be delayed by a dance. I say, when Lord George realized that there was a dance between his break and the quickstep, he was quite irate. The old chap needn’t have worried though, as Lady Rose is none too spry either, and the quickstep was played almost sedately in my opinion. Hardly deserving of the name."
+"Insufferably boring old fool. I remember that when he heard a <b>Quickstep</b> was planned, he decided to sit out the dance before to prepare himself ... after all, he isn't a young fellow anymore, you know. <i>I</i> don't need any preparation to dance the Quickstep; I could dance for hours without sitting, though I did of course sit out one dance to be polite. I had a private laugh when Lady Rose requested that the Quickstep be delayed by a dance. I say, when Lord George realized that there was a dance between his break and the Quickstep, he was quite irate. The old chap needn't have worried though, as Lady Rose is none too spry either, and the Quickstep was played almost sedately in my opinion. Hardly deserving of the name."
 ~ clue_3 = true
 * {clock}[Accuse]
 "<i>You</i> stole the necklace!" you accuse Mr. Parker.
