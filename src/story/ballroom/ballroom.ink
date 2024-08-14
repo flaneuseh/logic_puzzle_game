@@ -56,10 +56,12 @@ VAR soln_time = ""    // set by external
 
 === FINAL === // sent here by external
 ~ puzzle_solved = true
-Eureka! You've figured out the order of the dances and who sat out which. With this information, all you need to know is what time the necklace was stolen.
-You check the bust again for clues to the time and notice the small clock sitting next to it. Then you realize that you have not heard it ticking, and examining it, you realize that its screen has been damaged, and the time is frozen at {realtime()} - in the middle of the {numbered(soln_time)} dance - the {soln_dance}!
+After taking all the witness statements, you notice that the hands of the clock on the mantelpiece have not moved. When you examine it more closely, you realize that the glass on the clock face is also slightly cracked, suggesting it was knocked over recently. The clock is also right next to the bust where the necklace was resting, so you realize it is likely that it was knocked over by the culprit. The maid and Lady Rose confirm that the clock was working at the time the dancing started, confirming your suspicions. The time on the broken clock is stuck at 7:09, during the fourth dance - the Quickstep.
 
-Since {soln_suspect} was the person who sat out at {realtime()}, they must be the culprit. You accuse them: ->accuse
+~ soln_suspect = "Eleanor"
+You know from the information you have already collected, that the culprit must be Lady Eleanor Appleton.
+
++ [Accuse Lady Eleanor] You accuse Lady Eleanor. ->accuse
 
 
 === solved === // sent here by external
@@ -71,7 +73,7 @@ Eureka! You've figured out the order of the dances and who sat out which. With t
 === accuse ===
 {soln_suspect:
     - "Eleanor": 
-        "You cannot honestly believe that I would steal? From my own dear sister? Ok, fine. But it isn’t really stealing so much as taking my due as the eldest sister. I’m certain our mother meant for me to have it really, or she would have if my sister had not schemed for it to be given to her ‘as a wedding present’. But really, Rose has had it these past twenty years, and it’s well past time I had a turn, don’t you think?"
+        "You cannot honestly believe that I would steal? From my own dear sister?" she yells back indignantly. "Ok, fine. But it isn’t really stealing so much as taking my due as the eldest sister. I’m certain our mother meant for me to have it really, or she would have if my sister had not schemed for it to be given to her ‘as a wedding present’. But really, Rose has had it these past twenty years, and it’s well past time I had a turn, don’t you think?"
     - "Baker": 
         "Steal Lady Rose’s necklace for Lady Eleanor? Hah! One of the few joys I have is seeing Lady Eleanor’s envy over that necklace. She has everything a person could possibly want, and she behaves as though the world owes her more and more! Whereas I am utterly dependent on others for the most basic necessities. That necklace will secure me a comfortable life away from her and the rest of this self satisfied group [gasps from the rest of the party]. Fine, I admit it! While the maid’s attention was on my ripped dress, I saw the opportunity for a better life and I took it! Can you really blame me?"
     - "George": 
