@@ -165,11 +165,11 @@ Lady Rose's ballroom, decked out in splendor for the Chrysanthemum Ball. In one 
     - else: Now you just need to figure out what <i>time</i> the necklace was stolen. You should check the bust again for clues.
     }
     - all_clues():
-    At this point, you think you've learned all you're going to from conversation. You need to sit down with your notes and mull this over.
+    At this point, you think you've learned all you're going to from conversation. You need to sit down with your notes and mull this over. When you think you've figured out the order of the dances and who sat out which dance, click the "I solved it!" button on the right side of the page.
     - any_clue(): 
-    You've learned some crucial information, but you still don't think you have enough to solve the mystery.
+    You've learned some crucial information, but you still don't think you have enough to solve the mystery. When you think you've figured out the order of the dances and who sat out which dance, click the "I solved it!" button on the right side of the page.
     - else:
-    You aren't sure you've learned <i>anything</i> useful yet. You should talk to everyone some more.
+    You aren't sure you've learned <i>anything</i> useful yet. You should talk to everyone some more. When you think you've figured out the order of the dances and who sat out which dance, click the "I solved it!" button on the right side of the page.
 }
 
 + [Back] -> ballroom
