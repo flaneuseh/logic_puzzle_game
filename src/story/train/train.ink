@@ -25,7 +25,7 @@ The engine of the train. The conductor is here.
 (Talking to the conductor, Jim Gallagher)
 
 * (briefcase) [Ask about briefcase]"Excuse me", you say, "I had a very important briefcase in my car, but it's missing. Has something like that been found anywhere on the train?"
-    "Hm," the Jim responds, "I haven't had any reports of items found. Maybe one of the other passengers got off with it by mistake?"
+    "Hm," Jim responds, "I haven't had any reports of items found. Maybe one of the other passengers got off with it by mistake?"
 -> conductor1
 * (passengers){briefcase}[Ask about the other passengers]"Who else was on the train today?" you ask.
     "Let's see, it was a quiet journey, and there were only four others besides you - <b>Sir Ethan Owen</b>, <b>Ms. Madeleine Baker</b>, <b>Mr. George Herbert</b>, and <b>Dr. Ava Finch</b>. Not surprised you didn't meet them, they each had their own room in cars 1-4. But they have all already gotten off; it's just you and us staff here now."
@@ -39,7 +39,7 @@ The engine of the train. The conductor is here.
 -> conductor1 
 
 =stations 
-"Can you tell me what stations the other passengers boarded and departed?" you ask. 
+"Can you tell me what stations the other passengers boarded and departed at?" you ask. 
 
 "Oh yes, of course." Jim begins shuffling through a series of documents. After several minutes of this he furrows his brow and returns his attention to you. "This is quite mysterious indeed. It appears your briefcase wasn't the only thing that went missing last night - the ticket information has disappeared as well." 
 
@@ -51,7 +51,7 @@ Dread fills your stomach. Two things going missing in one night. It is starting 
 
 = conductor2
 (Talking to the conductor, Jim Gallagher)
-"Let me know if there is anything I else can do to assist in retrieving this item" 
+"Let me know if there is anything I else can do to assist in retrieving this item." 
 
 + [Tell me about Sir Ethan Owen] -> 1_2 
 + [Tell me about Ms. Madeleine Baker] -> 1_3 
@@ -72,7 +72,7 @@ He doesn't like talking about his brothers. Could there be a rivalry there? If h
 -> conductor2 
 
 =1_4 
-"Mr. George Herbert? That old banker? He is traveling here on business. Was quite agitated when I interacted with him. Apparently, he was not expecting to ride our dear old Wild Rose last evening.  I find her a joy to ride in, but apparently he desired more...luxury...accommodations." 
+"Mr. George Herbert? That old banker? He is traveling here on business. Was quite agitated when I interacted with him. Apparently, he was not expecting to ride our dear old Wild Rose last evening.  I find her a joy to ride in, but apparently he desired more ... luxury ... accommodations." 
 -> conductor2 
 
 = 1_5 
@@ -82,7 +82,7 @@ Hmmm, Raven Wood, you have definitely have heard of this university before. In f
 -> conductor2
 
 = 1_6
-{"Ahh well you know that the Wild Rose is an old train, so is bound to have some issues. While last night's journey was mostly smooth sailing, I do recall we had some issues with the car doors" | "Any other questions about the car doors?"}
+{"Ahh well you know that the Wild Rose is an old train, so is bound to have some issues. While last night's journey was mostly smooth sailing, I do recall we had some issues with the car doors." | "Any other questions about the car doors?"}
 
 + [Which cars had issues?] -> 1_7 
 + [I didn't hear any car doors opening last night] -> 1_8
@@ -90,7 +90,7 @@ Hmmm, Raven Wood, you have definitely have heard of this university before. In f
 + [Ok, thank you for your time] -> conductor2
 
 = 1_7
-"Working nights isn't easy for an old fellow like me, so unfortunately I can't recall which cars exactly had issues. Two cars back to back though. We first had issues at <b>Forest Hills</b>, and then the <b>very next car</b> down had an issue when we stopped at <b>Seastead</b>." 
+"Working nights isn't easy for an old fellow like me, so unfortunately I can't recall which cars exactly had issues. Two cars back to back though. We first had issues at <b>Forest Hills</b>, and then the very next car down had an issue when we stopped at <b>Seastead</b>." 
 
 -> 1_6  
 
@@ -137,7 +137,7 @@ In the dining car, still smells like bacon. The chef May Gardner is here.
 
 = 2_3 
 
-"{<b>Madeleine Baker</b>? She was up bright and early this morning. Wanted to make sure she got the first cup of coffee.| Do you have other questions about Madeleine?}" 
+"{<b>Madeleine Baker</b>? She was up bright and early this morning. Wanted to make sure she got the first cup of coffee.|Do you have other questions about Madeleine?}" 
 
 + [Did you notice anything strange about her?] -> 2_7  
 + [What was she doing during breakfast?] -> 2_8  
@@ -148,7 +148,7 @@ In the dining car, still smells like bacon. The chef May Gardner is here.
 -> 2_3 
 
 = 2_8 
-{"She was clearly lost in thought over something, kept staring out the window of the train. Oh, and sketching in that notebook of hers. Some kind of flower." | Do you have other questions about the sketch?}
+{"She was clearly lost in thought over something, kept staring out the window of the train. Oh, and sketching in that notebook of hers. Some kind of flower."| "Do you have other questions about the sketch?"}
 
 + [Can you describe the flower?] -> 2_9  
 + [Did she tell you anything about the sketch?] -> 2_10 
@@ -163,7 +163,7 @@ Her description doesn't describe your plant at all. You can't recall a plant tha
 -> 2_8 
 
 = 2_10 
-"I did ask what kind of plant that was, and she told me it doesn't exist...yet. Apparently she had this vision of a flower that would be a cross of a Lily only found in <b>Forest Hills</b> with one of her personal breeds. Went on this train to find it. Personally, I think nature has provided us with more than enough flowers without all this fiddling." 
+"I did ask what kind of plant that was, and she told me it doesn't exist ... yet. Apparently she had this vision of a flower that would be a cross of a Lily only found in <b>Forest Hills</b> with one of her personal breeds. Went on this train to find it. Personally, I think nature has provided us with more than enough flowers without all this fiddling." 
 
 -> 2_9 
 
@@ -196,7 +196,7 @@ A growl from your stomach reminds you that you slept through breakfast this morn
 
 
 = 2_12 
-"Well you should know it's against policy to serve breakfast outside of official hours...but with the morning you had I can maybe make an exception." 
+"Well you should know it's against policy to serve breakfast outside of official hours ... but with the morning you had I can maybe make an exception." 
 -> 2_1 
 
 
@@ -221,21 +221,21 @@ A growl from your stomach reminds you that you slept through breakfast this morn
 + [Move to another part of the train] -> exits(->corridor)
 
 = discovery
- ~ location = NO_WHERE
+ ~ location = CORRIDOR
 Anxiously you stand in the corridor hoping that Katrina locates your briefcase quickly. After several agonizing minutes, you see a distraught Katrina return. 
 
-"Oh you must believe me, I searched everywhere! But nothing...nada...ziltch. Somehow your briefcase must have got off the train sometime last night." 
+"Oh you must believe me, I searched everywhere! But nothing ... nada ... zilch. Somehow your briefcase must have got off the train sometime last night." 
 
 And you know exactly how. Your briefcase was safely on your desk when you went to sleep last night. The only way the briefcase is no longer on the train, is if one of the other passengers came into your room and took it! You must find out which passenger took it and where they got off before it's too late!
 
 Unfortunately, you don't know where each passenger got off or even what car they stayed in last night. If you can figure out what station each passenger deboarded and and what car they stayed in, you will be one step closer to your briefcase. You should talk more with the staff and see if you can gather any more clues from them! 
 
-+ [Move to another part of the train] -> exits(->corridor) 
+-> corridor
 
 = search 
 Search the corridor. 
 
-+[left] The left side of the corridor seems has a small end table with a bowl full of mints. You take one from the bowl for good measure. 
++(left)[left] The left side of the corridor has a small end table with a bowl full of mints. You take {left == 1: one}{left > 1: another} from the bowl for good measure. 
 -> search 
 
 + (mailbox) [right] The right side of the corridor contains a small mailbox where passengers can drop off letters they would like to be sent out. Katrina seems to be distracted by cleaning right now; you could probably take a peak inside. 
@@ -290,7 +290,7 @@ Carefully peaking inside the mailbox, you can see one letter left by Mr. George 
 -> 3_1 
 
 = 3_4 
-"Mr. Herbert? He owns that bank doesn't he? What was it called...oh, Goldleaf Financial. Between you and me, I can't stand men like that. Greedy to their core! My friend had great trouble with that bank." 
+"Mr. Herbert? He owns that bank doesn't he? What was it called ... oh, Goldleaf Financial. Between you and me, I can't stand men like that. Greedy to their core! My friend had great trouble with that bank." 
 
 Bankers do tend to be greedy, but could he be greedy enough to steal success from others? 
 -> 3_1 
@@ -318,7 +318,7 @@ Move to a new part of the train
 
 
 === FINAL ===  
-<h1><i>The Mystery Concludes!/i></h1>
+<h1><i>The Mystery Concludes!</i></h1>
 After a long, tiring morning, you finally arrive back home in Riverside. You look over the notes you collected on the train again. There must be something here that can help you solve this mystery. You are a researcher after all, you should be able to figure this out! 
 
 Just as you are thinking this you hear the phone ring. 
