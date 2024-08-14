@@ -12,9 +12,10 @@ VAR clue_3 = false
 VAR clue_4_1 = false
 VAR clue_4_2 = false
 
-VAR time = "" // set by external
-VAR dance_number = "" // set by external
-VAR puzzle_solved = false // set by external
+VAR puzzle_solved = false // set when external directs to the solved or FINAL knot.
+VAR soln_suspect = "" // set by external
+VAR soln_dance = ""   // set by external
+VAR soln_time = ""    // set by external
 
 === function all_clues() === 
 ~ return clue_1 and clue_2 and clue_3 and clue_4()
@@ -25,6 +26,69 @@ VAR puzzle_solved = false // set by external
 === function any_clue() ===
 ~ return clue_1 or clue_2 or clue_3 or clue_4_1 or clue_4_2
 
+=== function realtime() === 
+{soln_time:
+    - 1: 
+        ~ return "7:05"
+    - 2: 
+        ~ return "7:15"
+    - 3: 
+        ~ return "7:25"
+    - 4: 
+        ~ return "7:35" 
+    - else:
+        ~ return ""
+}
+
+=== function numbered(int) ===
+{ int:
+    - 1:
+        ~ return "first"
+    - 2:
+        ~ return "second"
+    - 3:
+        ~ return "third"
+    - 4:
+        ~ return "fourth"
+    - else:
+        ~ return ""
+}
+
+=== FINAL === // sent here by external
+~ puzzle_solved = true
+Eureka! You've figured out the order of the dances and who sat out which. With this information, all you need to know is what time the necklace was stolen.
+You check the bust again for clues to the time and notice the small clock sitting next to it. Then you realize that you have not heard it ticking, and examining it, you realize that its screen has been damaged, and the time is frozen at {realtime()} - in the middle of the {numbered(soln_time)} dance - the {soln_dance}!
+
+Since {soln_suspect} was the person who sat out at {realtime()}, they must be the culprit. You accuse them: ->accuse
+
+
+=== solved === // sent here by external
+~ puzzle_solved = true
+Eureka! You've figured out the order of the dances and who sat out which. With this information, all you need to know is what time the necklace was stolen. You should check the bust { ball.bust: again }for clues to the time.
++ [Bust] -> ball.bust
+
+
+=== accuse ===
+{soln_suspect:
+    - "Eleanor": 
+        "You cannot honestly believe that I would steal? From my own dear sister? Ok, fine. But it isn’t really stealing so much as taking my due as the eldest sister. I’m certain our mother meant for me to have it really, or she would have if my sister had not schemed for it to be given to her ‘as a wedding present’. But really, Rose has had it these past twenty years, and it’s well past time I had a turn, don’t you think?"
+    - "Baker": 
+        "Steal Lady Rose’s necklace for Lady Eleanor? Hah! One of the few joys I have is seeing Lady Eleanor’s envy over that necklace. She has everything a person could possibly want, and she behaves as though the world owes her more and more! Whereas I am utterly dependent on others for the most basic necessities. That necklace will secure me a comfortable life away from her and the rest of this self satisfied group [gasps from the rest of the party]. Fine, I admit it! While the maid’s attention was on my ripped dress, I saw the opportunity for a better life and I took it! Can you really blame me?"
+    - "George": 
+        "Me?" Lord George swells in outrage, "What use could I, a titled lord, have for such a frippery?" he demands.
+        "Perhaps to buoy up your failing stocks?" you suggest.
+        "My failing stocks?" He deflates rapidly.
+        "...Ahem, well, perhaps the thing was ill advised. I just saw it sitting there and thought that I could pay for months of repairs with the gold and rubies alone, to say nothing of the diamonds… [addressing Lady Rose] I daresay I’m sorry, old thing. It was just a sudden fancy. I’m sure I would have returned it soon enough."
+    - "Parker": 
+        "I realize I am new to town, so you must find me a convenient scapegoat for this theft, but I assure you I had nothing to do with this. In any case, what use could I have for such a feminine bauble? To sell? My esteemed family of...Wervershire keep me well provided for."
+        "Wervershire?" you repeat, "I'm fairly certain there is no such county."
+        "Wervershire isn’t a real place?... Fine. I took the necklace. I couldn’t resist such an easy target! Sitting in plain view for anyone to grab! I only regret that I didn’t have a fake made ahead of time. Then I could’ve gotten away with it before anyone noticed it missing."
+    - else:
+        Something has gone horribly wrong in your code!
+    
+<b>You have solved the mystery</b>
+-> DONE
+}
 
 === ball ===
 <b><i>Lady Rose's Chrysanthemum Ball</i></b>
@@ -75,7 +139,7 @@ Mr. Jones looks imperiously down his nose at you in that way all butlers have of
 
 = ballroom
 <b>Ballroom</b>
-Lady Rose's ballroom, decked out in splendor for the Chrysanthemum Ball. In one corner a young woman sits awkwardly at the piano, while in another Lady Rose reclines dramatically on a divan, telling her woes to the maid standing awkwardly by the drinks tray and looking as though she would prefer to be swallowed up by the floor. On the other side of the room, four people are sitting around the fireplace.
+Lady Rose's ballroom, decked out in splendor for the Chrysanthemum Ball. In one corner a young woman sits at the piano, while in another Lady Rose reclines dramatically on a divan, telling her woes to the maid standing awkwardly by the drinks tray and looking as though she would prefer to be swallowed up by the floor. On the other side of the room, four people are sitting around the fireplace.
 {ballroom == 1:
     When you enter, Lady Rose turns her tearstained face towards you. 
     "My <i>dear</i>! Finally someone I can trust to help me!" she cries, putting out her hand. You go over to her and take it, wondering what on earth could have happened.
@@ -95,7 +159,7 @@ Lady Rose's ballroom, decked out in splendor for the Chrysanthemum Ball. In one 
     - puzzle_solved:
     You've figured out the order of the dances and who sat out which. 
     { 
-    - clock: You've also determined that the neckace was stolen during the {dance_number} dance. With that, you should have enough information to accuse someone.
+    - clock: You've also determined that the neckace was stolen during the {numbered(soln_time)} dance. With that, you should have enough information to accuse someone.
     - else: Now you just need to figure out what <i>time</i> the necklace was stolen. You should check the bust again for clues.
     }
     - all_clues():
@@ -107,10 +171,6 @@ Lady Rose's ballroom, decked out in splendor for the Chrysanthemum Ball. In one 
 }
 
 + [Back] -> ballroom
-
-= solved // sent here by external
-Eureka! You've figured out the order of the dances and who sat out which. With this information, all you need to know is what time the necklace was stolen. You should check the bust {bust: again }for clues to the time.
-+ [Bust] -> bust
 
 = rose
 (Talking to Lady Rose)
@@ -210,7 +270,7 @@ Lady Charlotte, preserved in immortal middle age by granite as hard as her indom
 * (clues){solved}[Look for clues]
 Looking at the bust again, you notice the small clock sitting next to it and realize that you have not heard it ticking.
 + (clock){clues}[Check clock]
-Examining the small clock, you realize that its screen has been damaged, and the time is frozen at {time} - in the middle of the {dance_number} dance!
+Examining the small clock, you realize that its screen has been damaged, and the time is frozen at {realtime()} - in the middle of the {numbered(soln_time)} dance - the {soln_dance}!
 + [Back] -> ballroom
 - 
 -> bust
@@ -251,11 +311,7 @@ Lady Eleanor regards you haughtily. "I don't know why you feel the need to quest
 * {clock}[Accuse]
 "<i>You</i> stole the necklace for yourself!" you accuse Lady Eleanor.
 {
-- dance_number == "fourth":
-"You cannot honestly believe that I would steal? From my own dear sister? Ok, fine. But it isn’t really stealing so much as taking my due as the eldest sister. I’m certain our mother meant for me to have it really, or she would have if my sister had not schemed for it to be given to her ‘as a wedding present’. But really, Rose has had it these past twenty years, and it’s well past time I had a turn, don’t you think?"
-
-<b>You have solved the mystery</b>
--> DONE
+- soln_time == 4: -> accuse
 - else:
 "Me? I've never been so insulted in my life!" Her affront seems so genuine that you second guess yourself. Could Lady Eleanor really have been the thief?"
 }
@@ -290,11 +346,7 @@ Miss Baker pales at your approach. "Of course, I'd be happy to help in any way I
 * {clock}[Accuse]
 "<i>You</i> stole the necklace for Lady Eleanor!" you accuse Miss Baker.
 {
-- dance_number == "third":
-"Steal Lady Rose’s necklace for Lady Eleanor? Hah! One of the few joys I have is seeing Lady Eleanor’s envy over that necklace. She has everything a person could possibly want, and she behaves as though the world owes her more and more! Whereas I am utterly dependent on others for the most basic necessities. That necklace will secure me a comfortable life away from her and the rest of this self satisfied group [gasps from the rest of the party]. Fine, I admit it! While the maid’s attention was on my ripped dress, I saw the opportunity for a better life and I took it! Can you really blame me?"
-
-<b>You have solved the mystery</b>
--> DONE
+- soln_time == 3: -> accuse
 - else:
 "Me? I <i>swear</i> I had nothing to do with it!" Her affront seems so genuine that you second guess yourself. Could Miss Baker really have been the thief?"
 }
@@ -327,14 +379,7 @@ Lord George puffs up with excitement. "Jolly good, you're going to get to the bo
 * {clock}[Accuse]
 "<i>You</i> stole the necklace!" you accuse Lord George.
 {
-- dance_number == "second":
-"Me?" Lord George swells in outrage, "What use could I, a titled lord, have for such a frippery?" he demands.
-"Perhaps to buoy up your failing stocks?" you suggest.
-"My failing stocks?" He deflates rapidly.
-"...Ahem, well, perhaps the thing was ill advised. I just saw it sitting there and thought that I could pay for months of repairs with the gold and rubies alone, to say nothing of the diamonds… [addressing Lady Rose] I daresay I’m sorry, old thing. It was just a sudden fancy. I’m sure I would have returned it soon enough."
-
-<b>You have solved the mystery</b>
--> DONE
+- soln_time == 2: -> accuse
 - else:
 "Me? I've never been so insulted in my life!" His affront seems so genuine that you second guess yourself. Could Lord George really have been the thief?"
 }
@@ -365,15 +410,9 @@ Mr. Parker barely reacts to your approach. "Sure," he drawls, "I'll answer whate
 * {clock}[Accuse]
 "<i>You</i> stole the necklace!" you accuse Mr. Parker.
 {
-- dance_number == "first":
-"I realize I am new to town, so you must find me a convenient scapegoat for this theft, but I assure you I had nothing to do with this. In any case, what use could I have for such a feminine bauble? To sell? My esteemed family of...Wervershire keep me well provided for."
-"Wervershire?" you repeat, "I'm fairly certain there is no such county."
-"Wervershire isn’t a real place?... Fine. I took the necklace. I couldn’t resist such an easy target! Sitting in plain view for anyone to grab! I only regret that I didn’t have a fake made ahead of time. Then I could’ve gotten away with it before anyone noticed it missing."
-
-<b>You have solved the mystery</b>
--> DONE
+- soln_time == 1: -> accuse
 - else:
-"Me? I've never been so insulted in my life!" His affront seems so genuine that you second guess yourself. Could Lord George really have been the thief?"
+"Me? I realize it's easy to accuse someone new to town, but I assure you, I had nothing to do with this theft!" His affront seems so genuine that you second guess yourself. Could Mr. Parker really have been the thief?"
 }
 + [Back] -> fireplace
 - 

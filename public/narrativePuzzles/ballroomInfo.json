@@ -1,12 +1,41 @@
-{"solution": "-----------\n|XOXX|XOXX|\n|OXXX|XXXO|\n|XXOX|XXOX|\n|XXXO|OXXX|\n------\n|XXXO|\n|XOXX|\n|XXOX|\n|OXXX|\n", "categories": [{"name": "time", "entities": ["1", "2", "3", "4"]}, {"name": "suspect", "entities": ["Lady Eleanor Appleton", "Lord George Elliot", "Miss Clementine Baker", "Mr. John Parker"]}, {"name": "dance", "entities": ["Waltz", "Foxtrot", "Tango", "Quickstep"]}], 
-"hints": ["Miss Clementine Baker sat out the dance immediately after the Waltz.", 
-"The Tango was danced third.", 
-"Lord George Elliot sat out two dances before the Quickstep.", 
-"Mr. John Parker sat out during either the Foxtrot or the Waltz." 
-], 
-
-"inkName": "ballroom", 
-"clueFile": "public/narrativePuzzles/ballroomNarrative.txt", 
-
-
-"id": 2}
+{
+    "solution": "-----------\n|XOXX|XOXX|\n|OXXX|XXXO|\n|XXOX|XXOX|\n|XXXO|OXXX|\n------\n|XXXO|\n|XOXX|\n|XXOX|\n|OXXX|\n",
+    "categories": [
+        {
+            "name": "time",
+            "entities": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ]
+        },
+        {
+            "name": "suspect",
+            "entities": [
+                "Lady Eleanor Appleton",
+                "Lord George Elliot",
+                "Miss Clementine Baker",
+                "Mr. John Parker"
+            ]
+        },
+        {
+            "name": "dance",
+            "entities": [
+                "Waltz",
+                "Foxtrot",
+                "Tango",
+                "Quickstep"
+            ]
+        }
+    ],
+    "hints": [
+        "Miss Clementine Baker sat out the dance immediately after the Waltz.",
+        "The Tango was danced third.",
+        "Lord George Elliot sat out two dances before the Quickstep.",
+        "Mr. John Parker sat out during either the Foxtrot or the Waltz."
+    ],
+    "inkName": "ballroom",
+    "clueFile": "public/narrativePuzzles/ballroomNarrative.txt",
+    "id": 2
+}
