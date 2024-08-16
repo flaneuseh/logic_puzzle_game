@@ -232,10 +232,12 @@ div {
 
     display: flex;
     justify-content: center;
+  
 }
 
 .slide img {
     width: 70vmin;
+
 }
 
 .surveyImg {

@@ -1,8 +1,8 @@
-// import { getAuth, signInAnonymously } from "firebase/auth";
+import { getAuth, signInAnonymously } from "firebase/auth";
 
 
 let signIn = () => {
-    /* const auth = getAuth();
+    const auth = getAuth();
         signInAnonymously(auth)
         .then(() => {
             // Signed in..
@@ -11,11 +11,11 @@ let signIn = () => {
             const errorCode = error.code;
             const errorMessage = error.message;
             // ...
-         });*/
+         });
 }
 
 export function getCurrentUser() {
-    /*return new Promise((resolve, reject) =>{
+    return new Promise((resolve, reject) =>{
         const auth = getAuth();
         let user = auth.currentUser;
 
@@ -27,7 +27,7 @@ export function getCurrentUser() {
                 resolve(user.uid);
             })
         }
-    })*/
+    })
 
     return new Promise((resolved) => resolved(0))
 

@@ -179,7 +179,7 @@ export default Puzzle = ({ p, time, concede, finish, inkName, name, mode, clueFi
     useEffect(() => {
         async function fetchData() {
             // You can await here
-            createGamePlayInstance(p.num).then((data) => { setInstanceId(data); })
+            createGamePlayInstance(p.num, mode).then((data) => { setInstanceId(data); })
 
 
         }

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import Select from "react-select";
 import React, { Component } from "react";
 import { Draggable } from "react-drag-reorder";
+import { createRankingInstance, updateRankingInstance, updateRankingComment } from "./Firestore/sendData";
+import { async } from "@firebase/util";
 
 let DragElements = ({words, items,  setItems}) => {
 
@@ -34,7 +36,7 @@ let DragElements = ({words, items,  setItems}) => {
         <div className="row">
             <ol>
           <Draggable onPosChange={this.getChangedPos}>
-            {words.map((word, idx) => {
+            {items.map((word, idx) => {
               return (
                 <li key={idx} className="flex-item">
                   {word}
@@ -51,19 +53,61 @@ let DragElements = ({words, items,  setItems}) => {
 
 
 
+function shuffleArray(a) {
+
+    let array = a.slice()
+
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+
+    return array 
+  }
 
 
 
-
-export default RankPuzzles = ({onSubmit}) => {
+export default RankPuzzles = ({onSubmit, genres, modes}) => {
     let puzzles = ["Lady Rose's Chrysanthemum Ball", "The Great Chili Competition", "The Wild Rose Train"  ] 
-    let [diff, setDiff] = useState(puzzles)
-    let [engagement, setEngagement] = useState(puzzles)
-    let [overall, setOverall] = useState(puzzles) 
+
+    let [diff, setDiff] = useState(shuffleArray(puzzles))
+    let [narrative, setNarrative] = useState(shuffleArray(puzzles))
+    let [enjoyment, setEnjoyment] = useState(shuffleArray(puzzles)) 
+    let [instanceId, setInstanceId] = useState(null)
+
+    let map = makeMapping(genres, modes)
+    console.log(map)
+
+
+    useEffect(() => {
+        async function fetchData() {
+            createRankingInstance(diff, narrative, enjoyment).then((data) => { setInstanceId(data); })
+        }
+        fetchData()
+    }, []);
+
+
+    useEffect(() => {
+        async function updateData(){
+            updateRankingInstance(instanceId, diff, narrative, enjoyment)
+        }
+
+        if (instanceId != null){
+            updateData()
+        }
+    }, [diff, narrative, enjoyment])
+
+
+    let updateComment = (type, comment) => {
+        updateRankingComment(instanceId, type, comment)
+    }
+
     return (<div className="rankings">
         <h1>Final Survey</h1>
         <p>You have played all the puzzles available. Please answer the following questions. The lists can be re-arranged by dragging and dropping.</p>
-        <h2>Order the puzzles in terms of: difficulty</h2>
+        <h2>Rank the puzzles from most to least difficult</h2>
         <DragElements words ={puzzles} items={diff} setItems={setDiff}/>
 
         <p>Why did you decide on this order?</p>
@@ -71,24 +115,33 @@ export default RankPuzzles = ({onSubmit}) => {
         rows={5} 
         cols={75}
         placeholder={"Type answer here"}
+        onChange={(e) => {
+            updateComment("diff", e.target.value)
+        }}
       />
 
-        <h2>Order the puzzles in terms of: engagement</h2>
-        <DragElements words ={puzzles} items={engagement} setItems={setEngagement}/>
+        <h2>Rank the puzzles from best to worst narrative</h2>
+        <DragElements words ={puzzles} items={narrative} setItems={setNarrative}/>
         <p>Why did you decide on this order?</p>
         <textarea
         rows={5} 
         cols={75}
         placeholder={"Type answer here"}
+        onChange={(e) => {
+            updateComment("narrative", e.target.value)
+        }} 
       />
 
-        <h2>Order the puzzles in terms of: overall</h2>
-        <DragElements words ={puzzles} items={overall} setItems={setOverall}/>
+        <h2>Rank the puzzles from most to least enjoyable</h2>
+        <DragElements words ={puzzles} items={enjoyment} setItems={setEnjoyment}/>
         <p>Why did you decide on this order?</p>
         <textarea
         rows={5} 
         cols={75}
         placeholder={"Type answer here"}
+        onChange={(e) => {
+            updateComment("enjoyment", e.target.value)
+        }} 
       />
 
 
