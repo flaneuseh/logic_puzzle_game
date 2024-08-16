@@ -6,7 +6,7 @@ let attempts = 0;
 let clears = 0;
 let subject = null;
 
-let DEGUG = false 
+let DEGUG = true
 
 export const addSubject = async (logicPuzzleExp, gridPuzzleExp, genreOrder, puzzleOrder) => {
 
