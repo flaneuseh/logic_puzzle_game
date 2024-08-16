@@ -9,6 +9,7 @@
 "id": 1,
 
 "inkName": "chili", 
+"name": "The Great Chili Competition", 
 "lastFile": "public/narrativePuzzles/chiliFinal.txt", 
 "clueFile":"public/narrativePuzzles/chiliNarrative.txt" 
 

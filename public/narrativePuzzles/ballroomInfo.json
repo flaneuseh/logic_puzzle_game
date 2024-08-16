@@ -36,6 +36,8 @@
         "Mr. John Parker sat out during either the Foxtrot or the Waltz."
     ],
     "inkName": "ballroom",
+    "name": "Lady Rose's Chrysanthemum Ball", 
+    "lastFile":"public/narrativePuzzles/ballroomFinal.txt", 
     "clueFile": "public/narrativePuzzles/ballroomNarrative.txt",
     "id": 2
 }
