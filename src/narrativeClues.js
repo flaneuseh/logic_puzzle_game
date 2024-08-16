@@ -12,7 +12,7 @@ ClueViewer = ({clues, name}) => {
     let buttons = clues.map((ele, i) => 
         <button className={i == selectedClue? "selected_n": "unselected_n"} key={ele} onClick={() => selectClue(i)}>
             
-           {i == 0? "Story" : "Clue" + i}
+           {i == 0? "Story" : "Clue " + i}
             
             </button>)
     

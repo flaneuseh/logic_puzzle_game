@@ -62,7 +62,7 @@ export default HintDisplay = ({hints, time, strikes, setStrikes, instanceId, clu
         <div className="hints">
             <h1>{name}</h1>
             <p dangerouslySetInnerHTML={{__html: story}}></p>
-            <h1>Hints</h1>
+            <h1>Clues</h1>
             {hintsList}
         </div>);
 }
