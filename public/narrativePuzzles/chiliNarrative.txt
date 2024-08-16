@@ -29,7 +29,7 @@
 <p>Luckily for you, your aunt left behind her laptop. Even luckier, she never learned good cyber security practices and left a sticky note with her password next to the laptop. With your very minor hacking skills, you get into your aunt’s laptop and look through her emails. Desperate times! You are sure she would understand. The most recent email was sent last night. </p>
 
 <p>“Dear Ms. Nielson, </p> 
-	<p>We are glad you have made our local farm a part of the chili tradition! I can assure you that our black beans are top quality and cooked fresh every morning. We have put aside your order of 30 oz of cooked black beans to be picked up tomorrow. May the best chili win! </p>
+	<p>We are glad you have made our local farm a part of the chili tradition! I can assure you that our black beans are top quality and cooked fresh every morning. We can assure you that your 30oz of cooked black beans will be ready whenever you arrive tomorrow. May the best chili win! </p>
 
 <p>Brittney, </p>
 <p>O’Reilly’s Farm” </p>
