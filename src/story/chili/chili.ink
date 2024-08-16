@@ -1,5 +1,6 @@
 -> intro
 = intro 
+<h1><i>The Great Chili Competition</i></h1>
 It’s that time of year once again: the annual Maryport Chili tournament. The town is aflutter with the possibilities of what the contestants have to bring this year. As the oldest child of the Nielson household, you have decided it is time to learn the family secrets for the perfect chili. Luckily, your Aunt Susan has taken you on as her apprentice.  She has already cooked up a plan of which ingredients you need to get, from which stores (sourcing is as important as the recipe!), and in what order to add them to the chili. 
 
 Unfortunately, it is the day of the competition, and Aunt Susan is nowhere to be found. She went to visit your grandmother upstate and has not returned. Her old pickup must have broken down again. 

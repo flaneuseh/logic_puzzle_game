@@ -5,6 +5,7 @@ import Category from "./categoryModel";
 import Puzzle from "./puzzle";
 import PuzzleModel from "./puzzleModel";
 import Survey from "./survey";
+import RankPuzzles from './RankPuzzles';
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -37,7 +38,7 @@ function load(i, setI, setContent, files, postSurvey, questions, modes) {
                 let m = modes[i]
                 let time = new Date()
                 setI(i + 1);
-                setContent(<Puzzle mode ={m} name={response.data.inkName} clueFile={response.data.clueFile} lastFile={response.data.lastFile} p={p} time={time} concede={() => {
+                setContent(<Puzzle mode ={m} inkName={response.data.inkName} name={response.data.name} clueFile={response.data.clueFile} lastFile={response.data.lastFile} p={p} time={time} concede={() => {
                     // addUserAction(pid, "concede", null, time)
                     startSurvey(p.num, i, setI, setContent, files, postSurvey, questions, modes)
                 }
@@ -58,7 +59,12 @@ function finish(setContent) {
 }
 
 function showRecordedScreen(setContent, i, setI, files, postSurvey, questions, modes) {
-    setContent(<ResponseRecorded goToNextPuzzle={() => { load(i + 1, setI, setContent, files, postSurvey, questions, modes) }} finish={() => { finish(setContent) }} morePuzzles={() => { return i + 1 < files.length }} />)
+    if (i + 1 >= files.length){
+        setContent(<RankPuzzles/>)
+    }else{
+        setContent(<ResponseRecorded goToNextPuzzle={() => { load(i + 1, setI, setContent, files, postSurvey, questions, modes) }} finish={() => { finish(setContent) }} morePuzzles={() => { return i + 1 < files.length }} />)
+    }
+   
 }
 
 function startSurvey(puzzle, i, setI, setContent, files, postSurvey, questions, modes) {
@@ -76,6 +82,7 @@ export default PuzzleManager = ({ files, i, setI, postSurvey, questions, modes }
     //let [i, setI] = useState(0);
     console.log(files)
     let [content, setContent] = useState(<div>loading</div>);
+
     let [puzzle, setPuzzle] = useState(null);
     let [puzzleId, setPuzzleId] = useState(-1);
 

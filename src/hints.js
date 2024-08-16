@@ -12,7 +12,7 @@ let recordHint = (time, hint, strikes, i, instanceId) =>{
 
 
 
-export default HintDisplay = ({hints, time, strikes, setStrikes, instanceId, clueFile}) => {
+export default HintDisplay = ({hints, time, strikes, setStrikes, instanceId, clueFile, name}) => {
     let [story, setStory] = useState("loading")
 
     useEffect(() => {
@@ -60,7 +60,7 @@ export default HintDisplay = ({hints, time, strikes, setStrikes, instanceId, clu
     hintsList = <ol>{hintsList}</ol>
     return (
         <div className="hints">
-            <h1>Story</h1>
+            <h1>{name}</h1>
             <p dangerouslySetInnerHTML={{__html: story}}></p>
             <h1>Hints</h1>
             {hintsList}

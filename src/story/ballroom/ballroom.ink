@@ -27,7 +27,7 @@ VAR puzzle_solved = false // set by external
 
 
 === ball ===
-<b><i>Lady Rose's Chrysanthemum Ball</i></b>
+<h1><i>Lady Rose's Chrysanthemum Ball</i></h1>
 The most anticipated event of the season is always your cousin Lady Rose’s Chrysanthemum Ball, and this year is no exception. You’ve spent weeks assembling the perfect outfit, practicing your social dances, and memorizing details about the illustrious attendees calculated to make the best impression. 
 ~ from = -> ball
 -> outside

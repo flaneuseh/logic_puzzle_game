@@ -417,3 +417,24 @@ div {
     width: 16vmin;
     height: 4vmin;
 }
+
+.flex-item{
+    border: solid;
+    width: 30%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.rankings h2{
+    border-bottom: solid; 
+    width: 50%; 
+    margin: auto; 
+    margin-top: 50px;
+}
+
+.rankings button{
+        width: 80%;
+        height: 20%;
+        margin: 3vmin;
+        background-color: #67ab49;
+}

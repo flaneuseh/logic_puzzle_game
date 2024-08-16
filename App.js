@@ -6,6 +6,7 @@ import InformedConsent from './src/InformedConsent';
 import PuzzleManager from './src/PuzzleManager';
 import StoryManager from './src/StoryManager';
 import Tutorial from './src/Tutorial';
+import RankPuzzles from './src/RankPuzzles';
 
 let MODE = "debug"
 
@@ -55,6 +56,7 @@ function getModes(){
 
 
 export default function App() {
+
 
   //addSubject(4, 3); 
 

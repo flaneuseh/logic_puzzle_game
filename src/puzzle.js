@@ -163,7 +163,7 @@ let clearPuzzle = (puzzle, strikes, setStrikes, instanceId, time) => {
 
 }
 
-export default Puzzle = ({ p, time, concede, finish, name, mode, clueFile, lastFile }) => {
+export default Puzzle = ({ p, time, concede, finish, inkName, name, mode, clueFile, lastFile }) => {
     let puzzle = [[]];
     let displayGrid = [];
     let [select, setSelect] = useState("O");
@@ -240,11 +240,11 @@ export default Puzzle = ({ p, time, concede, finish, name, mode, clueFile, lastF
     content = ""
 
     if (mode == "if") {
-        content = <StoryManager storyName={name} ref={storyRef} />
+        content = <StoryManager storyName={inkName} ref={storyRef} />
     } else if (mode == "hints") {
-        content = <Hints hints={p.hints} time={time} setStrikes={setStrikes} strikes={strikes} instanceId={instanceId} clueFile={clueFile} />
+        content = <Hints hints={p.hints} time={time} setStrikes={setStrikes} strikes={strikes} instanceId={instanceId} clueFile={clueFile} name={name}/>
     } else {
-        content = <NarrativeClues clueFile={clueFile} />
+        content = <NarrativeClues clueFile={clueFile} name={name} />
     }
 
     let [leftContent, setLeftContent] = useState(content)
