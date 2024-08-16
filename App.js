@@ -10,6 +10,7 @@ import RankPuzzles from './src/RankPuzzles';
 import axios from 'axios';
 import InitialSurvey from './src/InitialSurvey';
 import { async } from '@firebase/util';
+import { nextDocument } from '@cyntler/react-doc-viewer/dist/esm/store/actions';
 
 let MODE = "survey"
 
@@ -96,6 +97,9 @@ export default function App() {
   const f = getFiles()
   let [files, setFiles] = useState(f)
   let [names, setNames] = useState([])
+  let [numPuzzles, setNumPuzzles] = useState(0)
+  let codes = ["code1", "code2", "code3", "code4"]
+  let payments = ["$0.50", "$2.50", "$4.50", "$6.50"]
   //let [puzzleManager, setPuzzleManager] = useState(<PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} mode="if"/>); 
   //let [files, setFiles] = useState(); 
   //useEffect(() => {setFiles(getFiles())}, [])
@@ -124,7 +128,7 @@ export default function App() {
   let consent = <div className='parent'><InformedConsent consent={() => setMode("survey")} /></div>
   let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />
   let initalSurvey = <InitialSurvey postAnswers={submitInitalSurvey}/> 
-  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} modes={narMode}/>
+  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} modes={narMode} numPuzzles={numPuzzles} setNumPuzzles={setNumPuzzles}/>
 
   let startGame = () => {
     setMode("puzzle")
@@ -145,7 +149,14 @@ export default function App() {
   }
 
   
+  let banner = <div className='codeBanner'>
+  <div>
+    You have completed {numPuzzles} puzzles. You will be paid {payments[numPuzzles]}. <br />
+    Your code is <b>{codes[numPuzzles]}</b> <br />
+    You may this code now{numPuzzles < (codes.length -1)? ", or continue playing for larger payment.": "." } 
+  </div>
 
+</div>
 
   //shuffleArray(files)
 
@@ -172,25 +183,13 @@ export default function App() {
       }
       if(mode == "tutorial"){
         return (<div className='parent'>
-        <div className='codeBanner'>
-          <div>
-            Your completion code is CKKCGFDC<br />
-            You may enter this at anytime
-          </div>
-
-        </div>
+        {banner}
         {tutorial}
       </div>)
       }
       if(mode == "puzzle"){
         return (<div className='parent'>
-        <div className='codeBanner'>
-          <div>
-            Your completion code is CKKCGFDC<br />
-            You may enter this at anytime
-          </div>
-
-        </div>
+        {banner}
         {puzzleManager}
       </div>)
       }else{

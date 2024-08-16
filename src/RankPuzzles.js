@@ -69,16 +69,13 @@ function shuffleArray(a) {
 
 
 
-export default RankPuzzles = ({onSubmit, genres, modes}) => {
+export default RankPuzzles = ({onSubmit}) => {
     let puzzles = ["Lady Rose's Chrysanthemum Ball", "The Great Chili Competition", "The Wild Rose Train"  ] 
 
     let [diff, setDiff] = useState(shuffleArray(puzzles))
     let [narrative, setNarrative] = useState(shuffleArray(puzzles))
     let [enjoyment, setEnjoyment] = useState(shuffleArray(puzzles)) 
     let [instanceId, setInstanceId] = useState(null)
-
-    let map = makeMapping(genres, modes)
-    console.log(map)
 
 
     useEffect(() => {
