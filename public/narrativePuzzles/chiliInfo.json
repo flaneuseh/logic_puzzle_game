@@ -1,16 +1,43 @@
-{"solution": "-----------\n|OXXX|XXOX|\n|XXXO|OXXX|\n|XOXX|XOXX|\n|XXOX|XXXO|\n------\n|XXXO|\n|XOXX|\n|OXXX|\n|XXOX|\n", "categories": [{"name": "order", "entities": ["1st", "2nd", "3rd", "4th"]}, {"name": "ingredients", "entities": ["Black Beans", "Tomatoes", "Jalapenos", "Chili Powder"]}, {"name": "store", "entities": ["Herb & Harvest", "O'Reilly's Farm", "Bayside Market", "Greenfield Co-op"]}], 
-
-"hints": ["The Jalapenos are added 2 ingredients before the Chili Powder", 
-"The ingredient added second is from Bayside Market", 
-"Either the first ingredient added or the ingredient bought from Greenfield Co-op is Jalapenos", 
-"The Black Beans should be bought at O'Reilly's Farm" 
-], 
-
-"id": 1,
-
-"inkName": "chili", 
-"name": "The Great Chili Competition", 
-"lastFile": "public/narrativePuzzles/chiliFinal.txt", 
-"clueFile":"public/narrativePuzzles/chiliNarrative.txt" 
-
+{
+    "solution": "-----------\n|OXXX|XXOX|\n|XXXO|OXXX|\n|XOXX|XOXX|\n|XXOX|XXXO|\n------\n|XXXO|\n|XOXX|\n|OXXX|\n|XXOX|\n",
+    "categories": [
+        {
+            "name": "order",
+            "entities": [
+                "1st",
+                "2nd",
+                "3rd",
+                "4th"
+            ]
+        },
+        {
+            "name": "ingredients",
+            "entities": [
+                "Black Beans",
+                "Tomatoes",
+                "Jalapenos",
+                "Chili Powder"
+            ]
+        },
+        {
+            "name": "store",
+            "entities": [
+                "Herb & Harvest",
+                "O'Reilly's Farm",
+                "Bayside Market",
+                "Greenfield Co-op"
+            ]
+        }
+    ],
+    "hints": [
+        "The Jalapenos are added 2 ingredients before the Chili Powder",
+        "The ingredient added second is from Bayside Market",
+        "Either the first ingredient added or the ingredient bought from Greenfield Co-op is Jalapenos",
+        "The Black Beans should be bought at O'Reilly's Farm"
+    ],
+    "id": 1,
+    "inkName": "chili",
+    "name": "The Great Chili Competition",
+    "lastFile": "narrativePuzzles/chiliFinal.txt",
+    "clueFile": "narrativePuzzles/chiliNarrative.txt"
 }

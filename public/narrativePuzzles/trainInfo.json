@@ -1,13 +1,43 @@
-{"solution": "-----------\n|XXXO|XXXO|\n|XOXX|OXXX|\n|XXOX|XXOX|\n|OXXX|XOXX|\n------\n|XOXX|\n|OXXX|\n|XXOX|\n|XXXO|\n", "categories": [{"name": "car", "entities": ["1", "2", "3", "4"]}, {"name": "suspect", "entities": ["Ethan Owen", "Madeleine Baker", "George Herbert", "Ava Finch"]}, {"name": "station", "entities": ["Greencester", "Seastead", "Hogfield", "Forest Hills"]}], 
-
-"hints": ["The person who departed at Forest Hills Station was Madeleine Baker", 
-"George Herbert departed at Hogfield Station", 
-"The person who left at Forest Hills was 1 car before the person who left at Seastead", 
-"Ethan Owen was located 2 cars before the person who departed at Greencester" 
-
-], 
-"inkName": "train", 
-"name": "The Wild Rose Train", 
-"clueFile": "public/narrativePuzzles/trainNarrative.txt", 
-"lastFile": "public/narrativePuzzles/trainFinal.txt", 
-"id": 0}
+{
+    "solution": "-----------\n|XXXO|XXXO|\n|XOXX|OXXX|\n|XXOX|XXOX|\n|OXXX|XOXX|\n------\n|XOXX|\n|OXXX|\n|XXOX|\n|XXXO|\n",
+    "categories": [
+        {
+            "name": "car",
+            "entities": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ]
+        },
+        {
+            "name": "suspect",
+            "entities": [
+                "Ethan Owen",
+                "Madeleine Baker",
+                "George Herbert",
+                "Ava Finch"
+            ]
+        },
+        {
+            "name": "station",
+            "entities": [
+                "Greencester",
+                "Seastead",
+                "Hogfield",
+                "Forest Hills"
+            ]
+        }
+    ],
+    "hints": [
+        "The person who departed at Forest Hills Station was Madeleine Baker",
+        "George Herbert departed at Hogfield Station",
+        "The person who left at Forest Hills was 1 car before the person who left at Seastead",
+        "Ethan Owen was located 2 cars before the person who departed at Greencester"
+    ],
+    "inkName": "train",
+    "name": "The Wild Rose Train",
+    "clueFile": "narrativePuzzles/trainNarrative.txt",
+    "lastFile": "narrativePuzzles/trainFinal.txt",
+    "id": 0
+}

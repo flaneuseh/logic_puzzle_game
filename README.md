@@ -10,6 +10,11 @@ npx expo start
 
 #Deploy to Firebase 
 
+Prerequisites: Initialize
+```
+firebase init hosting (public path should be dist; all other answers are No)
+```
+
 Step 1: 
 ```
 firebase login 
@@ -18,8 +23,12 @@ firebase login
 Step 2: 
 
 ```
+npx expo export -p web
 npm run deploy-hosting 
 ```
+
+
+
 
 To step up follow instructions in: https://docs.expo.dev/distribution/publishing-websites/
 

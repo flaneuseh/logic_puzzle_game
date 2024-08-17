@@ -26,10 +26,12 @@
     "pspdfkit": "^2024.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-drag-reorder": "^1.2.0",
     "react-native": "0.73.4",
     "react-native-web": "~0.19.6",
     "react-pdf": "^7.7.1",
     "react-scroll-to-bottom": "^4.2.0",
+    "react-select": "^5.8.0",
     "reactjs-popup": "^2.0.6"
   },
   "devDependencies": {

@@ -38,3 +38,4 @@ yarn-error.*
 database.js 
 .firebaserc 
 firebase.json 
+.firebase

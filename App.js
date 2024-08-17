@@ -1,18 +1,14 @@
 
+import axios from 'axios';
 import * as Linking from 'expo-linking';
 import { useEffect, useState } from 'react';
 import { addPuzzleSurvey, addSubject } from './src/Firestore/sendData';
 import InformedConsent from './src/InformedConsent';
-import PuzzleManager from './src/PuzzleManager';
-import StoryManager from './src/StoryManager';
-import Tutorial from './src/Tutorial';
-import RankPuzzles from './src/RankPuzzles';
-import axios from 'axios';
 import InitialSurvey from './src/InitialSurvey';
-import { async } from '@firebase/util';
-import { nextDocument } from '@cyntler/react-doc-viewer/dist/esm/store/actions';
+import PuzzleManager from './src/PuzzleManager';
+import Tutorial from './src/Tutorial';
 
-let MODE = "survey"
+let MODE = "debug"
 
 let questions = ["The puzzle was cognitively demanding.", "I had to think very hard when playing the puzzle.",
   "The puzzle required a lot of mental gymnastics.", "The puzzle stimulated my brain.", "This puzzle doesn’t require a lot of mental effort.",
@@ -20,15 +16,15 @@ let questions = ["The puzzle was cognitively demanding.", "I had to think very h
 
   "I think the puzzle is fun.", "I enjoy playing the puzzle.",
   "I feel bored while playing the puzzle.", "I am likely to recommend this puzzle to others.",
-  "If given the chance, I want to play this puzzle again.", 
+  "If given the chance, I want to play this puzzle again.",
 
-  "I think the characters in the game are well developed.", 
-  "I am captivated by the game’s story from the beginning.", 
-  "I enjoy the fantasy or story provided by the game." , 
-  "I can identify with the characters in the game.", 
-  "I am emotionally moved by the events in the game.", 
-  "I am very interested in seeing how the events in the game will progress." , 
- "I can clearly understand the game’s story" 
+  "I think the characters in the game are well developed.",
+  "I am captivated by the game’s story from the beginning.",
+  "I enjoy the fantasy or story provided by the game.",
+  "I can identify with the characters in the game.",
+  "I am emotionally moved by the events in the game.",
+  "I am very interested in seeing how the events in the game will progress.",
+  "I can clearly understand the game’s story"
 
 ];
 
@@ -54,28 +50,28 @@ function createPuzzle(data, setPuzzle) {
 }
 
 function getFiles() {
-  let arr =  ["public/narrativePuzzles/trainInfo.json", "public/narrativePuzzles/ballroomInfo.json", "public/narrativePuzzles/chiliInfo.json"]; 
+  let arr = ["narrativePuzzles/trainInfo.json", "narrativePuzzles/ballroomInfo.json", "narrativePuzzles/chiliInfo.json"];
   shuffleArray(arr)
   return arr
 }
 
-function getModes(){
+function getModes() {
   let arr = ["if", "nar", "hints"]
   shuffleArray(arr)
   return arr
 }
 
-async function getPuzzleNames(files){
+async function getPuzzleNames(files) {
 
   let names = await Promise.all(files.map(async (file) => {
     let response = await axios.get(file)
 
     return response.data.name
-  })) 
+  }))
 
 
 
-  return names 
+  return names
 }
 
 
@@ -110,16 +106,17 @@ export default function App() {
 
   useEffect(() => {
     async function load() {
-    let n = await getPuzzleNames(files) 
-    setNames(n) 
-    console.log(n)} 
+      let n = await getPuzzleNames(files)
+      setNames(n)
+      console.log(n)
+    }
     load()
   }, [])
 
 
   let submitInitalSurvey = (logicPuz, gridPuzz) => {
     setMode("tutorial");
-    addSubject(logicPuz, gridPuzz, names, narMode )
+    addSubject(logicPuz, gridPuzz, names, narMode)
   }
 
 
@@ -127,8 +124,8 @@ export default function App() {
 
   let consent = <div className='parent'><InformedConsent consent={() => setMode("survey")} /></div>
   let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />
-  let initalSurvey = <InitialSurvey postAnswers={submitInitalSurvey}/> 
-  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} modes={narMode} numPuzzles={numPuzzles} setNumPuzzles={setNumPuzzles}/>
+  let initalSurvey = <InitialSurvey postAnswers={submitInitalSurvey} />
+  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} modes={narMode} numPuzzles={numPuzzles} setNumPuzzles={setNumPuzzles} />
 
   let startGame = () => {
     setMode("puzzle")
@@ -139,24 +136,24 @@ export default function App() {
 
   let setFilesByName = (name) => {
 
-    if (name == "train"){
-      setFiles(["public/narrativePuzzles/trainInfo.json"])
-    }else if (name == "chili"){
-      setFiles(["public/narrativePuzzles/chiliInfo.json"])
-    }else{
-      setFiles(["public/narrativePuzzles/ballroomInfo.json"])
+    if (name == "train") {
+      setFiles(["narrativePuzzles/trainInfo.json"])
+    } else if (name == "chili") {
+      setFiles(["narrativePuzzles/chiliInfo.json"])
+    } else {
+      setFiles(["narrativePuzzles/ballroomInfo.json"])
     }
   }
 
-  
-  let banner = <div className='codeBanner'>
-  <div>
-    You have completed {numPuzzles} puzzles. You will be paid {payments[numPuzzles]}. <br />
-    Your code is <b>{codes[numPuzzles]}</b> <br />
-    You may this code now{numPuzzles < (codes.length -1)? ", or continue playing for larger payment.": "." } 
-  </div>
 
-</div>
+  let banner = <div className='codeBanner'>
+    <div>
+      You have completed {numPuzzles} puzzles. You will be paid {payments[numPuzzles]}. <br />
+      Your code is <b>{codes[numPuzzles]}</b> <br />
+      You may this code now{numPuzzles < (codes.length - 1) ? ", or continue playing for larger payment." : "."}
+    </div>
+
+  </div>
 
   //shuffleArray(files)
 
@@ -166,7 +163,7 @@ export default function App() {
     let { hostname, path, queryParams } = Linking.parse(url);
 
 
-    if (MODE == "debug"){
+    if (MODE == "debug") {
       path = "consent"
     }
 
@@ -176,35 +173,35 @@ export default function App() {
       )}`
     );
 
-    
-    if (path == "consent"){
-      if (mode == "survey"){
+
+    if (path == "consent") {
+      if (mode == "survey") {
         return initalSurvey
       }
-      if(mode == "tutorial"){
+      if (mode == "tutorial") {
         return (<div className='parent'>
-        {banner}
-        {tutorial}
-      </div>)
+          {banner}
+          {tutorial}
+        </div>)
       }
-      if(mode == "puzzle"){
+      if (mode == "puzzle") {
         return (<div className='parent'>
-        {banner}
-        {puzzleManager}
-      </div>)
-      }else{
-      return  (<div>
-        <p>Genre:</p>
-        <input onChange={e => setFilesByName(e.target.value)}/> 
-        <p>Narrative Style</p>
-        <input  onChange={e => setNarMode([e.target.value])}/>
-        <button onClick={()=> setMode("puzzle")}>Submit</button>
-      </div>)
+          {banner}
+          {puzzleManager}
+        </div>)
+      } else {
+        return (<div>
+          <p>Genre:</p>
+          <input onChange={e => setFilesByName(e.target.value)} />
+          <p>Narrative Style</p>
+          <input onChange={e => setNarMode([e.target.value])} />
+          <button onClick={() => setMode("puzzle")}>Submit</button>
+        </div>)
       }
-    }else{
+    } else {
       return (consent)
     }
-   
+
 
 
 
