@@ -3,50 +3,96 @@ import Select from "react-select";
 import React, { Component } from "react";
 import { Draggable } from "react-drag-reorder";
 import { createRankingInstance, updateRankingInstance, updateRankingComment } from "./Firestore/sendData";
-import { async } from "@firebase/util";
+import { Radio, Grid } from "@nextui-org/react"; 
 
-let DragElements = ({words, items,  setItems}) => {
+let DragElements = ({items,  setItems}) => {
 
-    //let [items, setItems] = useState(words)
-
-  getChangedPos = (currentPos, newPos) => {
-    // remove item from list \
-    let temp = items[currentPos]
-    items.splice(currentPos, 1)
+  let [order, setOrder] = useState([null, null, null])
+  let [words, setWords] = useState(items.slice())
 
 
-    // insert in order 
-    items =  [
-        ...items.slice(0, newPos),
-        temp,
-        ...items.slice(newPos)
-    ]
-    setItems(items)
-    console.log(items);
-  };
+  const options = [
+    { value:0, label: '1st' },
+    { value: 1, label: '2nd' },
+    { value: 2, label: '3rd' }
+  ]
+
+  let [all_options, setOptions] = useState(items.map(() => options.slice())) // index of order 
+
+  let get_ranking = (index) => {
+    for(let i =0; i < words.length; i ++){
+      if( order[i] == index){
+        return i 
+      }
+    }
+    return -1 
+  }
+
+  let set_option = (option, index) => {
+    // options.value = ranking 
+    // index = index of genre in words 
+    let copy = all_options.slice()
+
+    let orderCopy = order.slice()
+
+    let old_ranking = get_ranking(index)
+    // changing from old order
+    if (old_ranking != -1){
+
+      for(let i =0; i < 3; i ++){
+   
+        copy[i][old_ranking]["isDisabled"] = false
+      
+      }
+
+      orderCopy[old_ranking] = null 
+
+    }
+    
+    if(option != null){
+      for(let i =0; i < 3; i ++){
+        if (i != index){
+          copy[i][option.value]["isDisabled"] = true
+        }
+      }
+  
+      orderCopy[option.value] = index 
+    }
+    
+
+    setOptions(copy)
+    setOrder(orderCopy)
+  }
 
 
   useEffect(()=>{
-    console.log(items)
-  }, [items])
+    let o = order.map((e, idx) => {
+      if (e != null){
+        return words[e]
+      }else{
+        return "null"
+      }})
+
+    console.log(order)
+    console.log(o)
+    setItems(o)
+  }, [all_options])
+
+
+  let selects = words.map((value, idx) => <div key={value}>
+    <p className="rankedLabel">{value}</p> <Select  isClearable={true} className="rankedSelect" options={all_options[0]}  onChange={(e) => {set_option(e, idx)}}/>
+
+<br/>
+  </div>)
 
 
     return (
-      <div className="flex-container">
-        <div className="row">
-            <ol>
-          <Draggable onPosChange={this.getChangedPos}>
-            {items.map((word, idx) => {
-              return (
-                <li key={idx} className="flex-item">
-                  {word}
-                </li>
-              );
-            })}
-          </Draggable>
-          </ol>
-        </div>
-      </div>
+     <div>
+     {selects}
+     </div>
+
+     
+
     );
 }
 
@@ -67,6 +113,17 @@ function shuffleArray(a) {
     return array 
   }
 
+
+
+let hasNull = (list) => {
+  for(i in list){
+    if (list[i] == "null"){
+      return true
+    }
+  }
+
+  return false 
+}
 
 
 export default RankPuzzles = ({onSubmit}) => {
@@ -101,11 +158,21 @@ export default RankPuzzles = ({onSubmit}) => {
         updateRankingComment(instanceId, type, comment)
     }
 
+    let validateSubmit = () => {
+
+      if (hasNull(diff) || hasNull(narrative) || hasNull(enjoyment)){
+        alert("Please select a ranking for every puzzle")
+      }else{
+        onSubmit()
+      }
+
+    }
+
     return (<div className="rankings">
         <h1>Final Survey</h1>
         <p>You have played all the puzzles available. Please answer the following questions. The lists can be re-arranged by dragging and dropping.</p>
         <h2>Rank the puzzles from most to least difficult</h2>
-        <DragElements words ={puzzles} items={diff} setItems={setDiff}/>
+        <DragElements  items={diff} setItems={setDiff}/>
 
         <p>Why did you decide on this order?</p>
         <textarea
@@ -118,7 +185,7 @@ export default RankPuzzles = ({onSubmit}) => {
       />
 
         <h2>Rank the puzzles from best to worst narrative</h2>
-        <DragElements words ={puzzles} items={narrative} setItems={setNarrative}/>
+        <DragElements items={narrative} setItems={setNarrative}/>
         <p>Why did you decide on this order?</p>
         <textarea
         rows={5} 
@@ -130,7 +197,7 @@ export default RankPuzzles = ({onSubmit}) => {
       />
 
         <h2>Rank the puzzles from most to least enjoyable</h2>
-        <DragElements words ={puzzles} items={enjoyment} setItems={setEnjoyment}/>
+        <DragElements items={enjoyment} setItems={setEnjoyment}/>
         <p>Why did you decide on this order?</p>
         <textarea
         rows={5} 
@@ -144,6 +211,6 @@ export default RankPuzzles = ({onSubmit}) => {
 
 
         
-        <button onClick={onSubmit}>Submit</button>
+        <button onClick={validateSubmit}>Submit</button>
         </div>)
 }

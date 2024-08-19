@@ -6,7 +6,7 @@ let attempts = 0;
 let clears = 0;
 let subject = null;
 
-let DEGUG = true
+let DEGUG = true  
 
 export const addSubject = async (logicPuzzleExp, gridPuzzleExp, genreOrder, puzzleOrder) => {
 
@@ -72,7 +72,7 @@ export const createGamePlayInstance = async (pid, narrative) => {
   })
 }
 
-export const addPuzzleSurvey = async (pid, puzzleSurveyData) => {
+export const addPuzzleSurvey = async (pid,narMode,  puzzleSurveyData) => {
     if (DEGUG){
       return 
     }
@@ -82,7 +82,8 @@ export const addPuzzleSurvey = async (pid, puzzleSurveyData) => {
               const docRef = await addDoc(collection(db, "survey"), {
                 ...puzzleSurveyData, 
                 userId: user,
-                pid:pid
+                pid:pid,
+                narMode:narMode
               });
               //console.log("Document written with ID: ", docRef.id);
             } catch (e) {

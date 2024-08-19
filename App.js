@@ -6,9 +6,10 @@ import { addPuzzleSurvey, addSubject } from './src/Firestore/sendData';
 import InformedConsent from './src/InformedConsent';
 import InitialSurvey from './src/InitialSurvey';
 import PuzzleManager from './src/PuzzleManager';
+import RankPuzzles from './src/RankPuzzles';
 import Tutorial from './src/Tutorial';
 
-let MODE = "debug"
+let MODE = "survey"
 
 let questions = ["The puzzle was cognitively demanding.", "I had to think very hard when playing the puzzle.",
   "The puzzle required a lot of mental gymnastics.", "The puzzle stimulated my brain.", "This puzzle doesn’t require a lot of mental effort.",
@@ -80,6 +81,8 @@ async function getPuzzleNames(files) {
 
 export default function App() {
 
+
+ 
 
   //addSubject(4, 3); 
 

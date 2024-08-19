@@ -70,7 +70,7 @@ function showRecordedScreen(setContent, i, setI, files, postSurvey, questions, m
 
 function startSurvey(puzzle, i, setI, setContent, files, postSurvey, questions, modes, numPuzzles, setNumPuzzles ) {
     setContent(<Survey puzzleId={puzzle} questions={questions} submit={(responses) => {
-        postSurvey(puzzle, responses)
+        postSurvey(puzzle, modes[i], responses)
         showRecordedScreen(setContent, i, setI, files, postSurvey, questions, modes, numPuzzles, setNumPuzzles )
     }} />);
     setI(i + 1)

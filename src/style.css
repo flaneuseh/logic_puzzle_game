@@ -440,3 +440,14 @@ div {
         margin: 3vmin;
         background-color: #67ab49;
 }
+
+.rankedSelect{
+    width: 15%;
+    display: inline-block;
+}
+.rankedLabel{
+    width: 25%;
+    display: inline-block;
+    text-align: right;
+    margin: auto;
+}
