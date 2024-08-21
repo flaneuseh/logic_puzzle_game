@@ -10,7 +10,7 @@
 
 //
 <p>Witness Statement from Miss Alice Wright, pianist:</p> 
-	<p>No, I’m sorry, I can’t tell you the order of the pieces; when I play I lose myself in the music and have no sense of time passing or the dance changing. What I can tell you is that I was just finishing the last piece when Lady Rose snatched the music score, screaming that she couldn’t bear to hear music anymore as her necklace was missing. I saw that the melody underneath was a tango before Lady Rose swept it along with the rest of the music to the floor, putting everything hopelessly out of order.</p> 
+	<p>No, I’m sorry, I can’t tell you the order of the pieces; when I play I lose myself in the music and have no sense of time passing or the dance changing. What I can tell you is that I put the music for each dance on top of the previous score on my piano. I was just finishing the fourth dance when Lady Rose snatched its music score away, screaming that she couldn’t bear to hear music anymore as her necklace was missing. I saw that the melody underneath was a tango before Lady Rose swept it along with the rest of the music to the floor, putting everything hopelessly out of order.</p> 
 
 //
 <p>Witness statement from Mr. John Parker: </p> 
