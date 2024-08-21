@@ -6,7 +6,6 @@ import { addPuzzleSurvey, addSubject } from './src/Firestore/sendData';
 import InformedConsent from './src/InformedConsent';
 import InitialSurvey from './src/InitialSurvey';
 import PuzzleManager from './src/PuzzleManager';
-import RankPuzzles from './src/RankPuzzles';
 import Tutorial from './src/Tutorial';
 
 let MODE = "survey"
@@ -82,7 +81,7 @@ async function getPuzzleNames(files) {
 export default function App() {
 
 
- 
+
 
   //addSubject(4, 3); 
 
@@ -153,7 +152,7 @@ export default function App() {
     <div>
       You have completed {numPuzzles} puzzles. You will be paid {payments[numPuzzles]}. <br />
       Your code is <b>{codes[numPuzzles]}</b> <br />
-      You may this code now{numPuzzles < (codes.length - 1) ? ", or continue playing for larger payment." : "."}
+      You may use this code now{numPuzzles < (codes.length - 1) ? ", or continue playing for larger payment." : "."}
     </div>
 
   </div>
