@@ -134,6 +134,10 @@ export default RankPuzzles = ({onSubmit}) => {
     let [enjoyment, setEnjoyment] = useState(shuffleArray(puzzles)) 
     let [instanceId, setInstanceId] = useState(null)
 
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
+
 
     useEffect(() => {
         async function fetchData() {
@@ -170,7 +174,7 @@ export default RankPuzzles = ({onSubmit}) => {
 
     return (<div className="rankings">
         <h1>Final Survey</h1>
-        <p>You have played all the puzzles available. Please answer the following questions. The lists can be re-arranged by dragging and dropping.</p>
+        <p>You have played all the puzzles available. Please answer the following questions.</p>
         <h2>Rank the puzzles from most to least difficult</h2>
         <DragElements  items={diff} setItems={setDiff}/>
 

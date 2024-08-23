@@ -91,13 +91,13 @@ export default function App() {
   const n = getModes()
   let [narMode, setNarMode] = useState(n)
   let [pid, setPID] = useState(0)
-  let [content, setContent] = useState(<Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={11} startGame={() => { startGame() }} />);
+  let [content, setContent] = useState(<Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={10} startGame={() => { startGame() }} />);
   const f = getFiles()
   let [files, setFiles] = useState(f)
   let [names, setNames] = useState([])
   let [numPuzzles, setNumPuzzles] = useState(0)
-  let codes = ["code1", "code2", "code3", "code4"]
-  let payments = ["$0.50", "$2.50", "$4.50", "$6.50"]
+  let codes = ["C15KP8DM", "C1HF1BD3", "C97ZCJNO", "C1II0K2B"]
+  let payments = ["$0.50", "$2.50", "$5", "$7.50"]
   //let [puzzleManager, setPuzzleManager] = useState(<PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} mode="if"/>); 
   //let [files, setFiles] = useState(); 
   //useEffect(() => {setFiles(getFiles())}, [])

@@ -6,7 +6,7 @@ let attempts = 0;
 let clears = 0;
 let subject = null;
 
-let DEGUG = true  
+let DEGUG = false  
 
 export const addSubject = async (logicPuzzleExp, gridPuzzleExp, genreOrder, puzzleOrder) => {
 
@@ -72,7 +72,7 @@ export const createGamePlayInstance = async (pid, narrative) => {
   })
 }
 
-export const addPuzzleSurvey = async (pid,narMode,  puzzleSurveyData) => {
+export const addPuzzleSurvey = async (pid,narMode,  puzzleSurveyData, comment) => {
     if (DEGUG){
       return 
     }
@@ -83,9 +83,10 @@ export const addPuzzleSurvey = async (pid,narMode,  puzzleSurveyData) => {
                 ...puzzleSurveyData, 
                 userId: user,
                 pid:pid,
-                narMode:narMode
+                narMode:narMode, 
+                comment: comment
               });
-              //console.log("Document written with ID: ", docRef.id);
+              console.log("survey written with ID: ", docRef.id);
             } catch (e) {
               console.error("Error adding document: ", e);
             }

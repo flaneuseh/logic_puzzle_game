@@ -48,7 +48,7 @@ let LikertScale = ({ question, answers, responses, setResponses }) => {
     );
 }
 
-let postResponse = (responses, puzzle, submit) => {
+let postResponse = (responses, puzzle, submit, comment) => {
     let nullResponses = Object.keys(responses).filter((key) => { return responses[key] == -1 });
 
     if (nullResponses.length > 0) {
@@ -56,13 +56,14 @@ let postResponse = (responses, puzzle, submit) => {
     } else {
         //console.log("Puzzle:" + puzzle)
         //console.log(responses);
-        submit(responses);
+        submit(responses, comment);
     }
 
 }
 
 export default Survey = ({ puzzleId, submit, questions }) => {
 
+    let [comment, updateComment] = useState("")
 
     let r = {}
     questions.map((question) => r[question] = -1);
@@ -72,9 +73,22 @@ export default Survey = ({ puzzleId, submit, questions }) => {
 
         <h1 className="likert-header"> Answer these questions about the puzzle you just solved</h1>
 
+
+        
         <form action="">
             {qs}
+            <p>Do you have any comments about the puzzle you just played?</p>
+        <textarea
+        rows={7} 
+        cols={80}
+        placeholder={"Type answer here"}
+        onChange={(e) => {
+            updateComment(e.target.value)
+        }}
+      />
+            <button className="submit" onClick={() => postResponse(responses, puzzleId, submit,comment)} type="button">Submit</button>
+        </form>
 
-            <button className="submit" onClick={() => postResponse(responses, puzzleId, submit)} type="button">Submit</button>
-        </form></div>);
+ 
+        </div>);
 }
