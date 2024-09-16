@@ -117,7 +117,7 @@ const isSolved = (puzzle, solution) => {
     }
 }
 
-const recordPuzzle = (puzzle, solution, time, instanceId) => {
+const recordPuzzle = (puzzle, name, solution, time, instanceId) => {
     let newTime = new Date()
     let ms = newTime - time
     //console.log("Time since start:" + ms)
@@ -125,12 +125,9 @@ const recordPuzzle = (puzzle, solution, time, instanceId) => {
     //console.log(str)
     //console.log(solution)
     let [correct, incorrect, total] = amountCorrect(puzzle, solution)
-    //console.log("Correct: " + correct + ", incorrect: " + incorrect + ", total:" + total)
-    //console.log("Is solved: " + isSolved(puzzle, solution));
-    // addUserSolution(pid, str, correct, incorrect, isSolved)
 
     if (instanceId != null) {
-        addCellChange(instanceId, ms, str, correct, incorrect, isSolved(puzzle, solution));
+        addCellChange(instanceId,name, ms, str, correct, incorrect, isSolved(puzzle, solution));
 
     }
 
@@ -220,7 +217,7 @@ export default Puzzle = ({ p, time, concede, finish, inkName, name, mode, clueFi
         puzzle[row] = []
         let displayColIdx = 1;
         for (let col = 0; col < rowLength; col++) {
-            let subgrid = initializeSubGrid(p.numEnt, p.numEnt, puzzle, () => { recordPuzzle(puzzle, p.solutionString, time, instanceId) });
+            let subgrid = initializeSubGrid(p.numEnt, p.numEnt, puzzle, () => { recordPuzzle(puzzle,name, p.solutionString, time, instanceId) });
             puzzle[row][col] = subgrid;
 
             topCat = null;

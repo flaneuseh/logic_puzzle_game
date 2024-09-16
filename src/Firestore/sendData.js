@@ -95,7 +95,7 @@ export const addPuzzleSurvey = async (pid,narMode,  puzzleSurveyData, comment) =
       })
 }
 
-export const addCellChange = async (instanceId, pid, time, puzzleState, correct, incorrect, solved) => {
+export const addCellChange = async (instanceId, name, time, puzzleState, correct, incorrect, solved) => {
   if (DEGUG){
     return 
   }
@@ -106,14 +106,10 @@ export const addCellChange = async (instanceId, pid, time, puzzleState, correct,
     let action = doc(instance, "actions", time.toString())
     action = await setDoc(action, {userId: user, time:time, type:"cellChange", puzzleState:puzzleState, correct: correct, incorrect: incorrect, solved:solved});
 
-    if (pid == "primer"){
-       updateDoc(collection(db, "subjects"), {
-        userId: user,
-        path: path, 
-        narrOrder: puzzleOrder, 
-        genreOrder: genreOrder 
-  
-      });
+    if (name == "Primer Puzzle"){
+      const subjectInstance =  doc(db,  "subjects2", user); 
+       const updated = updateDoc(subjectInstance, {primerCorrect: solved })
+    
     }
   })
 }
