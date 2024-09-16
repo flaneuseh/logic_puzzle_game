@@ -1,0 +1,128 @@
+user,puzzle,narrMod,attempts,num_incorrect,num_correct,is_correct,total_time,user_category,challenge_scale,enjoyment_scale,narrative_scale,comment
+9P9eGssGi3WCh2AWF4feQTc9Bti2,train,nar,1,0,2,False,101613,novice,-1,-1,-1,-1
+ZyIOgZpVx5TzZQ3eZ7HrpKYF2Su2,chili,nar,1,12,35,False,283996,novice,6.142857142857143,6.2,6.0,
+mVXjdjGlvXaiQ7sIs13RftiKE723,train,hints,1,14,26,False,483786,expert,-1,-1,-1,-1
+SeLKouxO71fKp40E7gmcKDWlpkV2,chili,hints,1,0,5,False,82262,intermediate,4.285714285714286,2.0,1.8571428571428572,"I am not good at puzzles like this, and I had absolutely no idea how to solve it."
+FreFVBMBEQQ0ZKRe9r398Rj8nWE2,train,hints,1,3,2,False,518424,novice,7.0,2.2,2.2857142857142856,"None, but thanks for asking."
+8h74v3Y0ZsXOXuXJ1ZdROV5OZvX2,train,if,1,0,18,False,1042219,intermediate,6.0,4.8,5.142857142857143,
+AYBgNBT2VRYA2VvDt7zJ7J007bY2,train,hints,1,14,2,False,326109,intermediate,7.0,7.0,6.142857142857143,"I spent 30 minutes trying to do a puzzle. When I couldn't solve it in time, I refreshed, and started another. I needed more time to finish, but unfortunately, the timer didn't give me enough time."
+lyHAEPfqH3TvlzIMWTdMfMRMLWf1,ballroom,hints,1,14,34,False,1020795,intermediate,6.285714285714286,2.2,2.857142857142857,I am not good at the game of Clue. I am much better with Sudoku. 
+yIubK8zQjbRXQ8fo5umXEDclrpZ2,chili,hints,1,3,4,False,306770,novice,7.0,5.8,7.0,
+48B5w6COCQOWIDfPHuovb5BgpJB2,train,if,1,0,0,False,256477,expert,5.714285714285714,1.2,1.2857142857142858,
+WJuybwMOicZoFpZ01GBKOSHaUcy1,ballroom,nar,1,9,39,False,231916,intermediate,6.285714285714286,5.2,5.285714285714286,The characters and the story itself are definitely interesting to read. This puzzle does take a lot of mental effort to solve.
+C69QPp0TAFMaUjRTGYmPP9qtYV12,ballroom,hints,1,18,30,False,584028,novice,6.714285714285714,5.6,2.7142857142857144," I felt like there was info missing on Lady Eleanor Appleton. the dance orders really seemed like they made sense and were easy to figure out but then I could not get the people in order for some reason, very tricky."
+Oo5feM6RCFcEnmcjmjhgeJpmSMk1,train,if,1,6,5,False,3084092,expert,6.714285714285714,1.4,2.0,"I felt as though there weren't enough context clues, only one person had a for sure answer on where they got off. The others didn't have enough context clues and I ended up getting more and more frustrated the more I tried."
+eynEGYBbOePVs6leT9NH0wR9iwH2,train,nar,1,0,48,True,693943,intermediate,5.285714285714286,4.6,3.4285714285714284,
+9lXWx6S8jzSASYHd949tKYMmGI92,chili,nar,1,0,0,False,1767990,expert,-1,-1,-1,-1
+t9bFI8ABHoVwT4rNb72ZBfklPLH2,ballroom,nar,1,5,5,False,172500,intermediate,-1,-1,-1,-1
+8ZOsdeCsVSMwTuuzggjgJjJ9Qcn2,train,nar,1,30,18,False,129150,intermediate,5.285714285714286,2.4,1.0,
+G0cJLLBX6mXujoT4xPzKQHZl2Z13,chili,hints,1,11,36,False,3295445,expert,-1,-1,-1,-1
+eynEGYBbOePVs6leT9NH0wR9iwH2,chili,if,1,14,34,False,725019,intermediate,5.285714285714286,1.8,2.0,
+lyHAEPfqH3TvlzIMWTdMfMRMLWf1,train,nar,1,16,32,False,326399,intermediate,6.0,5.0,4.571428571428571,
+ywGPMgor16h70gJNTHMMGMofh843,chili,hints,1,2,3,False,116467,expert,6.142857142857143,2.2,1.8571428571428572,
+JiY9j5ia36Zp3Cm4j7KxAsTOxbA2,chili,hints,1,6,2,False,15946,novice,-1,-1,-1,-1
+0TC21VY61rSh86RPqhzm8Dx6AN72,train,if,1,2,2,False,677878,expert,7.0,4.6,4.571428571428571,
+IkagkgoJJaX5Ax0fU1T0G67SqtH3,ballroom,hints,1,0,48,True,403790,expert,5.428571428571429,5.4,3.857142857142857,None
+jcfCyVhF1nWpCHLeD38IAOSbZh72,chili,if,1,18,30,False,1792745,expert,6.571428571428571,6.6,4.714285714285714,I was disappointed that I couldn't play the other 2 puzzles just because I didn't complete the first one. I tried the first one so many different ways and each time it said it was wrong.
+E7L1YEn4XtOLXjkSRuYasuFawpA2,ballroom,nar,1,20,28,False,1366982,expert,5.285714285714286,4.8,3.142857142857143,"It was fun trying to figure it out, I just wasn't able to get it."
+cjzXtqeeDtQy282aBR9UFFlwBMA3,train,nar,1,10,38,False,780299,intermediate,6.714285714285714,3.6,3.7142857142857144,Nothing to add.
+4dUjENeX9zOZP9LcAvpaJRWaNuu2,ballroom,hints,1,14,34,False,623599,intermediate,-1,-1,-1,-1
+IkagkgoJJaX5Ax0fU1T0G67SqtH3,chili,if,1,0,48,True,847202,expert,5.285714285714286,5.8,5.285714285714286,That was a bit annoying but still fun.
+RXCHfa6VfQM9JsIVLYc49ZsGGBL2,train,if,1,0,1,False,947788,novice,3.0,3.0,2.2857142857142856,The clues and places and people didn't match up at all in the puzzle you gave me
+uLnAA7jRyjU4PnjP9L010bKGkmh1,chili,nar,1,1,4,False,245489,intermediate,4.857142857142857,3.6,2.4285714285714284,No
+E7L1YEn4XtOLXjkSRuYasuFawpA2,train,hints,1,0,48,True,396613,expert,3.857142857142857,5.2,4.285714285714286,This puzzle seemed easier than the last one and I enjoyed it more.
+Htv6KfJvNjVIATLTD2Vb35xMmRy2,chili,nar,1,0,15,False,2114831,expert,6.714285714285714,6.6,4.714285714285714,
+uLnAA7jRyjU4PnjP9L010bKGkmh1,train,hints,1,0,48,True,279763,intermediate,4.857142857142857,4.6,2.5714285714285716,
+AYBgNBT2VRYA2VvDt7zJ7J007bY2,chili,if,1,18,30,False,516584,intermediate,6.142857142857143,7.0,6.571428571428571,"I really wanted to fix the issues, but there would not be enough time. Very fun game!
+
+Since I am a father of five children and ten grandchildren, I take Prolific studies very seriously, and do my best to provide honest and true answers. I found this study very engaging and enjoyable. Keep up the excellent work. I really appreciate your efforts.
+
+If for some reason you decide not to accept the study, I'd appreciate it if you could allow me to return it rather than reject it. This will avoid penalties on my account. Thank you!"
+jcfCyVhF1nWpCHLeD38IAOSbZh72,ballroom,if,1,3,4,False,255017,expert,6.428571428571429,6.0,4.0,
+gZ9K4VxAFnNjxr40wHk3XoDOych2,train,if,1,19,23,False,1126130,novice,-1,-1,-1,-1
+C69QPp0TAFMaUjRTGYmPP9qtYV12,chili,nar,1,12,36,False,1538562,novice,6.857142857142857,4.8,2.4285714285714284,I tried but I couldn't resolve it. I feel like there is a piece of info missing between the first two ingredients and the first two stops that I just couldn't get resolved.
+WJuybwMOicZoFpZ01GBKOSHaUcy1,chili,hints,1,3,6,False,469745,intermediate,6.428571428571429,4.8,4.714285714285714,The puzzle was difficult to solve especially since it is my first time solving a puzzle game like this. The game definitely requires a lot of mental effort.
+H8ocEUTfgMT8FNbp236vL2YFH7C3,train,if,1,14,34,False,3435266,intermediate,5.285714285714286,5.2,4.571428571428571,
+lyHAEPfqH3TvlzIMWTdMfMRMLWf1,chili,if,1,20,28,False,321240,intermediate,6.428571428571429,6.0,5.0,
+EEunqc7R6QVeDENsZ8cbPig9E9q1,train,if,1,1,0,False,437301,expert,5.142857142857143,2.4,2.4285714285714284,
+TDq3mNEyfhMjJ5ngJE4BkxmwUhG3,ballroom,if,1,8,7,False,247397,expert,5.714285714285714,1.2,3.142857142857143,none
+48B5w6COCQOWIDfPHuovb5BgpJB2,chili,nar,1,8,40,False,638836,expert,5.142857142857143,5.2,4.428571428571429,
+NDOnKGmFqWfikeqvRJTicPQbBjr1,train,hints,1,12,33,False,47251,novice,4.714285714285714,2.6,4.285714285714286,None
+6PajHxVHJlYepK7xa8p0H9Vvl2Q2,ballroom,hints,1,25,23,False,238176,intermediate,7.0,7.0,6.142857142857143,"I'm pretty sure I got the answer to this puzzle right, but it kept saying it wasn't it :("
+Oo5feM6RCFcEnmcjmjhgeJpmSMk1,ballroom,nar,1,9,3,False,1119921,expert,6.714285714285714,5.8,5.857142857142857,
+5l2rs0kHd5Pw0sISrzYTRgxQxY72,chili,hints,1,0,0,False,331994,expert,-1,-1,-1,-1
+WzAkKPHmZYZ88wjkyqyEOwgj1gJ3,ballroom,nar,1,20,28,False,534014,intermediate,5.714285714285714,5.8,4.0,
+6dJh0c29lvQgWS2tfig2uJ7jicy2,ballroom,hints,1,0,0,False,516726,intermediate,-1,-1,-1,-1
+3MYLQFwvanbnoQzFlo2ovXqbESD2,chili,nar,1,12,20,False,250226,novice,3.0,2.6,1.7142857142857142,N/A
+Htv6KfJvNjVIATLTD2Vb35xMmRy2,train,hints,1,0,12,False,434056,expert,6.0,6.4,4.571428571428571,
+0SvZv0FNEzUad4GWOpkU4EMJmwv1,ballroom,nar,1,2,1,False,347195,novice,4.285714285714286,3.4,5.0,
+FreFVBMBEQQ0ZKRe9r398Rj8nWE2,chili,nar,1,9,3,False,208175,novice,7.0,2.2,2.7142857142857144,None
+AYBgNBT2VRYA2VvDt7zJ7J007bY2,ballroom,nar,1,24,24,False,1448663,intermediate,-1,-1,-1,-1
+8160xgsSzWP4w20TvtIGLj5eAkp2,chili,nar,1,1,1,False,50443,expert,-1,-1,-1,-1
+3z4CN3VcLgWdZqf63TocrZKQHuH2,ballroom,if,1,4,1,False,9979,novice,4.0,4.0,2.4285714285714284,
+TCUoBMSTGLU2Pj0hpoJpnOrw4xW2,chili,if,1,12,23,False,1458818,intermediate,-1,-1,-1,-1
+WJuybwMOicZoFpZ01GBKOSHaUcy1,train,if,1,14,34,False,170536,intermediate,5.571428571428571,4.6,4.857142857142857,This story is a bit more complicated than the previous one and I thought it was a bit confusing. I didn't finish the puzzle at all.
+4b9fgFrocmdyzLOAYIRQxCTgA8t1,ballroom,hints,1,0,1,False,154177,novice,5.571428571428571,1.0,1.1428571428571428,
+jJXzucf6g6b9pIi0NayKgYypFOX2,chili,hints,1,6,2,False,536796,intermediate,6.714285714285714,2.6,1.8571428571428572,Thank you.
+9pHECg5KvFTWaUWPLLhqbvrK1ZG3,train,hints,1,0,44,True,481008,expert,6.0,6.8,5.714285714285714,
+TISiNgV9T9bHYCc2nhpYiPoTIAr1,ballroom,if,1,7,10,False,2499409,novice,5.714285714285714,1.8,2.4285714285714284,This puzzle made my brain hurt!!!
+cMIWPbU7B2htvav510BzxWK1xup2,ballroom,nar,1,10,19,False,281848,novice,6.0,1.2,2.2857142857142856,"I could not solve it, it was too hard."
+cjzXtqeeDtQy282aBR9UFFlwBMA3,chili,if,1,6,30,False,760440,intermediate,6.714285714285714,5.4,5.857142857142857,I enjoyed this most of all the puzzles.
+EEunqc7R6QVeDENsZ8cbPig9E9q1,ballroom,hints,1,0,7,False,152558,expert,4.0,4.0,3.5714285714285716,
+RCPrtvHMUQe8bMQO4cbVXqQVagL2,ballroom,hints,1,4,44,False,1691070,intermediate,6.857142857142857,5.0,3.0,
+6PajHxVHJlYepK7xa8p0H9Vvl2Q2,chili,if,1,0,0,False,53146,intermediate,6.142857142857143,5.0,5.428571428571429,
+vZJn1zw30BNrvsBjTVzYaIPeyqt2,chili,nar,1,6,6,False,383589,expert,6.571428571428571,5.0,4.428571428571429,
+48B5w6COCQOWIDfPHuovb5BgpJB2,ballroom,hints,1,5,10,False,562701,expert,5.142857142857143,3.8,3.4285714285714284,
+NDOnKGmFqWfikeqvRJTicPQbBjr1,ballroom,if,1,0,0,False,400109,novice,2.7142857142857144,3.2,3.5714285714285716,
+duC3jtg0i8gg1D7oferIXzXyq883,train,if,1,20,26,False,674921,expert,-1,-1,-1,-1
+jcfCyVhF1nWpCHLeD38IAOSbZh72,train,nar,1,0,21,False,158554,expert,5.142857142857143,6.2,3.5714285714285716,
+4b9fgFrocmdyzLOAYIRQxCTgA8t1,train,if,1,3,1,False,434213,novice,6.142857142857143,3.4,5.0,
+JgmyX7bVuOWkzqS8vyjjc5VHPHk1,train,hints,1,0,5,False,53196,novice,-1,-1,-1,-1
+uLnAA7jRyjU4PnjP9L010bKGkmh1,ballroom,if,1,1,1,False,317176,intermediate,4.857142857142857,2.4,2.0,
+NDOnKGmFqWfikeqvRJTicPQbBjr1,ballroom,if,1,14,34,False,51668,novice,2.7142857142857144,3.2,3.5714285714285716,
+H42wt2CZzKXPqdyYu2mNH6yz6MD3,train,hints,1,2,0,False,1221781,expert,-1,-1,-1,-1
+mvnGCtaKRZQX10VDjgCTDfwLEpg1,chili,hints,1,3,9,False,351016,expert,4.0,3.6,3.857142857142857,
+Htv6KfJvNjVIATLTD2Vb35xMmRy2,ballroom,if,1,9,21,False,1072524,expert,6.0,5.2,3.857142857142857,
+LhetIKPwTQdnTtGCIDi0b5A46WK2,chili,nar,1,3,33,False,1251795,novice,5.571428571428571,1.2,1.0,"Anyone who does these for fun needs to be locked up, i almost cried before giving up"
+ZyIOgZpVx5TzZQ3eZ7HrpKYF2Su2,train,if,1,7,8,False,111630,novice,6.428571428571429,6.2,6.0,
+FreFVBMBEQQ0ZKRe9r398Rj8nWE2,ballroom,if,1,8,0,False,483922,novice,7.0,2.2,2.2857142857142856,None
+3MYLQFwvanbnoQzFlo2ovXqbESD2,ballroom,hints,1,2,3,False,90859,novice,3.0,3.2,2.0,
+LhetIKPwTQdnTtGCIDi0b5A46WK2,train,if,1,3,13,False,696884,novice,6.714285714285714,1.2,1.0,Why do you people hate joy
+0TC21VY61rSh86RPqhzm8Dx6AN72,ballroom,hints,1,0,5,False,190289,expert,6.285714285714286,2.8,3.0,
+Ym4jtG3oJGhkKEpztgrq1rzGJT02,ballroom,hints,1,2,7,False,87661,novice,3.4285714285714284,2.2,1.0,
+s4mFIfVlT9P1FeelgpqJzYv7MZb2,train,nar,1,5,3,False,479065,expert,6.142857142857143,3.2,4.0,
+zZaKWFwzn5VjZlxG3qs9pZvqz6D2,train,if,1,0,9,False,1172520,novice,4.285714285714286,4.6,3.857142857142857,
+IkagkgoJJaX5Ax0fU1T0G67SqtH3,train,nar,1,0,48,True,677959,expert,5.571428571428571,3.6,2.4285714285714284,That one was confusing.
+3MYLQFwvanbnoQzFlo2ovXqbESD2,train,if,1,12,20,False,454278,novice,3.2857142857142856,3.0,2.7142857142857144,
+EEunqc7R6QVeDENsZ8cbPig9E9q1,chili,nar,1,2,20,False,248162,expert,4.285714285714286,4.6,3.4285714285714284,
+8h74v3Y0ZsXOXuXJ1ZdROV5OZvX2,ballroom,nar,1,1,12,False,1261915,intermediate,5.857142857142857,3.0,3.5714285714285716,
+KyThyerNhPUBZvhhza3CFvfhMM73,chili,hints,1,0,8,False,200330,expert,5.142857142857143,2.8,1.8571428571428572,
+9pHECg5KvFTWaUWPLLhqbvrK1ZG3,ballroom,nar,1,0,6,False,1024632,expert,6.857142857142857,5.0,6.142857142857143,
+vZJn1zw30BNrvsBjTVzYaIPeyqt2,train,hints,1,0,2,False,189143,expert,6.571428571428571,1.8,1.7142857142857142,I felt like there weren't enough clues to finish it
+Oo5feM6RCFcEnmcjmjhgeJpmSMk1,chili,hints,1,8,4,False,988324,expert,6.857142857142857,5.0,3.2857142857142856,
+zZaKWFwzn5VjZlxG3qs9pZvqz6D2,ballroom,hints,1,24,24,False,1063166,novice,4.428571428571429,5.0,3.5714285714285716,
+yVU0UmkrYlabszLk2556j93rvri2,chili,if,1,0,48,True,2146889,expert,6.428571428571429,6.8,6.142857142857143,
+KyThyerNhPUBZvhhza3CFvfhMM73,ballroom,if,1,5,6,False,1849645,expert,6.428571428571429,3.0,3.142857142857143,
+smJkLWbJ4dP6d99j1iiAUk3jdX22,chili,nar,1,2,10,False,193578,intermediate,7.0,5.8,4.142857142857143,It was hard.
+ZyIOgZpVx5TzZQ3eZ7HrpKYF2Su2,ballroom,hints,1,7,10,False,214717,novice,5.285714285714286,5.8,5.285714285714286,
+Ye2oE6t1z9Yk57Fpd2HMki2P4Mj1,chili,nar,1,14,34,False,769398,expert,5.714285714285714,4.0,2.4285714285714284,
+smJkLWbJ4dP6d99j1iiAUk3jdX22,train,if,1,5,3,False,849592,intermediate,6.571428571428571,5.0,4.428571428571429,I don't think there were enough clues.
+DpKOvQFzmUX7C3ysf7SBlhhJl482,chili,hints,1,0,8,False,258859,expert,5.142857142857143,2.2,2.142857142857143,
+E7L1YEn4XtOLXjkSRuYasuFawpA2,chili,if,1,16,32,False,603374,expert,5.0,3.8,3.5714285714285716,If the chili was so important to Aunt Susan than she should have been home in time or left detailed instructions about what she wanted done. Very irresponsible
+smJkLWbJ4dP6d99j1iiAUk3jdX22,ballroom,hints,1,6,2,False,277629,intermediate,6.857142857142857,5.2,5.0,I think there was a lack of information.
+Ym4jtG3oJGhkKEpztgrq1rzGJT02,chili,if,1,4,26,False,1150693,novice,5.714285714285714,4.8,3.142857142857143,"failed to solve after two attempts, this was more engaging and challenging than anticipated"
+0SvZv0FNEzUad4GWOpkU4EMJmwv1,train,hints,1,1,3,False,9753,novice,4.285714285714286,4.2,4.571428571428571,
+x1zXDG2MLfc6szM61Gqqi24rCMW2,train,nar,1,0,1,False,90854,expert,-1,-1,-1,-1
+eynEGYBbOePVs6leT9NH0wR9iwH2,ballroom,hints,1,0,48,True,648120,intermediate,5.142857142857143,3.8,2.857142857142857,
+c1YSefqSeqfgiHH2TpcI0l5C7LG2,ballroom,hints,1,14,34,False,2469071,expert,-1,-1,-1,-1
+WzAkKPHmZYZ88wjkyqyEOwgj1gJ3,chili,hints,1,16,32,False,72824,intermediate,6.428571428571429,6.6,2.7142857142857144,
+VJI4oP8ALDNU2pvR0raFza2hMuI2,ballroom,hints,1,5,15,False,271718,intermediate,5.0,6.0,3.857142857142857,N/A
+PB9gm8aZ2jUdJtsIIYgmgdqFSvG2,train,nar,1,7,12,False,303748,expert,6.142857142857143,5.6,5.857142857142857,It's definitely interesting
+328BM2taHsUafTpp7t9re3j2K3l1,chili,if,1,5,2,False,604026,expert,5.285714285714286,4.8,4.571428571428571,no
+LhetIKPwTQdnTtGCIDi0b5A46WK2,ballroom,hints,1,4,14,False,159245,novice,6.857142857142857,1.2,1.0,This is the least fun I've had in ages
+9pHECg5KvFTWaUWPLLhqbvrK1ZG3,chili,if,1,14,34,False,1354804,expert,6.142857142857143,5.8,6.285714285714286,
+vcEdeTXeK5e681hgmcjTtV6eyko2,ballroom,nar,1,5,8,False,8952919,intermediate,7.0,6.2,5.0,I got stuck so bad.
+3z4CN3VcLgWdZqf63TocrZKQHuH2,train,nar,1,0,0,False,29708,novice,5.714285714285714,3.6,3.142857142857143,
+jcfCyVhF1nWpCHLeD38IAOSbZh72,chili,hints,1,16,32,False,352193,expert,6.571428571428571,6.6,4.714285714285714,I was disappointed that I couldn't play the other 2 puzzles just because I didn't complete the first one. I tried the first one so many different ways and each time it said it was wrong.
+cjzXtqeeDtQy282aBR9UFFlwBMA3,ballroom,hints,1,1,8,False,772423,intermediate,6.428571428571429,3.8,3.857142857142857,Nothing to add.
+4b9fgFrocmdyzLOAYIRQxCTgA8t1,chili,nar,1,9,3,False,405519,novice,6.857142857142857,2.4,4.0,
