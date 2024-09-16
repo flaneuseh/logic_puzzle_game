@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react"
 import { setTutorialInfo } from "./Firestore/sendData";
 
-export default Tutorial = ({ imageFolder, numSlides, canSkip, startGame }) => {
+export default Tutorial = ({ imageFolder, numSlides, canSkip, startGame, entryPath, modes, genres, isProlific }) => {
     let [idx, setIdx] = useState(1);
     let [proceed, setProceed] = useState("");
     let [time, setTime] = useState(null); 
+    console.log("Entry:" + entryPath)
 
 
     useEffect(() => {setTime(new Date())}, []);
 
     let sendInfo = () => {
-        setTutorialInfo(new Date() - time, idx)
+        setTutorialInfo(new Date() - time, idx,genres, modes)
     }
 
     let increase = () => {
@@ -28,9 +29,14 @@ export default Tutorial = ({ imageFolder, numSlides, canSkip, startGame }) => {
             setIdx(idx - 1);
         }
     }
+    let file_name = idx 
+
+    if (idx == 1){
+        file_name = isProlific? idx + "-a" : idx + "-b"
+    }
     return (<div className="tutorial">
         <div className="slide">
-            <img src={imageFolder + "/" + idx + ".png"} />
+            <img src={imageFolder + "/" + file_name+ ".png"} />
         </div>
 
         <button className="backButton" onClick={decrease} disabled={idx <= 1}>Back</button>

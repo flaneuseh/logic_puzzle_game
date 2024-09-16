@@ -6,22 +6,19 @@ let attempts = 0;
 let clears = 0;
 let subject = null;
 
-let DEGUG = false  
+let DEGUG = true  
 
-export const addSubject = async (logicPuzzleExp, gridPuzzleExp, genreOrder, puzzleOrder) => {
+export const addSubject = async (path) => {
 
   getCurrentUser().then(async function (user){
     if (DEGUG){
+      console.log("would write user info: " + path)
       return 
     }
     try {
         const docRef = await addDoc(collection(db, "subjects"), {
           userId: user,
-          logicPuzzleExp: logicPuzzleExp,    
-          gridPuzzleExp: gridPuzzleExp, 
-          narrOrder: puzzleOrder, 
-          genreOrder: genreOrder 
-    
+          path: path
         });
         //console.log("Document written with ID: ", docRef.id);
         subject = docRef.id 
@@ -32,14 +29,16 @@ export const addSubject = async (logicPuzzleExp, gridPuzzleExp, genreOrder, puzz
 }
 
 
-export const setTutorialInfo = async (time, slide) => {
+export const setTutorialInfo = async (time, slide,  genreOrder, puzzleOrder) => {
   if (DEGUG){
+    console.log("would write tutoral info: " + genreOrder)
     return 
   }
   getCurrentUser().then(async function (user){
     //console.log(user)
     const subjectInstance =  doc(db,  "subjects", subject); 
-    const updated = updateDoc(subjectInstance, {tutorialTime: time, tutorialSlide:slide, userId:user})
+    const updated = updateDoc(subjectInstance, {tutorialTime: time, tutorialSlide:slide, userId:user, narrOrder: puzzleOrder, 
+      genreOrder: genreOrder })
   })
 
 }
@@ -93,7 +92,7 @@ export const addPuzzleSurvey = async (pid,narMode,  puzzleSurveyData, comment) =
       })
 }
 
-export const addCellChange = async (instanceId, time, puzzleState, correct, incorrect, solved) => {
+export const addCellChange = async (instanceId, pid, time, puzzleState, correct, incorrect, solved) => {
   if (DEGUG){
     return 
   }
@@ -103,6 +102,16 @@ export const addCellChange = async (instanceId, time, puzzleState, correct, inco
     //console.log("instance:", instance);
     let action = doc(instance, "actions", time.toString())
     action = await setDoc(action, {userId: user, time:time, type:"cellChange", puzzleState:puzzleState, correct: correct, incorrect: incorrect, solved:solved});
+
+    if (pid == "primer"){
+       updateDoc(collection(db, "subjects"), {
+        userId: user,
+        path: path, 
+        narrOrder: puzzleOrder, 
+        genreOrder: genreOrder 
+  
+      });
+    }
   })
 }
 

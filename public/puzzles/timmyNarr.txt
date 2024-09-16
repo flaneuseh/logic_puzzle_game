@@ -1,0 +1,1 @@
+Timmy starts school tomorrow, but can’t remember when his classes are. Use the clues from what he can remember to determine which subject he has at each time, and with which teacher.  Timmy takes one class each hour, one class of each subject, and each teacher only teaches one subject.

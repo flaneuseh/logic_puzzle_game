@@ -201,11 +201,13 @@ export default Puzzle = ({ p, time, concede, finish, inkName, name, mode, clueFi
     }
 
     let showFinalPart = () => {
-        if (mode != "if") {
-            setLeftContent(<FinalClue clueFile={lastFile} />)
-        } else {
+        if (mode == "if") {
             storyRef.current?.jumpTo(FINAL_KNOT);
             console.log("set final knot")
+        } else if (mode == "primer") {
+            recordAndSubmit()
+        }else{
+            setLeftContent(<FinalClue clueFile={lastFile} />)
         }
 
         setFinal(true);
@@ -241,7 +243,7 @@ export default Puzzle = ({ p, time, concede, finish, inkName, name, mode, clueFi
 
     if (mode == "if") {
         content = <StoryManager storyName={inkName} ref={storyRef} />
-    } else if (mode == "hints") {
+    } else if (mode == "hints" || mode == "primer") {
         content = <Hints hints={p.hints} time={time} setStrikes={setStrikes} strikes={strikes} instanceId={instanceId} clueFile={clueFile} name={name}/>
     } else {
         content = <NarrativeClues clueFile={clueFile} name={name} />

@@ -42,11 +42,10 @@ export default FinishButtons = ({ giveUp, isCorrect, clearPuzzle, puzzle, finish
 
     let checkSolution = () => {
 
-        /*let newTime = new Date()
+        let newTime = new Date()
         let ms = newTime - time 
         addButtonPress(instanceId, ms, "check"); 
-        setShowPopup(true)*/ 
-        alert("You are not correct")
+
     
     }
 
@@ -58,7 +57,7 @@ export default FinishButtons = ({ giveUp, isCorrect, clearPuzzle, puzzle, finish
                 {
                     close => (
                         <div className='modal'>
-                             <div><CorrectPop time={time} isCorrect={isCorrect} finish={finish} clearPuzzle = {clearPuzzle} instanceId={instanceId} close={() => {close();resetButtons()}}/></div>
+                             <div><CorrectPop time={time} isCorrect={isCorrect} finish={finish} clearPuzzle = {clearPuzzle} instanceId={instanceId} close={() => {checkSolution(); close();resetButtons()}}/></div>
                           
                         </div>
                     )

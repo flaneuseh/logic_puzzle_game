@@ -3,4 +3,7 @@
                     "Mr. Baker's class is at 3:00 PM", 
                     "English is taught at 4:00 PM",
                      "Either Ms. Smith's class is at 3:00 PM or History is taught by Ms. McDonald", 
-                     "The class at 2:00 PM is taught by Ms. Smith"], "id": 0}
+                     "The class at 2:00 PM is taught by Ms. Smith"], 
+                     "name":"Primer Puzzle", 
+                     "clueFile": "puzzles/timmyNarr.txt",
+                     "id": "primer"}

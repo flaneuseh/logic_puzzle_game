@@ -7,8 +7,10 @@ import InformedConsent from './src/InformedConsent';
 import InitialSurvey from './src/InitialSurvey';
 import PuzzleManager from './src/PuzzleManager';
 import Tutorial from './src/Tutorial';
+import PrimerPuzzle from './src/primerPuzzle';
+import PostPrimer from './src/PostPrimer';
 
-let MODE = "survey"
+let MODE = "tutorial"
 
 let questions = ["The puzzle was cognitively demanding.", "I had to think very hard when playing the puzzle.",
   "The puzzle required a lot of mental gymnastics.", "The puzzle stimulated my brain.", "This puzzle doesn’t require a lot of mental effort.",
@@ -96,8 +98,10 @@ export default function App() {
   let [files, setFiles] = useState(f)
   let [names, setNames] = useState([])
   let [numPuzzles, setNumPuzzles] = useState(0)
-  let codes = ["C15KP8DM", "C1HF1BD3", "C97ZCJNO", "C1II0K2B"]
-  let payments = ["$0.50", "$2.50", "$5", "$7.50"]
+  let codes = ["", "C15KP8DM", "C1HF1BD3", "C97ZCJNO", "C1II0K2B"]
+  let payments = ["", "$2.50", "$5.00", "$7.50", "$10"]
+  let [entryPath, setEntryPath] = useState("NA")
+
   //let [puzzleManager, setPuzzleManager] = useState(<PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} mode="if"/>); 
   //let [files, setFiles] = useState(); 
   //useEffect(() => {setFiles(getFiles())}, [])
@@ -116,25 +120,11 @@ export default function App() {
   }, [])
 
 
-  let submitInitalSurvey = (logicPuz, gridPuzz) => {
-    setMode("tutorial");
-    addSubject(logicPuz, gridPuzz, names, narMode)
-  }
 
 
-  //let files = ["puzzles/example.json"]
 
-  let consent = <div className='parent'><InformedConsent consent={() => setMode("survey")} /></div>
-  let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { startGame() }} />
-  let initalSurvey = <InitialSurvey postAnswers={submitInitalSurvey} />
-  let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} modes={narMode} numPuzzles={numPuzzles} setNumPuzzles={setNumPuzzles} />
-
-  let startGame = () => {
-    setMode("puzzle")
-  }
-
-  //const userPromise = getCurrentUser(); 
-  //userPromise.then((user) => {console.log(user)});
+  
+  
 
   let setFilesByName = (name) => {
 
@@ -147,26 +137,51 @@ export default function App() {
     }
   }
 
+  let submitInitalSurvey = () => {
+    setNumPuzzles(1); 
+    setMode("postPrimer")
 
-  let banner = <div className='codeBanner'>
-    <div>
-      You have completed {numPuzzles} puzzles. You will be paid {payments[numPuzzles]}. <br />
-      Your code is <b>{codes[numPuzzles]}</b> <br />
-      You may use this code now{numPuzzles < (codes.length - 1) ? ", or continue playing for larger payment." : "."}
-    </div>
 
-  </div>
+  }
 
-  //shuffleArray(files)
+
+
+  
+
+
+
 
   const url = Linking.useURL();
 
   if (url) {
     let { hostname, path, queryParams } = Linking.parse(url);
 
+    let consent = <div className='parent'><InformedConsent consent={() => {setMode("tutorial")}}  setEntryPath={setEntryPath} path={path}/></div>
+    let isProlific = path == "consent1"
+
+    let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { setMode("survey") }} isProlific={isProlific} modes={narMode} genres={names} />
+    let initalSurvey = <PrimerPuzzle file="puzzles/puzzle_12_0.json" questions={questions} finish={() => {submitInitalSurvey() }}/>
+    let postPrime =  <PostPrimer goToNextPuzzle={() => setMode("puzzle")} isProlific={isProlific}/>
+    let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} modes={narMode} numPuzzles={numPuzzles} setNumPuzzles={setNumPuzzles} />
+
+
+
+
+    
+
+    let banner = <div className='codeBanner'>
+      <div>
+        You have completed {numPuzzles} puzzles.  {numPuzzles == 0? "" : "You will be paid " +  payments[numPuzzles] + " if you submit the code now."} <br />
+        {numPuzzles == 0? "You must complete the training puzzle survey." : "Your code is " + codes[numPuzzles] } <br />
+        You may use this code now{numPuzzles < (codes.length - 1) ? ", or complete more surveys for larger payment. You will receive a new code even if you skip to survey." : "."} <br/> 
+        Prolific sets a time out for 60 minutes. If you exceed this time, message us your code and you will be paid appropriately. 
+      </div>
+
+    </div>
+
 
     if (MODE == "debug") {
-      path = "consent"
+      path = "consent1"
     }
 
     console.log(
@@ -176,19 +191,28 @@ export default function App() {
     );
 
 
-    if (path == "consent") {
+    if (path == "consent1" || path == "consent2") {
       if (mode == "survey") {
-        return initalSurvey
+        return (<div className='parent'>
+        {isProlific ?  banner : ""}
+        {initalSurvey}
+      </div>)
       }
       if (mode == "tutorial") {
         return (<div className='parent'>
-          {banner}
+          {isProlific ?  banner : ""}
           {tutorial}
         </div>)
+      } 
+      if (mode == "postPrimer"){
+        return (<div className='parent'>
+        {isProlific ?  banner : ""}
+        {postPrime}
+      </div>) 
       }
       if (mode == "puzzle") {
         return (<div className='parent'>
-          {banner}
+          {isProlific ?  banner : ""}
           {puzzleManager}
         </div>)
       } else {
@@ -200,8 +224,10 @@ export default function App() {
           <button onClick={() => setMode("puzzle")}>Submit</button>
         </div>)
       }
-    } else {
+    } else if (path != ""){
       return (consent)
+    }else{
+      return <div>Path Not found</div>
     }
 
 
