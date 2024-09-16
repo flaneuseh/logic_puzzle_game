@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { setTutorialInfo } from "./Firestore/sendData";
 
-export default Tutorial = ({ imageFolder, numSlides, canSkip, startGame, entryPath, modes, genres, isProlific }) => {
+export default Tutorial = ({ imageFolder, numSlides, canSkip, startGame, modes, genres, isProlific }) => {
     let [idx, setIdx] = useState(1);
     let [proceed, setProceed] = useState("");
     let [time, setTime] = useState(null); 
-    console.log("Entry:" + entryPath)
 
+    console.log(modes)
+    console.log(genres)
 
     useEffect(() => {setTime(new Date())}, []);
 

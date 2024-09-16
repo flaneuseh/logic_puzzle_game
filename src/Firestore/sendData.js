@@ -6,7 +6,7 @@ let attempts = 0;
 let clears = 0;
 let subject = null;
 
-let DEGUG = true  
+let DEGUG = false    
 
 export const addSubject = async (path) => {
 
@@ -16,11 +16,12 @@ export const addSubject = async (path) => {
       return 
     }
     try {
-        const docRef = await addDoc(collection(db, "subjects"), {
+     
+        const docRef = await  setDoc(doc(db, "subjects2", user), {
           userId: user,
           path: path
         });
-        //console.log("Document written with ID: ", docRef.id);
+        console.log("Subject Document written with ID: ", docRef.id);
         subject = docRef.id 
       } catch (e) {
         console.error("Error adding document: ", e);
@@ -35,8 +36,10 @@ export const setTutorialInfo = async (time, slide,  genreOrder, puzzleOrder) => 
     return 
   }
   getCurrentUser().then(async function (user){
-    //console.log(user)
-    const subjectInstance =  doc(db,  "subjects", subject); 
+    if (subject == null){
+      console.log("Subject is null")
+    }
+    const subjectInstance =  doc(db,  "subjects2", user); 
     const updated = updateDoc(subjectInstance, {tutorialTime: time, tutorialSlide:slide, userId:user, narrOrder: puzzleOrder, 
       genreOrder: genreOrder })
   })
@@ -49,7 +52,7 @@ export const createGamePlayInstance = async (pid, narrative) => {
   return new Promise((resolve, reject) =>{
     getCurrentUser().then(async function (user){
       try {
-        const docRef = await addDoc(collection(db, "gamePlayInstances"), {
+        const docRef = await addDoc(collection(db, "gamePlayInstances2"), {
           userId: user,
           pid: pid, 
           mode: narrative,
@@ -78,7 +81,7 @@ export const addPuzzleSurvey = async (pid,narMode,  puzzleSurveyData, comment) =
 
       getCurrentUser().then(async function (user){
           try {
-              const docRef = await addDoc(collection(db, "survey"), {
+              const docRef = await addDoc(collection(db, "survey2"), {
                 ...puzzleSurveyData, 
                 userId: user,
                 pid:pid,
@@ -97,7 +100,7 @@ export const addCellChange = async (instanceId, pid, time, puzzleState, correct,
     return 
   }
   getCurrentUser().then(async function (user){
-    const instance =  doc(db,  "gamePlayInstances", instanceId); 
+    const instance =  doc(db,  "gamePlayInstances2", instanceId); 
     const updated = await updateDoc(instance, {totalTime:time, numCorrect:correct, numIncorrect: incorrect, isSolved: solved})
     //console.log("instance:", instance);
     let action = doc(instance, "actions", time.toString())
@@ -120,7 +123,7 @@ export const addHintToggle = async (instanceId, time, hint, striked) => {
     return 
   }
   getCurrentUser().then(async function (user){
-    const instance =  doc(db,  "gamePlayInstances", instanceId); 
+    const instance =  doc(db,  "gamePlayInstances2", instanceId); 
     const updated = await updateDoc(instance, {totalTime:time})
     //console.log("instance:", instance);
     let action = doc(instance, "actions", time.toString())
@@ -133,7 +136,7 @@ export const addButtonPress = async (instanceId, time, button) => {
     return 
   }
   getCurrentUser().then(async function (user){
-    const instance =  doc(db,  "gamePlayInstances", instanceId); 
+    const instance =  doc(db,  "gamePlayInstances2", instanceId); 
 
     if (button == "check"){
       attempts ++; 
@@ -158,7 +161,7 @@ export const createRankingInstance = async (diff, narr, enjoyment) => {
   return new Promise((resolve, reject) =>{
     getCurrentUser().then(async function (user){
       try {
-        const docRef = await addDoc(collection(db, "rankings"), {
+        const docRef = await addDoc(collection(db, "rankings2"), {
           userId: user,
           diff: diff, 
           nar:narr, 
@@ -182,7 +185,7 @@ export const updateRankingInstance = async (instanceId, diff, narr, enjoyment) =
   }
   return new Promise((resolve, reject) =>{
     getCurrentUser().then(async function (user){
-        let instance =  doc(db,  "rankings", instanceId); 
+        let instance =  doc(db,  "rankings2", instanceId); 
         const updated = await updateDoc(instance, {
           diff: diff, 
           nar:narr, 
@@ -199,7 +202,7 @@ export const updateRankingInstance = async (instanceId, diff, narr, enjoyment) =
     }
     return new Promise((resolve, reject) =>{
       getCurrentUser().then(async function (user){
-          let instance =  doc(db,  "rankings", instanceId); 
+          let instance =  doc(db,  "rankings2", instanceId); 
 
           if (category == "diff"){
           const updated = await updateDoc(instance, {
