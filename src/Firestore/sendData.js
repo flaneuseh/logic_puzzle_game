@@ -106,7 +106,7 @@ export const addCellChange = async (instanceId, name, time, puzzleState, correct
     let action = doc(instance, "actions", time.toString())
     action = await setDoc(action, {userId: user, time:time, type:"cellChange", puzzleState:puzzleState, correct: correct, incorrect: incorrect, solved:solved});
 
-    if (name == "Primer Puzzle"){
+    if (name == "Training Puzzle"){
       const subjectInstance =  doc(db,  "subjects2", user); 
        const updated = updateDoc(subjectInstance, {primerCorrect: solved })
     

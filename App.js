@@ -93,12 +93,11 @@ export default function App() {
   const n = getModes()
   let [narMode, setNarMode] = useState(n)
   let [pid, setPID] = useState(0)
-  let [content, setContent] = useState(<Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={10} startGame={() => { startGame() }} />);
   const f = getFiles()
   let [files, setFiles] = useState(f)
   let [names, setNames] = useState([])
   let [numPuzzles, setNumPuzzles] = useState(0)
-  let codes = ["", "C15KP8DM", "C1HF1BD3", "C97ZCJNO", "C1II0K2B"]
+  let codes = ["", "CRLZEGJA", "C1OGPSCK", "CJC31MOG", "C1OVZR82"]
   let payments = ["", "$2.50", "$5.00", "$7.50", "$10"]
   let [entryPath, setEntryPath] = useState("NA")
 
@@ -159,7 +158,7 @@ export default function App() {
     let consent = <div className='parent'><InformedConsent consent={() => {setMode("tutorial")}}  setEntryPath={setEntryPath} path={path}/></div>
     let isProlific = path == "consent1"
 
-    let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={29} canSkip={12} startGame={() => { setMode("survey") }} isProlific={isProlific} modes={narMode} genres={names} />
+    let tutorial = <Tutorial imageFolder="tutorialSlides" numSlides={27} canSkip={12} startGame={() => { setMode("survey") }} isProlific={isProlific} modes={narMode} genres={names} />
     let initalSurvey = <PrimerPuzzle file="puzzles/puzzle_12_0.json" questions={questions} finish={() => {submitInitalSurvey() }}/>
     let postPrime =  <PostPrimer goToNextPuzzle={() => setMode("puzzle")} isProlific={isProlific}/>
     let puzzleManager = <PuzzleManager files={files} i={i} setI={setI} pid={pid} postSurvey={addPuzzleSurvey} questions={questions} modes={narMode} numPuzzles={numPuzzles} setNumPuzzles={setNumPuzzles} />
@@ -168,12 +167,18 @@ export default function App() {
 
 
     
+    let bannerText = ""
 
+    if (numPuzzles >= codes.length - 1){
+      bannerText = "You may use this code now"
+    }else if (numPuzzles > 0){
+      bannerText = "You may use this code now, or complete more surveys for larger payment. You will receive a new code even if you skip to survey."
+    }
     let banner = <div className='codeBanner'>
       <div>
         You have completed {numPuzzles} puzzles.  {numPuzzles == 0? "" : "You will be paid " +  payments[numPuzzles] + " if you submit the code now."} <br />
         {numPuzzles == 0? "You must complete the training puzzle survey." : "Your code is " + codes[numPuzzles] } <br />
-        You may use this code now{numPuzzles < (codes.length - 1) ? ", or complete more surveys for larger payment. You will receive a new code even if you skip to survey." : "."} <br/> 
+        {bannerText} <br/> 
         Prolific sets a time out for 60 minutes. If you exceed this time, message us your code and you will be paid appropriately. 
       </div>
 

@@ -59,7 +59,7 @@ function finish(setContent) {
 }
 
 function showRecordedScreen(setContent, i, setI, files, postSurvey, questions, modes, numPuzzles, setNumPuzzles ) {
-    setNumPuzzles(i + 1)
+    setNumPuzzles(i + 2)
     if (i + 1 >= files.length){
         setContent(<RankPuzzles onSubmit={()=>{finish(setContent)}}/>)
     }else{
