@@ -10,7 +10,7 @@ import Tutorial from './src/Tutorial';
 import PrimerPuzzle from './src/primerPuzzle';
 import PostPrimer from './src/PostPrimer';
 
-let MODE = "tutorial"
+let MODE = "debug"
 
 let questions = ["The puzzle was cognitively demanding.", "I had to think very hard when playing the puzzle.",
   "The puzzle required a lot of mental gymnastics.", "The puzzle stimulated my brain.", "This puzzle doesn’t require a lot of mental effort.",
@@ -186,7 +186,7 @@ export default function App() {
 
 
     if (MODE == "debug") {
-      path = "consent1"
+      path = "consent2"
     }
 
     console.log(
@@ -220,12 +220,24 @@ export default function App() {
           {isProlific ?  banner : ""}
           {puzzleManager}
         </div>)
-      } else {
+      } else { 
         return (<div>
-          <p>Genre:</p>
-          <input onChange={e => setFilesByName(e.target.value)} />
-          <p>Narrative Style</p>
-          <input onChange={e => setNarMode([e.target.value])} />
+          <p>Story:</p>
+          <select name="genre" id="genre" onChange={e => setFilesByName([e.target.value])}>
+            <option value="--">--</option>
+            <option value="chili">Chili</option>
+            <option value="train">Train</option>
+            <option value="ballroom">Ballroom</option>
+          </select>
+          {/* <input onChange={e => setFilesByName(e.target.value)} /> */}
+          <p>Mode</p>
+          <select name="style" id="style" onChange={e => setNarMode([e.target.value])}>
+            <option value="--">--</option>
+            <option value="hints">Pure Logic</option>
+            <option value="nar">Paragraph</option>
+            <option value="if">Interactive Fiction</option>
+          </select>
+          {/* <input onChange={e => setNarMode([e.target.value])} /> */}
           <button onClick={() => setMode("puzzle")}>Submit</button>
         </div>)
       }
